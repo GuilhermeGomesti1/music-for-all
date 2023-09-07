@@ -7,6 +7,11 @@ import styles from "./page.module.css";
 import home from "../../public/images/home.png";
 import alunos from "../../public/images/alunos.png";
 import Link from "next/link";
+import cursoviolao from "../../public/images/cursoviolao.jpg";
+import piano from "../../public/images/piano.png";
+import guitarra from "../../public/images/guitarra.jpg";
+import gaita from "../../public/images/gaita.png";
+import ukulele from "../../public/images/ukulele.jpg";
 
 export default function Home() {
   return (
@@ -77,9 +82,75 @@ export default function Home() {
             </div>
           </section>
         </div>
+
+
+
+
         <div className={styles.containerTwo}>
+        <h1 className={styles.titleCursos}>Cursos</h1>
+          <section className={styles.cursosSection}>
+            
+
+            <div className={styles.curso}>
+              <Link href={"/violao"}>
+                <h1 className={styles.titleCurso}> VIOLÃO</h1>
+                <Image
+                  className={styles.imgCursos}
+                  src={cursoviolao}
+                  alt="Imagem do curso"
+                />
+              </Link>
+            </div>
+
+            <div className={styles.curso}>
+              <Link href={"/pianoeteclado"}>
+                <h1 className={styles.titleCurso}> PIANO E TECLADO</h1>
+                <Image
+                  className={styles.imgCursos}
+                  src={piano}
+                  alt="Imagem do curso"
+                />
+              </Link>
+            </div>
+
+            <div className={styles.curso}>
+              <Link href={"/guitarra"}>
+                <h1 className={styles.titleCurso}> GUITARRA</h1>
+                <Image
+                  className={styles.imgCursos}
+                  src={guitarra}
+                  alt="Imagem do curso"
+                />
+              </Link>
+            </div>
+
+            <div className={styles.curso}>
+              <Link href={"/gaita"}>
+                <h1 className={styles.titleCurso}> GAITA</h1>
+                <Image
+                  className={styles.imgCursos}
+                  src={gaita}
+                  alt="Imagem do curso"
+                />
+              </Link>
+            </div>
+
+            <div className={styles.curso}>
+              <Link href={"/ukulele"}>
+                <h1 className={styles.titleCurso}> UKULELE </h1>
+                <Image
+                  className={styles.imgCursos}
+                  src={ukulele}
+                  alt="Imagem do curso"
+                />
+              </Link>
+            </div>
+          </section>
+        </div>
+
+        <div className={styles.containerThree}>
           <section className={styles.ctaText}>
-            <h1 className={styles.title2}>Por que Escolher a Music for All?</h1>
+            <h1 className={styles.title3}>Por que Escolher a Music for All?</h1>
 
             <ul className={styles.lista}>
               <li className={styles.item}>
@@ -114,7 +185,7 @@ export default function Home() {
               src={alunos}
               alt="Music For All Logo"
             />
-            <h3 className={styles.subtitulo2}>
+            <h3 className={styles.subtitulo3}>
               Junte-se a Nós na Jornada Musical!
             </h3>
             <p className={styles.paragrafo}>
