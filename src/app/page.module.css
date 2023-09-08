@@ -85,7 +85,7 @@
 }
 
 .titleButton {
-  color: #10591A;
+  color: #10591a;
   font-weight: bold;
   font-size: 2rem;
   display: block;
@@ -105,63 +105,55 @@
   color: white;
 }
 
-
-.containerTwo { 
+.containerTwo {
   background-color: white;
-  padding-bottom:4rem ;
+  padding-bottom: 4rem;
   margin-bottom: -4rem;
   padding-top: 2rem;
-  
 }
 
-.cursosSection{
- 
+.cursosSection {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
 }
 
-.curso{
-  background-color:rgba(0, 0, 0, 0.705);
+.curso {
+  background-color: rgba(0, 0, 0, 0.705);
   margin: 0 auto;
-  margin-top:4rem;
+  margin-top: 4rem;
   margin-bottom: 8rem;
-height: 300px;
-padding-top: -1rem;
+  height: 300px;
+  padding-top: -1rem;
 
-  
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.671), 0 2px 2px rgba(0, 0, 0, 0.23);
   transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55),
-  background-position 800ms cubic-bezier(0.68, -0.55, 0.265, 1.55),
-  box-shadow 500ms linear;
-
+    background-position 800ms cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    box-shadow 500ms linear;
 }
-
 
 .curso:hover {
   transform: scale(1.05);
   background-position: -60px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
-.divTitle{ 
-  align-items: center; 
+.divTitle {
+  align-items: center;
   display: flex;
   padding-top: 2rem;
 }
 
-.titleCursos{
- 
+.titleCursos {
   width: 300px;
   height: 220px;
 }
 
-.spanCursos{color: #214E36;
+.spanCursos {
+  color: #214e36;
   margin-left: -2.2rem;
   font-size: 1.4rem;
   position: relative;
   font-weight: bold;
-
 }
 
 .spanCursos::after {
@@ -170,34 +162,31 @@ padding-top: -1rem;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 2px; 
-  background-color: #0000009c; 
+  height: 2px;
+  background-color: #0000009c;
 }
 
-.titleCurso{color: white;
-  
+.titleCurso {
+  color: white;
+
   flex: 1;
- margin-left: 1rem;
- font-size: 1.8rem;
- margin-top: 0.2rem;
+  margin-left: 1rem;
+  font-size: 1.8rem;
+  margin-top: 0.2rem;
 }
 
-.imgCursos{
- 
+.imgCursos {
   width: 340px;
   height: 300px;
   margin-bottom: 8rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  
 }
 
-.textoCursos{
- color: #214E36;
+.textoCursos {
+  color: #214e36;
   text-align: center;
   font-size: 2rem;
   justify-content: center;
- 
- 
 }
 
 .containerThree {
@@ -270,12 +259,11 @@ padding-top: -1rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
   }
-  .ctaText {margin: 0 auto;
+  .ctaText {
+    margin: 0 auto;
     text-align: center;
     font-size: 1rem;
     align-items: center;
-    
-   
   }
 
   .buttonGroup {
@@ -286,73 +274,63 @@ padding-top: -1rem;
     flex-direction: column;
     margin: 0 auto;
     width: 70%;
-    
-    
   }
 
   .buttonContainer {
   }
 
   .buttons {
-    
     margin: 0;
     margin-bottom: 1rem;
     width: 250px;
-     height: 250px;
+    height: 250px;
   }
 
+  .iconButton {
+    margin-bottom: 5px;
+    display: block;
+    align-items: center;
+  }
 
+  .titleButton {
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: block;
+  }
 
-.iconButton {
+  .subtitleButton {
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 1rem;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
 
-  margin-bottom: 5px;
-  display: block;
-  align-items: center;
-}
+  .subtitle {
+    margin-top: 10rem;
+    margin-top: 0 auto;
+    font-size: 1rem;
+    line-height: 2.25rem;
+    color: white;
+  }
 
-.titleButton {
-  font-weight: bold;
-  font-size: 1.2rem;
-  display: block;
-}
-
-.subtitleButton {
-  font-size: 0.8rem;
-  display: block;
-  margin-top: 1rem;
-  margin-left: 2px;
-  margin-right: 2px;
-}
-
-.subtitle {
-  margin-top: 10rem;
-  margin-top: 0 auto;
-  font-size: 1rem;
-  line-height: 2.25rem;
-  color: white;
-}
-
-
-
-
-
-  .divSubtitle{margin: 0 auto;
+  .divSubtitle {
+    margin: 0 auto;
     max-width: 350px;
   }
-  .subtitle{font-size: 1rem;
-    
+  .subtitle {
+    font-size: 1rem;
   }
 
-  .containerThree{
-
-    .title3{
+  .containerThree {
+    .title3 {
       font-size: 2rem;
       line-height: 3rem;
       padding-top: 1rem;
       padding-bottom: 1rem;
     }
 
-    .img{
+    .img {
       width: 400px;
       height: 300px;
     }

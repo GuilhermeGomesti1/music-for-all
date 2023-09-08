@@ -166,6 +166,11 @@ export default function Home() {
         <div className={styles.containerThree}>
           <section className={styles.ctaText}>
             <h1 className={styles.title3}>Por que Escolher a Music for All?</h1>
+            <Image
+              className={styles.img2}
+              src={alunos}
+              alt="Music For All Logo"
+            />
 
             <ul className={styles.lista}>
               <li className={styles.item}>
@@ -195,11 +200,7 @@ export default function Home() {
                 mundo.
               </li>
             </ul>
-            <Image
-              className={styles.img2}
-              src={alunos}
-              alt="Music For All Logo"
-            />
+        
             <h3 className={styles.subtitulo3}>
               Junte-se a Nós na Jornada Musical!
             </h3>
