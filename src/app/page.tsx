@@ -3,6 +3,7 @@ import Image from "next/image";
 import { IconCursos } from "./components/Icons/iconsHome/iconCursos";
 import { IconBlog } from "./components/Icons/iconsHome/iconBlog";
 import { IconContact } from "./components/Icons/iconsHome/iconContact";
+import { IconCurso } from "./components/Icons/iconsHome/iconCurso";
 import styles from "./page.module.css";
 import home from "../../public/images/home.png";
 import alunos from "../../public/images/alunos.png";
@@ -12,6 +13,7 @@ import piano from "../../public/images/piano.png";
 import guitarra from "../../public/images/guitarra.jpg";
 import gaita from "../../public/images/gaita.png";
 import ukulele from "../../public/images/ukulele.jpg";
+import titlecursos2 from "../../public/images/titlecursos2.png";
 
 export default function Home() {
   return (
@@ -83,17 +85,24 @@ export default function Home() {
           </section>
         </div>
 
-
-
-
         <div className={styles.containerTwo}>
-        <h1 className={styles.titleCursos}>Cursos</h1>
-          <section className={styles.cursosSection}>
-            
+          <div className={styles.divTitle}>
+            <Image
+              className={styles.titleCursos}
+              src={titlecursos2}
+              alt="Titulo  da sessão dois"
+            />
 
+            <span className={styles.spanCursos}>
+              {" "}
+              ESCOLHA O QUE MAIS LHE INSPIRA!
+            </span>
+          </div>
+
+          <section className={styles.cursosSection}>
             <div className={styles.curso}>
               <Link href={"/violao"}>
-                <h1 className={styles.titleCurso}> VIOLÃO</h1>
+                <h1 className={styles.titleCurso}><IconCurso/> VIOLÃO</h1>
                 <Image
                   className={styles.imgCursos}
                   src={cursoviolao}
@@ -104,7 +113,7 @@ export default function Home() {
 
             <div className={styles.curso}>
               <Link href={"/pianoeteclado"}>
-                <h1 className={styles.titleCurso}> PIANO E TECLADO</h1>
+                <h1 className={styles.titleCurso}><IconCurso/> PIANO E TECLADO</h1>
                 <Image
                   className={styles.imgCursos}
                   src={piano}
@@ -115,7 +124,7 @@ export default function Home() {
 
             <div className={styles.curso}>
               <Link href={"/guitarra"}>
-                <h1 className={styles.titleCurso}> GUITARRA</h1>
+                <h1 className={styles.titleCurso}><IconCurso/> GUITARRA</h1>
                 <Image
                   className={styles.imgCursos}
                   src={guitarra}
@@ -126,7 +135,7 @@ export default function Home() {
 
             <div className={styles.curso}>
               <Link href={"/gaita"}>
-                <h1 className={styles.titleCurso}> GAITA</h1>
+                <h1 className={styles.titleCurso}><IconCurso/> GAITA</h1>
                 <Image
                   className={styles.imgCursos}
                   src={gaita}
@@ -137,7 +146,7 @@ export default function Home() {
 
             <div className={styles.curso}>
               <Link href={"/ukulele"}>
-                <h1 className={styles.titleCurso}> UKULELE </h1>
+                <h1 className={styles.titleCurso}><IconCurso/> UKULELE </h1>
                 <Image
                   className={styles.imgCursos}
                   src={ukulele}
@@ -145,7 +154,13 @@ export default function Home() {
                 />
               </Link>
             </div>
+
+           
           </section>
+          <p className={styles.textoCursos}>
+              Oferecemos uma ampla gama de cursos que abraçam a diversidade da
+              música.
+            </p>
         </div>
 
         <div className={styles.containerThree}>
@@ -181,7 +196,7 @@ export default function Home() {
               </li>
             </ul>
             <Image
-              className={styles.img}
+              className={styles.img2}
               src={alunos}
               alt="Music For All Logo"
             />

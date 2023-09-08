@@ -23,3 +23,16 @@
     font-size: 70px;
     border-radius: 50%;
 }
+
+
+.iconCurso{
+    color: #FF7B43;
+    background-color: transparent;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top:4px;
+    
+  
+}
