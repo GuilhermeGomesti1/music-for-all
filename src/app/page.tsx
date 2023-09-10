@@ -8,19 +8,20 @@ import styles from "./page.module.css";
 import home from "../../public/images/home.png";
 import alunos from "../../public/images/alunos.png";
 import Link from "next/link";
-import cursoviolao from "../../public/images/cursoviolao.jpg";
+import cursoviolao1 from "../../public/images/cursoviolao1.png";
 import piano from "../../public/images/piano.png";
-import guitarra from "../../public/images/guitarra.jpg";
+import guitarra from "../../public/images/guitarra.png";
 import gaita from "../../public/images/gaita.png";
-import ukulele from "../../public/images/ukulele.jpg";
+import ukulele from "../../public/images/ukulele.png";
 import titlecursos2 from "../../public/images/titlecursos2.png";
+import agendaraula from "../../public/images/agendaraula.png"
 
 export default function Home() {
   return (
     <>
       <main className={styles.main}>
         <div className={styles.containerHeader}>
-          <section className={styles.ctaText}>
+          <section className={styles.ctaText1}>
             <h1 className={styles.title}>Bem vindo à</h1>
             <div>
               <Image
@@ -100,12 +101,13 @@ export default function Home() {
           </div>
 
           <section className={styles.cursosSection}>
+
             <div className={styles.curso}>
               <Link href={"/violao"}>
-                <h1 className={styles.titleCurso}><IconCurso/> VIOLÃO</h1>
+               
                 <Image
                   className={styles.imgCursos}
-                  src={cursoviolao}
+                  src={cursoviolao1}
                   alt="Imagem do curso"
                 />
               </Link>
@@ -113,7 +115,7 @@ export default function Home() {
 
             <div className={styles.curso}>
               <Link href={"/pianoeteclado"}>
-                <h1 className={styles.titleCurso}><IconCurso/> PIANO E TECLADO</h1>
+              
                 <Image
                   className={styles.imgCursos}
                   src={piano}
@@ -124,7 +126,6 @@ export default function Home() {
 
             <div className={styles.curso}>
               <Link href={"/guitarra"}>
-                <h1 className={styles.titleCurso}><IconCurso/> GUITARRA</h1>
                 <Image
                   className={styles.imgCursos}
                   src={guitarra}
@@ -135,7 +136,7 @@ export default function Home() {
 
             <div className={styles.curso}>
               <Link href={"/gaita"}>
-                <h1 className={styles.titleCurso}><IconCurso/> GAITA</h1>
+                
                 <Image
                   className={styles.imgCursos}
                   src={gaita}
@@ -146,7 +147,7 @@ export default function Home() {
 
             <div className={styles.curso}>
               <Link href={"/ukulele"}>
-                <h1 className={styles.titleCurso}><IconCurso/> UKULELE </h1>
+              
                 <Image
                   className={styles.imgCursos}
                   src={ukulele}
@@ -163,47 +164,48 @@ export default function Home() {
             </p>
         </div>
 
+        
         <div className={styles.containerThree}>
+
+
+          <h1 className={styles.title3}>Por que Escolher a Music for All?</h1>
           <section className={styles.ctaText}>
-            <h1 className={styles.title3}>Por que Escolher a Music for All?</h1>
+          <div className={styles.imgcontainer}>
             <Image
               className={styles.img2}
               src={alunos}
               alt="Music For All Logo"
             />
+          </div>
+          
+            <div className={styles.divLista}>
+              
+              <ul className={styles.lista}>
+                <li className={styles.item}> <IconCurso/>Educação Personalizada</li>
+                <li className={styles.item}>  <IconCurso/>Variedade de Instrumentos</li>
+                <li className={styles.item}>  <IconCurso/>Aulas para Todas as Idades</li>
+                <li className={styles.item}>  <IconCurso/>Atmosfera de Apoio</li>
+                <li className={styles.item}><IconCurso/>Atuações e Eventos</li>
+              </ul>
 
-            <ul className={styles.lista}>
-              <li className={styles.item}>
-                Educação Personalizada: Nossos instrutores talentosos e
-                dedicados adaptam as aulas de acordo com suas metas e nível de
-                habilidade, garantindo que você aproveite ao máximo sua
-                experiência musical.
-              </li>
-              <li className={styles.item}>
-                Variedade de Instrumentos: Oferecemos uma ampla gama de aulas de
-                instrumentos, desde piano e violino até guitarra e canto, para
-                que você possa escolher o que mais lhe inspira.
-              </li>
-              <li className={styles.item}>
-                Aulas para Todas as Idades: De crianças a adultos, todos são
-                bem-vindos para aprender, crescer e se expressar através da
-                música.
-              </li>
-              <li className={styles.item}>
-                Atmosfera de Apoio: Nossa comunidade de alunos e instrutores se
-                une em torno do amor pela música, criando um ambiente onde todos
-                se sentem valorizados e encorajados.
-              </li>
-              <li className={styles.item}>
-                Atuações e Eventos: Oferecemos oportunidades emocionantes para
-                nossos alunos se apresentarem e compartilharem seu talento com o
-                mundo.
-              </li>
-            </ul>
-        
-            <h3 className={styles.subtitulo3}>
+             
+            </div>
+
+            <Image
+              className={styles.agendaraula}
+              src={agendaraula}
+              alt="Music For All Logo"
+            />
+           
+          
+
+          
+          
+          </section>
+          <h3 className={styles.subtitulo3}>
               Junte-se a Nós na Jornada Musical!
             </h3>
+        
             <p className={styles.paragrafo}>
               Na Music for All, acreditamos que a música está ao alcance de
               todos. Deixe-nos guiá-lo através das maravilhas da música e
@@ -211,9 +213,8 @@ export default function Home() {
               cursos, conheça nossos instrutores e mergulhe na magia da música.
               Sua jornada musical começa aqui, na Music for All.
             </p>
-          </section>
         </div>
-      </main>
+      </main>                   
     </>
   );
 }
