@@ -4,6 +4,8 @@ import { IconCursos } from "./components/Icons/iconsHome/iconCursos";
 import { IconBlog } from "./components/Icons/iconsHome/iconBlog";
 import { IconContact } from "./components/Icons/iconsHome/iconContact";
 import { IconCurso } from "./components/Icons/iconsHome/iconCurso";
+import { IconWhatsapp } from "./components/Icons/IconsContato/iconWhatsapp";
+import { IconInstagram } from "./components/Icons/IconsContato/iconInstagram";
 import styles from "./page.module.css";
 import home from "../../public/images/home.png";
 import alunos from "../../public/images/alunos.png";
@@ -14,7 +16,9 @@ import guitarra from "../../public/images/guitarra.png";
 import gaita from "../../public/images/gaita.png";
 import ukulele from "../../public/images/ukulele.png";
 import titlecursos2 from "../../public/images/titlecursos2.png";
-import agendaraula from "../../public/images/agendaraula.png"
+import agendaraula from "../../public/images/agendaraula.png";
+import { IconYoutube } from "./components/Icons/IconsContato/iconYoutube";
+import { IconEmail } from "./components/Icons/IconsContato/iconEmail";
 
 export default function Home() {
   return (
@@ -101,10 +105,8 @@ export default function Home() {
           </div>
 
           <section className={styles.cursosSection}>
-
             <div className={styles.curso}>
               <Link href={"/violao"}>
-               
                 <Image
                   className={styles.imgCursos}
                   src={cursoviolao1}
@@ -115,7 +117,6 @@ export default function Home() {
 
             <div className={styles.curso}>
               <Link href={"/pianoeteclado"}>
-              
                 <Image
                   className={styles.imgCursos}
                   src={piano}
@@ -136,7 +137,6 @@ export default function Home() {
 
             <div className={styles.curso}>
               <Link href={"/gaita"}>
-                
                 <Image
                   className={styles.imgCursos}
                   src={gaita}
@@ -147,7 +147,6 @@ export default function Home() {
 
             <div className={styles.curso}>
               <Link href={"/ukulele"}>
-              
                 <Image
                   className={styles.imgCursos}
                   src={ukulele}
@@ -155,66 +154,107 @@ export default function Home() {
                 />
               </Link>
             </div>
-
-           
           </section>
           <p className={styles.textoCursos}>
-              Oferecemos uma ampla gama de cursos que abraçam a diversidade da
-              música.
-            </p>
+            Oferecemos uma ampla gama de cursos que abraçam a diversidade da
+            música.
+          </p>
         </div>
 
-        
         <div className={styles.containerThree}>
+          <div className={styles.agendar}>
+            <button className={styles.buttonPresencial}>Presencial</button>
 
-
-          <h1 className={styles.title3}>Por que Escolher a Music for All?</h1>
-          <section className={styles.ctaText}>
-          <div className={styles.imgcontainer}>
-            <Image
-              className={styles.img2}
-              src={alunos}
-              alt="Music For All Logo"
-            />
-          </div>
-          
-            <div className={styles.divLista}>
-              
-              <ul className={styles.lista}>
-                <li className={styles.item}> <IconCurso/>Educação Personalizada</li>
-                <li className={styles.item}>  <IconCurso/>Variedade de Instrumentos</li>
-                <li className={styles.item}>  <IconCurso/>Aulas para Todas as Idades</li>
-                <li className={styles.item}>  <IconCurso/>Atmosfera de Apoio</li>
-                <li className={styles.item}><IconCurso/>Atuações e Eventos</li>
-              </ul>
-
-             
-            </div>
-
+            <button className={styles.buttonOnline}>Online</button>
             <Image
               className={styles.agendaraula}
               src={agendaraula}
               alt="Music For All Logo"
             />
-           
-          
+          </div>
 
-          
-          
+          <h1 className={styles.title3}>Por que Escolher a Music for All?</h1>
+          <section className={styles.ctaText}>
+            <div className={styles.imgcontainer}>
+              <Image
+                className={styles.img2}
+                src={alunos}
+                alt="Music For All Logo"
+              />
+            </div>
+
+            <div className={styles.divLista}>
+              <ul className={styles.lista}>
+                <li className={styles.item}>
+                  {" "}
+                  <IconCurso />
+                  Educação Personalizada
+                </li>
+                <li className={styles.item}>
+                  {" "}
+                  <IconCurso />
+                  Variedade de Instrumentos
+                </li>
+                <li className={styles.item}>
+                  {" "}
+                  <IconCurso />
+                  Aulas para Todas as Idades
+                </li>
+                <li className={styles.item}>
+                  {" "}
+                  <IconCurso />
+                  Atmosfera de Apoio
+                </li>
+                <li className={styles.item}>
+                  <IconCurso />
+                  Atuações e Eventos
+                </li>
+              </ul>
+            </div>
+
+            <div className={styles.contatos}>
+             
+
+              <ul className={styles.contatosList}>
+               
+                <li className={styles.itemContato}>
+                  <IconInstagram /> Instagram
+                </li>
+                <li className={styles.itemContato}>
+                  <IconYoutube /> Nosso canal!
+                </li>
+              </ul>
+
+              
+              <ul className={styles.contatosList}>
+                <li className={styles.itemContato}>
+                  <IconWhatsapp /> (31)986132070
+                </li>
+                <li className={styles.itemContato}>
+                  <IconEmail /> escolamusicforall@gmail.com
+                </li>
+              </ul>
+            </div>
+
+
+
           </section>
+
+
+
           <h3 className={styles.subtitulo3}>
-              Junte-se a Nós na Jornada Musical!
-            </h3>
-        
-            <p className={styles.paragrafo}>
-              Na Music for All, acreditamos que a música está ao alcance de
-              todos. Deixe-nos guiá-lo através das maravilhas da música e
-              ajudá-lo a descobrir seu potencial musical único. Explore nossos
-              cursos, conheça nossos instrutores e mergulhe na magia da música.
-              Sua jornada musical começa aqui, na Music for All.
-            </p>
+            Junte-se a Nós na Jornada Musical!
+          </h3>
+
+          <p className={styles.paragrafo}>
+            Na Music for All, acreditamos que a música está ao alcance de todos.
+            Deixe-nos guiá-lo através das maravilhas da música e ajudá-lo a
+            descobrir seu potencial musical único. Explore nossos cursos,
+            conheça nossos instrutores e mergulhe na magia da música. Sua
+            jornada musical começa aqui, na Music for All.
+          </p>
         </div>
-      </main>                   
+      </main>
     </>
   );
 }

@@ -1,0 +1,69 @@
+.iconWhatsapp{
+    
+    color: #5DBE26;
+    background-color:white;
+    font-size: 40px;
+    border-radius: 50%;
+   
+}
+.iconInstagram{
+      
+    color: #A051AC;
+    background-color:white;
+    font-size: 40px;
+    border-radius: 50%;
+}
+
+.iconYoutube{
+    color: #D14029;
+    background-color:white;
+    font-size: 40px;
+    border-radius: 50%;
+
+
+}
+
+.iconEmail{
+    color: #152459;
+    background-color:white;
+    font-size: 40px;
+    border-radius: 50%;
+
+
+}
+
+
+@media (max-width: 768px) {
+    .iconCurso{
+        align-items: flex-start;
+        margin-left: -1rem;
+
+    }
+
+    .iconCursos{
+    
+        color: #152459;
+        background-color:white;
+        font-size: 35px;
+        border-radius: 50%;
+       
+    }
+    
+    .iconBlog{
+        
+        color: #FF7B43;
+        background-color:white;
+        font-size: 35px;
+        border-radius: 50%;
+       
+    }
+    
+    .iconContact{
+    
+        color: #ff4343;
+        background-color:white;
+        font-size: 35px;
+        border-radius: 50%;
+    }
+    
+}
