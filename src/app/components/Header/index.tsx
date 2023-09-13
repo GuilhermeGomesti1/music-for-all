@@ -17,11 +17,15 @@ export function Header() {
 
         <nav className={styles.navContainer}>
           <Link href="/" className={styles.aContainer}>
-            Home
+            Início
           </Link>
 
           <Link href="/cursos" className={styles.aContainer}>
             Sobre
+          </Link>
+
+          <Link href="/" className={styles.aContainer}>
+            Cursos
           </Link>
   
         </nav>

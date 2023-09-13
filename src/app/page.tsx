@@ -26,7 +26,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.containerHeader}>
           <section className={styles.ctaText1}>
-            <h1 className={styles.title}>Bem vindo à</h1>
+        
             <div>
               <Image
                 className={styles.img}
@@ -241,12 +241,7 @@ export default function Home() {
           </section>
 
 
-
-          <h3 className={styles.subtitulo3}>
-            Junte-se a Nós na Jornada Musical!
-          </h3>
-
-          <p className={styles.paragrafo}>
+          <p className={styles.paragrafo3}>
             Na Music for All, acreditamos que a música está ao alcance de todos.
             Deixe-nos guiá-lo através das maravilhas da música e ajudá-lo a
             descobrir seu potencial musical único. Explore nossos cursos,

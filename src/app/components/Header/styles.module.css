@@ -1,10 +1,13 @@
 .headerContainer{
-    height: 6rem;
+    height: 3.5rem;
     background-color: white;
-}
+    box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.144);
+    position: sticky;
+    z-index: 100;
+        top: 0px;}
 
 .headerContent{
-    height: 6rem;
+    height: 4rem;
     justify-content: space-between;
     padding: 0 2rem;
     display: flex;
@@ -15,8 +18,8 @@
 .img{
     cursor: pointer;
     margin-right:auto;
-    height: 80%;
-    width: 80%;
+    height: 50%;
+    width: 50%;
     
     
 }
@@ -31,21 +34,23 @@
 }
 
 
-.aContainer{
+.aContainer{  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.034); 
     margin: 0 4rem;
     margin-left: auto;
     text-decoration: none;
     transition: color 1s;
     color: black;
+    font-size: 0.8rem;
   
 }
 .aContainer:visited {
-    color:#FF7B43 ;
+    color: black ;
 }
 
 
 .aContainer:hover{
-    color: #64b7cc;
+    
+    color: #f15074;
     transition: color 1s ease;
     text-decoration: none;
 }
@@ -55,19 +60,17 @@
    
     .headerContainer{
         align-items: center;
-        margin-top: -2.5rem;
+        height: 2.5rem;
         margin-bottom: -1rem;
         justify-content: center;
     }
 
     .headerContent{
-        flex-direction: row;
-        padding: 1rem;
-        margin-bottom: 4rem;
+       padding: -1rem;    
     }
 
-    .img{margin-top: 0 auto;
-        width: 9rem;
+    .img{
+        width: 8rem;
     }
 
     .navContainer{
@@ -75,7 +78,7 @@
     }
 
     .aContainer{
-        font-size: 0.8rem;
+        font-size: 0.5rem;
         margin: 0 1rem;
         padding-bottom: 0.7rem;
     }

@@ -4,6 +4,7 @@
     background-color:white;
     font-size: 40px;
     border-radius: 50%;
+    margin-right: 0.5rem;
    
 }
 .iconInstagram{
@@ -12,6 +13,7 @@
     background-color:white;
     font-size: 40px;
     border-radius: 50%;
+    margin-right: 0.5rem;
 }
 
 .iconYoutube{
@@ -19,6 +21,7 @@
     background-color:white;
     font-size: 40px;
     border-radius: 50%;
+    margin-right: 0.5rem;
 
 
 }
@@ -28,42 +31,47 @@
     background-color:white;
     font-size: 40px;
     border-radius: 50%;
+    margin-right: 0.5rem;
 
 
 }
 
 
 @media (max-width: 768px) {
-    .iconCurso{
-        align-items: flex-start;
-        margin-left: -1rem;
-
+    .iconWhatsapp{
+    margin-right: 0.5rem;
+        color: #5DBE26;
+        background-color:white;
+        font-size: 20px;
+        border-radius: 50%;
+       
     }
-
-    .iconCursos{
+    .iconInstagram{
+        margin-right: 0.5rem;
+        color: #A051AC;
+        background-color:white;
+        font-size: 20px;
+        border-radius: 50%;
+    }
     
+    .iconYoutube{ margin-right: 0.5rem;
+        color: #D14029;
+        background-color:white;
+        font-size: 20px;
+        border-radius: 50%;
+    
+    
+    }
+    
+    .iconEmail{ margin-right: 0.5rem;
         color: #152459;
         background-color:white;
-        font-size: 35px;
+        font-size: 20px;
         border-radius: 50%;
-       
+    
+    
     }
     
-    .iconBlog{
-        
-        color: #FF7B43;
-        background-color:white;
-        font-size: 35px;
-        border-radius: 50%;
-       
-    }
     
-    .iconContact{
-    
-        color: #ff4343;
-        background-color:white;
-        font-size: 35px;
-        border-radius: 50%;
-    }
     
 }
