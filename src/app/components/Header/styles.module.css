@@ -1,7 +1,7 @@
 .headerContainer{
     height: 3.5rem;
     background-color: white;
-    box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.144);
+    box-shadow: inset 0 -3px 2px rgba(0, 0, 0, 0.144);
     position: sticky;
     z-index: 100;
         top: 0px;}
@@ -15,7 +15,7 @@
 
 }
 
-.img{
+.img{ background-color: transparent;
     cursor: pointer;
     margin-right:auto;
     height: 50%;
