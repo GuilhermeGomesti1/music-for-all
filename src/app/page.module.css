@@ -277,6 +277,8 @@
   height: 500px;
   margin-left: 8rem;
   transition: 0.3s ease-in-out;
+ 
+  
 }
 
 .imgcontainer::before {

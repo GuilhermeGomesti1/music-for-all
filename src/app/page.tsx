@@ -31,6 +31,7 @@ export default function Home() {
                 className={styles.img}
                 src={home}
                 alt="Music For All Logo"
+               
               />
             </div>
             <h2 className={styles.slogan}>
@@ -95,6 +96,7 @@ export default function Home() {
               className={styles.titleCursos}
               src={titlecursos2}
               alt="Titulo  da sessão dois"
+        
             />
 
             <span className={styles.spanCursos}>
@@ -110,6 +112,7 @@ export default function Home() {
                   className={styles.imgCursos}
                   src={cursoviolao1}
                   alt="Imagem do curso"
+                
                 />
               </Link>
             </div>
@@ -120,6 +123,7 @@ export default function Home() {
                   className={styles.imgCursos}
                   src={piano}
                   alt="Imagem do curso"
+                 
                 />
               </Link>
             </div>
@@ -130,6 +134,7 @@ export default function Home() {
                   className={styles.imgCursos}
                   src={guitarra}
                   alt="Imagem do curso"
+                  
                 />
               </Link>
             </div>
@@ -140,6 +145,7 @@ export default function Home() {
                   className={styles.imgCursos}
                   src={gaita}
                   alt="Imagem do curso"
+                  
                 />
               </Link>
             </div>
@@ -150,6 +156,7 @@ export default function Home() {
                   className={styles.imgCursos}
                   src={ukulele}
                   alt="Imagem do curso"
+                
                 />
               </Link>
             </div>
@@ -169,6 +176,8 @@ export default function Home() {
               className={styles.agendaraula}
               src={agendaraula}
               alt="Music For All Logo"
+            
+            
             />
           </div>
 
@@ -179,6 +188,8 @@ export default function Home() {
                 className={styles.img2}
                 src={alunos}
                 alt="Music For All Logo"
+                
+                
               />
             </div>
 
