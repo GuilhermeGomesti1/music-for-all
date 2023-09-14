@@ -26,7 +26,6 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.containerHeader}>
           <section className={styles.ctaText1}>
-        
             <div>
               <Image
                 className={styles.img}
@@ -213,43 +212,37 @@ export default function Home() {
             </div>
 
             <div className={styles.contatos}>
-             
-
               <ul className={styles.contatosList}>
-               
                 <li className={styles.itemContato}>
-                  <IconInstagram /> Instagram
+                  <IconInstagram />
                 </li>
                 <li className={styles.itemContato}>
-                  <IconYoutube /> Nosso canal!
+                  <IconYoutube />
                 </li>
               </ul>
 
-              
               <ul className={styles.contatosList}>
                 <li className={styles.itemContato}>
-                  <IconWhatsapp /> (31)986132070
+                  <IconWhatsapp />
                 </li>
                 <li className={styles.itemContato}>
-                  <IconEmail /> escolamusicforall@gmail.com
+                  <IconEmail />
                 </li>
               </ul>
             </div>
-
-
-
           </section>
 
-
-          <p className={styles.paragrafo3}>
-            Na Music for All, acreditamos que a música está ao alcance de todos.
-            Deixe-nos guiá-lo através das maravilhas da música e ajudá-lo a
-            descobrir seu potencial musical único. Explore nossos cursos,
-            conheça nossos instrutores e mergulhe na magia da música. Sua
-            jornada musical começa aqui, na Music for All.
-          </p>
+       
         </div>
       </main>
     </>
   );
 }
+
+/* <p className={styles.paragrafo3}>
+Na Music for All, acreditamos que a música está ao alcance de todos.
+Deixe-nos guiá-lo através das maravilhas da música e ajudá-lo a
+descobrir seu potencial musical único. Explore nossos cursos,
+conheça nossos instrutores e mergulhe na magia da música. Sua
+jornada musical começa aqui, na Music for All.
+</p> */
