@@ -1,0 +1,232 @@
+.containerViolao{
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+   
+  }
+
+  .violaoContainer {
+    width: auto;
+    height: auto;
+    max-width: 100%; 
+    box-shadow: 5px 3px 7px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .cursodeviolao{  clear: both;
+    margin-left: 6rem;
+    margin-right: 6rem;
+    text-align: center;
+    text-align: justify;
+    text-decoration: none;
+    justify-content: space-between;
+  }
+
+  .textContainer {
+    float: left;
+    width: 60%; 
+    margin-right: 1rem; 
+  }
+
+  .imageContainer {
+    float: right;
+    width: 30%; 
+    align-items: center;
+  }
+
+  .fotocurso{
+  margin-left: 4rem;
+    max-width: 100%; 
+    width: 350px;
+    height: 350px;
+   
+    
+  }
+
+  .title{
+    color: #F57C42;
+   
+    font-size: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: rgba(0, 0, 0, 0.151) 0.1em 0.1em 0.2em
+  }
+
+  .item{
+    font-size: bolder;
+  }
+
+  .apresentacao{
+    font-size: 1.2rem;
+    margin-bottom: 1rem
+  }
+
+  .subtitle{
+    color: #F57C42;
+    text-shadow: rgba(0, 0, 0, 0.048) 0.1em 0.1em 0.2em;
+    margin-bottom: 0.2rem;
+  }
+
+  .formContainer {
+    float: right;
+    width: 30%; 
+    padding: 15px; 
+   
+   
+  }
+
+  .formTitle {
+    text-align: center;
+    font-size: 1rem; 
+    margin-bottom: 10px;
+  }
+
+  .formlabel {
+    
+    text-align: left;
+    display: block; 
+    margin-bottom: 5px; 
+    white-space: nowrap;
+  }
+
+  .formInput {
+    width: 100%; 
+    padding: 8px; 
+    margin-bottom: 10px; 
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+  }
+
+  .formButton {
+    background-color: #214E36;
+    color: #fff; 
+    border: none; 
+    padding: 5px ;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 50%;
+    margin-left: 25%;
+    
+  }
+  
+ 
+  .formButton:hover {
+    background-color: #0056b3; }
+
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .cursodeviolao{ flex-direction: column;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  align-items: center;
+  width: 100%;
+  }
+
+
+
+
+  .textContainer {
+    float: none;
+    width: 90%;
+   
+  }
+
+  .imageContainer {
+    float: none;
+    width: 90%;
+    align-items: center;
+  }
+
+  .fotocurso{
+    width: 90%;
+    max-width: 100%; 
+    width: 200px;
+    height: 200px;
+   
+    
+  }
+
+  .title{
+    color: #F57C42;
+    width: 90%;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-shadow: rgba(0, 0, 0, 0.151) 0.1em 0.1em 0.2em
+  }
+
+  .item{
+    font-size: bolder;
+  }
+
+  .apresentacao{
+    font-size: 1rem;
+    margin-bottom: 1rem
+  }
+
+  .subtitle{
+    color: #F57C42;
+    text-shadow: rgba(0, 0, 0, 0.048) 0.1em 0.1em 0.2em;
+    margin-bottom: 0.2rem;
+  }
+
+  .formContainer {
+    float: none;
+    width: 50%;
+    padding: 15px; 
+   
+   
+  }
+
+  .formTitle {width: 90%;
+    text-align: center;
+    font-size: 1rem; 
+    margin-bottom: 10px;
+  }
+
+  .formlabel {
+    
+    text-align: left;
+    display: block; 
+    margin-bottom: 5px; 
+    white-space: nowrap;
+  }
+
+  .formInput {
+    width: 100%; 
+    padding: 8px; 
+    margin-bottom: 10px; 
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+  }
+
+  .formButton {
+    background-color: #214E36;
+    color: #fff; 
+    border: none; 
+    padding: 5px ;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 50%;
+    margin-left: 25%;
+    
+  }
+  
+ 
+  .formButton:hover {
+    background-color: #0056b3; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
