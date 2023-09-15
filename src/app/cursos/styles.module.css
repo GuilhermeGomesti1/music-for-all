@@ -1,0 +1,27 @@
+.containerViolao{
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+
+  .violaoContainer {
+    width: 100%;
+    max-width: 100%; 
+    box-shadow: 5px 3px 7px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .cursodeviolao{
+    
+
+  }
+  .fotocurso{
+    margin: 0 auto;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    display: flex;
+  }

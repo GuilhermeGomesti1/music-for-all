@@ -20,13 +20,15 @@ export function Header() {
             Início
           </Link>
 
+
           <Link href="/cursos" className={styles.aContainer}>
+            Cursos
+          </Link>
+
+          <Link href="/sobre" className={styles.aContainer}>
             Sobre
           </Link>
 
-          <Link href="/" className={styles.aContainer}>
-            Cursos
-          </Link>
   
         </nav>
       </div>
