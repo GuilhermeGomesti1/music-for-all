@@ -1,7 +1,7 @@
 .main {
   margin: 0 auto;
   min-height: 100vh;
-  background-color: #5a1929;
+  background-color:white;
   align-items: center;
   justify-content: center;
 }
@@ -17,21 +17,14 @@
 
 .img {
   margin: 0 auto;
-  padding-top: 4rem;
-  padding-bottom: 2rem;
-  border-radius: 8px;
-  align-items: center;
-  justify-content: center;
-  width: 850px;
-  height: 706px;
-  display: flex;
+margin-top: -5rem;
 }
 
 .slogan {
   font-size: 1.5rem;
   line-height: 4.5rem;
   font-weight: 900;
-  color: white;
+  color: black;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -355,10 +348,9 @@
   }
 
   .img {
-    margin-top: -4rem;
-    margin-bottom: -1rem;
-    width: 340px;
-    height: 300px;
+   
+    width: 450px;
+    height: 200px;
   }
 
   .slogan {

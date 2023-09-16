@@ -8,6 +8,7 @@ import { IconWhatsapp } from "./components/Icons/IconsContato/iconWhatsapp";
 import { IconInstagram } from "./components/Icons/IconsContato/iconInstagram";
 import styles from "./page.module.css";
 import home from "../../public/images/home.png";
+import homeoficial from "../../public/images/homeoficial.png";
 import alunos from "../../public/images/alunos.png";
 import Link from "next/link";
 import cursoviolao1 from "../../public/images/cursoviolao1.png";
@@ -29,7 +30,7 @@ export default function Home() {
             <div>
               <Image
                 className={styles.img}
-                src={home}
+                src={homeoficial}
                 alt="Music For All Logo"
                
               />
