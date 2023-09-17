@@ -344,8 +344,10 @@ margin-top: -5rem;
    
  display: none;
   }
-  .imgMobile{display: block;
-  margin-top: -18.2rem;}
+  .imgMobile{   position: absolute;
+    top: 40px;
+    left: 0;
+    display: block;}
 
 
   .titleCursos {
