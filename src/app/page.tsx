@@ -7,11 +7,12 @@ import { IconCurso } from "./components/Icons/iconsHome/iconCurso";
 import { IconWhatsapp } from "./components/Icons/IconsContato/iconWhatsapp";
 import { IconInstagram } from "./components/Icons/IconsContato/iconInstagram";
 import styles from "./page.module.css";
-import home from "../../public/images/home.png";
+import homemobile from "../../public/images/homemobile.png";
 import homeoficial from "../../public/images/homeoficial.png";
 import alunos from "../../public/images/alunos.png";
 import Link from "next/link";
 import cursoviolao1 from "../../public/images/cursoviolao1.png";
+
 import piano from "../../public/images/piano.png";
 import guitarra from "../../public/images/guitarra.png";
 import gaita from "../../public/images/gaita.png";
@@ -31,14 +32,26 @@ export default function Home() {
               <Image
                 className={styles.img}
                 src={homeoficial}
-                alt="Music For All Logo"
-               
+                alt="Music For All Logo" 
+                width={1895} 
+                height={598}
+                quality={100}
               />
             </div>
-            <h2 className={styles.slogan}>
-              Na Music for All, acreditamos que a música é a linguagem universal
-              que une corações e almas.
-            </h2>
+
+            <div>
+                <Image 
+                className={styles.imgMobile}
+                src={homemobile}
+                alt="foto home mobile"
+                width={400} 
+                height={214}/>
+
+            </div>
+
+
+
+           
 
             <div className={styles.buttonGroup}>
               <Link href={"/cursos"} className={styles.buttonContainer}>
