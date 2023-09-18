@@ -45,7 +45,7 @@ export default function Home() {
                 src={homemobile}
                 alt="foto home mobile"
                 width={400} 
-                height={214}/>
+                height={522}/>
 
             </div>
 

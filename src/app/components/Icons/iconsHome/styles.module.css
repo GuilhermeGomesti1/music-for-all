@@ -1,8 +1,8 @@
 .iconCursos{
     
-    color: #152459;
+    color: #FF7B43;
     background-color:white;
-    font-size: 70px;
+    font-size: 40px;
     border-radius: 50%;
    
 }
@@ -11,16 +11,19 @@
     
     color: #FF7B43;
     background-color:white;
-    font-size: 70px;
+    font-size: 40px;
     border-radius: 50%;
    
 }
 
 .iconContact{
 
-    color: #ff4343;
+   
+    
+   
+    color: #FF7B43;
     background-color:white;
-    font-size: 70px;
+    font-size: 40px;
     border-radius: 50%;
 }
 
@@ -48,27 +51,26 @@
 
     .iconCursos{
     
-        color: #152459;
         background-color:white;
-        font-size: 35px;
+        font-size: 25px;
         border-radius: 50%;
        
     }
     
     .iconBlog{
         
-        color: #FF7B43;
+     
         background-color:white;
-        font-size: 35px;
+        font-size: 25px;
         border-radius: 50%;
        
     }
     
     .iconContact{
     
-        color: #ff4343;
+      
         background-color:white;
-        font-size: 35px;
+        font-size: 25px;
         border-radius: 50%;
     }
     
