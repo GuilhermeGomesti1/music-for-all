@@ -339,13 +339,13 @@ margin-top: -5rem;
 
 /* Mobile */
 @media (max-width: 768px) {
-  .main {
+  .main {background-color: #D4D4D4;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
-  .containerHeader{
+  .containerHeader{ 
     margin-bottom: -10rem;
   }
 
