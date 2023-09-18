@@ -346,7 +346,7 @@ margin-top: -5rem;
   }
 
   .containerHeader{
-    margin-bottom: -20rem;
+    margin-bottom: -10rem;
   }
 
   .img {
@@ -357,20 +357,21 @@ margin-top: -5rem;
 
   .imgMobile{   
     display: flex;
-    margin-top: -17rem;
-    padding-bottom: -10rem;
+    margin-top: -4rem;
+    
    
     }
 
 
   .titleCursos {
-    margin-top: -3rem;
+    
     width: 200px;
     height: 120px;
     margin-bottom: -1rem;
   }
 
   .spanCursos {
+    
     margin-left: 0;
     display: flex;
     font-size: 1rem;
