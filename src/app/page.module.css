@@ -43,7 +43,7 @@ margin-top: -5rem;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.158), 0 2px 5px rgba(0, 0, 0, 0.137);
   margin: 0 20px;
-  margin-top: 1rem;
+  margin-top: -4rem;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -357,8 +357,8 @@ margin-top: -5rem;
 
   .imgMobile{   
     display: flex;
-    
-    
+   
+
    
     }
 
@@ -403,7 +403,9 @@ margin-top: -5rem;
     align-items: center;
   }
 
-  .buttonGroup { margin-left: 2px;
+  .buttonGroup {
+    display: none; 
+    margin-left: 2px;
     margin-right: 2px;
     border: none;
     display: flex;
@@ -414,7 +416,7 @@ margin-top: -5rem;
   }
 
 
-  .buttonContainer { border: none;
+  .buttonContainer { border: none; display: none;
   }
 
   .buttons {
