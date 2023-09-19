@@ -427,7 +427,7 @@ display: flex;
      border: none;
     margin: 0 10px;
     margin-top: -10rem;
-  
+  box-shadow: none;
     width: 100px;
     height: 100px;
     
