@@ -51,7 +51,7 @@
 
     .iconCursos{
     
-        background-color:white;
+        background-color:transparent;
         font-size: 25px;
         border-radius: 50%;
        
@@ -60,7 +60,7 @@
     .iconBlog{
         
      
-        background-color:white;
+        background-color:transparent;
         font-size: 25px;
         border-radius: 50%;
        
@@ -69,7 +69,7 @@
     .iconContact{
     
       
-        background-color:white;
+        background-color:transparent;
         font-size: 25px;
         border-radius: 50%;
     }
