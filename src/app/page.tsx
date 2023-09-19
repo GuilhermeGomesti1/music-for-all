@@ -44,8 +44,8 @@ export default function Home() {
                 className={styles.imgMobile}
                 src={homemobile}
                 alt="foto home mobile"
-                width={400} 
-                height={583}/>
+                width={370} 
+                height={648}/>
 
             </div>
 
