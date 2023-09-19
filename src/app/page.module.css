@@ -408,9 +408,8 @@ display: flex;
   }
 
   .buttonGroup {
-    display: none; 
-    margin-left: 2px;
-    margin-right: 2px;
+    display: flex; 
+ 
     border: none;
     display: flex;
     align-items: center;
@@ -420,15 +419,15 @@ display: flex;
   }
 
 
-  .buttonContainer { border: none; display: none;
+  .buttonContainer { border: none; 
   }
 
   .buttons {
-    
+    background-color: transparent;
      border: none;
     margin: 0 10px;
     margin-top: -10rem;
-    
+  
     width: 100px;
     height: 100px;
     
@@ -443,8 +442,8 @@ display: flex;
   .titleButton {
     font-weight: bold;
     font-size: 0.8rem;
-    display: block;
-    color: black;
+    
+    color:white;
   }
 
   .subtitleButton {
