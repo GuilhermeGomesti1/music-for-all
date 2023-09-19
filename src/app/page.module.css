@@ -17,7 +17,7 @@
 
 .img {box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
   margin: 0 auto;
-margin-top: -9rem;
+margin-top: -4rem;
 width: 100vw;
 display: flex;
 
@@ -350,7 +350,7 @@ display: flex;
   }
 
   .containerHeader{ 
-    margin-bottom: -10rem;
+   
   }
 
   .img {
