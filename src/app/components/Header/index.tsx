@@ -11,6 +11,11 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
 
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -48,15 +53,15 @@ export function Header() {
 
         {(menuOpen || windowWidth >= 768) && (
          <nav className={`${styles.navContainer} ${menuOpen ? styles.open : ''}`}>
-         <Link href="/" className={styles.aContainer}>
+         <Link href="/" className={styles.aContainer} onClick={closeMenu}>
            Início
          </Link>
 
-            <Link href="/cursos" className={styles.aContainer}>
+            <Link href="/cursos" className={styles.aContainer} onClick={closeMenu}>
               Cursos
             </Link>
 
-            <Link href="/sobre" className={styles.aContainer}>
+            <Link href="/sobre" className={styles.aContainer} onClick={closeMenu}>
               Sobre
             </Link>
           </nav>
