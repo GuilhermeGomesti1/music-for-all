@@ -4,6 +4,7 @@ import Image from "next/image";
 import logo from "../../../../public/images/logo.png";
 import Link from "next/link";
 import { MenuIcon } from "../Icons/iconsHome/iconMenu";
+import { IconClose } from "../Icons/iconsHome/iconClose";
 import { useState, useEffect } from "react";
 
 export function Header() {
@@ -42,7 +43,7 @@ export function Header() {
         </div>
 
         <div className={styles.mobileMenuIcon} onClick={toggleMenu}>
-          <MenuIcon />
+          {menuOpen ? <IconClose /> : <MenuIcon />}
         </div>
 
         {(menuOpen || windowWidth >= 768) && (
