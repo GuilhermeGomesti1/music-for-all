@@ -1,16 +1,16 @@
 import Image from "next/image";
 import styles from "./styles.module.css";
 import cursoviolao1 from "../../../../public/images/cursoviolao1.png";
-import violao from "../../../../public/images/violao.png";
+import homeoficial from "../../../../public/images/homeoficial.png"
 
 export default function Cursos() {
   return (
     <>
       <main>
-        <div className={styles.containerViolao}>
+      <div className={styles.containerViolao}>
           <Image
             className={styles.violaoContainer}
-            src={violao}
+            src={homeoficial}
             alt="Music For All Logo"
           />
         </div>

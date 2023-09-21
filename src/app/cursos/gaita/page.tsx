@@ -16,6 +16,9 @@ export default function Cursos() {
         </div>
 
         <div className={styles.cursodegaita}>
+
+
+
           <h1 className={styles.title}>
           Gaita
           </h1>

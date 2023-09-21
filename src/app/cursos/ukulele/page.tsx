@@ -1,6 +1,5 @@
 import Image from "next/image";
 import styles from "./styles.module.css";
-import violao from "../../../../public/images/violao.png";
 import ukulele from "../../../../public/images/ukulele.png";
 import homeoficial from "../../../../public/images/homeoficial.png"
 
