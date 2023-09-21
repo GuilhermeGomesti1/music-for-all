@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import styles from "./styles.module.css";
-import guitarra from "../../../../public/images/guitarra.jpeg";
+import guitarra from "../../../../public/images/guitarra.png";
 import homeoficial from "../../../../public/images/homeoficial.png"
 
 
