@@ -1,8 +1,7 @@
 import Image from "next/image";
 import styles from "./styles.module.css";
-import titlecursos2 from "../../../public/images/titlecursos2.png";
-import cursoviolao1 from "../../../public/images/cursoviolao1.png";
-import violao from "../../../public/images/violao.png";
+import cursoviolao1 from "../../../../public/images/cursoviolao1.png";
+import violao from "../../../../public/images/violao.png";
 
 export default function Cursos() {
   return (

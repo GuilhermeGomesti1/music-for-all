@@ -121,7 +121,7 @@ export default function Home() {
 
           <section className={styles.cursosSection}>
             <div className={styles.curso}>
-              <Link href={"/violao"}>
+              <Link href={"/cursos/violao"}>
                 <Image
                   className={styles.imgCursos}
                   src={cursoviolao1}
@@ -132,7 +132,7 @@ export default function Home() {
             </div>
 
             <div className={styles.curso}>
-              <Link href={"/pianoeteclado"}>
+              <Link href={"/cursos/piano"}>
                 <Image
                   className={styles.imgCursos}
                   src={piano}
@@ -143,7 +143,7 @@ export default function Home() {
             </div>
 
             <div className={styles.curso}>
-              <Link href={"/guitarra"}>
+              <Link href={"/cursos/guitarra"}>
                 <Image
                   className={styles.imgCursos}
                   src={guitarra}
@@ -154,7 +154,7 @@ export default function Home() {
             </div>
 
             <div className={styles.curso}>
-              <Link href={"/gaita"}>
+              <Link href={"/cursos/gaita"}>
                 <Image
                   className={styles.imgCursos}
                   src={gaita}
@@ -165,7 +165,7 @@ export default function Home() {
             </div>
 
             <div className={styles.curso}>
-              <Link href={"/ukulele"}>
+              <Link href={"/cursos/ukulele"}>
                 <Image
                   className={styles.imgCursos}
                   src={ukulele}

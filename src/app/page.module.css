@@ -17,7 +17,7 @@
 
 .img {box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
   margin: 0 auto;
-
+max-height: 507px;
 width: 100vw;
 display: flex;
 
@@ -30,7 +30,7 @@ display: flex;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 8rem;
 }
 .buttonContainer {
   margin-bottom: -2rem;
@@ -41,8 +41,8 @@ display: flex;
 }
 .buttons {border: none;
   background-color: white;
-  width: 270px;
-  height: 250px;
+  width: 280px;
+  height: 270px;
   border-radius: 30px;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.158), 0 2px 5px rgba(0, 0, 0, 0.137);
@@ -502,7 +502,7 @@ display: flex;
     margin-bottom: -4px;
   }
 
-  .item:not(:last-child) {
+   .item:not(:last-child) {
     margin-bottom: 0;
   }
 
