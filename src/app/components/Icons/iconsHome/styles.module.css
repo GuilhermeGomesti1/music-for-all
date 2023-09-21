@@ -77,5 +77,16 @@
         font-size: 25px;
         border-radius: 50%;
     }
+
+
+.menuIcon{
+    font-size: 25px;
+   align-items: center;
+   margin-bottom: 1.5rem;
+   width: 40px;
+  
+ 
+}
+
     
 }
