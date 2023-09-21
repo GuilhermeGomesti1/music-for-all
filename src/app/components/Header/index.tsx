@@ -47,10 +47,10 @@ export function Header() {
         </div>
 
         {(menuOpen || windowWidth >= 768) && (
-          <nav className={styles.navContainer}>
-            <Link href="/" className={styles.aContainer}>
-              Início
-            </Link>
+         <nav className={`${styles.navContainer} ${menuOpen ? styles.open : ''}`}>
+         <Link href="/" className={styles.aContainer}>
+           Início
+         </Link>
 
             <Link href="/cursos" className={styles.aContainer}>
               Cursos
