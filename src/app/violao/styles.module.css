@@ -43,9 +43,9 @@
   }
 
   .title{
-    color: #F57C42;
+    
    
-    font-size: 3rem;
+    font-size: 1.2rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
     text-shadow: rgba(0, 0, 0, 0.151) 0.1em 0.1em 0.2em
@@ -55,13 +55,14 @@
     font-size: bolder;
   }
 
-  .apresentacao{
+  .apresentacao{ text-decoration: none; 
+    list-style-type: none;
     font-size: 1.2rem;
     margin-bottom: 1rem
   }
 
   .subtitle{
-    color: #F57C42;
+   font-size: 1rem;
     text-shadow: rgba(0, 0, 0, 0.048) 0.1em 0.1em 0.2em;
     margin-bottom: 0.2rem;
   }
@@ -139,8 +140,8 @@
   }
 
   .fotocurso{
-    width: 90%;
-    max-width: 100%; 
+    margin-top: 1rem;
+    
     width: 200px;
     height: 200px;
    
@@ -148,11 +149,11 @@
   }
 
   .title{
-    color: #F57C42;
+    
     width: 90%;
     font-size: 0.8rem;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     text-shadow: rgba(0, 0, 0, 0.151) 0.1em 0.1em 0.2em
   }
 
@@ -161,25 +162,25 @@
   }
 
   .apresentacao{
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin-bottom: 1rem
   }
 
   .subtitle{
-    color: #F57C42;
+   font-size: 0.8rem;
     text-shadow: rgba(0, 0, 0, 0.048) 0.1em 0.1em 0.2em;
     margin-bottom: 0.2rem;
   }
 
-  .formContainer {
+  .formContainer { align-items: center;
     float: none;
-    width: 50%;
+    width: 80%;
     padding: 15px; 
    
    
   }
 
-  .formTitle {width: 90%;
+  .formTitle {
     text-align: center;
     font-size: 1rem; 
     margin-bottom: 10px;
