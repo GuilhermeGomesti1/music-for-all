@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./styles.module.css";
 import cursoviolao1 from "../../../../public/images/cursoviolao1.png";
-import homeoficial from "../../../../public/images/homeoficial.png"
+import homecursos from "../../../../public/images/homecursos.png"
 
 export default function Cursos() {
   return (
@@ -10,16 +10,14 @@ export default function Cursos() {
       <div className={styles.containerViolao}>
           <Image
             className={styles.violaoContainer}
-            src={homeoficial}
+            src={homecursos}
             alt="Music For All Logo"
           />
         </div>
 
         <div className={styles.cursodeviolao}>
           <h1 className={styles.title}>
-            {" "}
-            Descubra o Mundo Mágico do{" "}
-            <span className={styles.item}>Violão </span>
+          Violão 
           </h1>
 
           <div className={styles.textContainer}>

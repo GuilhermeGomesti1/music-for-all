@@ -43,12 +43,11 @@
   }
 
   .title{
-    
-   
-    font-size: 1.2rem;
+    font-size: 2rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    text-shadow: rgba(0, 0, 0, 0.151) 0.1em 0.1em 0.2em
+    text-shadow: rgba(0, 0, 0, 0.151) 0.1em 0.1em 0.2em;
+  
   }
 
   .item{
@@ -149,9 +148,9 @@
   }
 
   .title{
-    
+    text-align: center;
     width: 90%;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     text-shadow: rgba(0, 0, 0, 0.151) 0.1em 0.1em 0.2em
