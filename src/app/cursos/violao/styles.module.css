@@ -5,11 +5,15 @@
    
   }
 
-  .violaoContainer {
-    width: auto;
-    height: auto;
-    max-width: 100%; 
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
+
+.img {box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
+  margin: 0 auto;
+max-height: 507px;
+width: 100vw;
+display: flex;}
+
+  .violaoContainer { display: none;
+   
   }
 
   .cursodeviolao{  clear: both;
@@ -122,8 +126,15 @@
   align-items: center;
   width: 100%;
   }
+.img{display: none;}
 
 
+.violaoContainer{
+  display: flex;
+  width: auto;
+  height: auto;
+  max-width: 100%; 
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);}
 
 
   .textContainer {

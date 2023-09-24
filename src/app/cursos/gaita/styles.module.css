@@ -5,12 +5,16 @@
    
   }
 
-  .violaoContainer {
-    width: auto;
-    height: auto;
-    max-width: 100%; 
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
-  }
+  
+  .img {box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
+    margin: 0 auto;
+  max-height: 507px;
+  width: 100vw;
+  display: flex;}
+  
+    .violaoContainer { display: none;
+     
+    }
 
   .cursodegaita{  clear: both;
     margin-left: 6rem;
@@ -126,6 +130,17 @@
 
 
 
+  .img{display: none;}
+
+
+  .violaoContainer{
+    display: flex;
+    width: auto;
+    height: auto;
+    max-width: 100%; 
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);}
+  
+
 
   .textContainer {
     float: none;
@@ -148,10 +163,11 @@
     
   }
 
+  
   .title{
-    
+    text-align: center;
     width: 90%;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     text-shadow: rgba(0, 0, 0, 0.151) 0.1em 0.1em 0.2em

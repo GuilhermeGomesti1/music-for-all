@@ -3,16 +3,27 @@ import Image from "next/image";
 import styles from "./styles.module.css";
 import guitarra from "../../../../public/images/guitarra.png";
 import homeoficial from "../../../../public/images/homeoficial.png"
-
+import homecursos from "../../../../public/images/homecursos.png"
 
 export default function Cursos() {
     return (
       <>
         <main>
         <div className={styles.containerViolao}>
+         
+      <Image
+                className={styles.img}
+                src={homeoficial}
+                alt="Music For All Logo" 
+                width={1895} 
+                height={598}
+                quality={100}
+              />
+
+
           <Image
             className={styles.violaoContainer}
-            src={homeoficial}
+            src={homecursos}
             alt="Music For All Logo"
           />
         </div>
