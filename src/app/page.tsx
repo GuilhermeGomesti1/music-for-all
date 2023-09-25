@@ -246,9 +246,9 @@ export default function Home() {
               </ul>
 
               <ul className={styles.contatosList}>
-                <li className={styles.itemContato}>
+               <a href="https://api.whatsapp.com/send?phone=5531986132070" target="_black"><li className={styles.itemContato}>
                   <IconWhatsapp />
-                </li>
+                </li></a> 
                 <li className={styles.itemContato}>
                   <IconEmail />
                 </li>
@@ -261,10 +261,4 @@ export default function Home() {
   );
 }
 
-/* <p className={styles.paragrafo3}>
-Na Music for All, acreditamos que a música está ao alcance de todos.
-Deixe-nos guiá-lo através das maravilhas da música e ajudá-lo a
-descobrir seu potencial musical único. Explore nossos cursos,
-conheça nossos instrutores e mergulhe na magia da música. Sua
-jornada musical começa aqui, na Music for All.
-</p> */
+
