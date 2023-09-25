@@ -10,9 +10,17 @@ export function Form() {
         const nome = nomeElement.value;
         const email = emailElement.value;
         const whatsapp = whatsappElement.value;
-  
+
+        if (!nome || !email || !whatsapp) {
+          alert("Por favor, preencha todos os campos.");
+          return; 
+        }
+        if (!isValidEmail(email)) {
+          alert("Por favor, insira um endereço de email válido.");
+          return; 
+        }
        
-        const mensagemAdicional = "Quero mais informações!\n\n";
+        const mensagemAdicional = "Quero mais informações sobre a 'Music for All-Escola de Música'!\n\n";
 
        
         const whatsappURL = `https://api.whatsapp.com/send?phone=5531986132070&text=${encodeURIComponent(
@@ -25,8 +33,14 @@ export function Form() {
         emailElement.value = "";
         whatsappElement.value = "";
       } else {
-        console.error("Elementos não encontrados.");
+        alert("Elementos não encontrados.");
       }
+    };
+
+    const isValidEmail = (email: string) => {
+    
+      const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      return emailRegex.test(email);
     };
   
     return (

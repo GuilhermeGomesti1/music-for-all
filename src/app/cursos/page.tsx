@@ -10,6 +10,7 @@ import gaita from "../../../public/images/gaita.png";
 import ukulele from "../../../public/images/ukulele.png";
 import titlecursos2 from "../../../public/images/titlecursos2.png";
 import agendaraula from "../../../public/images/agendaraula.png";
+import { Form } from "../components/Form";
 export default function Cursos() {
   return (
     <>
@@ -128,24 +129,7 @@ export default function Cursos() {
           </div>
 
 
-
-          <div className={styles.formContainer}>
-            <h2 className={styles.formTitle}>
-              Gostaria de mais informações? Preencha o formulário abaixo!
-            </h2>
-            <form>
-              <label  className={styles.formLabel} htmlFor="nome">Nome:</label>
-              <input className={styles.formInput} type="text" id="nome" name="nome" />
-
-              <label  className={styles.formLabel} htmlFor="email">Email:</label>
-              <input className={styles.formInput} type="email" id="email" name="email" />
-
-              <label  className={styles.formLabel} htmlFor="whatsapp">WhatsApp:</label>
-              <input className={styles.formInput} type="text" id="whatsapp" name="whatsapp" />
-
-              <button className={styles.formButton} type="submit">Quero mais informações!</button>
-            </form>
-          </div>
+<Form/>
         
       </main>
     </>
