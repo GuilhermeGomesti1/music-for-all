@@ -31,27 +31,28 @@ export default function Home() {
             <div>
               <Image
                 className={styles.img}
+              
                 src={homeoficial}
-                alt="Music For All Logo" 
-                width={1895} 
+                alt="Music For All Logo"
+                width={1895}
                 height={598}
                 quality={100}
+                placeholder="blur"
+                loading="lazy"
               />
             </div>
 
             <div>
-                <Image 
+              <Image
                 className={styles.imgMobile}
                 src={homemobile}
                 alt="foto home mobile"
-                width={390} 
-                height={658}/>
-
+                width={390}
+                height={658}
+                loading="lazy"
+                placeholder="blur"
+              />
             </div>
-
-
-
-           
 
             <div className={styles.buttonGroup}>
               <Link href={"/cursos"} className={styles.buttonContainer}>
@@ -110,7 +111,7 @@ export default function Home() {
               className={styles.titleCursos}
               src={titlecursos2}
               alt="Titulo  da sessão dois"
-        
+              loading="lazy"
             />
 
             <span className={styles.spanCursos}>
@@ -126,7 +127,7 @@ export default function Home() {
                   className={styles.imgCursos}
                   src={cursoviolao1}
                   alt="Imagem do curso"
-                
+                  loading="lazy"
                 />
               </Link>
             </div>
@@ -137,7 +138,7 @@ export default function Home() {
                   className={styles.imgCursos}
                   src={piano}
                   alt="Imagem do curso"
-                 
+                  loading="lazy"
                 />
               </Link>
             </div>
@@ -148,7 +149,7 @@ export default function Home() {
                   className={styles.imgCursos}
                   src={guitarra}
                   alt="Imagem do curso"
-                  
+                  loading="lazy"
                 />
               </Link>
             </div>
@@ -159,7 +160,7 @@ export default function Home() {
                   className={styles.imgCursos}
                   src={gaita}
                   alt="Imagem do curso"
-                  
+                  loading="lazy"
                 />
               </Link>
             </div>
@@ -170,7 +171,7 @@ export default function Home() {
                   className={styles.imgCursos}
                   src={ukulele}
                   alt="Imagem do curso"
-                
+                  loading="lazy"
                 />
               </Link>
             </div>
@@ -190,8 +191,7 @@ export default function Home() {
               className={styles.agendaraula}
               src={agendaraula}
               alt="Music For All Logo"
-            
-            
+              loading="lazy"
             />
           </div>
 
@@ -202,8 +202,7 @@ export default function Home() {
                 className={styles.img2}
                 src={alunos}
                 alt="Music For All Logo"
-                
-                
+                loading="lazy"
               />
             </div>
 
@@ -256,8 +255,6 @@ export default function Home() {
               </ul>
             </div>
           </section>
-
-       
         </div>
       </main>
     </>
