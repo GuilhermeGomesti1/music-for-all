@@ -128,8 +128,8 @@ export default function Cursos() {
             />
           </div>
 
+<div className={styles.formCursos}><Form/></div>
 
-<Form/>
         
       </main>
     </>
