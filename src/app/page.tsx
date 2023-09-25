@@ -1,3 +1,5 @@
+"use client";
+
 import Head from "next/head";
 import Image from "next/image";
 import { IconCursos } from "./components/Icons/iconsHome/iconCursos";
@@ -23,6 +25,17 @@ import { IconYoutube } from "./components/Icons/IconsContato/iconYoutube";
 import { IconEmail } from "./components/Icons/IconsContato/iconEmail";
 
 export default function Home() {
+
+  const mensagemWhatsApp = "Olá, gostaria de agendar uma aula experimental.";
+
+  const redirectToWhatsApp = () => {
+    const linkWhatsApp = `https://api.whatsapp.com/send?phone=5531986132070&text=${encodeURIComponent(
+      mensagemWhatsApp
+    )}`;
+
+    window.open(linkWhatsApp);
+  };
+
   return (
     <>
       <main className={styles.main}>
@@ -31,7 +44,6 @@ export default function Home() {
             <div>
               <Image
                 className={styles.img}
-              
                 src={homeoficial}
                 alt="Music For All Logo"
                 width={1895}
@@ -184,9 +196,19 @@ export default function Home() {
 
         <div className={styles.containerThree}>
           <div className={styles.agendar}>
-            <button className={styles.buttonPresencial}>Presencial</button>
+            <button
+              className={styles.buttonPresencial}
+              onClick={redirectToWhatsApp}
+            >
+              Presencial
+            </button>
 
-            <button className={styles.buttonOnline}>Online</button>
+            <button
+              className={styles.buttonOnline}
+              onClick={redirectToWhatsApp}
+            >
+              Online
+            </button>
             <Image
               className={styles.agendaraula}
               src={agendaraula}
@@ -246,9 +268,14 @@ export default function Home() {
               </ul>
 
               <ul className={styles.contatosList}>
-               <a href="https://api.whatsapp.com/send?phone=5531986132070" target="_black"><li className={styles.itemContato}>
-                  <IconWhatsapp />
-                </li></a> 
+                <a
+                  href="https://api.whatsapp.com/send?phone=5531986132070"
+                  target="_black"
+                >
+                  <li className={styles.itemContato}>
+                    <IconWhatsapp />
+                  </li>
+                </a>
                 <li className={styles.itemContato}>
                   <IconEmail />
                 </li>
@@ -260,5 +287,3 @@ export default function Home() {
     </>
   );
 }
-
-
