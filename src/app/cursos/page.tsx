@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import styles from "./styles.module.css";
 import Link from "next/link";
@@ -12,6 +13,16 @@ import titlecursos2 from "../../../public/images/titlecursos2.png";
 import agendaraula from "../../../public/images/agendaraula.png";
 import { Form } from "../components/Form";
 export default function Cursos() {
+
+  const mensagemWhatsApp = "Olá, gostaria de agendar uma aula experimental.";
+
+  const redirectToWhatsApp = () => {
+    const linkWhatsApp = `https://api.whatsapp.com/send?phone=5531986132070&text=${encodeURIComponent(
+      mensagemWhatsApp
+    )}`;
+
+    window.open(linkWhatsApp);
+  };
   return (
     <>
       <main>
@@ -115,10 +126,20 @@ export default function Cursos() {
         </div>
 
         
-          <div className={styles.agendar}>
-            <button className={styles.buttonPresencial}>Presencial</button>
+        <div className={styles.agendar}>
+            <button
+              className={styles.buttonPresencial}
+              onClick={redirectToWhatsApp}
+            >
+              Presencial
+            </button>
 
-            <button className={styles.buttonOnline}>Online</button>
+            <button
+              className={styles.buttonOnline}
+              onClick={redirectToWhatsApp}
+            >
+              Online
+            </button>
             <Image
               className={styles.agendaraula}
               src={agendaraula}
