@@ -61,8 +61,12 @@ export function Header() {
               Cursos
             </Link>
 
-            <Link href="/sobre" className={styles.aContainer} onClick={closeMenu}>
-              Sobre
+            <Link href="/blog" className={styles.aContainer} onClick={closeMenu}>
+              Blog
+            </Link>
+
+            <Link href="/contato" className={styles.aContainer} onClick={closeMenu}>
+              Contato
             </Link>
           </nav>
         )}
