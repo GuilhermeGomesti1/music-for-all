@@ -12,10 +12,12 @@ export function Form() {
         const whatsapp = whatsappElement.value;
   
        
-        const whatsappURL = `https://api.whatsapp.com/send?phone=5531986132070&text=Nome:%20${encodeURIComponent(
-          nome
-        )}%0AEmail:%20${encodeURIComponent(email)}%0AWhatsApp:%20${encodeURIComponent(
-          whatsapp
+        const mensagemAdicional = "Quero mais informações!\n\n";
+
+       
+        const whatsappURL = `https://api.whatsapp.com/send?phone=5531986132070&text=${encodeURIComponent(
+          mensagemAdicional + 
+          `Nome: ${nome}\nEmail: ${email}\nWhatsApp: ${whatsapp}`
         )}`;
   
         window.open(whatsappURL);
