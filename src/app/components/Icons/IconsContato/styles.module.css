@@ -46,12 +46,12 @@
 
 .iconWhatsappfixed {
     color: #5dbe26;
-    font-size: 30px;
+    font-size: 40px;
     background-color: transparent;
     position: fixed;
     bottom: 0px;
     margin-left: 2px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   
     z-index: 1;
   }
