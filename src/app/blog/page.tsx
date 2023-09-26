@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import styles from "./styles.module.css";
-
+import facapartemobile from "../../../public/images/facapartemobile.png"
 import facaparte from "../../../public/images/facaparte.png"
 
 export default function Blog() {
@@ -18,6 +18,18 @@ export default function Blog() {
             height={911}/>
           
           </div>
+
+          <div>
+              <Image
+                className={styles.imgMobile}
+                src={facapartemobile}
+                alt="foto home mobile"
+                width={390}
+                height={658}
+                loading="lazy"
+                placeholder="blur"
+              />
+            </div>
         </div>
 
        
@@ -28,7 +40,7 @@ export default function Blog() {
                </h1>
         
                <div className={styles.video}>
-               <iframe width="560" height="315" src="https://www.youtube.com/embed/ReDuOTb9vRE?si=OXOlAgSI1WbnGH0S" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+             
                </div>
 
           </div>
