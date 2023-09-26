@@ -27,6 +27,8 @@ export default function Contato() {
             className={styles.violaoContainer}
             src={homecursos}
             alt="Music For All Logo"
+            loading="lazy"
+            placeholder="blur"
           />
         </div>
 

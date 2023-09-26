@@ -35,6 +35,8 @@ export default function Cursos() {
                 width={1895} 
                 height={598}
                 quality={100}
+                loading="lazy"
+                placeholder="blur"
               />
 
 
@@ -42,6 +44,8 @@ export default function Cursos() {
             className={styles.violaoContainer}
             src={homecursos}
             alt="Music For All Logo"
+            loading="lazy"
+            placeholder="blur"
           />
         </div>
 
@@ -53,6 +57,8 @@ export default function Cursos() {
               className={styles.titleCursos}
               src={titlecursos2}
               alt="Titulo  da sessão dois"
+              loading="lazy"
+              placeholder="blur"
         
             />
 
@@ -73,6 +79,8 @@ export default function Cursos() {
                   className={styles.imgCursos}
                   src={cursoviolao1}
                   alt="Imagem do curso"
+                  loading="lazy"
+                  placeholder="blur"
                 
                 />
               </Link>
@@ -84,7 +92,8 @@ export default function Cursos() {
                   className={styles.imgCursos}
                   src={piano}
                   alt="Imagem do curso"
-                 
+                  loading="lazy"
+                  placeholder="blur"
                 />
               </Link>
             </div>
@@ -95,7 +104,8 @@ export default function Cursos() {
                   className={styles.imgCursos}
                   src={guitarra}
                   alt="Imagem do curso"
-                  
+                  loading="lazy"
+                  placeholder="blur"
                 />
               </Link>
             </div>
@@ -106,7 +116,8 @@ export default function Cursos() {
                   className={styles.imgCursos}
                   src={gaita}
                   alt="Imagem do curso"
-                  
+                  loading="lazy"
+                  placeholder="blur"
                 />
               </Link>
             </div>
@@ -117,7 +128,8 @@ export default function Cursos() {
                   className={styles.imgCursos}
                   src={ukulele}
                   alt="Imagem do curso"
-                
+                  loading="lazy"
+                placeholder="blur"
                 />
               </Link>
             </div>
@@ -144,7 +156,8 @@ export default function Cursos() {
               className={styles.agendaraula}
               src={agendaraula}
               alt="Music For All Logo"
-            
+              loading="lazy"
+                placeholder="blur"
             
             />
           </div>

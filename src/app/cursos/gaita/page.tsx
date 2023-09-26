@@ -17,6 +17,8 @@ export default function Cursos() {
                 width={1895} 
                 height={598}
                 quality={100}
+                loading="lazy"
+                placeholder="blur"
               />
 
 
@@ -24,6 +26,8 @@ export default function Cursos() {
             className={styles.violaoContainer}
             src={homecursos}
             alt="Music For All Logo"
+            loading="lazy"
+            placeholder="blur"
           />
         </div>
 
@@ -104,6 +108,8 @@ export default function Cursos() {
               className={styles.fotocurso}
               src={gaita}
               alt="foto curso de gaita"
+              loading="lazy"
+              placeholder="blur"
             />
           </div>
 

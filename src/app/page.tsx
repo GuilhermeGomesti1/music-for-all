@@ -129,6 +129,7 @@ export default function Home() {
               src={titlecursos2}
               alt="Titulo  da sessão dois"
               loading="lazy"
+              placeholder="blur"
             />
 
             <span className={styles.spanCursos}>
@@ -145,6 +146,7 @@ export default function Home() {
                   src={cursoviolao1}
                   alt="Imagem do curso"
                   loading="lazy"
+                  placeholder="blur"
                 />
               </Link>
             </div>
@@ -156,6 +158,7 @@ export default function Home() {
                   src={piano}
                   alt="Imagem do curso"
                   loading="lazy"
+                  placeholder="blur"
                 />
               </Link>
             </div>
@@ -167,6 +170,7 @@ export default function Home() {
                   src={guitarra}
                   alt="Imagem do curso"
                   loading="lazy"
+                  placeholder="blur"
                 />
               </Link>
             </div>
@@ -178,6 +182,7 @@ export default function Home() {
                   src={gaita}
                   alt="Imagem do curso"
                   loading="lazy"
+                  placeholder="blur"
                 />
               </Link>
             </div>
@@ -189,6 +194,7 @@ export default function Home() {
                   src={ukulele}
                   alt="Imagem do curso"
                   loading="lazy"
+                  placeholder="blur"
                 />
               </Link>
             </div>
@@ -219,6 +225,7 @@ export default function Home() {
               src={agendaraula}
               alt="Music For All Logo"
               loading="lazy"
+              placeholder="blur"
             />
           </div>
 
@@ -230,6 +237,7 @@ export default function Home() {
                 src={alunos}
                 alt="Music For All Logo"
                 loading="lazy"
+              
               />
             </div>
 
