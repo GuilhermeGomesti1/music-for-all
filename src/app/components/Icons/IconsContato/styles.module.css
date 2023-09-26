@@ -1,77 +1,94 @@
-.iconWhatsapp{
-    
-    color: #5DBE26;
-    background-color:white;
-    font-size: 40px;
-    border-radius: 50%;
-    margin-right: 0.5rem;
+.iconWhatsapp {
+  color: #5dbe26;
+  background-color: white;
+  font-size: 40px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+.iconInstagram {
+  color: #a051ac;
+  background-color: white;
+  font-size: 40px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.iconYoutube {
+  color: #d14029;
+  background-color: white;
+  font-size: 40px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.iconEmail {
+  color: #152459;
+  background-color: white;
+  font-size: 40px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+
+.buttonfixedcontainer{
+  
    
-}
-.iconInstagram{
-      
-    color: #A051AC;
-    background-color:white;
-    font-size: 40px;
-    border-radius: 50%;
-    margin-right: 0.5rem;
-}
-
-.iconYoutube{
-    color: #D14029;
-    background-color:white;
-    font-size: 40px;
-    border-radius: 50%;
-    margin-right: 0.5rem;
-
-
-}
-
-.iconEmail{
-    color: #152459;
-    background-color:white;
-    font-size: 40px;
-    border-radius: 50%;
-    margin-right: 0.5rem;
-
-
-}
-
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 1rem; 
+    left: 1rem; 
+    z-index: 1;
+ 
+  }
+  
+  .iconWhatsappfixed {
+    color: #5dbe26;
+    font-size: 60px;
+ 
+    
+  }
 
 @media (max-width: 768px) {
-    .iconWhatsapp{
+
+  
+  .iconWhatsappfixed {
+    color: #5dbe26;
+    font-size: 30px;
+   
+ 
+    
+  }
+  .iconWhatsapp {
     margin-right: 0.5rem;
-        color: #5DBE26;
-        background-color:white;
-        font-size: 40px;
-        border-radius: 50%;
-       
-    }
-    .iconInstagram{
-        margin-right: 0.5rem;
-        color: #A051AC;
-        background-color:white;
-        font-size: 40px;
-        border-radius: 50%;
-    }
-    
-    .iconYoutube{ margin-right: 0.5rem;
-        color: #D14029;
-        background-color:white;
-        font-size: 40px;
-        border-radius: 50%;
-    
-    
-    }
-    
-    .iconEmail{ margin-right: 0.5rem;
-        color: #152459;
-        background-color:white;
-        font-size: 40px;
-        border-radius: 50%;
-    
-    
-    }
-    
-    
-    
+    color: #5dbe26;
+    background-color: white;
+    font-size: 40px;
+    border-radius: 50%;
+  }
+  .iconInstagram {
+    margin-right: 0.5rem;
+    color: #a051ac;
+    background-color: white;
+    font-size: 40px;
+    border-radius: 50%;
+  }
+
+  .iconYoutube {
+    margin-right: 0.5rem;
+    color: #d14029;
+    background-color: white;
+    font-size: 40px;
+    border-radius: 50%;
+  }
+
+  .iconEmail {
+    margin-right: 0.5rem;
+    color: #152459;
+    background-color: white;
+    font-size: 40px;
+    border-radius: 50%;
+  }
 }

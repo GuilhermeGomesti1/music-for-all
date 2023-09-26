@@ -23,9 +23,9 @@ import titlecursos2 from "../../public/images/titlecursos2.png";
 import agendaraula from "../../public/images/agendaraula.png";
 import { IconYoutube } from "./components/Icons/IconsContato/iconYoutube";
 import { IconEmail } from "./components/Icons/IconsContato/iconEmail";
+import { IconWhatsappfixed } from "./components/Icons/IconsContato/iconWhatsappfixed";
 
 export default function Home() {
-
   const mensagemWhatsApp = "Olá, gostaria de agendar uma aula experimental.";
 
   const redirectToWhatsApp = () => {
@@ -39,6 +39,11 @@ export default function Home() {
   return (
     <>
       <main className={styles.main}>
+
+        
+        <li className={styles.itemContato}>
+          <IconWhatsappfixed />
+        </li>
         <div className={styles.containerHeader}>
           <section className={styles.ctaText1}>
             <div>
