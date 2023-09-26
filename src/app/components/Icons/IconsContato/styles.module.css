@@ -29,37 +29,31 @@
   margin-right: 0.5rem;
 }
 
+.iconWhatsappfixed {
+  color: #5dbe26;
+  font-size: 60px;
+  background-color: transparent;
+  position: fixed;
+  bottom: 0px;
+  margin-left: 1rem;
+  margin-bottom: 2rem;
 
-.buttonfixedcontainer{
-  
-   
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    bottom: 1rem; 
-    left: 1rem; 
-    z-index: 1;
- 
-  }
-  
-  .iconWhatsappfixed {
-    color: #5dbe26;
-    font-size: 60px;
- 
-    
-  }
+  z-index: 1;
+}
 
 @media (max-width: 768px) {
 
-  
-  .iconWhatsappfixed {
+
+.iconWhatsappfixed {
     color: #5dbe26;
     font-size: 30px;
-   
- 
-    
+    background-color: transparent;
+    position: fixed;
+    bottom: 0px;
+    margin-left: 2px;
+    margin-bottom: 1rem;
+  
+    z-index: 1;
   }
   .iconWhatsapp {
     margin-right: 0.5rem;
