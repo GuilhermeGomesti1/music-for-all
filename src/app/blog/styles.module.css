@@ -1,7 +1,5 @@
 
-.contentAll{
- 
-}
+
 
 .img {box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
     margin: 0 auto;
@@ -27,8 +25,11 @@ margin-bottom: 1rem;}
 
   @media (max-width: 768px) {
   
-  
+    .facaparte{
+    max-width: 100%;
+     height: auto }
+    }
     
   
 
-    }
+    

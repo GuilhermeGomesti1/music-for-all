@@ -1,8 +1,7 @@
 "use client";
 import Image from "next/image";
 import styles from "./styles.module.css";
-import homeoficial from "../../../public/images/homeoficial.png";
-import homecursos from "../../../public/images/homecursos.png";
+
 import facaparte from "../../../public/images/facaparte.png"
 
 export default function Blog() {
