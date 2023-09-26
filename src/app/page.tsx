@@ -41,9 +41,7 @@ export default function Home() {
       <main className={styles.main}>
 
         
-        <li className={styles.itemContato}>
-          <IconWhatsappfixed />
-        </li>
+      
         <div className={styles.containerHeader}>
           <section className={styles.ctaText1}>
             <div>
@@ -70,7 +68,9 @@ export default function Home() {
                 placeholder="blur"
               />
             </div>
-
+            <li className={styles.itemContato}>
+          <IconWhatsappfixed />
+        </li>
             <div className={styles.buttonGroup}>
               <Link href={"/cursos"} className={styles.buttonContainer}>
                 <button className={styles.buttons}>
