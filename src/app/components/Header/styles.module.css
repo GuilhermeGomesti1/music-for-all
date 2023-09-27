@@ -39,7 +39,7 @@
   margin: 0 4rem;
   margin-left: auto;
   text-decoration: none;
-  transition: color 1s;
+  transition: color 0.3s;
   color: black;
   font-size: 0.8rem;
 }

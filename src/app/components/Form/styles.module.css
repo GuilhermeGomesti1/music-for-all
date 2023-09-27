@@ -2,6 +2,8 @@
   float: right;
   width: 30%;
   padding: 15px;
+  background: linear-gradient(to bottom, white, #FAD7CF);
+border-radius: 4px;
 }
 
 .formTitle {
@@ -18,7 +20,7 @@
 }
 
 .formInput {
-  width: 100%;
+  width: 95%;
   padding: 8px;
   margin-bottom: 10px;
   border: 1px solid #ddd;
@@ -26,7 +28,7 @@
 }
 
 .formButton {
-  background-color: #214e36;
+  background-color:#d14029 ;
   color: #fff;
   border: none;
   padding: 5px;
@@ -34,10 +36,12 @@
   border-radius: 4px;
   width: 50%;
   margin-left: 25%;
+  transition: background-color   0.3s;
 }
 
 .formButton:hover {
-  background-color: #0056b3;
+  background-color:#fa0875 ;
+  transition: background-color 0.3s ease;
 }
 @media (max-width: 768px) {
   .formContainer {
@@ -47,39 +51,5 @@
     padding: 15px;
   }
 
-  .formTitle {
-    text-align: center;
-    font-size: 1rem;
-    margin-bottom: 10px;
-  }
 
-  .formlabel {
-    text-align: left;
-    display: block;
-    margin-bottom: 5px;
-    white-space: nowrap;
-  }
-
-  .formInput {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-
-  .formButton {
-    background-color: #214e36;
-    color: #fff;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 4px;
-    width: 50%;
-    margin-left: 25%;
-  }
-
-  .formButton:hover {
-    background-color: #0056b3;
-  }
 }
