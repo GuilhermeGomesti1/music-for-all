@@ -29,8 +29,8 @@ export default function Blog() {
                 className={styles.imgMobile}
                 src={facapartemobile}
                 alt="foto home mobile"
-                width={415}
-                height={726}
+                width={390}
+                height={658}
                 loading="lazy"
                 placeholder="blur"
               />
