@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styles from "./styles.module.css";
 import facapartemobile from "../../../public/images/facapartemobile.png";
+import curiosidades from "../../../public/images/curiosidades.png";
 import facaparte from "../../../public/images/facaparte.png";
 import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
 import { VerticalMenu } from "../components/VerticalMenu";
@@ -58,7 +59,46 @@ export default function Blog() {
             </div>
             <p className={styles.subtitles}>Observar a performance de nossos alunos é uma experiência verdadeiramente inspiradora, e isso nos lembra de um importante aspecto da jornada musical: o talento é algo que merece ser nutrido e cultivado. Ele não é apenas uma habilidade, mas um presente especial que deve ser compartilhado com o mundo. É com grande honra que fazemos parte deste processo de crescimento como músicos, junto com cada um de nossos alunos </p>
           </div>
+
+
+
+          <div className={styles.videoAndText}>
+            <div className={styles.divvideo}>
+            <h1 className={styles.titles}>
+            Fatos interessantes e curiosidades super legais que provavelmente você não sabia sobre música
+          </h1>
+          <Image
+           className={styles.video}
+            src={curiosidades}
+            alt="Music For All Logo"
+            width={700}
+            height={394}
+            quality={100}
+            placeholder="blur"
+            loading="lazy"
+          />
+                
+                
+              
+           
+            
+              
+            </div>
+            <ul className={styles.subtitles}>
+              <li>Poucas atividades estimulam e utilizam praticamente todo o cérebro, e música é uma delas.</li>
+
+              <li>Os arrepios que você começa a sentir quando escuta uma música são causados pela liberação de dopamina pelo cérebro, antecipando o ápice de uma canção.</li>
+
+              <li> Estudar música regularmente irá alterar fisicamente sua estrutura cerebral. Alterações associadas à aprendizagem ocorrem principalmente nas conexões entre os neurônios.</li>
+              <li>O cérebro responde à músicas da mesma forma que responde quando você come algo. A dopamina é a substância que permite que uma pessoa possa sentir prazeres de tais coisas.</li>
+              
+             </ul>
+          </div>
+         
         </div>
+
+
+        
       </main>
     </>
   );

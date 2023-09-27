@@ -3,8 +3,8 @@
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
 }
 
-.principal {  height: 100vh;
- margin-top: -8rem;
+.principal { 
+ margin-top: 5rem;
   display: flex;
   flex-direction: column; 
  margin-left: 8rem;
@@ -31,6 +31,7 @@
 .divvideo {
   flex: 1;
   margin-right: 2rem; 
+  margin-bottom: 5rem;
 }
 
 .subtitles {text-align: justify;
@@ -59,9 +60,9 @@
   .facaparte{display: none;}
 
 
-.principal {  height: 100vh;
+.principal {  
   display: flex;
-  flex-direction: column;
+
   justify-content: center;
   align-items: center; 
   text-align: center;
@@ -72,7 +73,7 @@
  
  .titles {
    font-size: 1rem;
-  margin-top: -10rem;
+  margin-top: 2rem;
    margin-bottom: 1rem;
    text-align: center; 
    margin-right: 0rem;
@@ -84,12 +85,13 @@
    max-width: 1200px;
    display: flex;
    
-margin-top: -8rem;
+
    align-items: center;
  }
  
  
  .divvideo { margin-right: 0;
+  margin-bottom: 2rem;
  
  }
  
@@ -103,7 +105,7 @@ margin-top: -8rem;
    background-color: #f0f0f0;
    max-width: 320px;
    max-height:200px;
-   margin-bottom: 1rem;
+
 }
 
 }
