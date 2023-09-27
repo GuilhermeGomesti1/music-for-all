@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 import homeoficial from "../../../public/images/homeoficial.png";
 import homecursos from "../../../public/images/homecursos.png";
 import { Form } from "../components/Form";
+import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
 
 export default function Contato() {
   return (
@@ -31,6 +32,7 @@ export default function Contato() {
             placeholder="blur"
           />
         </div>
+        <IconWhatsappfixed />
 
         <div className={styles.textContent}>
           <h1 className={styles.title}>Fale Conosco!</h1>

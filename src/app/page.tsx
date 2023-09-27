@@ -39,9 +39,6 @@ export default function Home() {
   return (
     <>
       <main className={styles.main}>
-
-        
-      
         <div className={styles.containerHeader}>
           <section className={styles.ctaText1}>
             <div>
@@ -69,8 +66,8 @@ export default function Home() {
               />
             </div>
             <li className={styles.itemContato}>
-          <IconWhatsappfixed />
-        </li>
+              <IconWhatsappfixed />
+            </li>
             <div className={styles.buttonGroup}>
               <Link href={"/cursos"} className={styles.buttonContainer}>
                 <button className={styles.buttons}>
@@ -237,7 +234,6 @@ export default function Home() {
                 src={alunos}
                 alt="Music For All Logo"
                 loading="lazy"
-              
               />
             </div>
 
@@ -290,7 +286,9 @@ export default function Home() {
                   </li>
                 </a>
                 <li className={styles.itemContato}>
-                  <IconEmail />
+                  <a href="mailto:escolamusicforall@gmail.com">
+                    <IconEmail />
+                  </a>
                 </li>
               </ul>
             </div>

@@ -1,45 +1,49 @@
-.contentAll {
-  margin: 0 auto;
-  min-height: 100vh;
-  background-color:white;
-  align-items: center;
+.imgMobile{display: none;}
+.facaparte{
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
+}
+
+.principal {  height: 100vh;
+ margin-top: -8rem;
+  display: flex;
+  flex-direction: column; 
+ margin-left: 8rem;
   justify-content: center;
 }
 
-
-.imgMobile{
-  display: none;
-}
-  
-
-
-  .titles{text-align: center;
-  margin-top: 1rem;
-margin-bottom: 1rem;}
-
-.video{ display: flex;
-  justify-content: center; /* Centralizar horizontalmente */
-  align-items: center; /* Centralizar verticalmente */
-  
-}
-@media (max-width: 768px) {
-  .facaparte {
-    display: none;
-  }
-
-  .imgMobile {
-    display: flex;
-    margin: 0 auto;
-    background-color:white;
-    align-items: center;
-    justify-content: center;
-    min-width: 100%;
-   
-  }
-
-  .titles{font-size: 1rem;}
+.titles {
+  font-size: 1.5rem;
+ color: #FF7B43;
+  margin-bottom: 1rem;
+  text-align: center; 
+  margin-right: 4rem;
 }
 
+.videoAndText {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between; 
+  align-items: center;
+}
+
+
+.divvideo {
+  flex: 1;
+  margin-right: 2rem; 
+}
+
+.subtitles {text-align: justify;
+  max-width: 400px;
+  flex: 1; 
+ 
+}
+.video {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #f0f0f0;
+  max-width: 100%;
+}
 @media (min-width: 769px) {
   .imgMobile {
     display: none;
@@ -47,6 +51,62 @@ margin-bottom: 1rem;}
 }
 
 
+
+
+@media (max-width: 768px) {
+  .imgMobile {display: flex;}
+
+  .facaparte{display: none;}
+
+
+.principal {  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  text-align: center;
+  margin: 0 auto;
+
+   
+ }
+ 
+ .titles {
+   font-size: 1rem;
+  margin-top: -10rem;
+   margin-bottom: 1rem;
+   text-align: center; 
+   margin-right: 0rem;
+ }
+ 
+ .videoAndText {
+  align-items: center; 
+  flex-direction: column;
+   max-width: 1200px;
+   display: flex;
+   
+margin-top: -8rem;
+   align-items: center;
+ }
+ 
+ 
+ .divvideo { margin-right: 0;
+ 
+ }
+ 
+ .subtitles {text-align: justify;
+   max-width: 360px;
+   font-size: 0.9rem;  
+ }
+ .video {
+   border-radius: 2px;
+
+   background-color: #f0f0f0;
+   max-width: 320px;
+   max-height:200px;
+   margin-bottom: 1rem;
+}
+
+}
 
 
 

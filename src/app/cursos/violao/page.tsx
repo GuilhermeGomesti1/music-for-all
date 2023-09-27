@@ -4,6 +4,7 @@ import cursoviolao1 from "../../../../public/images/cursoviolao1.png";
 import homecursos from "../../../../public/images/homecursos.png"
 import homeoficial from "../../../../public/images/homeoficial.png"
 import { Form } from "@/app/components/Form";
+import { IconWhatsappfixed } from "@/app/components/Icons/IconsContato/iconWhatsappfixed";
 export default function Cursos() {
   return (
     <>
@@ -30,7 +31,7 @@ export default function Cursos() {
             placeholder="blur"
           />
         </div>
-
+        <IconWhatsappfixed />
         <div className={styles.cursodeviolao}>
           <h1 className={styles.title}>
           Violão 

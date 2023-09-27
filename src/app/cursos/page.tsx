@@ -12,6 +12,7 @@ import ukulele from "../../../public/images/ukulele.png";
 import titlecursos2 from "../../../public/images/titlecursos2.png";
 import agendaraula from "../../../public/images/agendaraula.png";
 import { Form } from "../components/Form";
+import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
 export default function Cursos() {
 
   const mensagemWhatsApp = "Olá, gostaria de agendar uma aula experimental.";
@@ -61,7 +62,7 @@ export default function Cursos() {
               placeholder="blur"
         
             />
-
+  <IconWhatsappfixed />
             <span className={styles.spanCursos}>
               {" "}
               ESCOLHA O QUE MAIS LHE INSPIRA!
