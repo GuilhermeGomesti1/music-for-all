@@ -1,4 +1,4 @@
-.main {
+.contentAll {
   margin: 0 auto;
   min-height: 100vh;
   background-color:white;
@@ -29,7 +29,12 @@ margin-bottom: 1rem;}
 
   .imgMobile {
     display: flex;
-    max-width: 100%; 
+    margin: 0 auto;
+    background-color:white;
+    align-items: center;
+    justify-content: center;
+    min-width: 100%;
+   
   }
 
   .titles{font-size: 1rem;}
