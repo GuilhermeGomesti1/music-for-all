@@ -110,8 +110,7 @@ export default function Blog() {
           <div className={styles.videoAndText}>
             <div className={styles.divvideo}>
               <h1 className={styles.titles}>
-                Fatos interessantes e curiosidades super legais que
-                provavelmente você não sabia sobre música
+              Musicoterapia, o que é?
               </h1>
               <Image
                 className={styles.video}
