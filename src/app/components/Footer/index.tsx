@@ -6,7 +6,7 @@ import { IconInstagram } from "../Icons/iconsFooter/iconInstagram";
 import { IconYoutube } from "../Icons/iconsFooter/iconYoutube";
 import { IconWhatsapp } from "../Icons/iconsFooter/iconWhatsapp";
 import { IconEmail } from "../Icons/iconsFooter/iconEmail";
-import {IconCopy}from "../Icons/iconsFooter/iconCopy";
+import { IconCopy } from "../Icons/iconsFooter/iconCopy";
 import { IconSend } from "../Icons/iconsFooter/iconSend";
 import { IconTel } from "../Icons/iconsFooter/iconTel";
 
@@ -71,24 +71,34 @@ export function Footer() {
         </ul>
       </div>
 
-      <div>
+      <div className={styles.divContact}>
         <ul>
-
-        <li className={styles.itemContato} onClick={handlePhoneClick} id="telefone" title="Clique aqui para copiar">
-          Telefone: (31)986132070  <IconTel/>
-        </li>
+          <li
+            className={styles.itemContato}
+            onClick={handlePhoneClick}
+            id="telefone"
+            title="Clique aqui para copiar"
+          >
+            Telefone: (31)986132070 <IconTel />
+          </li>
           <li className={styles.itemContato}>
             <a
               className={styles.email}
               href="mailto:escolamusicforall@gmail.com"
               title="Clique aqui para nos enviar um e-mail"
             >
-              E-mail: escolamusicforall@gmail.com <IconSend/>
+              E-mail: escolamusicforall@gmail.com <IconSend />
             </a>
           </li>
-           <li className={styles.itemContato} onClick={handleAddressClick} id="endereco"  title="Clique aqui para copiar">
-          Avenida Wilson Alvarenga, 1140, sala 504 - João Monlevade/MG  <IconCopy/>
-        </li>
+          <li
+            className={styles.itemContato}
+            onClick={handleAddressClick}
+            id="endereco"
+            title="Clique aqui para copiar"
+          >
+            Av.Wilson Alvarenga, 1140, sala 504-João Monlevade/MG
+            <IconCopy />
+          </li>
         </ul>
       </div>
     </div>

@@ -121,4 +121,12 @@
     font-size: 30px;
     border-radius: 50%;
   }
+  .iconTel{font-size: 15px;}
+
+  .iconCopy{
+    font-size: 15px;
+  }
+  .iconSend{
+    font-size: 15px;
+  }
 }
