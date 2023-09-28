@@ -1,0 +1,74 @@
+.iconWhatsapp {
+  color: #5dbe26;
+  background-color: transparent;
+  font-size: 40px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+.iconInstagram {
+  color: #eda5fc;
+  background-color: transparent;
+  font-size: 40px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.iconYoutube {
+  color: #d14029;
+  background-color: transparent;
+  font-size: 40px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.iconEmail {
+  color: #3964ff;
+  background-color: transparent;
+  font-size: 40px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+
+
+.iconWhatsappfixed:hover {
+  transform: scale(1.05);
+  background-position: -60px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+@media (max-width: 768px) {
+
+
+
+  .iconWhatsapp {
+   
+    color: #5dbe26;
+
+    font-size: 30px;
+    border-radius: 50%;
+  }
+  .iconInstagram {
+  
+    color: #eda5fc;
+    
+    font-size: 30px;
+    border-radius: 50%;
+  }
+
+  .iconYoutube {
+   
+    color: #d14029;
+   
+    font-size: 30px;
+    border-radius: 50%;
+  }
+
+  .iconEmail {
+    
+    color: #3964ff;
+  
+    font-size: 30px;
+    border-radius: 50%;
+  }
+}
