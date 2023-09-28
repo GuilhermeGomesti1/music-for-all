@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import styles from "./styles.module.css";
 import facapartemobile from "../../../public/images/facapartemobile.png";
