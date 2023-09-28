@@ -9,7 +9,16 @@ export function Footer() {
   return (
     <div className={styles.footer}>
     
-
+    <div>
+      <Image
+        className={styles.img}
+        src={logofooter}
+        alt="Logotipo Music For All"
+        width={120}
+        height={130}
+      />
+      
+      </div>
       <div className={styles.contatos}>
         <ul className={styles.contatosList}>
           <li className={styles.itemContato}>
@@ -49,16 +58,7 @@ export function Footer() {
         </ul>
       </div>
 
-      <div>
-      <Image
-        className={styles.img}
-        src={logofooter}
-        alt="Logotipo Music For All"
-        width={120}
-        height={130}
-      />
-      
-      </div>
+    
     </div>
   );
 }
