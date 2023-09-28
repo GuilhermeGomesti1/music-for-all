@@ -1,3 +1,5 @@
+"use client"
+
 import { SVGProps, useState, useEffect } from "react";
 import styles from "./styles.module.css";
 
