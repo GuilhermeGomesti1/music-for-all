@@ -55,7 +55,12 @@
 
 
 @media (max-width: 768px) {
-  .imgMobile {display: flex;}
+  .imgMobile { 
+    display: flex;
+    margin: 0 auto;
+    background-color:white;
+    align-items: center;
+    justify-content: center;}
 
   .facaparte{display: none;}
 
