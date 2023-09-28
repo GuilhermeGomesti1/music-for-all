@@ -1,13 +1,12 @@
 .main {
   margin: 0 auto;
   min-height: 100vh;
-  background-color:white;
+  background-color: white;
   align-items: center;
   justify-content: center;
 }
 
 .containerHeader {
-
   margin: 0 auto;
   max-width: 1200px;
   display: flex;
@@ -15,16 +14,16 @@
   justify-content: center;
 }
 
-.img {box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
+.img {
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
   margin: 0 auto;
-max-height: 507px;
-width: 100vw;
-display: flex;
-
-
+  max-height: 507px;
+  width: 100vw;
+  display: flex;
 }
-.imgMobile{display:none;}
-
+.imgMobile {
+  display: none;
+}
 
 .buttonGroup {
   display: flex;
@@ -39,7 +38,8 @@ display: flex;
   justify-content: center;
   align-items: center;
 }
-.buttons {border: none;
+.buttons {
+  border: none;
   background-color: white;
   width: 280px;
   height: 270px;
@@ -71,14 +71,12 @@ display: flex;
 }
 
 .titleButton {
-  
   font-weight: bold;
   font-size: 1rem;
   display: block;
 }
 
 .subtitleButton {
-
   margin-left: 1rem;
   margin-right: 1rem;
   font-size: 0.9rem;
@@ -121,12 +119,10 @@ display: flex;
 }
 
 .curso:hover {
-  background-color: rgba(255, 255, 255, 0.5);
+ 
+  filter: brightness(1.2);
 
-  background-position: -60px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
-  filter: brightness(0.9);
 }
 .divTitle {
   align-items: center;
@@ -272,8 +268,6 @@ display: flex;
   height: 500px;
   margin-left: 8rem;
   transition: 0.3s ease-in-out;
- 
-  
 }
 
 .imgcontainer::before {
@@ -343,43 +337,35 @@ display: flex;
 
 /* Mobile */
 @media (max-width: 768px) {
-  .main {background-color: #D4D4D4;
+  .main {
+    background-color: #d4d4d4;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
   }
 
-  .containerHeader{
-   
+  .containerHeader {
   }
 
   .img {
- display: none;
+    display: none;
   }
 
-
-  .imgMobile{   
-    
+  .imgMobile {
     display: flex;
     margin: 0 auto;
-    background-color:white;
+    background-color: white;
     align-items: center;
     justify-content: center;
-    
-  
-    }
-
+  }
 
   .titleCursos {
-    
     width: 200px;
     height: 120px;
     margin-bottom: -1rem;
   }
 
   .spanCursos {
-    
     margin-left: 0;
     display: flex;
     font-size: 1rem;
@@ -412,29 +398,27 @@ display: flex;
   }
 
   .buttonGroup {
-    display: flex; 
- 
+    display: flex;
+
     border: none;
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
     justify-content: space-between;
-   
   }
 
-
-  .buttonContainer { border: none; 
+  .buttonContainer {
+    border: none;
   }
 
   .buttons {
     background-color: transparent;
-     border: none;
+    border: none;
     margin: 0 10px;
     margin-top: -10rem;
-  box-shadow: none;
+    box-shadow: none;
     width: 100px;
     height: 100px;
-    
   }
 
   .iconButton {
@@ -446,8 +430,8 @@ display: flex;
   .titleButton {
     font-weight: bold;
     font-size: 0.8rem;
-    
-    color:white;
+
+    color: white;
   }
 
   .subtitleButton {
@@ -469,7 +453,6 @@ display: flex;
     font-size: 1.2rem;
     line-height: 3rem;
     padding-bottom: 1rem;
-
   }
 
   .img2 {
@@ -482,13 +465,10 @@ display: flex;
   }
 
   .divLista {
- 
-   margin-left: 5rem;
+    margin-left: 5rem;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
     padding-top: 1rem;
-    
-    
   }
 
   .lista {
@@ -506,7 +486,7 @@ display: flex;
     margin-bottom: -4px;
   }
 
-   .item:not(:last-child) {
+  .item:not(:last-child) {
     margin-bottom: 0;
   }
 
@@ -531,7 +511,6 @@ display: flex;
     line-height: 0.5;
     z-index: 1;
     margin-bottom: 2.5rem;
-  
   }
 
   .buttonOnline {
@@ -544,19 +523,18 @@ display: flex;
   }
   .contatos {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
   }
-  
+
   .contatosList {
-    list-style: none; 
-    display: flex; 
+    list-style: none;
+    display: flex;
     margin: 0;
     padding: 0;
     margin-top: -1.5rem;
   }
-  
+
   .itemContato {
-    
   }
 
   .paragrafo3 {
@@ -570,7 +548,4 @@ display: flex;
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
-
-
-
 }

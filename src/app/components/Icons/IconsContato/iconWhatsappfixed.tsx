@@ -1,14 +1,31 @@
-import { SVGProps } from "react";
+import { SVGProps, useState, useEffect } from "react";
 import styles from "./styles.module.css";
 
 export const IconWhatsappfixed = (props: SVGProps<SVGSVGElement>) => {
+  const [isShaking, setIsShaking] = useState(false);
+  useEffect(() => {  console.log("O useEffect foi acionado"); 
+    const interval = setInterval(() => {
+      setIsShaking(true);
+  
+      // Remova a classe de tremor após 1 segundo (tempo da animação)
+      setTimeout(() => {
+        setIsShaking(false);
+      }, 2000);
+    }, 10000); // A cada 10 segundos
+  
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
-    <a href="https://api.whatsapp.com/send?phone=5531986132070" target="_black">
+    <a href="https://api.whatsapp.com/send?phone=5531986132070" target="_black" title="Enviar mensagem!">
       <svg
-        className={styles.iconWhatsappfixed}
+       className={`${styles.iconWhatsappfixed} ${isShaking ? styles.shake : ""}`}
         stroke="currentColor"
         fill="currentColor"
         strokeWidth="0"
+        
         viewBox="0 0 448 512"
         height="1em"
         width="1em"
