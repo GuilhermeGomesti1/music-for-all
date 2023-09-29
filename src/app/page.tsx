@@ -20,6 +20,7 @@ import guitarra from "../../public/images/guitarra.png";
 import gaita from "../../public/images/gaita.png";
 import ukulele from "../../public/images/ukulele.png";
 import titlecursos2 from "../../public/images/titlecursos2.png";
+import agendaraulamobile from "../../public/images/agendaraulamobile.png";
 import agendaraula from "../../public/images/agendaraula.png";
 import { IconYoutube } from "./components/Icons/IconsContato/iconYoutube";
 import { IconEmail } from "./components/Icons/IconsContato/iconEmail";
@@ -226,7 +227,33 @@ export default function Home() {
             />
           </div>
 
-          <h1 className={styles.title3}>Por que Escolher a Music for All?</h1>
+          <div className={styles.agendarMobile}>
+            <Image
+              className={styles.imgMobile}
+              src={agendaraulamobile}
+              alt="foto home mobile"
+              width={390}
+              height={382}
+              loading="lazy"
+              placeholder="blur"
+            />
+
+            <button
+              className={styles.buttonPresencialmobile}
+              onClick={redirectToWhatsApp}
+            >
+              Presencial
+            </button>
+
+            <button
+              className={styles.buttonOnlinemobile}
+              onClick={redirectToWhatsApp}
+            >
+              Online
+            </button>
+          </div>
+
+          <h1 className={styles.title3}>Por que Escolher a Music For All? </h1>
           <section className={styles.ctaText}>
             <div className={styles.imgcontainer}>
               <Image
