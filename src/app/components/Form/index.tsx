@@ -77,10 +77,18 @@ export function Form() {
   onChange={(e) => {
     const input = e.target;
     const value = input.value.replace(/\D/g, ""); // Remove caracteres não numéricos
-    const formattedValue = value.replace(
-      /^(\d{2})(\d{4,5})(\d{4})$/,
-      "($1) $2-$3"
-    );
+    let formattedValue = "";
+
+    if (value.length <= 2) {
+      formattedValue = `(${value}`;
+    } else if (value.length <= 6) {
+      formattedValue = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+    } else if (value.length <= 10) {
+      formattedValue = `(${value.slice(0, 2)}) ${value.slice(2, 6)}-${value.slice(6)}`;
+    } else {
+      formattedValue = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7, 11)}`;
+    }
+
     setFormattedValue(formattedValue); // Atualize o estado
   }}
 />
