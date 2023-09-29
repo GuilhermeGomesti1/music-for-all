@@ -64,15 +64,23 @@ export function Form() {
             name="email"
           />
   
-          <label className={styles.formLabel} htmlFor="whatsapp">
-            WhatsApp:
-          </label>
-          <input
-            className={styles.formInput}
-            type="text"
-            id="whatsapp"
-            name="whatsapp"
-          />
+  <input
+  className={styles.formInput}
+  type="text"
+  id="whatsapp"
+  name="whatsapp"
+  placeholder="(00) ____-_____"
+  maxLength={14} // Altere esta linha para um valor numérico
+  onChange={(e) => {
+    const input = e.target;
+    const value = input.value.replace(/\D/g, ""); // Remove caracteres não numéricos
+    const formattedValue = value.replace(
+      /^(\d{2})(\d{4,5})(\d{4})$/,
+      "($1) $2-$3"
+    );
+    input.value = formattedValue;
+  }}
+/>
   
           <button
             className={styles.formButton}
