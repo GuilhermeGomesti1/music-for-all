@@ -1,11 +1,14 @@
 "use client";
+import { useState } from "react";
 import styles from "./styles.module.css";
-export function Form() {
+export function Form() {  
+  
+    const [formattedValue, setFormattedValue] = useState("");
     const handleFormSubmit = () => {
       const nomeElement = document.getElementById("nome") as HTMLInputElement;
       const emailElement = document.getElementById("email") as HTMLInputElement;
       const whatsappElement = document.getElementById("whatsapp") as HTMLInputElement;
-  
+    
       if (nomeElement && emailElement && whatsappElement) {
         const nome = nomeElement.value;
         const email = emailElement.value;
@@ -21,7 +24,7 @@ export function Form() {
         }
        
         const mensagemAdicional = "Quero mais informações sobre a 'Music for All-Escola de Música'!\n\n";
-
+        
        
         const whatsappURL = `https://api.whatsapp.com/send?phone=5531986132070&text=${encodeURIComponent(
           mensagemAdicional + 
@@ -63,14 +66,14 @@ export function Form() {
             id="email"
             name="email"
           />
-  
   <input
   className={styles.formInput}
   type="text"
   id="whatsapp"
   name="whatsapp"
   placeholder="(00) ____-_____"
-  maxLength={14} // Altere esta linha para um valor numérico
+  maxLength={15} // Altere esta linha para um valor numérico
+  value={formattedValue}
   onChange={(e) => {
     const input = e.target;
     const value = input.value.replace(/\D/g, ""); // Remove caracteres não numéricos
@@ -78,7 +81,7 @@ export function Form() {
       /^(\d{2})(\d{4,5})(\d{4})$/,
       "($1) $2-$3"
     );
-    input.value = formattedValue;
+    setFormattedValue(formattedValue); // Atualize o estado
   }}
 />
   
