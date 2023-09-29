@@ -14,7 +14,7 @@ import homeoficial from "../../public/images/homeoficial.png";
 import alunos from "../../public/images/alunos.png";
 import Link from "next/link";
 import cursoviolao1 from "../../public/images/cursoviolao1.png";
-
+import musicalizacao from "../../public/images/musicalizacao.png";
 import piano from "../../public/images/piano.png";
 import guitarra from "../../public/images/guitarra.png";
 import gaita from "../../public/images/gaita.png";
@@ -190,6 +190,18 @@ export default function Home() {
                 <Image
                   className={styles.imgCursos}
                   src={ukulele}
+                  alt="Imagem do curso"
+                  loading="lazy"
+                  placeholder="blur"
+                />
+              </Link>
+            </div>
+
+            <div className={styles.curso}>
+              <Link href={"/cursos/musicalizacaoinfantil"}>
+                <Image
+                  className={styles.imgCursos}
+                  src={musicalizacao}
                   alt="Imagem do curso"
                   loading="lazy"
                   placeholder="blur"

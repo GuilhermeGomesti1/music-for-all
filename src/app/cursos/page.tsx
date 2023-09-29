@@ -5,12 +5,14 @@ import Link from "next/link";
 import homeoficial from "../../../public/images/homeoficial.png"
 import homecursos from "../../../public/images/homecursos.png"
 import cursoviolao1 from "../../../public/images/cursoviolao1.png";
+import musicalizacao from "../../../public/images/musicalizacao.png";
 import piano from "../../../public/images/piano.png";
 import guitarra from "../../../public/images/guitarra.png";
 import gaita from "../../../public/images/gaita.png";
 import ukulele from "../../../public/images/ukulele.png";
 import titlecursos2 from "../../../public/images/titlecursos2.png";
 import agendaraula from "../../../public/images/agendaraula.png";
+import agendaraulamobile from "../../../public/images/agendaraulamobile.png";
 import { Form } from "../components/Form";
 import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
 export default function Cursos() {
@@ -134,6 +136,18 @@ export default function Cursos() {
                 />
               </Link>
             </div>
+
+            <div className={styles.curso}>
+              <Link href={"/cursos/musicalizacaoinfantil"}>
+                <Image
+                  className={styles.imgCursos}
+                  src={musicalizacao}
+                  alt="Imagem do curso"
+                  loading="lazy"
+                  placeholder="blur"
+                />
+              </Link> 
+              </div>
           </section>
          
         </div>
@@ -161,6 +175,33 @@ export default function Cursos() {
                 placeholder="blur"
             
             />
+          </div>
+
+
+          <div className={styles.agendarMobile}>
+            <Image
+              className={styles.imgMobile}
+              src={agendaraulamobile}
+              alt="foto home mobile"
+              width={390}
+              height={382}
+              loading="lazy"
+              placeholder="blur"
+            />
+
+            <button
+              className={styles.buttonPresencialmobile}
+              onClick={redirectToWhatsApp}
+            >
+              Presencial
+            </button>
+
+            <button
+              className={styles.buttonOnlinemobile}
+              onClick={redirectToWhatsApp}
+            >
+              Online
+            </button>
           </div>
 
 <div className={styles.formCursos}><Form/></div>

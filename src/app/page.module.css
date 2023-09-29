@@ -102,7 +102,9 @@
   padding-top: 2rem;
 }
 
-.cursosSection {
+.cursosSection {max-width: 1350px;
+ margin: 0 auto;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -111,7 +113,7 @@
 .curso {
   margin: 0 auto;
   margin-top: 4rem;
-  margin-bottom: 8rem;
+  margin-bottom: -2rem;
 
   padding-top: -1rem;
 
@@ -126,7 +128,9 @@
 
 
 }
-.divTitle {
+.divTitle {margin-left: 0 auto;
+  text-align: center;
+  justify-content: center;
   align-items: center;
   display: flex;
   padding-top: 2rem;
@@ -165,17 +169,18 @@
 }
 
 .imgCursos {
-  width: 360px;
-  height: 360px;
+  width: 420px;
+  height: 282px;
 }
 
 .textoCursos {
-  color: #214e36;
+  color: black;
+  font-weight: bolder;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   justify-content: center;
   margin-bottom: 8rem;
-  margin-top: -4rem;
+  margin-top: 6rem;
 }
 
 .containerThree {
@@ -242,7 +247,7 @@
   box-shadow: 5px 3px 7px 4px rgba(0, 0, 0, 0.5);
 }
 .title3 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   line-height: 4.5rem;
   font-weight: 900;
   margin-top: 2.5rem;
@@ -382,8 +387,8 @@
   }
 
   .imgCursos {
-    width: 180px;
-    height: 180px;
+    width: 350px;
+    height: 235px;
   }
 
   .textoCursos {color: black;

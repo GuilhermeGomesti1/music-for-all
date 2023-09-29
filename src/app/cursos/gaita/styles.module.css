@@ -38,10 +38,10 @@
   }
 
   .fotocurso{
-  margin-left: 4rem;
-    max-width: 100%; 
-    width: 350px;
-    height: 350px;
+    margin-left: 1rem;
+    max-width: 100%;
+    width: 420px;
+    height: 282px;
    
     
   }
@@ -105,17 +105,20 @@
   }
 
   .imageContainer {
-    float: none;
-    width: 90%;
+    display: flex; /* Centraliza horizontalmente */
     align-items: center;
+    justify-content: center; /* Centraliza horizontalmente */
+    width: 90%;
+    
   }
 
   .fotocurso{
     margin-top: 1rem;
-    
-    width: 200px;
-    height: 200px;
-   
+    width: 350px;
+    height: 235px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     
   }
 

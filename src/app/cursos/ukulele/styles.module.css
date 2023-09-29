@@ -39,10 +39,10 @@
 }
 
 .fotocurso {
-  margin-left: 4rem;
+  margin-left: 1rem;
   max-width: 100%;
-  width: 350px;
-  height: 350px;
+  width: 420px;
+  height: 282px;
 }
 
 .title {
@@ -105,9 +105,8 @@
 
   .fotocurso {
     margin-top: 1rem;
-
-    width: 200px;
-    height: 200px;
+    width: 350px;
+    height: 235px;
   }
 
   .title {
