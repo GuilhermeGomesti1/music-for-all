@@ -99,13 +99,14 @@
 
   .imageContainer {
     float: none;
-    width: 84%;
+    width: 90%;
     align-items: center;
   }
 
   .fotocurso {
     margin-top: 1rem;
-
+    margin-left: auto;
+    margin-right: auto;
     width: 350px;
     height: 235px;
   }

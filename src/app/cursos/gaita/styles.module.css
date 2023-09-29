@@ -93,7 +93,7 @@
     height: auto;
     max-width: 100%;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
-    min-width: 100%;
+    
   }
   
 
@@ -107,7 +107,7 @@
   .imageContainer {
     float: none;
     
-    width: 84%;
+    width: 90%;
     
     align-items: center;
     justify-content: center;
@@ -121,7 +121,8 @@
     align-items: center;
     justify-content: center;
    text-align: center;
-    
+   margin-left: auto;
+   margin-right: auto;
   }
 
   
