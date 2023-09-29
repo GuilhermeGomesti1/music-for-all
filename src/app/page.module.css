@@ -25,6 +25,8 @@
   display: none;
 }
 
+.agendarMobile{display: none;}
+
 .buttonGroup {
   display: flex;
   justify-content: center;
@@ -498,7 +500,8 @@
    display: none;
   }
 
-  .agendarMobile{  width: 100%;
+  .agendarMobile{ 
+    display: flex; width: 100%;
     max-width: 100%;
     position: relative;
     margin-top: 4rem;
