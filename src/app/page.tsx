@@ -198,8 +198,7 @@ export default function Home() {
             </div>
           </section>
           <p className={styles.textoCursos}>
-            Oferecemos uma ampla gama de cursos que abraçam a diversidade da
-            música.
+           OFERECEMOS UMA AMPLAA GAMA DE CURSOS QUE ABRAÇAM A DIVERDIDADE DA MÚSICA.
           </p>
         </div>
 

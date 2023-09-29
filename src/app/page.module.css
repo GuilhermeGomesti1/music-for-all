@@ -246,7 +246,7 @@
   line-height: 4.5rem;
   font-weight: 900;
   margin-top: 2.5rem;
-  color: #5a1929;
+  color: black;
 }
 
 .ctaText {
@@ -386,10 +386,11 @@
     height: 180px;
   }
 
-  .textoCursos {
+  .textoCursos {color: black;
     font-size: 1rem;
-    margin-top: 1rem;
-    margin-bottom: -2.5rem;
+    margin-top: 3rem;
+    margin-bottom: -6.5rem;
+    font-weight: bolder;
   }
 
   .ctaText {
@@ -500,7 +501,7 @@
    display: none;
   }
 
-  .agendarMobile{ 
+  .agendarMobile{ margin-bottom: -4rem;
     display: flex; width: 100%;
     max-width: 100%;
     position: relative;
