@@ -9,8 +9,33 @@ import { IconEmail } from "../Icons/iconsFooter/iconEmail";
 import { IconCopy } from "../Icons/iconsFooter/iconCopy";
 import { IconSend } from "../Icons/iconsFooter/iconSend";
 import { IconTel } from "../Icons/iconsFooter/iconTel";
+import { useEffect } from "react";
 
 export function Footer() {
+
+  useEffect(() => {
+
+    if (process.browser) {
+      // O código abaixo será executado apenas no navegador
+      import('scrollreveal').then((ScrollRevealModule) => {
+        const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
+
+        const sr = ScrollReveal({
+          duration: 1000,
+          reset: true,
+          // Outras opções de configuração aqui
+        });
+
+        sr.reveal('.animated-item', {
+          origin: 'bottom',
+          distance: '20px',
+          easing: 'ease-in-out',
+        });
+      });
+    }
+  }, []);
+
+
   const copyToClipboard = (text: string) => {
     const textArea = document.createElement("textarea");
     textArea.value = text;
@@ -35,10 +60,10 @@ export function Footer() {
     alert("Endereço copiado para a área de transferência: " + address);
   };
   return (
-    <div className={styles.footer}>
+    <div className={`${styles.footer} animated-item`}>
       <div>
         <Image
-          className={styles.img}
+          className={styles.img} 
           src={logofooter}
           alt="Logotipo Music For All"
           width={120}

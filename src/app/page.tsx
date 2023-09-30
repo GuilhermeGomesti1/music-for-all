@@ -9,7 +9,7 @@ import { IconCurso } from "./components/Icons/iconsHome/iconCurso";
 import { IconWhatsapp } from "./components/Icons/IconsContato/iconWhatsapp";
 import { IconInstagram } from "./components/Icons/IconsContato/iconInstagram";
 import styles from "./page.module.css";
-import ScrollReveal from 'scrollreveal';
+
 import homemobile from "../../public/images/homemobile.png";
 import homeoficial from "../../public/images/homeoficial.png";
 import alunos from "../../public/images/alunos.png";
@@ -38,7 +38,7 @@ export default function Home() {
 
         const sr = ScrollReveal({
           duration: 1000,
-          reset: true,
+          reset: false,
           // Outras opções de configuração aqui
         });
 

@@ -1,7 +1,32 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 export function Form() {  
+
+
+  useEffect(() => {
+
+    if (process.browser) {
+      // O código abaixo será executado apenas no navegador
+      import('scrollreveal').then((ScrollRevealModule) => {
+        const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
+
+        const sr = ScrollReveal({
+          duration: 1000,
+          reset: true,
+          // Outras opções de configuração aqui
+        });
+
+        sr.reveal('.animated-item', {
+          origin: 'bottom',
+          distance: '20px',
+          easing: 'ease-in-out',
+        });
+      });
+    }
+  }, []);
+
+
   
     const [formattedValue, setFormattedValue] = useState("");
     const handleFormSubmit = () => {
@@ -47,27 +72,27 @@ export function Form() {
     };
   
     return (
-      <div className={styles.formContainer}>
-        <h2 className={styles.formTitle}>
+      <div className={`${styles.formContainer} animated-item`}>
+        <h2 className={`${styles.formTitle} animated-item`}>
           Gostaria de mais informações? Preencha o formulário abaixo!
         </h2>
         <form>
-          <label className={styles.formLabel} htmlFor="nome">
+          <label className={styles.formLabel} htmlFor="nome">     
             Nome:
           </label>
-          <input className={styles.formInput} type="text" id="nome" name="nome" />
+          <input className={`${styles.formInput} animated-item`} type="text" id="nome" name="nome" />   
   
           <label className={styles.formLabel} htmlFor="email">
             Email:
           </label>
           <input
-            className={styles.formInput}
+            className={`${styles.formInput} animated-item`} 
             type="email"
             id="email"
             name="email"
           />
   <input
-  className={styles.formInput}
+  className={`${styles.formInput} animated-item`} 
   type="text"
   id="whatsapp"
   name="whatsapp"
@@ -94,7 +119,7 @@ export function Form() {
 />
   
           <button
-            className={styles.formButton}
+            className={`${styles.formButton} animated-item`} 
             type="button"
             onClick={handleFormSubmit}
           >
