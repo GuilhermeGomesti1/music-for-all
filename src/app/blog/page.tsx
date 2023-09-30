@@ -7,7 +7,32 @@ import musicoterapia from "../../../public/images/musicoterapia.png";
 import facaparte from "../../../public/images/facaparte.png";
 import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
 import { VerticalMenu } from "../components/VerticalMenu";
+import { useEffect } from "react";
 export default function Blog() {
+
+
+  useEffect(() => {
+
+    if (process.browser) {
+      // O código abaixo será executado apenas no navegador
+      import('scrollreveal').then((ScrollRevealModule) => {
+        const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
+
+        const sr = ScrollReveal({
+          duration: 1000,
+          reset: false,
+          // Outras opções de configuração aqui
+        });
+
+        sr.reveal('.animated-item', {
+          origin: 'bottom',
+          distance: '20px',
+          easing: 'ease-in-out',
+        });
+      });
+    }
+  }, []);
+
   return (
     <>
       <main className={styles.contentAll}>
@@ -37,10 +62,10 @@ export default function Blog() {
 
         <IconWhatsappfixed />
 
-        <div className={styles.principal}>
-          <div className={styles.videoAndText}>
-            <div className={styles.divvideo}>
-              <h1 className={styles.titles}>
+        <div className={`${styles.principal} animated-item`}>
+          <div  className={`${styles.videoAndText} animated-item`}>
+            <div className={`${styles.divvideo} animated-item`}> 
+              <h1 className={`${styles.titles} animated-item`}>
                 O Palco é Deles: Alunos Brilhando na Escola de Música!
               </h1>
               <iframe
@@ -52,7 +77,7 @@ export default function Blog() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               ></iframe>
             </div>
-            <p className={styles.subtitles}>
+            <p className={`${styles.subtitles} animated-item`}>  
               Observar a performance de nossos alunos é uma experiência
               verdadeiramente inspiradora, e isso nos lembra de um importante
               aspecto da jornada musical: o talento é algo que merece ser
@@ -63,9 +88,9 @@ export default function Blog() {
             </p>
           </div>
 
-          <div className={styles.videoAndText}>
-            <div className={styles.divvideo}>
-              <h1 className={styles.titles}>
+          <div  className={`${styles.videoAndText} animated-item`}>
+          <div className={`${styles.divvideo} animated-item`}> 
+              <h1 className={`${styles.titles} animated-item`}>
                 Fatos interessantes e curiosidades super legais que
                 provavelmente você não sabia sobre música
               </h1>
@@ -80,25 +105,25 @@ export default function Blog() {
                 loading="lazy"
               />
             </div>
-            <ul className={styles.subtitles}>
-              <li>
+            <ul  className={`${styles.subtitles} animated-item`}>  
+              <li className="animated-item">
                 Poucas atividades estimulam e utilizam praticamente todo o
                 cérebro, e música é uma delas.
               </li>
 
-              <li>
+              <li className="animated-item">
                 Os arrepios que você começa a sentir quando escuta uma música
                 são causados pela liberação de dopamina pelo cérebro,
                 antecipando o ápice de uma canção.
               </li>
 
-              <li>
+              <li className="animated-item">
                 {" "}
                 Estudar música regularmente irá alterar fisicamente sua
                 estrutura cerebral. Alterações associadas à aprendizagem ocorrem
                 principalmente nas conexões entre os neurônios.
               </li>
-              <li>
+              <li className="animated-item">
                 O cérebro responde à músicas da mesma forma que responde quando
                 você come algo. A dopamina é a substância que permite que uma
                 pessoa possa sentir prazeres de tais coisas.
@@ -106,9 +131,9 @@ export default function Blog() {
             </ul>
           </div>
 
-          <div className={styles.videoAndText}>
-            <div className={styles.divvideo}>
-              <h1 className={styles.titles}>
+          <div  className={`${styles.videoAndText} animated-item`}>
+          <div className={`${styles.divvideo} animated-item`}> 
+              <h1 className={`${styles.titles} animated-item`}>
               Musicoterapia, o que é?
               </h1>
               <Image
@@ -122,7 +147,7 @@ export default function Blog() {
                 loading="lazy"
               />
             </div>
-            <p className={styles.subtitles}>
+            <p className={`${styles.subtitles} animated-item`}>  
               Você sabia que a música pode ser usada como método para alívio e
               cura de certas doenças e distúrbios? Para muitas pessoas, a música
               acalma, relaxa o corpo e a mente; proporciona liberdade, sensação
