@@ -33,12 +33,12 @@ export default function Cursos() {
         </div>
         <IconWhatsappfixed />
         <div className={styles.cursodeviolao}>
-          <h1 className={styles.title}>
+        <h1 className={`${styles.title} animated-item`}>
           Violão 
           </h1>
 
-          <div className={styles.textContainer}>
-            <p className={styles.apresentacao}>
+          <div className={`${styles.textContainer} animated-item`}>
+          <p className={`${styles.apresentacao} animated-item`}>
               Bem-vindo ao universo encantador do violão, onde as notas se
               transformam em emoções e os acordes criam histórias musicais
               inesquecíveis. Seja você um iniciante curioso ou um amante da
@@ -46,27 +46,27 @@ export default function Cursos() {
               lugar perfeito para você!
             </p>
 
-            <h2 className={styles.subtitle}>Por que o violão?</h2>
+            <h2 className= {`${styles.subtitle} animated-item`}>Por que o violão?</h2>
 
-            <ul className={styles.apresentacao}>
-              <li>
+            <ul className={`${styles.apresentacao} animated-item`}>
+              <li className="animated-item">
                 {" "}
                 Acessibilidade: O violão é um dos instrumentos mais acessíveis
                 para iniciantes. Suas cordas macias e agradáveis tornam a
                 aprendizagem rápida e gratificante.
               </li>
-              <li>
+              <li className="animated-item">
                 {" "}
                 Versatilidade: Com o violão, você pode tocar uma ampla variedade
                 de estilos musicais, desde clássico e folk até pop e rock. As
                 possibilidades são infinitas!
               </li>
-              <li>
+              <li className="animated-item">
                 {" "}
                 Benefícios Cognitivos: Estudos mostram que tocar violão estimula
                 o cérebro, melhora a concentração e alivia o estresse.
               </li>
-              <li>
+              <li className="animated-item">
                 {" "}
                 Comunidade Musical: Junte-se a uma comunidade apaixonada de
                 músicos que compartilham sua paixão pelo violão. Compartilhe
@@ -74,42 +74,42 @@ export default function Cursos() {
               </li>
             </ul>
 
-            <h2 className={styles.subtitle}>O que oferecemos:</h2>
-            <ul className={styles.apresentacao}>
-              <li>
+            <h2 className= {`${styles.subtitle} animated-item`}>O que oferecemos:</h2>
+            <ul className={`${styles.apresentacao} animated-item`}>
+              <li className="animated-item">
                 Aulas Personalizadas: Nossos instrutores talentosos e
                 experientes estão prontos para guiá-lo em sua jornada musical,
                 adaptando as aulas ao seu nível e estilo de aprendizado.
               </li>
-              <li>
+              <li className="animated-item">
                 {" "}
                 Repertório Abrangente: Aprenda suas músicas favoritas enquanto
                 desenvolve suas habilidades. De clássicos atemporais a hits
                 contemporâneos, temos tudo!{" "}
               </li>
-              <li>
+              <li className="animated-item">
                 {" "}
                 Workshops Criativos: Explore técnicas avançadas, improvisação e
                 composição. Liberte sua criatividade musical!
               </li>
-              <li>
+              <li className="animated-item">
                 Recursos Online: Acesse vídeo aulas, partituras, guias práticos
                 e muito mais em nossa plataforma online de fácil uso.
               </li>
             </ul>
 
-            <p className={styles.apresentacao}>
+            <p className={`${styles.apresentacao} animated-item`}>
               Não perca a oportunidade de desbloquear seu potencial musical. O
               violão está esperando por você para criar sua própria sinfonia.
               Junte-se a nós e comece a sua jornada musical hoje!
             </p>
 
-            <p className={styles.apresentacao}>Vamos tocar juntos?</p>
+            <p className={`${styles.apresentacao} animated-item`}>Vamos tocar juntos?</p>
           </div>
 
-          <div className={styles.imageContainer}>
+          <div className= {`${styles.imageContainer} animated-item`}>
             <Image
-              className={styles.fotocurso}
+             className={`${styles.fotocurso} animated-item`} 
               src={cursoviolao1}
               alt="foto curso de violão"
               loading="lazy"
