@@ -6,6 +6,7 @@
   justify-content: center;
 }
 
+
 .containerHeader {
   margin: 0 auto;
   max-width: 1200px;
@@ -128,7 +129,8 @@
 
 
 }
-.divTitle {margin-left: 0 auto;
+.divTitle {visibility: hidden;
+  margin-left: 0 auto;
   text-align: center;
   justify-content: center;
   align-items: center;

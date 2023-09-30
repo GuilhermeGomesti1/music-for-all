@@ -9,6 +9,7 @@ import { IconCurso } from "./components/Icons/iconsHome/iconCurso";
 import { IconWhatsapp } from "./components/Icons/IconsContato/iconWhatsapp";
 import { IconInstagram } from "./components/Icons/IconsContato/iconInstagram";
 import styles from "./page.module.css";
+import ScrollReveal from 'scrollreveal';
 import homemobile from "../../public/images/homemobile.png";
 import homeoficial from "../../public/images/homeoficial.png";
 import alunos from "../../public/images/alunos.png";
@@ -25,8 +26,31 @@ import agendaraula from "../../public/images/agendaraula.png";
 import { IconYoutube } from "./components/Icons/IconsContato/iconYoutube";
 import { IconEmail } from "./components/Icons/IconsContato/iconEmail";
 import { IconWhatsappfixed } from "./components/Icons/IconsContato/iconWhatsappfixed";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+
+    if (process.browser) {
+      // O código abaixo será executado apenas no navegador
+      import('scrollreveal').then((ScrollRevealModule) => {
+        const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
+
+        const sr = ScrollReveal({
+          duration: 1000,
+          reset: true,
+          // Outras opções de configuração aqui
+        });
+
+        sr.reveal('.animated-item', {
+          origin: 'bottom',
+          distance: '20px',
+          easing: 'ease-in-out',
+        });
+      });
+    }
+  }, []);
+
   const mensagemWhatsApp = "Olá, gostaria de agendar uma aula experimental.";
 
   const redirectToWhatsApp = () => {
@@ -40,7 +64,7 @@ export default function Home() {
   return (
     <>
       <main className={styles.main}>
-        <div className={styles.containerHeader}>
+      <div className={styles.containerHeader}>
           <section className={styles.ctaText1}>
             <div>
               <Image
@@ -121,7 +145,7 @@ export default function Home() {
         </div>
 
         <div className={styles.containerTwo}>
-          <div className={styles.divTitle}>
+        <div className={`${styles.divTitle} animated-item`}>
             <Image
               className={styles.titleCursos}
               src={titlecursos2}
@@ -136,8 +160,8 @@ export default function Home() {
             </span>
           </div>
 
-          <section className={styles.cursosSection}>
-            <div className={styles.curso}>
+          <section className= {`${styles.cursosSection} animated-item`}>
+            <div className={`${styles.curso} animated-item`}>
               <Link href={"/cursos/violao"}>
                 <Image
                   className={styles.imgCursos}
@@ -149,7 +173,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className={styles.curso}>
+            <div className={`${styles.curso} animated-item`}>
               <Link href={"/cursos/piano"}>
                 <Image
                   className={styles.imgCursos}
@@ -161,7 +185,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className={styles.curso}>
+            <div className={`${styles.curso} animated-item`}>
               <Link href={"/cursos/guitarra"}>
                 <Image
                   className={styles.imgCursos}
@@ -173,7 +197,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className={styles.curso}>
+            <div className={`${styles.curso} animated-item`}>
               <Link href={"/cursos/gaita"}>
                 <Image
                   className={styles.imgCursos}
@@ -185,7 +209,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className={styles.curso}>
+            <div className={`${styles.curso} animated-item`}>
               <Link href={"/cursos/ukulele"}>
                 <Image
                   className={styles.imgCursos}
@@ -198,7 +222,7 @@ export default function Home() {
             </div>
 
             <div className={styles.curso}>
-              <Link href={"/cursos/musicalizacaoinfantil"}>
+              <Link href={`${styles.curso} animated-item`}>
                 <Image
                   className={styles.imgCursos}
                   src={musicalizacao}
@@ -209,13 +233,13 @@ export default function Home() {
               </Link>
             </div>
           </section>
-          <p className={styles.textoCursos}>
+          <p className={`${styles.textoCursos} animated-item`}>
            OFERECEMOS UMA AMPLA GAMA DE CURSOS QUE ABRAÇAM A DIVERDIDADE DA MÚSICA.
           </p>
         </div>
 
         <div className={styles.containerThree}>
-          <div className={styles.agendar}>
+          <div className={`${styles.agendar} animated-item`}>
             <button
               className={styles.buttonPresencial}
               onClick={redirectToWhatsApp}
@@ -230,7 +254,7 @@ export default function Home() {
               Online
             </button>
             <Image
-              className={styles.agendaraula}
+              className={`${styles.agendaraula} animated-item`}  
               src={agendaraula}
               alt="Music For All Logo"
               loading="lazy"
@@ -238,7 +262,7 @@ export default function Home() {
             />
           </div>
 
-          <div className={styles.agendarMobile}>
+          <div className= {`${styles.agendarMobile} animated-item`}>
             <Image
               className={styles.imgMobile}
               src={agendaraulamobile}
@@ -264,9 +288,9 @@ export default function Home() {
             </button>
           </div>
 
-          <h1 className={styles.title3}>Por que Escolher a Music For All? </h1>
+          <h1 className={`${styles.title3} animated-item`} >Por que Escolher a Music For All? </h1>   
           <section className={styles.ctaText}>
-            <div className={styles.imgcontainer}>
+            <div className={`${styles.imgcontainer} animated-item`} > 
               <Image
                 className={styles.img2}
                 src={alunos}
@@ -275,7 +299,7 @@ export default function Home() {
               />
             </div>
 
-            <div className={styles.divLista}>
+            <div className={`${styles.divLista} animated-item`} > 
               <ul className={styles.lista}>
                 <li className={styles.item}>
                   {" "}
@@ -304,26 +328,26 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className={styles.contatos}>
-              <ul className={styles.contatosList}>
-                <li className={styles.itemContato}>
+            <div className={`${styles.contatos} animated-item`} > 
+              <ul className={`${styles.contatosList} animated-item`} >
+                <li className={`${styles.itemContato} animated-item`} >
                   <IconInstagram />
                 </li>
-                <li className={styles.itemContato}>
+                <li className={`${styles.itemContato} animated-item`} >
                   <IconYoutube />
                 </li>
               </ul>
 
-              <ul className={styles.contatosList}>
+              <ul className={`${styles.contatosList} animated-item`} >
                 <a
                   href="https://api.whatsapp.com/send?phone=5531986132070"
                   target="_black"
                 >
-                  <li className={styles.itemContato}>
+                  <li className={`${styles.itemContato} animated-item`} >
                     <IconWhatsapp />
                   </li>
                 </a>
-                <li className={styles.itemContato}>
+                <li className={`${styles.itemContato} animated-item`} >
                   <a href="mailto:escolamusicforall@gmail.com">
                     <IconEmail />
                   </a>

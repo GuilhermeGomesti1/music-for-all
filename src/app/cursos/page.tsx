@@ -138,7 +138,7 @@ export default function Cursos() {
             </div>
 
             <div className={styles.curso}>
-              <Link href={"/cursos/musicalizacaoinfantil"}>
+              <Link href={"/cursos/musicalizacao"}>
                 <Image
                   className={styles.imgCursos}
                   src={musicalizacao}
