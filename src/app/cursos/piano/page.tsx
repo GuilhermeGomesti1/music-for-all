@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import styles from "./styles.module.css";
 import violao from "../../../../public/images/violao.png";
@@ -6,7 +7,29 @@ import homeoficial from "../../../../public/images/homeoficial.png"
 import homecursos from "../../../../public/images/homecursos.png"
 import { Form } from "@/app/components/Form";
 import { IconWhatsappfixed } from "@/app/components/Icons/IconsContato/iconWhatsappfixed";
+import { useEffect } from "react";
 export default function Cursos() {
+
+  useEffect(() => {
+    if (process.browser) {
+      // O código abaixo será executado apenas no navegador
+      import("scrollreveal").then((ScrollRevealModule) => {
+        const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
+
+        const sr = ScrollReveal({
+          duration: 1000,
+          reset: false,
+          // Outras opções de configuração aqui
+        });
+
+        sr.reveal(".animated-item", {
+          origin: "bottom",
+          distance: "20px",
+          easing: "ease-in-out",
+        });
+      });
+    }
+  }, []);
   return (
     <>
       <main>
