@@ -221,8 +221,8 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className={styles.curso}>
-              <Link href={`${styles.curso} animated-item`}>
+            <div className={`${styles.curso} animated-item`}>
+              <Link href="/cursos/musicalizacao">
                 <Image
                   className={styles.imgCursos}
                   src={musicalizacao}
