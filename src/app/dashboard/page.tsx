@@ -1,8 +1,17 @@
-"use client"
-import styles from "./styles.module.css"
-import { db, auth} from "../firebase";
+"use client";
+import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
+import homeoficial from "../../../public/images/homeoficial.png";
+import homecursos from "../../../public/images/homecursos.png";
+import Image from "next/image";
+import styles from "./styles.module.css";
+import { db, auth } from "../firebase";
 import { useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword  , signOut, onAuthStateChanged} from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+} from "firebase/auth";
 
 export default function Dashboard() {
   interface UserDetail {
@@ -14,8 +23,6 @@ export default function Dashboard() {
   const [senha, setSenha] = useState("");
   const [user, setUser] = useState(false);
   const [userDetail, setUserDetail] = useState<UserDetail | null>(null);
-
-  
 
   async function novoUsuario() {
     await createUserWithEmailAndPassword(auth, email, senha)
@@ -29,10 +36,6 @@ export default function Dashboard() {
       });
   }
 
-
-
-
-  
   async function logarUsuario() {
     await signInWithEmailAndPassword(auth, email, senha)
       .then((value) => {
@@ -59,10 +62,10 @@ export default function Dashboard() {
         console.log("Erro ao fazer login");
       });
   }
-  async function fazerLogout(){
-    await signOut(auth)
+  async function fazerLogout() {
+    await signOut(auth);
     setUser(false);
-    setUserDetail(null)
+    setUserDetail(null);
   }
 
   useEffect(() => {
@@ -75,7 +78,7 @@ export default function Dashboard() {
           setUserDetail({
             uid: user.uid,
             email: undefined,
-          })
+          });
         } else {
           // não possui usuário
           setUser(false);
@@ -83,37 +86,84 @@ export default function Dashboard() {
         }
       });
     }
-  
+
     checkLogin();
   }, []);
 
   return (
     <div className={styles.container}>
-      <h1>Alunos</h1>
+    <div className={styles.containerViolao}>
+      <Image
+        className={styles.img}
+        src={homeoficial}
+        alt="Music For All Logo"
+        width={1895}
+        height={598}
+        quality={100}
+        loading="lazy"
+        placeholder="blur"
+      />
 
-      {user && (
-        <div>
-          <strong>Seja bem-vindo</strong>
-          <span>ID: {userDetail?.uid} - Email: {userDetail?.email}</span>
-        </div>
-      )}
-
-      <label>Email</label>
-      <input
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Digite seu e-mail"
-      /> <br />
-
-      <label>Senha</label>
-      <input
-        value={senha}
-        onChange={(e) => setSenha(e.target.value)}
-        placeholder="Digite sua senha"
-      /> <br />
-      <button onClick={novoUsuario}>Cadastrar</button>
-      <button onClick={logarUsuario}>Fazer Login</button>
-      <button onClick={fazerLogout}>Fazer logout</button>
+      <Image
+        className={styles.violaoContainer}
+        src={homecursos}
+        alt="Music For All Logo"
+        loading="lazy"
+        placeholder="blur"
+      />
     </div>
-  );
+    <li className={styles.itemContato}>
+      <IconWhatsappfixed />
+    </li>
+    <div className={`${styles.titlesection} animated-item`}>
+      {" "}
+      <span>Faça login para acessar o conteúdo.</span>
+    </div>
+    {user && (  
+
+
+      <div>
+        <strong>Seja bem-vindo</strong>
+        <span>
+          ID: {userDetail?.uid} - Email: {userDetail?.email}
+        </span>
+      </div>
+    )}
+
+
+
+
+    <div className={styles.formContainer}>
+      <form>
+        <label className={styles.formLabel} >Email</label>
+        <input className={styles.formInput}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Digite seu e-mail"
+        />{" "}
+      </form>
+
+
+      <label className={styles.formLabel} >Senha</label>
+    <input className={styles.formInput}
+      value={senha}
+      onChange={(e) => setSenha(e.target.value)}
+      placeholder="Digite sua senha"
+    />
+
+
+      <button className={styles.formButton}  onClick={logarUsuario}>Fazer Login</button>
+
+      <button className={styles.formButton}   onClick={fazerLogout}>Fazer logout</button> 
+
+
+
+
+    </div>
+
+   {/* <button onClick={novoUsuario}>Cadastrar</button> */}
+{/* <button onClick={logarUsuario}>Fazer Login</button> */}
+{/* <button onClick={fazerLogout}>Fazer logout</button> */}
+  </div>
+);
 }
