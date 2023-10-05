@@ -4,6 +4,7 @@ import homeoficial from "../../../public/images/homeoficial.png";
 import homecursos from "../../../public/images/homecursos.png";
 import Image from "next/image";
 import styles from "./styles.module.css";
+
 import { db, auth } from "../firebase";
 import { useEffect, useState } from "react";
 import {
@@ -12,6 +13,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
+import Link from "next/link";
 
 export default function Dashboard() {
   interface UserDetail {
@@ -50,7 +52,7 @@ export default function Dashboard() {
         } else {
           setUserDetail({
             uid: value.user.uid,
-            email: undefined, // Use undefined em vez de null
+            email: undefined,
           });
         }
 
@@ -62,6 +64,7 @@ export default function Dashboard() {
         console.log("Erro ao fazer login");
       });
   }
+
   async function fazerLogout() {
     await signOut(auth);
     setUser(false);
@@ -92,76 +95,78 @@ export default function Dashboard() {
 
   return (
     <div className={styles.container}>
-    <div className={styles.containerViolao}>
-      <Image
-        className={styles.img}
-        src={homeoficial}
-        alt="Music For All Logo"
-        width={1895}
-        height={598}
-        quality={100}
-        loading="lazy"
-        placeholder="blur"
-      />
+      <div className={styles.containerViolao}>
+        <Image
+          className={styles.img}
+          src={homeoficial}
+          alt="Music For All Logo"
+          width={1895}
+          height={598}
+          quality={100}
+          loading="lazy"
+          placeholder="blur"
+        />
 
-      <Image
-        className={styles.violaoContainer}
-        src={homecursos}
-        alt="Music For All Logo"
-        loading="lazy"
-        placeholder="blur"
-      />
-    </div>
-    <li className={styles.itemContato}>
-      <IconWhatsappfixed />
-    </li>
-    <div className={`${styles.titlesection} animated-item`}>
-      {" "}
-      <span>Faça login para acessar o conteúdo.</span>
-    </div>
-    {user && (  
-
-
-      <div>
-        <strong>Seja bem-vindo</strong>
-        <span>
-          ID: {userDetail?.uid} - Email: {userDetail?.email}
-        </span>
+        <Image
+          className={styles.violaoContainer}
+          src={homecursos}
+          alt="Music For All Logo"
+          loading="lazy"
+          placeholder="blur"
+        />
       </div>
-    )}
+      <li className={styles.itemContato}>
+        <IconWhatsappfixed />
+      </li>
+      <div className={`${styles.titlesection} animated-item`}>
+        {" "}
+        <span>Faça login para acessar o conteúdo.</span>
+      </div>
+      {user ? (
+        <div>
+          <strong>Seja bem-vindo</strong>
+          <span>
+            ID: {userDetail?.uid} - Email: {userDetail?.email}
+          </span>
+          <Link href={"/alunos"} className={styles.buttonContainer}>
+            <button className={styles.buttons}>
+              <span className={styles.iconButton}></span>
+              <span className={styles.titleButton}>Aluno</span>
+              <span className={styles.subtitleButton}>
+                Clique aqui para acessar o seu conteúdo exclusivo!
+              </span>
+            </button>
+          </Link>
+          <button className={styles.formButton} onClick={fazerLogout}>
+            Fazer logout
+          </button>
+        </div>
+      ) : (
+        <div className={styles.formContainer}>
+          <form>
+            <label className={styles.formLabel}>Email</label>
+            <input
+              className={styles.formInput}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Digite seu e-mail"
+            />
+          </form>
 
+          <label className={styles.formLabel}>Senha</label>
+          <input
+            className={styles.formInput}
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+            placeholder="Digite sua senha"
+          />
 
+          <button className={styles.formButton} onClick={logarUsuario}>
+            Fazer Login
+          </button>
+        </div> )}
 
-
-    <div className={styles.formContainer}>
-      <form>
-        <label className={styles.formLabel} >Email</label>
-        <input className={styles.formInput}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Digite seu e-mail"
-        />{" "}
-      </form>
-
-
-      <label className={styles.formLabel} >Senha</label>
-    <input className={styles.formInput}
-      value={senha}
-      onChange={(e) => setSenha(e.target.value)}
-      placeholder="Digite sua senha"
-    />
-
-
-      <button className={styles.formButton}  onClick={logarUsuario}>Fazer Login</button>
-
-      <button className={styles.formButton}   onClick={fazerLogout}>Fazer logout</button> 
-
-
-
-
-    </div>
-
-   {/* <button onClick={novoUsuario}>Cadastrar</button> */}
+     {/* <button onClick={novoUsuario}>Cadastrar</button> */}
 {/* <button onClick={logarUsuario}>Fazer Login</button> */}
 {/* <button onClick={fazerLogout}>Fazer logout</button> */}
   </div>
