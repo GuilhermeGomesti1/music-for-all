@@ -6,7 +6,7 @@ export function Form() {
 
   useEffect(() => {
 
-    if (process.browser) {
+    if (typeof window !== 'undefined') {
       // O código abaixo será executado apenas no navegador
       import('scrollreveal').then((ScrollRevealModule) => {
         const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;

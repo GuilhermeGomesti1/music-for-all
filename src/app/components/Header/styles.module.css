@@ -30,6 +30,7 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  
  
 }
 
@@ -42,6 +43,7 @@
   transition: color 0.3s;
   color: black;
   font-size: 0.8rem;
+  
 }
 .aContainer:visited {
   color: black;
@@ -126,4 +128,12 @@
   .mobileMenuIcon {
     display: flex;
   }
+  .logout{ transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+    width: 90%;
+    text-align: right;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    transition: all 0.5s ease-in-out; }
 }

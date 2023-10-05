@@ -86,18 +86,18 @@ export default function Cursos() {
             />
 
             <span className={`${styles.spanCursos} animated-item`}>
-              {" "}
+           
               ESCOLHA O QUE MAIS LHE INSPIRA!
             </span>
           </div>
           <IconWhatsappfixed />
 
           <div className={`${styles.titlesection} animated-item`} > 
-            {" "}
+            
             <span>
-              {" "}
+             
               Nossos cursos de música são uma sinfonia de excelência e
-              aprendizado.{" "}
+              aprendizado.
             </span>
           </div>
 
