@@ -34,7 +34,7 @@
 }
 
 
-.aContainer { 
+.aContainer {   cursor: pointer; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.034);
   margin: 0 4rem;
   margin-left: auto;
@@ -55,6 +55,17 @@
 
 .mobileMenuIcon {
   display: none;
+}
+
+.logout{
+  cursor: pointer; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.034);
+  margin: 0 4rem;
+  margin-left: auto;
+  text-decoration: none;
+  transition: color 0.3s;
+  color: black;
+  font-size: 0.8rem;
 }
 
 @media (max-width: 768px) {

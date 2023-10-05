@@ -119,27 +119,25 @@ export default function Dashboard() {
         <IconWhatsappfixed />
       </li>
       <div className={`${styles.titlesection} animated-item`}>
-        {" "}
-        <span>Faça login para acessar o conteúdo.</span>
-      </div>
+  {user ? (
+    <span>Seja bem-vindo: {userDetail?.email}</span>
+  ) : (
+    <span>Faça login para acessar o conteúdo.</span>
+  )}
+</div>
       {user ? (
         <div>
-          <strong>Seja bem-vindo</strong>
-          <span>
-            ID: {userDetail?.uid} - Email: {userDetail?.email}
-          </span>
+        
           <Link href={"/alunos"} className={styles.buttonContainer}>
-            <button className={styles.buttons}>
-              <span className={styles.iconButton}></span>
-              <span className={styles.titleButton}>Aluno</span>
-              <span className={styles.subtitleButton}>
+            <button className={styles.subtitleButton}>
+ 
+              <span >
                 Clique aqui para acessar o seu conteúdo exclusivo!
               </span>
             </button>
           </Link>
-          <button className={styles.formButton} onClick={fazerLogout}>
-            Fazer logout
-          </button>
+        
+          
         </div>
       ) : (
         <div className={styles.formContainer}>

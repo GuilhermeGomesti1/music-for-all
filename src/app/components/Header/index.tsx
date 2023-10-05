@@ -1,5 +1,6 @@
-"use client";import { useState, useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
+"use client";
+import { useState, useEffect } from "react";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "@/app/firebase";
 import Link from "next/link";
 import styles from "./styles.module.css";
@@ -7,8 +8,13 @@ import Image from "next/image";
 import logo from "../../../../public/images/logo.png";
 import { MenuIcon } from "../Icons/iconsHome/iconMenu";
 import { IconClose } from "../Icons/iconsHome/iconClose";
+import { LogoutIcon } from "../Icons/iconsHome/iconLogout";
 
 export function Header() {
+
+
+
+  
   const [menuOpen, setMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -19,6 +25,22 @@ export function Header() {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleLogout = async () => {
+    const confirmLogout = window.confirm(
+      "Tem certeza de que deseja fazer logout?"
+    );
+
+    if (confirmLogout) {
+      try {
+        await signOut(auth);
+        setLoggedIn(false);
+        window.location.href = "/";
+      } catch (error) {
+        console.error("Erro ao fazer logout:", error);
+      }
+    }
   };
 
   useEffect(() => {
@@ -38,9 +60,9 @@ export function Header() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setLoggedIn(true); // Define como verdadeiro quando o usuário estiver logado
+        setLoggedIn(true);
       } else {
-        setLoggedIn(false); // Define como falso quando o usuário não estiver logado
+        setLoggedIn(false);
       }
     });
 
@@ -52,7 +74,11 @@ export function Header() {
       <div className={styles.headerContent}>
         <div className={styles.logoContainer}>
           <a href="/">
-            <Image className={styles.img} src={logo} alt="Logotipo Music For All" />
+            <Image
+              className={styles.img}
+              src={logo}
+              alt="Logotipo Music For All"
+            />
           </a>
         </div>
 
@@ -61,33 +87,51 @@ export function Header() {
         </div>
 
         {(menuOpen || windowWidth >= 768) && (
-          <nav className={`${styles.navContainer} ${menuOpen ? styles.open : ""}`}>
+          <nav
+            className={`${styles.navContainer} ${menuOpen ? styles.open : ""}`}
+          >
             <Link href="/" className={styles.aContainer} onClick={closeMenu}>
               Início
             </Link>
 
-            <Link href="/cursos" className={styles.aContainer} onClick={closeMenu}>
+            <Link
+              href="/cursos"
+              className={styles.aContainer}
+              onClick={closeMenu}
+            >
               Cursos
             </Link>
 
-            <Link href="/blog" className={styles.aContainer} onClick={closeMenu}>
+            <Link
+              href="/blog"
+              className={styles.aContainer}
+              onClick={closeMenu}
+            >
               Blog
             </Link>
 
-            <Link href="/contato" className={styles.aContainer} onClick={closeMenu}>
+            <Link
+              href="/contato"
+              className={styles.aContainer}
+              onClick={closeMenu}
+            >
               Contato
             </Link>
 
-            {loggedIn ? (
-              // Se o usuário estiver logado, exibe o link de "Logout"
-              <Link href="/dashboard" className={styles.aContainer} onClick={closeMenu}>
-                Logout
-              </Link>
-            ) : (
-              // Se o usuário não estiver logado, exibe o link de "Aluno"
-              <Link href="/dashboard" className={styles.aContainer} onClick={closeMenu}>
-                Aluno
-              </Link>
+            {loggedIn ?(<Link
+              href="/alunos"
+              className={styles.aContainer}
+              onClick={closeMenu}
+            >
+              Aluno
+            </Link> ) : (  <Link href="/dashboard"  className={styles.aContainer}
+              onClick={closeMenu}>Aluno</Link>)}
+            
+
+            {loggedIn && (
+              <a href="/" title="Logout" className={styles.logout} onClick={handleLogout}>
+                <LogoutIcon/> 
+              </a>
             )}
           </nav>
         )}

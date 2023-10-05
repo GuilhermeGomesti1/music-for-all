@@ -70,7 +70,39 @@
     transition: background-color 0.3s ease;
   }
 
+  .buttonLogout{
+    background-color:#d14029 ;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100px;
+    margin-left: 25%;
+    transition: background-color   0.3s;
+  }
 
+  .buttonLogout:hover{
+    background-color:#fa0875 ;
+    transition: background-color 0.3s ease;
+  }
+
+  .subtitleButton{
+    background-color:#d14029 ;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 50%;
+    margin-left: 25%;
+    transition: background-color   0.3s;
+  }
+
+  .subtitleButton:hover{
+    background-color:#fa0875 ;
+    transition: background-color 0.3s ease;
+  }
   /* Mobile */
 @media (max-width: 768px) {
  
