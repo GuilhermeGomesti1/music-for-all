@@ -1,0 +1,15 @@
+
+.containerAulas{display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.divvideo{
+    margin-top: 2rem;
+}
+
+.titles{
+    margin-bottom: 2rem;
+}

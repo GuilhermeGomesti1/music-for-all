@@ -1,5 +1,10 @@
 "use client";
-
+import videoaulas from "../../../public/images/videoaulas.png";
+import materiais from "../../../public/images/materiais.png";
+import agenda from "../../../public/images/agenda.png";
+import forum from "../../../public/images/forum.png";
+import pratica from "../../../public/images/pratica.png";
+import palcovirtual from "../../../public/images/palcovirtual.png";
 import Image from "next/image";
 import facapartemobile from "../../../public/images/facapartemobile.png";
 import facaparte from "../../../public/images/facaparte.png";
@@ -84,31 +89,81 @@ export default function Alunos() {
 
           <IconWhatsappfixed />
 
-
-          <div className={styles.containerAulas}>
-            <div className={`${styles.divvideo} animated-item`}>
-              <h1 className={`${styles.titles} animated-item`}>
-               Vídeo Aulas
-              </h1>
-              <iframe
-                className={`${styles.video} animated-item`}
-                width="700"
-                height="394"
-                src="https://www.youtube.com/embed/9srQ84b4iYw?si=zXsgwHrYPNuZ42q2" 
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              ></iframe>
+          <section className= {`${styles.alunosSection} animated-item`}>
+            <div className={`${styles.conteudoalunos} animated-item`}>
+              <Link href={"/videoaulas"}>
+                <Image
+                  className= {`${styles.imgCursos} animated-item`}
+                  src={videoaulas}
+                  alt="Imagem do curso"
+                  loading="lazy"
+                  placeholder="blur"
+                />
+              </Link>
             </div>
-            <p className={`${styles.subtitles} animated-item`}>
-              Observar a performance de nossos alunos é uma experiência
-              verdadeiramente inspiradora, e isso nos lembra de um importante
-              aspecto da jornada musical: o talento é algo que merece ser
-              nutrido e cultivado. Ele não é apenas uma habilidade, mas um
-              presente especial que deve ser compartilhado com o mundo. É com
-              grande honra que fazemos parte deste processo de crescimento como
-              músicos, junto com cada um de nossos alunos{" "}
-            </p>
-          </div>
+
+            <div className={`${styles.conteudoalunos} animated-item`}>
+              <Link href={"/videoaulas"}>
+                <Image
+                  className= {`${styles.imgCursos} animated-item`}
+                  src={materiais}
+                  alt="Imagem do curso"
+                  loading="lazy"
+                  placeholder="blur"
+                />
+              </Link>
+            </div>
+
+            <div className={`${styles.conteudoalunos} animated-item`}>
+              <Link href={"/videoaulas"}>
+                <Image
+                  className= {`${styles.imgCursos} animated-item`}
+                  src={agenda}
+                  alt="Imagem do curso"
+                  loading="lazy"
+                  placeholder="blur"
+                />
+              </Link>
+            </div>
+
+
+            <div className={`${styles.conteudoalunos} animated-item`}>
+              <Link href={"/videoaulas"}>
+                <Image
+                  className= {`${styles.imgCursos} animated-item`}
+                  src={forum}
+                  alt="Imagem do curso"
+                  loading="lazy"
+                  placeholder="blur"
+                />
+              </Link>
+            </div>
+
+            <div className={`${styles.conteudoalunos} animated-item`}>
+              <Link href={"/videoaulas"}>
+                <Image
+                  className= {`${styles.imgCursos} animated-item`}
+                  src={pratica}
+                  alt="Imagem do curso"
+                  loading="lazy"
+                  placeholder="blur"
+                />
+              </Link>
+            </div>
+
+            <div className={`${styles.conteudoalunos} animated-item`}>
+              <Link href={"/videoaulas"}>
+                <Image
+                  className= {`${styles.imgCursos} animated-item`}
+                  src={palcovirtual}
+                  alt="Imagem do curso"
+                  loading="lazy"
+                  placeholder="blur"
+                />
+              </Link>
+            </div>
+
+          </section>
         </>
       ) : (
         // Mensagem de login e link para a página de login

@@ -4,21 +4,36 @@
   .facaparte {
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
   }
+  .alunosSection{
+    max-width: 1350px;
+    margin: 0 auto;
+   
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+  }
+  .conteudoalunos{
+    margin: 0 auto;
+    margin-top: 4rem;
+    margin-bottom: -2rem;
+  
+    padding-top: -1rem;
+  
+    transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55),
+      background-position 800ms cubic-bezier(0.68, -0.55, 0.265, 1.55),
+      box-shadow 500ms linear;
+  }
+  
+  .conteudoalunos:hover {
+   
+    filter: brightness(1.2);
+  }
 
-.containerAulas{display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
 
-.divvideo{
-    margin-top: 2rem;
-}
-
-.titles{
-    margin-bottom: 2rem;
-}
+.imgCursos {
+    width: 420px;
+    height: 282px;
+  }
 
 @media (min-width: 769px) {
     .imgMobile {
@@ -39,4 +54,13 @@
       display: none;
     }
 
+    .conteudoalunos {
+        margin-top: 1.5rem;
+        margin-bottom: -1rem;
+      }
+    
+      .imgCursos {
+        width: 350px;
+        height: 235px;
+      }
 }
