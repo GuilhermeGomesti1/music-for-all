@@ -13,3 +13,19 @@
 .titles{
     margin-bottom: 2rem;
 }
+.imgMobile{display: none;}
+
+  @media (max-width: 768px){
+
+
+    .areaaluno{display: none;}
+
+    .imgMobile {
+        display: flex;
+        margin: 0 auto;
+        background-color: white;
+        align-items: center;
+        justify-content: center;
+      }
+    
+  }

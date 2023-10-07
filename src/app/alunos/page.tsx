@@ -5,7 +5,7 @@ import agenda from "../../../public/images/agenda.png";
 import forum from "../../../public/images/forum.png";
 import pratica from "../../../public/images/pratica.png";
 import palcovirtual from "../../../public/images/palcovirtual.png";
-import areaaluno from "../../../public/images/areaaluno.png"
+import home from "../../../public/images/homeoficial.png"
 import areaalunomobile from "../../../public/images/areaalunomobile.png"
 import Image from "next/image";
 import facapartemobile from "../../../public/images/facapartemobile.png";
