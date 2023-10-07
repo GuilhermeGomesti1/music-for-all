@@ -17,28 +17,23 @@ import styles from "./styles.module.css";
 
 export default function Alunos() {
   useEffect(() => {
-
-    if (typeof window !== 'undefined') {
-      // O código abaixo será executado apenas no navegador
-      import('scrollreveal').then((ScrollRevealModule) => {
+    if (process.browser) {
+      import("scrollreveal").then((ScrollRevealModule) => {
         const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
 
         const sr = ScrollReveal({
           duration: 1000,
           reset: false,
-          // Outras opções de configuração aqui
         });
 
-        sr.reveal('.animated-item', {
-          origin: 'bottom',
-          distance: '20px',
-          easing: 'ease-in-out',
+        sr.reveal(".animated-item", {
+          origin: "bottom",
+          distance: "20px",
+          easing: "ease-in-out",
         });
       });
     }
   }, []);
-
-
 
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -58,111 +53,112 @@ export default function Alunos() {
   }, []);
 
   return (
-    <div  className= {`${styles.main} animated-item`}>
+    <div className={styles.main}>
       {loggedIn ? (
         // Conteúdo exclusivo para alunos autenticados
         <>
-          <div  className= {`${styles.main} animated-item`}>
-            <Image
-              className={styles.facaparte}
-              src={facaparte}
-              alt="foto dos alunos"
-              width={1833}
-              height={911}
-              loading="lazy"
-              placeholder="blur"
-            />
-          </div>
-
-          <div className={styles.imgMobile}>
-            <Image
-              className={styles.imgMobile}
-              src={facapartemobile}
-              alt="foto home mobile"
-              width={390}
-              height={658}
-              loading="lazy"
-              placeholder="blur"
-            />
-          </div>
-
-          <IconWhatsappfixed />
-
-          <section className= {`${styles.alunosSection} animated-item`}>
-            <div className={`${styles.conteudoalunos} animated-item`}>
-              <Link href={"/videoaulas"}>
-                <Image
-                  className={styles.imgCursos}
-                  src={videoaulas}
-                  alt="Imagem do curso"
-                  loading="lazy"
-                  placeholder="blur"
-                />
-              </Link>
+          <main className={styles.main}>
+            <div >
+              <Image
+                className={styles.facaparte}
+                src={facaparte}
+                alt="foto dos alunos"
+                width={1833}
+                height={911}
+                loading="lazy"
+                placeholder="blur"
+              />
             </div>
 
-            <div className={`${styles.conteudoalunos} animated-item`}>
-              <Link href={"/videoaulas"}>
-                <Image
-                 className={styles.imgCursos}
-                  src={materiais}
-                  alt="Imagem do curso"
-                  loading="lazy"
-                  placeholder="blur"
-                />
-              </Link>
+            <div className={styles.imgMobile}>
+              <Image
+                className={styles.imgMobile}
+                src={facapartemobile}
+                alt="foto home mobile"
+                width={390}
+                height={658}
+                loading="lazy"
+                placeholder="blur"
+              />
             </div>
 
-            <div className={`${styles.conteudoalunos} animated-item`}>
-              <Link href={"/videoaulas"}>
-                <Image
-                  className={styles.imgCursos}
-                  src={agenda}
-                  alt="Imagem do curso"
-                  loading="lazy"
-                  placeholder="blur"
-                />
-              </Link>
-            </div>
+            <section className={`${styles.alunosSection} animated-item`}>
 
+              
+              <div className={`${styles.conteudoalunos} animated-item`}>
+                <Link href={"/videoaulas"}>
+                  <Image
+                    className={styles.imgCursos}
+                    src={videoaulas}
+                    alt="Imagem do curso"
+                    loading="lazy"
+                    placeholder="blur"
+                  />
+                </Link>
+              </div>
 
-            <div className={`${styles.conteudoalunos} animated-item`}>
-              <Link href={"/videoaulas"}>
-                <Image
-                  className={styles.imgCursos}
-                  src={forum}
-                  alt="Imagem do curso"
-                  loading="lazy"
-                  placeholder="blur"
-                />
-              </Link>
-            </div>
+              <div className={`${styles.conteudoalunos} animated-item`}>
+                <Link href={"/videoaulas"}>
+                  <Image
+                    className={styles.imgCursos}
+                    src={materiais}
+                    alt="Imagem do curso"
+                    loading="lazy"
+                    placeholder="blur"
+                  />
+                </Link>
+              </div>
 
-            <div className={`${styles.conteudoalunos} animated-item`}>
-              <Link href={"/videoaulas"}>
-                <Image
-                   className={styles.imgCursos}
-                  src={pratica}
-                  alt="Imagem do curso"
-                  loading="lazy"
-                  placeholder="blur"
-                />
-              </Link>
-            </div>
+              <div className={`${styles.conteudoalunos} animated-item`}>
+                <Link href={"/videoaulas"}>
+                  <Image
+                    className={styles.imgCursos}
+                    src={agenda}
+                    alt="Imagem do curso"
+                    loading="lazy"
+                    placeholder="blur"
+                  />
+                </Link>
+              </div>
 
-            <div className={`${styles.conteudoalunos} animated-item`}>
-              <Link href={"/videoaulas"}>
-                <Image
-                 className={styles.imgCursos}
-                  src={palcovirtual}
-                  alt="Imagem do curso"
-                  loading="lazy"
-                  placeholder="blur"
-                />
-              </Link>
-            </div>
+              <div className={`${styles.conteudoalunos} animated-item`}>
+                <Link href={"/videoaulas"}>
+                  <Image
+                    className={styles.imgCursos}
+                    src={forum}
+                    alt="Imagem do curso"
+                    loading="lazy"
+                    placeholder="blur"
+                  />
+                </Link>
+              </div>
 
-          </section>
+              <div className={`${styles.conteudoalunos} animated-item`}>
+                <Link href={"/videoaulas"}>
+                  <Image
+                    className={styles.imgCursos}
+                    src={pratica}
+                    alt="Imagem do curso"
+                    loading="lazy"
+                    placeholder="blur"
+                  />
+                </Link>
+              </div>
+
+              <div className={`${styles.conteudoalunos} animated-item`}>
+                <Link href={"/videoaulas"}>
+                  <Image
+                    className={styles.imgCursos}
+                    src={palcovirtual}
+                    alt="Imagem do curso"
+                    loading="lazy"
+                    placeholder="blur"
+                  />
+                </Link>
+              </div>
+              <IconWhatsappfixed />
+            </section>
+          </main>
         </>
       ) : (
         // Mensagem de login e link para a página de login

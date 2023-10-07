@@ -1,3 +1,12 @@
+.main {
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+  }
+  
+
 .imgMobile {
     display: none;
   }
