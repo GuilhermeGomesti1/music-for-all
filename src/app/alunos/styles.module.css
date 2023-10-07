@@ -1,0 +1,42 @@
+.imgMobile {
+    display: none;
+  }
+  .facaparte {
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
+  }
+
+.containerAulas{display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.divvideo{
+    margin-top: 2rem;
+}
+
+.titles{
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 769px) {
+    .imgMobile {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .imgMobile {
+      display: flex;
+      margin: 0 auto;
+      background-color: white;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .facaparte {
+      display: none;
+    }
+
+}

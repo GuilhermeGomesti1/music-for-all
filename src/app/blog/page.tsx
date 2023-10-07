@@ -7,15 +7,21 @@ import musicoterapia from "../../../public/images/musicoterapia.png";
 import facaparte from "../../../public/images/facaparte.png";
 import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
 import { VerticalMenu } from "../components/VerticalMenu";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
+
+
+
 export default function Blog() {
 
+  const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       // O código abaixo será executado apenas no navegador
-      import('scrollreveal').then((ScrollRevealModule) => {
+      import("scrollreveal").then((ScrollRevealModule) => {
         const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
 
         const sr = ScrollReveal({
@@ -24,13 +30,26 @@ export default function Blog() {
           // Outras opções de configuração aqui
         });
 
-        sr.reveal('.animated-item', {
-          origin: 'bottom',
-          distance: '20px',
-          easing: 'ease-in-out',
+        sr.reveal(".animated-item", {
+          origin: "bottom",
+          distance: "20px",
+          easing: "ease-in-out",
         });
       });
     }
+  }, []);
+
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setLoggedIn(true);
+      } else {
+        setLoggedIn(false);
+      }
+    });
+  
+    return () => unsubscribe();
   }, []);
 
   return (
@@ -63,8 +82,8 @@ export default function Blog() {
         <IconWhatsappfixed />
 
         <div className={`${styles.principal} animated-item`}>
-          <div  className={`${styles.videoAndText} animated-item`}>
-            <div className={`${styles.divvideo} animated-item`}> 
+          <div className={`${styles.videoAndText} animated-item`}>
+            <div className={`${styles.divvideo} animated-item`}>
               <h1 className={`${styles.titles} animated-item`}>
                 O Palco é Deles: Alunos Brilhando na Escola de Música!
               </h1>
@@ -77,7 +96,7 @@ export default function Blog() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               ></iframe>
             </div>
-            <p className={`${styles.subtitles} animated-item`}>  
+            <p className={`${styles.subtitles} animated-item`}>
               Observar a performance de nossos alunos é uma experiência
               verdadeiramente inspiradora, e isso nos lembra de um importante
               aspecto da jornada musical: o talento é algo que merece ser
@@ -88,8 +107,8 @@ export default function Blog() {
             </p>
           </div>
 
-          <div  className={`${styles.videoAndText} animated-item`}>
-          <div className={`${styles.divvideo} animated-item`}> 
+          <div className={`${styles.videoAndText} animated-item`}>
+            <div className={`${styles.divvideo} animated-item`}>
               <h1 className={`${styles.titles} animated-item`}>
                 Fatos interessantes e curiosidades super legais que
                 provavelmente você não sabia sobre música
@@ -105,7 +124,7 @@ export default function Blog() {
                 loading="lazy"
               />
             </div>
-            <ul  className={`${styles.subtitles} animated-item`}>  
+            <ul className={`${styles.subtitles} animated-item`}>
               <li className="animated-item">
                 Poucas atividades estimulam e utilizam praticamente todo o
                 cérebro, e música é uma delas.
@@ -131,10 +150,41 @@ export default function Blog() {
             </ul>
           </div>
 
-          <div  className={`${styles.videoAndText} animated-item`}>
-          <div className={`${styles.divvideo} animated-item`}> 
+          <div className={`${styles.videoAndText} animated-item`}>
+            <div className={`${styles.divvideo} animated-item`}>
               <h1 className={`${styles.titles} animated-item`}>
-              Musicoterapia, o que é?
+                Aula de violão- Trevo(Tu) - Anavitória.
+              </h1>
+              <iframe
+                className={styles.video}
+                width="700"
+                height="394"
+                src="https://www.youtube.com/embed/9srQ84b4iYw?si=9rhOS_THizW3zizW"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              ></iframe>
+            </div>
+
+            <p className={`${styles.subtitles} animated-item`}>
+              Nessa vídeo aula iremos aprender a musica Trevo - tu, da dupla
+              AnaVitória, de uma forma bem intuitiva! Vale a pena conferir!{" "}
+              <br />
+              Mas há um diferencial incrível: se você é parte da nossa
+              comunidade musical, terá acesso exclusivo a uma série de aulas que
+              vão muito além! Acesso ilimitado a uma biblioteca de vídeo aulas
+              exclusivas, tutoriais detalhados para músicas populares e técnicas
+              avançadas, e conteúdo personalizado para impulsionar o seu
+              progresso musical. <br/>
+              <Link href={loggedIn ? "/alunos" : "/dashboard"} className={styles.cliqueaqui}>
+              Já é aluno? Clique aqui para acessar o conteúdo exclusivo.
+              </Link>
+            </p>
+          </div>
+
+          <div className={`${styles.videoAndText} animated-item`}>
+            <div className={`${styles.divvideo} animated-item`}>
+              <h1 className={`${styles.titles} animated-item`}>
+                Musicoterapia, o que é?
               </h1>
               <Image
                 className={styles.video}
@@ -147,7 +197,7 @@ export default function Blog() {
                 loading="lazy"
               />
             </div>
-            <p className={`${styles.subtitles} animated-item`}>  
+            <p className={`${styles.subtitles} animated-item`}>
               Você sabia que a música pode ser usada como método para alívio e
               cura de certas doenças e distúrbios? Para muitas pessoas, a música
               acalma, relaxa o corpo e a mente; proporciona liberdade, sensação
