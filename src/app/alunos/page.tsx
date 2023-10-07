@@ -5,6 +5,8 @@ import agenda from "../../../public/images/agenda.png";
 import forum from "../../../public/images/forum.png";
 import pratica from "../../../public/images/pratica.png";
 import palcovirtual from "../../../public/images/palcovirtual.png";
+import areaaluno from "../../../public/images/areaaluno.png"
+import areaalunomobile from "../../../public/images/areaalunomobile.png"
 import Image from "next/image";
 import facapartemobile from "../../../public/images/facapartemobile.png";
 import facaparte from "../../../public/images/facaparte.png";
@@ -81,10 +83,13 @@ export default function Alunos() {
             />
           </div>
           <IconWhatsappfixed />
+          
 
-          <div className={styles.description}>
-            <h1>Área de Desempenho</h1>
-            <span className={styles.spandescription}>
+          <div className= {`${styles.description} animated-item`}>
+
+         
+            <h1 className={`${styles.titledescription} animated-item`}>Sua área de Desempenho</h1>  
+            <span className={`${styles.spandescription} animated-item`}>
             Bem-vindo à nossa Área de Desempenho exclusiva para alunos! Este é o espaço onde nossos alunos têm acesso a recursos e ferramentas essenciais para aprimorar suas habilidades musicais. Aqui, você encontrará uma série de recursos personalizados para aprimorar sua jornada musical
             </span>
           </div>

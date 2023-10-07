@@ -13,6 +13,10 @@
     padding-top: 2rem;
    
 }
+.titledescription{ font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
 .spandescription{  text-align: justify;
     max-width: 400px;
     margin: 0 auto;
@@ -20,11 +24,24 @@
     margin-bottom: 2rem;
     
 }
+
+
 .divcarregando{
    
 
 }
-.imgMobile {
+
+.agendarMobile{display: none;}
+
+.areaalunoimg {
+  width: 100%;
+  max-width: 100%;
+  height: 300px;
+  
+  box-shadow: 5px 3px 7px 4px rgba(0, 0, 0, 0.5);
+}
+
+.areaalunoimgmobile {
     display: none;
   }
   .facaparte {
@@ -92,10 +109,25 @@
 
 
 .description{ margin-top: -1rem;
-     font-size: 0.5rem;
+     
+  }
+
+  .titledescription{
+
   }
   .spandescription{  
     font-size: 0.8rem;
     text-align: justify;
   }
+
+.areaalunoimg{display: none;}
+
+
+  .agendarMobile{ margin-bottom: -4rem;
+    display: flex; width: 100%;
+    max-width: 100%;
+    position: relative;
+    margin-top: 4rem;
+  padding-top: 4rem;
+padding-bottom: 2rem;}
 }
