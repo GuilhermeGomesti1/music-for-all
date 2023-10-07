@@ -81,6 +81,13 @@ export default function Alunos() {
             />
           </div>
           <IconWhatsappfixed />
+
+          <div className={styles.description}>
+            <h1>Área de Desempenho</h1>
+            <span className={styles.spandescription}>
+            Bem-vindo à nossa Área de Desempenho exclusiva para alunos! Este é o espaço onde nossos alunos têm acesso a recursos e ferramentas essenciais para aprimorar suas habilidades musicais. Aqui, você encontrará uma série de recursos personalizados para aprimorar sua jornada musical
+            </span>
+          </div>
           <section className={`${styles.alunosSection} animated-item`}>
             <div className={`${styles.conteudoalunos} animated-item`}>
               <Link href={"/videoaulas"}>
@@ -153,7 +160,6 @@ export default function Alunos() {
                 />
               </Link>
             </div>
-           
           </section>
         </main>
       ) : (

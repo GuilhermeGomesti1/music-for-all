@@ -6,6 +6,20 @@
   justify-content: center;
 }
 
+.description{ max-width: 1200px;
+  text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 2rem;
+   
+}
+.spandescription{  text-align: justify;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 2rem; /* Isso adicionará espaço vertical acima do elemento .spandescription */
+    margin-bottom: 2rem;
+    
+}
 .divcarregando{
    
 
@@ -75,4 +89,13 @@
         width: 350px;
         height: 235px;
       }
+
+
+.description{ margin-top: -1rem;
+     font-size: 0.5rem;
+  }
+  .spandescription{  
+    font-size: 0.8rem;
+    text-align: justify;
+  }
 }
