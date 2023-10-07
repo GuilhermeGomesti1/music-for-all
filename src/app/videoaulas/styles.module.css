@@ -66,6 +66,17 @@
   text-decoration: none;
 }
 
+.imginiciantes{
+  width: 100%;
+  max-width: 100%;
+  height: 300px;
+ 
+  box-shadow: 5px 3px 7px 4px rgba(0, 0, 0, 0.5);
+}
+
+.titlecursoiniciantes{margin-top: 2rem;
+text-align: center;}
+
 @media (min-width: 769px) {
   .imgMobile {
     display: none;
@@ -116,7 +127,7 @@
     margin-bottom: 2rem;
   }
 
-  .subtitles {
+  .subtitles {list-style: none;
     text-align: justify;
     max-width: 360px;
     font-size: 0.9rem;

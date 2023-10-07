@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./styles.module.css";
 import facapartemobile from "../../../public/images/facapartemobile.png";
 import curiosidades from "../../../public/images/curiosidades.png";
-import musicoterapia from "../../../public/images/musicoterapia.png";
+import videosiniciantes from "../../../public/images/videosiniciantes.png";
 import facaparte from "../../../public/images/facaparte.png";
 import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
 import { VerticalMenu } from "../components/VerticalMenu";
@@ -96,14 +96,12 @@ export default function VideoAulas() {
             </div>
             <ul className={`${styles.subtitles} animated-item`}>
               <li className={`${styles.lititle} animated-item`}>
-                
                 <IconCurso />
                 Nessa vídeo aula iremos aprender a musica Trevo - tu, da dupla
                 AnaVitória, de uma forma bem intuitiva! Vale a pena conferir!
               </li>
 
               <li className={`${styles.liitem} animated-item`}>
-                
                 1&apos;13&quot; Aprendendo o dedilhado
               </li>
 
@@ -135,13 +133,13 @@ export default function VideoAulas() {
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
               <h1 className={`${styles.titles} animated-item`}>
-              O segredo das pestanas!
+                O segredo das pestanas!
               </h1>
               <iframe
                 className={styles.video}
                 width="700"
                 height="394"
-                src="https://www.youtube.com/embed/7tnZ0PDQiQo?si=OTXanccXtEhjtu3V" 
+                src="https://www.youtube.com/embed/7tnZ0PDQiQo?si=OTXanccXtEhjtu3V"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               ></iframe>
@@ -150,32 +148,32 @@ export default function VideoAulas() {
               <li className={`${styles.lititle} animated-item`}>
                 {" "}
                 <IconCurso />
-                Nessa vídeo aula iremos abordar todos os pontos fundamentais para uma boa execução das pestanas!
+                Nessa vídeo aula iremos abordar todos os pontos fundamentais
+                para uma boa execução das pestanas!
               </li>
-
-            
             </ul>
           </div>
 
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
               <h1 className={`${styles.titles} animated-item`}>
-              Na Hora de Amar - Gusttavo Lima: Aula de Violão Completa (Tablatura + Cifra)
+                Na Hora de Amar - Gusttavo Lima: Aula de Violão Completa
+                (Tablatura + Cifra)
               </h1>
               <iframe
                 className={styles.video}
                 width="700"
                 height="394"
-                src="https://www.youtube.com/embed/X7sVhhhvBIA?si=U7y-nJAQx5b0nfv_" 
+                src="https://www.youtube.com/embed/X7sVhhhvBIA?si=U7y-nJAQx5b0nfv_"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               ></iframe>
             </div>
             <ul className={`${styles.subtitles} animated-item`}>
               <li className={`${styles.lititle} animated-item`}>
-                
                 <IconCurso />
-                Nessa vídeo aula vamos aprender a música Na hora de amar, do Gusttavo Lima.
+                Nessa vídeo aula vamos aprender a música Na hora de amar, do
+                Gusttavo Lima.
               </li>
             </ul>
           </div>
@@ -195,6 +193,7 @@ export default function VideoAulas() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               ></iframe>
             </div>
+
             <ul className={`${styles.subtitles} animated-item`}>
               <li className={`${styles.lititle} animated-item`}>
                 {" "}
@@ -230,6 +229,44 @@ export default function VideoAulas() {
                 15&apos;08&quot; Música completa + tablatura do dedilhado +
                 sequência dos acordes
               </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <Image
+            className= {`${styles.imginiciantes} animated-item`} 
+            src={videosiniciantes}
+            alt="foto dos alunos"
+            width={1900}
+            height={300}
+            loading="lazy"
+            placeholder="blur"
+          />
+          <h1 className={styles.titlecursoiniciantes}>Curso de Violão para Iniciantes: Aprenda a Tocar Violão do Zero</h1>
+        </div>
+        <div className={`${styles.principal} animated-item`}>
+          <div className={`${styles.videoAndText} animated-item`}>
+            <div className={`${styles.divvideo} animated-item`}>
+              <h1 className={`${styles.titles} animated-item`}>
+                Aula de violão- Trevo(Tu) - Anavitória. Dedilhado e acordes
+                simplificados.
+              </h1>
+              <iframe
+                className={styles.video}
+                width="700"
+                height="394"
+                src="https://www.youtube.com/embed/4Cy8CvA18K0?si=6xajBS5HcNO45uq-"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              ></iframe>
+            </div>
+            <ul className={`${styles.subtitles} animated-item`}>
+              <li className={`${styles.lititle} animated-item`}>
+                <IconCurso />
+                Introdução ao Violão: Primeiros Passos para Iniciantes
+              </li>
+
+             
             </ul>
           </div>
         </div>
