@@ -16,12 +16,11 @@ import Link from "next/link";
 import styles from "./styles.module.css";
 
 export default function Alunos() {
-
-
   useEffect(() => {
-    if (typeof window !== "undefined") {
+
+    if (typeof window !== 'undefined') {
       // O código abaixo será executado apenas no navegador
-      import("scrollreveal").then((ScrollRevealModule) => {
+      import('scrollreveal').then((ScrollRevealModule) => {
         const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
 
         const sr = ScrollReveal({
@@ -30,10 +29,10 @@ export default function Alunos() {
           // Outras opções de configuração aqui
         });
 
-        sr.reveal(".animated-item", {
-          origin: "bottom",
-          distance: "20px",
-          easing: "ease-in-out",
+        sr.reveal('.animated-item', {
+          origin: 'bottom',
+          distance: '20px',
+          easing: 'ease-in-out',
         });
       });
     }
@@ -59,11 +58,11 @@ export default function Alunos() {
   }, []);
 
   return (
-    <div>
+    <div  className= {`${styles.main} animated-item`}>
       {loggedIn ? (
         // Conteúdo exclusivo para alunos autenticados
         <>
-          <div>
+          <div  className= {`${styles.main} animated-item`}>
             <Image
               className={styles.facaparte}
               src={facaparte}
@@ -93,7 +92,7 @@ export default function Alunos() {
             <div className={`${styles.conteudoalunos} animated-item`}>
               <Link href={"/videoaulas"}>
                 <Image
-                  className= {`${styles.imgCursos} animated-item`}
+                  className={styles.imgCursos}
                   src={videoaulas}
                   alt="Imagem do curso"
                   loading="lazy"
@@ -105,7 +104,7 @@ export default function Alunos() {
             <div className={`${styles.conteudoalunos} animated-item`}>
               <Link href={"/videoaulas"}>
                 <Image
-                  className= {`${styles.imgCursos} animated-item`}
+                 className={styles.imgCursos}
                   src={materiais}
                   alt="Imagem do curso"
                   loading="lazy"
@@ -117,7 +116,7 @@ export default function Alunos() {
             <div className={`${styles.conteudoalunos} animated-item`}>
               <Link href={"/videoaulas"}>
                 <Image
-                  className= {`${styles.imgCursos} animated-item`}
+                  className={styles.imgCursos}
                   src={agenda}
                   alt="Imagem do curso"
                   loading="lazy"
@@ -130,7 +129,7 @@ export default function Alunos() {
             <div className={`${styles.conteudoalunos} animated-item`}>
               <Link href={"/videoaulas"}>
                 <Image
-                  className= {`${styles.imgCursos} animated-item`}
+                  className={styles.imgCursos}
                   src={forum}
                   alt="Imagem do curso"
                   loading="lazy"
@@ -142,7 +141,7 @@ export default function Alunos() {
             <div className={`${styles.conteudoalunos} animated-item`}>
               <Link href={"/videoaulas"}>
                 <Image
-                  className= {`${styles.imgCursos} animated-item`}
+                   className={styles.imgCursos}
                   src={pratica}
                   alt="Imagem do curso"
                   loading="lazy"
@@ -154,7 +153,7 @@ export default function Alunos() {
             <div className={`${styles.conteudoalunos} animated-item`}>
               <Link href={"/videoaulas"}>
                 <Image
-                  className= {`${styles.imgCursos} animated-item`}
+                 className={styles.imgCursos}
                   src={palcovirtual}
                   alt="Imagem do curso"
                   loading="lazy"
