@@ -2,6 +2,7 @@
 import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
 import homeoficial from "../../../public/images/homeoficial.png";
 import homecursos from "../../../public/images/homecursos.png";
+import beneficios from "../../../public/images/beneficios.png";
 import Image from "next/image";
 import styles from "./styles.module.css";
 
@@ -122,13 +123,13 @@ export default function Dashboard() {
   {user ? (
     <span>Seja bem-vindo: {userDetail?.email}</span>
   ) : (
-    <span>Faça login para acessar o conteúdo.</span>
+    <span className={styles.facalogintext}>Faça login para acessar o conteúdo. Como aluno, você terá acesso a recursos exclusivos para aprimorar suas habilidades musicais.</span>  
   )}
 </div>
       {user ? (
         <div>
         
-          <Link href={"/alunos"} className={styles.buttonContainer}>
+          <Link href={"/alunos"} className={`${styles.buttonContainer} animated-item`}>
             <button className={styles.subtitleButton}>
  
               <span >
@@ -140,7 +141,8 @@ export default function Dashboard() {
           
         </div>
       ) : (
-        <div className={styles.formContainer}>
+        <div className={`${styles.formContainer} animated-item`}>
+          
           <form>
             <label className={styles.formLabel}>Email</label>
             <input
@@ -164,16 +166,16 @@ export default function Dashboard() {
           </button>
         </div> )}
 
-        <div className={styles.beneficiosAluno}>
-    <p>Como aluno, você terá acesso a recursos exclusivos para aprimorar suas habilidades musicais:</p>
-    <ul>
-      <li>Videoaulas personalizadas</li>
-      <li>Materiais de estudo</li>
-      <li>Agenda de eventos</li>
-      <li>Fórum de discussão</li>
-      <li>Práticas interativas</li>
-      <li>Palco virtual para apresentações</li>
-    </ul>
+        <div className={`${styles.beneficiosAluno} animated-item`}>
+       
+        <Image
+                className={styles.img2}
+                src={beneficios}
+                alt="Music For All Logo"
+                loading="lazy"
+              />
+   
+   
   </div>
 
      {/* <button onClick={novoUsuario}>Cadastrar</button> */}
