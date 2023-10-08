@@ -234,7 +234,7 @@ export default function VideoAulas() {
         </div>
         <div>
           <Image
-            className= {`${styles.imginiciantes} animated-item`} 
+            className={`${styles.imginiciantes} animated-item`}
             src={videosiniciantes}
             alt="foto dos alunos"
             width={1900}
@@ -242,20 +242,21 @@ export default function VideoAulas() {
             loading="lazy"
             placeholder="blur"
           />
-          <h1 className={styles.titlecursoiniciantes}>Curso de Violão para Iniciantes: Aprenda a Tocar Violão do Zero</h1>
+          <h1 className={styles.titlecursoiniciantes}>
+            Curso de Violão para Iniciantes: Aprenda a Tocar Violão do Zero
+          </h1>
         </div>
         <div className={`${styles.principal} animated-item`}>
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
               <h1 className={`${styles.titles} animated-item`}>
-                Aula de violão- Trevo(Tu) - Anavitória. Dedilhado e acordes
-                simplificados.
+              Introdução ao Violão: Aula 1
               </h1>
               <iframe
                 className={styles.video}
                 width="700"
                 height="394"
-                src="https://www.youtube.com/embed/4Cy8CvA18K0?si=6xajBS5HcNO45uq-"
+                src="https://www.youtube.com/embed/Zx2CNDwrFxk?si=OjcP3AsQj84JkVfI"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               ></iframe>
@@ -263,10 +264,102 @@ export default function VideoAulas() {
             <ul className={`${styles.subtitles} animated-item`}>
               <li className={`${styles.lititle} animated-item`}>
                 <IconCurso />
-                Introdução ao Violão: Primeiros Passos para Iniciantes
+                Nesta primeira aula do curso de violão para iniciantes, o
+                professor Guilherme Gomes da Music for All irá ensinar você
+                sobre:
               </li>
+              <li className={`${styles.liitem} animated-item`}>
+                A estrutura do violão e suas partes fundamentais. As seis cordas
+                do violão e suas diferenças.{" "}
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+                Como ler tablaturas e entender os números nas casas.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+                A postura correta da mão esquerda ao tocar. Uma prática inicial
+                com a música Parabéns para Você.
+              </li>
+            </ul>
+          </div>
 
-             
+          <div className={`${styles.videoAndText} animated-item`}>
+            <div className={`${styles.divvideo} animated-item`}>
+              <h1 className={`${styles.titles} animated-item`}>
+                Introdução ao Violão: Aula 2
+              </h1>
+              <iframe
+                className={styles.video}
+                width="700"
+                height="394"
+                src="https://www.youtube.com/embed/dctbKoDyaSE?si=KZn8oR4hCrkU1XiV"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              ></iframe>
+            </div>
+            <ul className={`${styles.subtitles} animated-item`}>
+              <li className={`${styles.lititle} animated-item`}>
+                <IconCurso />
+                Nesta segunda aula de violão, você aprenderá:{" "}
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+                As músicas Asa Branca e Ode à Alegria de Beethoven usando as
+                duas primeiras cordas do violão.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+                Dicas para estudar, incluindo copiar a tablatura.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+                Demonstração das músicas no ritmo normal e mais lento. Dicas
+                finais: assista à primeira aula se tiver dúvidas na leitura da
+                tablatura, leia da esquerda para a direita e pratique
+                acompanhando o vídeo.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+                Agradecemos por assistir à nossa segunda aula de violão! Se você
+                gostou deste conteúdo e deseja continuar aprimorando suas
+                habilidades musicais, não esqueça de se inscrever no nosso canal
+                e ativar as notificações para não perder nenhuma aula futura.
+                Sua participação é muito importante para nós. Até a próxima!
+              </li>
+            </ul>
+          </div>
+
+
+          <div className={`${styles.videoAndText} animated-item`}>
+            <div className={`${styles.divvideo} animated-item`}>
+              <h1 className={`${styles.titles} animated-item`}>
+                Introdução ao Violão: Aula 3
+              </h1>
+              <iframe
+                className={styles.video}
+                width="700"
+                height="394"
+                src="https://www.youtube.com/embed/YcOgNlEW_m4?si=CxBv-vOXjIRXcjal" 
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              ></iframe>
+            </div>
+            <ul className={`${styles.subtitles} animated-item`}>
+              <li className={`${styles.lititle} animated-item`}>
+                <IconCurso />
+                Nesta terceira aula de violão, você aprenderá:
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Aprender os primeiros acordes no violão e aprimorar sua técnica.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Praticar a transição entre os acordes para ganhar agilidade.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Trabalhe na mudança entre eles, usando um exercício de agilidade.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+                Agradecemos por assistir à nossa segunda aula de violão! Se você
+                gostou deste conteúdo e deseja continuar aprimorando suas
+                habilidades musicais, não esqueça de se inscrever no nosso canal
+                e ativar as notificações para não perder nenhuma aula futura.
+                Sua participação é muito importante para nós. Até a próxima!
+              </li>
             </ul>
           </div>
         </div>
