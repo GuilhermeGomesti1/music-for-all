@@ -104,8 +104,8 @@
     transition: background-color 0.3s ease;
   }
   .beneficiosAluno{
-    text-align: center; /* Isso alinha o conteúdo horizontalmente ao centro */
-    margin: 0 auto; /* Isso centraliza a div horizontalmente na tela */
+    text-align: center; 
+    margin: 0 auto; 
     width: 100%; 
     margin-top: 1rem;
   }

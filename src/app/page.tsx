@@ -290,13 +290,13 @@ export default function Home() {
 
           <h1 className={`${styles.title3} animated-item`} >Por que Escolher a Music For All? </h1>   
           <section className={styles.ctaText}>
-            <div className={`${styles.imgcontainer} animated-item`} > 
+            <div className={`${styles.imgcontainer} animated-item`} > <Link href="/dashboard">
               <Image
                 className={styles.img2}
                 src={beneficios}
                 alt="Music For All Logo"
                 loading="lazy"
-              />
+              /></Link>
             </div>
 
             <div className={`${styles.divLista} animated-item`} > 
