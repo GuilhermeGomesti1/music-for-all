@@ -12,7 +12,7 @@ import styles from "./page.module.css";
 
 import homemobile from "../../public/images/homemobile.png";
 import homeoficial from "../../public/images/homeoficial.png";
-import alunos from "../../public/images/alunos.png";
+import beneficios from "../../public/images/beneficios.png";
 import Link from "next/link";
 import cursoviolao1 from "../../public/images/cursoviolao1.png";
 import musicalizacao from "../../public/images/musicalizacao.png";
@@ -293,7 +293,7 @@ export default function Home() {
             <div className={`${styles.imgcontainer} animated-item`} > 
               <Image
                 className={styles.img2}
-                src={alunos}
+                src={beneficios}
                 alt="Music For All Logo"
                 loading="lazy"
               />

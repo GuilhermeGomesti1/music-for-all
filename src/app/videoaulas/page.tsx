@@ -285,7 +285,7 @@ export default function VideoAulas() {
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
               <h1 className={`${styles.titles} animated-item`}>
-                Introdução ao Violão: Aula 2
+              Aula 2 - Introdução ao Violão: Aprenda a Tocar Asa Branca e Ode à Alegria
               </h1>
               <iframe
                 className={styles.video}
@@ -328,7 +328,7 @@ export default function VideoAulas() {
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
               <h1 className={`${styles.titles} animated-item`}>
-                Introdução ao Violão: Aula 3
+              Aula 3 - Introdução ao Violão: Aprenda Acordes e Ritmo
               </h1>
               <iframe
                 className={styles.video}
@@ -362,6 +362,195 @@ export default function VideoAulas() {
               </li>
             </ul>
           </div>
+
+
+          <div className={`${styles.videoAndText} animated-item`}>
+            <div className={`${styles.divvideo} animated-item`}>
+              <h1 className={`${styles.titles} animated-item`}>
+              Aula 4 - Violão para Iniciantes: Dominando Ritmo e Técnica de Acordes no Violão
+              </h1>
+              <iframe
+                className={styles.video}
+                width="700"
+                height="394"
+                src="https://www.youtube.com/embed/cE9JmC8sek0?si=SD01ifjHtGoAPjbq"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              ></iframe>
+            </div>
+            <ul className={`${styles.subtitles} animated-item`}>
+              <li className={`${styles.lititle} animated-item`}>
+                <IconCurso />
+                Na quarta aula do nosso curso de violão, você vai:
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Aprender a trabalhar com ritmo suave e ágil.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Dominar o espaçamento e a batida do ritmo.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Seguir quatro passos para aprimorar sua técnica de acordes.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Compartilhamento de um exemplo de batida com a música Por Onde Andei do Nando Reis.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Estímulo para estudar e praticar essa batida.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Continue praticando para melhorar suas habilidades musicais. Não se esqueça de se inscrever e acompanhar nossas lições. Até a próxima aula!
+              </li>
+            </ul>
+          </div>
+          
+
+
+
+
+          <div className={`${styles.videoAndText} animated-item`}>
+            <div className={`${styles.divvideo} animated-item`}>
+              <h1 className={`${styles.titles} animated-item`}>
+              Aula 5 - Violão para Iniciantes: Novos Acordes e Ritmo: Desafio e Exercício para Melhorar
+              </h1>
+              <iframe
+                className={styles.video}
+                width="700"
+                height="394"
+                src="https://www.youtube.com/embed/nEVdoKrCfdY?si=Z9Dd6l1JTvDFla1l"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              ></iframe>
+            </div>
+            <ul className={`${styles.subtitles} animated-item`}>
+              <li className={`${styles.lititle} animated-item`}>
+                <IconCurso />
+                Na quinta aula do nosso curso de violão, você vai:
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              
+Aprender dois novos acordes.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Dominar um novo ritmo para suas músicas.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Aplicar esses acordes e ritmo em Parabéns para você e Proibida pra Mim.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Continue praticando para aprimorar suas habilidades musicais. Não se esqueça de se inscrever e acompanhar nossas lições. Até a próxima aula!
+              </li>
+            </ul>
+          </div> 
+
+
+
+
+          <div className={`${styles.videoAndText} animated-item`}>
+            <div className={`${styles.divvideo} animated-item`}>
+              <h1 className={`${styles.titles} animated-item`}>
+              Aula 6 - Violão para Iniciantes: Dominando Pestanas e Acordes
+              </h1>
+              <iframe
+                className={styles.video}
+                width="700"
+                height="394"
+                src="https://www.youtube.com/embed/cdYnzs21L_I?si=pUKfdU_f-nTe0BOM"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              ></iframe>
+            </div>
+            <ul className={`${styles.subtitles} animated-item`}>
+              <li className={`${styles.lititle} animated-item`}>
+                <IconCurso />
+                Nesta sexta aula do nosso curso de violão para iniciantes, você vai:
+
+
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Aprender a manter a postura correta para tocar acordes com pestanas.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Fortalecer sua mão com um exercício específico.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Dominar os acordes necessários e praticando pestanas para tocar a música Velha Infância dos Tribalistas.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Continue praticando e aprimorando suas habilidades musicais. Não se esqueça de se inscrever e acompanhar nossas lições. Até a próxima aula!
+              </li>
+            </ul>
+          </div>
+
+
+
+
+          <div className={`${styles.videoAndText} animated-item`}>
+            <div className={`${styles.divvideo} animated-item`}>
+              <h1 className={`${styles.titles} animated-item`}>
+              Aula 7 - Violão para Iniciantes: O Segredo para Aprender Todos os Acordes e Pestanas do Violão com uma Lógica Simples
+              </h1>
+              <iframe
+                className={styles.video}
+                width="700"
+                height="394"
+                src="https://www.youtube.com/embed/iRIZa-oMWSE?si=CK5rKyHPG0NckfaN"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              ></iframe>
+            </div>
+            <ul className={`${styles.subtitles} animated-item`}>
+              <li className={`${styles.lititle} animated-item`}>
+                <IconCurso />
+                Nesta sétima aula do nosso curso de violão, você vai:
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Descobrir as Pestanas Superiores.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Entender as Pestanas Inferiores.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Aprender a fazer todos os acordes maiores e menores do violão através de uma lógica simples.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Compreender a lógica por trás da escala cromática no violão.
+              </li>
+              <li className={`${styles.liitem} animated-item`}>
+              Continue praticando e aprimorando suas habilidades musicais. Não se esqueça de se inscrever e acompanhar nossas lições. Até a próxima aula!
+              </li>
+            </ul>
+          </div>
+
+
+
+
+          <div className={`${styles.videoAndText} animated-item`}>
+            <div className={`${styles.divvideo} animated-item`}>
+              <h1 className={`${styles.titles} animated-item`}>
+              Aula 8 - Violão para Iniciantes: Aula 8 - Introdução e Prática de Dedilhado
+              </h1>
+              <iframe
+                className={styles.video}
+                width="700"
+                height="394"
+                src="https://www.youtube.com/embed/tLG7jkOeiG8?si=QXhTvpIJDcqJIcoN"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              ></iframe>
+            </div>
+            <ul className={`${styles.subtitles} animated-item`}>
+              <li className={`${styles.lititle} animated-item`}>
+                <IconCurso />
+                Nesta aula, vamos introduzir  um exercício prático de dedilhado que é fácil de executar e produz um som agradável.
+              </li>
+             
+            </ul>
+          </div>
+
+
+
+
         </div>
       </main>
     </>

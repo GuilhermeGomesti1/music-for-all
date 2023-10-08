@@ -164,6 +164,18 @@ export default function Dashboard() {
           </button>
         </div> )}
 
+        <div className={styles.beneficiosAluno}>
+    <p>Como aluno, você terá acesso a recursos exclusivos para aprimorar suas habilidades musicais:</p>
+    <ul>
+      <li>Videoaulas personalizadas</li>
+      <li>Materiais de estudo</li>
+      <li>Agenda de eventos</li>
+      <li>Fórum de discussão</li>
+      <li>Práticas interativas</li>
+      <li>Palco virtual para apresentações</li>
+    </ul>
+  </div>
+
      {/* <button onClick={novoUsuario}>Cadastrar</button> */}
 {/* <button onClick={logarUsuario}>Fazer Login</button> */}
 {/* <button onClick={fazerLogout}>Fazer logout</button> */}
