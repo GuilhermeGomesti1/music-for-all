@@ -95,7 +95,7 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} animated-item`}> 
       <div className={styles.containerViolao}>
         <Image
           className={styles.img}
@@ -123,7 +123,7 @@ export default function Dashboard() {
   {user ? (
     <span>Seja bem-vindo: {userDetail?.email}</span>
   ) : (
-    <span className={styles.facalogintext}>Faça login para acessar o conteúdo. Como aluno, você terá acesso a recursos exclusivos para aprimorar suas habilidades musicais.</span>  
+    <span className={`${styles.facalogintext} animated-item`}>Faça login para acessar o conteúdo. Como aluno, você terá acesso a recursos exclusivos para aprimorar suas habilidades musicais.</span>  
   )}
 </div>
       {user ? (
@@ -144,24 +144,24 @@ export default function Dashboard() {
         <div className={`${styles.formContainer} animated-item`}>
           
           <form>
-            <label className={styles.formLabel}>Email</label>
+            <label className={`${styles.formLabel} animated-item`}>Email</label> 
             <input
-              className={styles.formInput}
+              className={`${styles.formInput} animated-item`}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Digite seu e-mail"
             />
           </form>
 
-          <label className={styles.formLabel}>Senha</label>
+          <label className={`${styles.formLabel} animated-item`}>Senha</label>
           <input
-            className={styles.formInput}
+            className={`${styles.formInput} animated-item`}
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
             placeholder="Digite sua senha"
           />
 
-          <button className={styles.formButton} onClick={logarUsuario}>
+          <button className={`${styles.formButton} animated-item`}onClick={logarUsuario}> 
             Fazer Login
           </button>
         </div> )}
@@ -169,7 +169,7 @@ export default function Dashboard() {
         <div className={`${styles.beneficiosAluno} animated-item`}>
        
         <Image
-                className={styles.img2}
+                className={`${styles.img2} animated-item`} 
                 src={beneficios}
                 alt="Music For All Logo"
                 loading="lazy"
