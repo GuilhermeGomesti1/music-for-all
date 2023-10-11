@@ -25,13 +25,34 @@
   }
   
   .submitButton {
-    background-color: #F57A42;
+    background-color: #f57b4277;
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     width: 100%;
   }
+
+  .buttonAfter {
+    background-color: #F57A42; /* Cor após digitar */
+    color: #fff; /* Cor do texto após digitar */
+  }
+
+  .rsubmitButton {
+    background-color: #f57b4277;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .rbuttonAfter {
+    background-color: #F57A42; /* Cor após digitar */
+    color: #fff; /* Cor do texto após digitar */
+  }
+
+
 .commentList { width: 40%; 
   list-style-type: none;
   padding: 0;
@@ -51,4 +72,40 @@
 .commentTimestamp {
   color: #666;
   font-size: 0.9em;
+}
+
+.buttonresponder{
+  font-weight: bolder;
+  background-color: white;
+  border: none;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.replyForm{
+  width: 100%;
+}
+
+
+@media (max-width: 768px){
+  .formContainer,
+  .textareaInput,
+  .submitButton,
+  .commentList,
+  .commentItem,
+  .commentAuthor,
+  .commentTimestamp,
+  .buttonresponder,
+  .replyForm {flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 300px;
+    margin-top: 1rem;
+}
+
+ 
+.formContainer { margin: 0;width: 300px;
+  padding: 0;
+  flex-direction: column; /* Torna a disposição dos elementos em coluna */
+}
 }
