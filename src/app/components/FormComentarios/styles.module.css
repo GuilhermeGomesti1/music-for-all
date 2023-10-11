@@ -1,0 +1,54 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: -4rem; /* Mantenha o valor negativo para ajustar o espaçamento */
+    margin-bottom: 2px;
+    width: 40%; 
+  }
+  .textareaInput {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    resize: vertical;
+    position: relative;
+  }
+  
+  .textareaInput::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0; /* Torna o elemento transparente */
+    z-index: 1; /* Coloca o elemento acima do textarea */
+  }
+  
+  .submitButton {
+    background-color: #F57A42;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+  }
+.commentList { width: 40%; 
+  list-style-type: none;
+  padding: 0;
+  word-wrap: break-word; 
+}
+
+.commentItem {  margin-bottom: 10px;
+  
+  padding: 5px; /* Espaçamento interno para separar os comentários */
+  word-wrap: break-word; 
+}
+
+.commentAuthor {
+  font-weight: bold;
+}
+
+.commentTimestamp {
+  color: #666;
+  font-size: 0.9em;
+}

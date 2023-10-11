@@ -59,6 +59,7 @@ export default function Contato() {
         <IconWhatsappfixed />
 
         <div className= {`${styles.textContent} animated-item`}>
+         
           <h1 className=   {`${styles.title} animated-item`}>Fale Conosco!</h1>
           <p>
             Deseja obter mais detalhes? Sinta-se à vontade para entrar em

@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
+import CommentComponent from "../components/FormComentarios";
 
 
 
@@ -52,6 +53,8 @@ export default function Blog() {
     return () => unsubscribe();
   }, []);
 
+  
+
   return (
     <>
       <main className={styles.contentAll}>
@@ -78,7 +81,7 @@ export default function Blog() {
             placeholder="blur"
           />
         </div>
-
+      
         <IconWhatsappfixed />
 
         <div className={`${styles.principal} animated-item`}>
@@ -106,7 +109,7 @@ export default function Blog() {
               músicos, junto com cada um de nossos alunos{" "}
             </p>
           </div>
-
+          
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
               <h1 className={`${styles.titles} animated-item`}>

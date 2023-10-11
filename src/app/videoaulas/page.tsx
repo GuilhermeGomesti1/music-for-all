@@ -12,13 +12,65 @@ import Link from "next/link";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import { IconCurso } from "../components/Icons/iconsHome/iconCurso";
+import Dashboard  from "../dashboard/page";
+import CommentComponent from "../components/FormComentarios";
 
 export default function VideoAulas() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [commentText, setCommentText] = useState(""); 
+ 
+  const videodata = [
+    {
+      title: "Aula de violão- Trevo(Tu) - Anavitória. Dedilhado e acordes simplificados.",
+      videoId: "9srQ84b4iYw",
+    },
+    {
+      title: "O segredo das pestanas!",
+      videoId: "7tnZ0PDQiQo",
+    },
+    {
+      title: "Na Hora de Amar - Gusttavo Lima: Aula de Violão Completa (Tablatura + Cifra)",
+      videoId: "X7sVhhhvBIA",
+    },
+    
+    {
+      title: "Introdução ao Violão: Aula 1",
+      videoId: "Zx2CNDwrFxk",
+    },
+    {
+      title: "Aula 2 - Introdução ao Violão: Aprenda a Tocar Asa Branca e Ode à Alegria",
+      videoId: "dctbKoDyaSE",
+    },
+    {
+      title: "Aula 3 - Introdução ao Violão: Aprenda Acordes e Ritmo",
+      videoId: "YcOgNlEW_m4",
+    },
+    {
+      title: "Aula 4 - Violão para Iniciantes: Dominando Ritmo e Técnica de Acordes no Violão",
+      videoId: "cE9JmC8sek0",
+    },
+    {
+      title: "Aula 5 - Violão para Iniciantes: Novos Acordes e Ritmo: Desafio e Exercício para Melhorar",
+      videoId: "nEVdoKrCfdY",
+    },
+    {
+      title: "Aula 6 - Violão para Iniciantes: Dominando Pestanas e Acordes",
+      videoId: "cdYnzs21L_I",
+    },
+    {
+      title: "Aula 7 - Violão para Iniciantes: O Segredo para Aprender Todos os Acordes e Pestanas do Violão com uma Lógica Simples",
+      videoId: "iRIZa-oMWSE",
+    },
+    {
+      title: "Aula 8 - Violão para Iniciantes: Introdução e Prática de Dedilhado",
+      videoId: "tLG7jkOeiG8",
+    },
+   
+  ];
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // O código abaixo será executado apenas no navegador
+     
       import("scrollreveal").then((ScrollRevealModule) => {
         const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
 
@@ -48,6 +100,17 @@ export default function VideoAulas() {
 
     return () => unsubscribe();
   }, []);
+
+  // Verifica se o usuário está logado antes de renderizar o conteúdo
+  if (!loggedIn) {
+    return (
+      <div>
+     
+        <Dashboard/>
+      </div>
+    );
+  }
+  
 
   return (
     <>
@@ -86,6 +149,7 @@ export default function VideoAulas() {
                 simplificados.
               </h1>
               <iframe
+            
                 className={styles.video}
                 width="700"
                 height="394"
@@ -129,13 +193,16 @@ export default function VideoAulas() {
               </li>
             </ul>
           </div>
-
+          <CommentComponent videoId="9srQ84b4iYw" />
+        
+         
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
               <h1 className={`${styles.titles} animated-item`}>
                 O segredo das pestanas!
               </h1>
               <iframe
+            
                 className={styles.video}
                 width="700"
                 height="394"
@@ -153,7 +220,7 @@ export default function VideoAulas() {
               </li>
             </ul>
           </div>
-
+          <CommentComponent videoId="7tnZ0PDQiQo" />
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
               <h1 className={`${styles.titles} animated-item`}>
@@ -176,61 +243,10 @@ export default function VideoAulas() {
                 Gusttavo Lima.
               </li>
             </ul>
+            
           </div>
-
-          <div className={`${styles.videoAndText} animated-item`}>
-            <div className={`${styles.divvideo} animated-item`}>
-              <h1 className={`${styles.titles} animated-item`}>
-                Aula de violão- Trevo(Tu) - Anavitória. Dedilhado e acordes
-                simplificados.
-              </h1>
-              <iframe
-                className={styles.video}
-                width="700"
-                height="394"
-                src="https://www.youtube.com/embed/9srQ84b4iYw?si=wOKsTaaL4rp0PAMt"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              ></iframe>
-            </div>
-
-            <ul className={`${styles.subtitles} animated-item`}>
-              <li className={`${styles.lititle} animated-item`}>
-                {" "}
-                <IconCurso />
-                Nessa vídeo aula iremos aprender a musica Trevo - tu, da dupla
-                AnaVitória, de uma forma bem intuitiva! Vale a pena conferir!
-              </li>
-
-              <li className={`${styles.liitem} animated-item`}>
-                {" "}
-                1&apos;13&quot; Aprendendo o dedilhado
-              </li>
-
-              <li className={`${styles.liitem} animated-item`}>
-                3&apos;15&quot;Primeira parte
-              </li>
-              <li className={`${styles.liitem} animated-item`}>
-                8&apos;24&quot;tocando junto com a música
-              </li>
-              <li className={`${styles.liitem} animated-item`}>
-                9&apos;43&quot; Acordes da segunda parte
-              </li>
-              <li className={`${styles.liitem} animated-item`}>
-                11&apos;20&quot; Batida da segunda parte
-              </li>
-              <li className={`${styles.liitem} animated-item`}>
-                12&apos;37&quot; sequência dos acordes da 2• parte
-              </li>
-              <li className={`${styles.liitem} animated-item`}>
-                14&apos; tocando junto com a música (2• parte)
-              </li>
-              <li className={`${styles.liitem} animated-item`}>
-                15&apos;08&quot; Música completa + tablatura do dedilhado +
-                sequência dos acordes
-              </li>
-            </ul>
-          </div>
+          <CommentComponent videoId="X7sVhhhvBIA" />
+          
         </div>
         <div>
           <Image
@@ -281,6 +297,7 @@ export default function VideoAulas() {
               </li>
             </ul>
           </div>
+          <CommentComponent videoId="Zx2CNDwrFxk" />
 
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
@@ -323,6 +340,7 @@ export default function VideoAulas() {
               </li>
             </ul>
           </div>
+          <CommentComponent videoId="dctbKoDyaSE" />
 
 
           <div className={`${styles.videoAndText} animated-item`}>
@@ -362,7 +380,7 @@ export default function VideoAulas() {
               </li>
             </ul>
           </div>
-
+          <CommentComponent videoId="YcOgNlEW_m4" />
 
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
@@ -403,7 +421,7 @@ export default function VideoAulas() {
               </li>
             </ul>
           </div>
-          
+          <CommentComponent videoId="cE9JmC8sek0" />
 
 
 
@@ -442,7 +460,7 @@ Aprender dois novos acordes.
               </li>
             </ul>
           </div> 
-
+          <CommentComponent videoId="nEVdoKrCfdY" />
 
 
 
@@ -481,7 +499,7 @@ Aprender dois novos acordes.
               </li>
             </ul>
           </div>
-
+          <CommentComponent videoId="cdYnzs21L_I" />
 
 
 
@@ -521,7 +539,7 @@ Aprender dois novos acordes.
               </li>
             </ul>
           </div>
-
+          <CommentComponent videoId="iRIZa-oMWSE"/>
 
 
 
@@ -547,7 +565,7 @@ Aprender dois novos acordes.
              
             </ul>
           </div>
-
+          <CommentComponent videoId="tLG7jkOeiG8" />
 
 
 

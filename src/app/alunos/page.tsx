@@ -16,6 +16,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import Link from "next/link";
 import styles from "./styles.module.css";
+import Dashboard from "../dashboard/page";
+
 
 export default function Alunos() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -169,18 +171,7 @@ export default function Alunos() {
         </main>
       ) : (
         // Mensagem de login e link para a página de login
-        <div>
-          <strong>Faça o login para ter acesso</strong>
-          <Link href="/dashboard" passHref>
-            <button className={styles.buttons}>
-              <span className={styles.iconButton}></span>
-              <span className={styles.titleButton}>Aluno</span>
-              <span className={styles.subtitleButton}>
-                Clique aqui para acessar o seu conteúdo exclusivo!
-              </span>
-            </button>
-          </Link>
-        </div>
+      <Dashboard/>
       )}
     </div>
   );
