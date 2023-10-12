@@ -25,6 +25,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
   const [user, setUser] = useState<User | null>(null);
   const [replyText, setReplyText] = useState(""); // Novo estado para texto da resposta
   const [replyingTo, setReplyingTo] = useState(""); // ID do comentário sendo respondido
+  const [showReplies, setShowReplies] = useState<{ [commentId: string]: boolean }>({});
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -69,6 +70,11 @@ function CommentComponent({ videoId }: { videoId?: string }) {
       unsubscribe();
     };
   }, [videoId]);
+
+
+
+
+  
   const addComment = async () => {
     if (commentText.trim() !== "") {
       const firestore = db as Firestore;
