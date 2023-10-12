@@ -31,6 +31,28 @@ function CommentComponent({ videoId }: { videoId?: string }) {
     [commentId: string]: boolean;
   }>({});
 
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // O código abaixo será executado apenas no navegador
+      import("scrollreveal").then((ScrollRevealModule) => {
+        const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
+
+        const sr = ScrollReveal({
+          duration: 1000,
+          reset: false,
+          // Outras opções de configuração aqui
+        });
+
+        sr.reveal(".animated-item", {
+          origin: "bottom",
+          distance: "20px",
+          easing: "ease-in-out",
+        });
+      });
+    }
+  }, []);
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
@@ -198,10 +220,10 @@ function CommentComponent({ videoId }: { videoId?: string }) {
   };
 
   return (
-    <div>
+    <div>   
       {/* Formulário de Comentário */}
       {user ? (
-        <div className={styles.formContainer}>
+        <div className={`${styles.formContainer} animated-item`}>
           <textarea
             className={styles.textareaInput}
             placeholder="Digite seu comentário..."
@@ -221,7 +243,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
           </button>
         </div>
       ) : (
-        <div className={styles.formContainer}>
+        <div className={`${styles.formContainer} animated-item`}>
           <Link  className={styles.pointerCursor} href="/dashboard">
             <textarea
               className={`${styles.textareaInput} ${styles.pointerCursor}`} 
@@ -237,7 +259,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
       )}
 
       {/* Lista de Comentários */}
-      <ul className={styles.commentList}>
+      <ul className= {`${styles.commentList} animated-item`}> 
         {comments.map((comment, index) => (
           <li key={comment.id} className={styles.commentItem}>
             <span className={styles.commentAuthor}>{comment.authorEmail}:</span>{" "}
