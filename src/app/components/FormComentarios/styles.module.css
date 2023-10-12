@@ -5,12 +5,17 @@
     margin-bottom: 2px;
     width: 40%; 
   }
+
+  .pointerCursor {
+    cursor: pointer;
+  }
+  
+  
   .textareaInput {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
-    resize: vertical;
-    position: relative;
+    
   }
   
   .textareaInput::before {
@@ -24,13 +29,14 @@
     z-index: 1; /* Coloca o elemento acima do textarea */
   }
   
-  .submitButton {
+  .submitButton { border-radius: 4px;
     background-color: #f57b4277;
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     width: 100%;
+    margin-left: 0.5rem;
   }
 
   .buttonAfter {
@@ -38,13 +44,14 @@
     color: #fff; /* Cor do texto após digitar */
   }
 
-  .rsubmitButton {
+  .rsubmitButton { border-radius: 4px;
     background-color: #f57b4277;
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     width: 100%;
+    
   }
 
   .rbuttonAfter {
@@ -86,26 +93,139 @@
   width: 100%;
 }
 
-
-@media (max-width: 768px){
-  .formContainer,
-  .textareaInput,
-  .submitButton,
-  .commentList,
-  .commentItem,
-  .commentAuthor,
-  .commentTimestamp,
-  .buttonresponder,
-  .replyForm {flex-direction: column;
-    margin: 0;
-    padding: 0;
-    width: 300px;
-    margin-top: 1rem;
+.deleteButton{
+  font-weight: bolder;
+  background-color: white;
+  border: none;
+  margin-left: 1rem;
+  cursor: pointer;
 }
 
+
+.divrespostas{
+   border-radius: 8px;
+  background-color: #f57b4233;
+}
+.titlerespostas{ margin-left: 0.8rem;
+  color: blue;
+  font-size: 0.8em;
+}
+.replyList{
+  list-style: none;
+}
+
+.replyItem{
+  
+font-size: 0.9em;
+}
+
+.replyAuthor{color: blue;
+  font-weight: bold;
+}
+
+.replyTimestamp{
+color: #666;
+  font-size: 0.9em;
+}
+.deleteButtonreply{
+  font-weight: bolder;
+  border: none;
+  margin-left: 1rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  background-color: transparent;
+}
+
+@media (max-width: 768px){
+  .formContainer {
+    width: 320px;
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 0 auto;
+  }
+  .textareaInput {
+   width: 100%;
+   
+  }
+  
+  .textareaInput::before {
+    width: 100%;
+  }
+  
+  .submitButton {
+    margin-left: 0.6rem;
+    width: 320px;
+  }
+
+  .buttonAfter {
+   
+  }
+
+  .rsubmitButton {
+    font-size: 0.8rem;
+    
+    width: 320px;
+  }
+
+  .rbuttonAfter {
+    font-size: 0.8rem;
+  }
+
+
+.commentList { width: 320px;
  
-.formContainer { margin: 0;width: 300px;
-  padding: 0;
-  flex-direction: column; /* Torna a disposição dos elementos em coluna */
+}
+
+.commentItem {  margin-bottom: 10px;
+  font-size: 0.8rem;
+}
+
+.commentAuthor {
+  font-size: 0.8rem;
+}
+
+.commentTimestamp {
+  font-size: 0.8rem;
+}
+
+.buttonresponder{
+  font-size: 0.7rem;
+}
+
+.replyForm{
+ 
+}
+
+.deleteButton{
+  font-size: 0.7rem;
+}
+
+
+.divrespostas{
+  
+}
+.titlerespostas{ margin-left: 0.8rem;
+  
+}
+.replyList{
+  font-size: 0.8rem;
+}
+
+.replyItem{
+  font-size: 0.8rem;
+}
+
+.replyAuthor{color: blue;
+  font-size: 0.8rem;
+}
+
+.replyTimestamp{
+  font-size: 0.8rem;
+}
+.deleteButtonreply{
+  font-size: 0.7rem;
 }
 }

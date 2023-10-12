@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { db, auth } from "@/app/firebase";
 import { User } from "firebase/auth";
+import { DeleteIcon } from "../Icons/OtherIcons/deleteIcon";
 import styles from "./styles.module.css";
 import {
   Firestore,
@@ -18,6 +19,7 @@ import {
   doc,
   deleteDoc,
 } from "firebase/firestore";
+import Link from "next/link";
 
 function CommentComponent({ videoId }: { videoId?: string }) {
   const [commentText, setCommentText] = useState("");
@@ -25,7 +27,9 @@ function CommentComponent({ videoId }: { videoId?: string }) {
   const [user, setUser] = useState<User | null>(null);
   const [replyText, setReplyText] = useState(""); // Novo estado para texto da resposta
   const [replyingTo, setReplyingTo] = useState(""); // ID do comentário sendo respondido
-  const [showReplies, setShowReplies] = useState<{ [commentId: string]: boolean }>({});
+  const [showReplies, setShowReplies] = useState<{
+    [commentId: string]: boolean;
+  }>({});
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -71,10 +75,6 @@ function CommentComponent({ videoId }: { videoId?: string }) {
     };
   }, [videoId]);
 
-
-
-
-  
   const addComment = async () => {
     if (commentText.trim() !== "") {
       const firestore = db as Firestore;
@@ -152,7 +152,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
         if (comment && comment.authorEmail === user.email) {
           const firestore = db as Firestore;
           const commentDocRef = doc(firestore, "comentarios", commentId);
-  
+
           // Exclua o comentário do Firestore
           await deleteDoc(commentDocRef);
         } else {
@@ -167,7 +167,35 @@ function CommentComponent({ videoId }: { videoId?: string }) {
       console.error("Erro ao excluir o comentário:", error);
     }
   };
-  
+
+  const deleteReply = async (commentId: string, replyIndex: number) => {
+    try {
+      if (user) {
+        const comment = comments.find((c) => c.id === commentId);
+
+        if (comment && comment.replies && comment.replies.length > replyIndex) {
+          const firestore = db as Firestore;
+          const commentDocRef = doc(firestore, "comentarios", commentId);
+
+          // Remova a resposta da matriz de respostas
+          comment.replies.splice(replyIndex, 1);
+
+          // Atualize o Firestore com as respostas atualizadas
+          await updateDoc(commentDocRef, {
+            replies: comment.replies,
+          });
+        } else {
+          console.log(
+            "A resposta não existe ou você não tem permissão para excluí-la."
+          );
+        }
+      } else {
+        console.log("Faça login para excluir uma resposta.");
+      }
+    } catch (error) {
+      console.error("Erro ao excluir a resposta:", error);
+    }
+  };
 
   return (
     <div>
@@ -183,9 +211,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
           <button
             className={`${styles.submitButton} ${
               commentText.trim() === ""
-
                 ? styles.buttonBefore
-
                 : styles.buttonAfter
             }`}
             onClick={addComment}
@@ -195,7 +221,19 @@ function CommentComponent({ videoId }: { videoId?: string }) {
           </button>
         </div>
       ) : (
-        <p>Faça login para comentar.</p>
+        <div className={styles.formContainer}>
+          <Link  className={styles.pointerCursor} href="/dashboard">
+            <textarea
+              className={`${styles.textareaInput} ${styles.pointerCursor}`} 
+              placeholder="Faça login para comentar..."
+              disabled
+              
+            />
+            <button className={styles.submitButton} disabled>
+              Enviar Comentário
+            </button>{" "}
+          </Link>
+        </div>
       )}
 
       {/* Lista de Comentários */}
@@ -214,15 +252,14 @@ function CommentComponent({ videoId }: { videoId?: string }) {
             >
               Responder
             </button>
-
             {user && user.email === comment.authorEmail && (
-            <button
-              className={styles.deleteButton}
-              onClick={() => deleteComment(comment.id)}
-            >
-              Apagar Comentário
-            </button>
-          )}
+              <button
+                className={styles.deleteButton}
+                onClick={() => deleteComment(comment.id)}
+              >
+                Apagar Comentário <DeleteIcon />
+              </button>
+            )}
             {/* Formulário de resposta para este comentário se estiver selecionado */}
             {replyingTo === comment.id && (
               <div className={styles.replyForm}>
@@ -233,7 +270,6 @@ function CommentComponent({ videoId }: { videoId?: string }) {
                   onChange={(e) => setReplyText(e.target.value)}
                 />
                 <button
-                
                   className={`${styles.rsubmitButton} ${
                     replyText.trim() === ""
                       ? styles.rbuttonBefore
@@ -244,7 +280,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
                   Enviar Resposta
                 </button>
 
-                <button className={styles.cancelButton} onClick={cancelReply}   >
+                <button className={styles.cancelButton} onClick={cancelReply}>
                   Cancelar Resposta
                 </button>
               </div>
@@ -255,13 +291,27 @@ function CommentComponent({ videoId }: { videoId?: string }) {
                 comment.replies.map(
                   (reply: DocumentData, replyIndex: number) => (
                     <li key={replyIndex} className={styles.replyItem}>
-                      <span className={styles.replyAuthor}>
-                        {reply.authorEmail}:
-                      </span>{" "}
-                      {reply.text} -{" "}
-                      <span className={styles.replyTimestamp}>
-                        {reply.timestamp.toDate().toLocaleString()}
-                      </span>
+                      <div className={styles.divrespostas}>
+                        {" "}
+                        <span className={styles.titlerespostas}>
+                          Resposta de{" "}
+                        </span>
+                        <span className={styles.replyAuthor}>
+                          {reply.authorEmail}:
+                        </span>{" "}
+                        {reply.text} -{" "}
+                        <span className={styles.replyTimestamp}>
+                          {reply.timestamp.toDate().toLocaleString()}
+                        </span>{" "}
+                        {user && user.email === reply.authorEmail && (
+                          <button
+                            className={styles.deleteButtonreply}
+                            onClick={() => deleteReply(comment.id, replyIndex)}
+                          >
+                            Apagar Resposta <DeleteIcon />
+                          </button>
+                        )}{" "}
+                      </div>
                     </li>
                   )
                 )}

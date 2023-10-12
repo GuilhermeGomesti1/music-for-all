@@ -1,0 +1,14 @@
+.DeleteIcon {
+  color: red;
+  background-color: transparent;
+  font-size: 20px;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .DeleteIcon {
+    background-color: transparent;
+    font-size: 10px;
+    border-radius: 50%;
+  }
+}

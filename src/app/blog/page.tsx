@@ -17,6 +17,19 @@ import CommentComponent from "../components/FormComentarios";
 
 export default function Blog() {
 
+
+  const videodata = [
+    {
+      title: "O Palco é Deles: Alunos Brilhando na Escola de Música!",
+      videoId: "ReDuOTb9vRE",
+    },
+    {
+      title: "Aula de violão- Trevo(Tu) - Anavitória.",
+      videoId: "9srQ84b4iYw",
+    },
+    
+  ];
+
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -109,6 +122,7 @@ export default function Blog() {
               músicos, junto com cada um de nossos alunos{" "}
             </p>
           </div>
+          <CommentComponent videoId="ReDuOTb9vRE" />
           
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
@@ -181,8 +195,9 @@ export default function Blog() {
               <Link href={loggedIn ? "/alunos" : "/dashboard"} className={styles.cliqueaqui}>
               Já é aluno? Clique aqui para acessar o conteúdo exclusivo.
               </Link>
-            </p>
+            </p> 
           </div>
+          <CommentComponent videoId="9srQ84b4iYw" />
 
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
