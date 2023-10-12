@@ -268,12 +268,16 @@ function CommentComponent({ videoId }: { videoId?: string }) {
               {comment.timestamp.toDate().toLocaleString()}
             </span>
             {/* Botão para selecionar o comentário para resposta */}
-            <button
-              className={styles.buttonresponder}
-              onClick={() => selectReplyingTo(comment.id)}
-            >
-              Responder
-            </button>
+            {user ? (
+  <button
+    className={styles.buttonresponder}
+    onClick={() => selectReplyingTo(comment.id)}
+  >
+    Responder
+  </button>
+) : (
+  <Link href="/dashboard" className={styles.loginbuttonresponder}>Faça login para responder</Link>
+)}
             {user && user.email === comment.authorEmail && (
               <button
                 className={styles.deleteButton}

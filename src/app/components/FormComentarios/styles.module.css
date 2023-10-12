@@ -89,6 +89,16 @@
   cursor: pointer;
 }
 
+.loginbuttonresponder{
+  font-weight: bolder;
+  background-color: white;
+  border: none;
+  margin-left: 1rem;
+  cursor: pointer;
+  font-size: 0.7rem;
+  text-decoration: none;
+}
+
 .replyForm{
   width: 100%;
 }
