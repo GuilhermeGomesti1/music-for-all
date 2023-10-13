@@ -5,7 +5,7 @@ import homecursos from "../../../public/images/homecursos.png";
 import beneficios from "../../../public/images/beneficios.png";
 import Image from "next/image";
 import styles from "./styles.module.css";
-
+import { toast } from "react-toastify";
 import { db, auth } from "../firebase";
 import { useEffect, useState } from "react";
 import {
@@ -38,32 +38,50 @@ export default function Dashboard() {
         console.log("Erro ao cadastrar ");
       });
   }
-
   async function logarUsuario() {
-    await signInWithEmailAndPassword(auth, email, senha)
-      .then((value) => {
-        console.log("user logado com sucesso");
-        console.log(value.user);
+    if (email === "" || senha === "") {
+      toast.error("Por favor, preencha ambos os campos de e-mail e senha.");
+      return;
+    }
 
-        if (value.user.email) {
-          setUserDetail({
-            uid: value.user.uid,
-            email: value.user.email,
-          });
-        } else {
-          setUserDetail({
-            uid: value.user.uid,
-            email: undefined,
-          });
-        }
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        senha
+      );
+      const user = userCredential.user;
 
-        setUser(true);
-        setEmail("");
-        setSenha("");
-      })
-      .catch(() => {
-        console.log("Erro ao fazer login");
+      toast.success("Usuário logado com sucesso");
+      console.log("Usuário logado com sucesso");
+      console.log(user);
+
+      setUserDetail({
+        uid: user.uid,
+        email: user.email || undefined,
       });
+
+      setUser(true);
+      setEmail("");
+      setSenha("");
+    } catch (error) {
+      console.error("Erro ao fazer login", error);
+
+      const errorString = String(error); // Converta error para string
+
+      if (
+        errorString.includes("auth/invalid-email") ||
+        errorString.includes("auth/wrong-password")
+      ) {
+        toast.error("E-mail ou senha inválidos. Por favor, tente novamente.");
+      } else if (errorString.includes("auth/user-not-found")) {
+        toast.error("Usuário não cadastrado. Por favor, registre-se.");
+      } else {
+        toast.error(
+          "E-mail ou senha inválidos. Por favor, tente novamente."
+        );
+      }
+    }
   }
 
   async function fazerLogout() {
@@ -95,7 +113,7 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className={`${styles.container} animated-item`}> 
+    <div className={`${styles.container} animated-item`}>
       <div className={styles.containerViolao}>
         <Image
           className={styles.img}
@@ -120,31 +138,30 @@ export default function Dashboard() {
         <IconWhatsappfixed />
       </li>
       <div className={`${styles.titlesection} animated-item`}>
-  {user ? (
-    <span>Seja bem-vindo: {userDetail?.email}</span>
-  ) : (
-    <span className={`${styles.facalogintext} animated-item`}>Faça login para acessar o conteúdo. Como aluno, você terá acesso a recursos exclusivos para aprimorar suas habilidades musicais.</span>  
-  )}
-</div>
+        {user ? (
+          <span>Seja bem-vindo: {userDetail?.email}</span>
+        ) : (
+          <span className={`${styles.facalogintext} animated-item`}>
+            Faça login para acessar o conteúdo. Como aluno, você terá acesso a
+            recursos exclusivos para aprimorar suas habilidades musicais.
+          </span>
+        )}
+      </div>
       {user ? (
         <div>
-        
-          <Link href={"/alunos"} className={`${styles.buttonContainer} animated-item`}>
+          <Link
+            href={"/alunos"}
+            className={`${styles.buttonContainer} animated-item`}
+          >
             <button className={styles.subtitleButton}>
- 
-              <span >
-                Clique aqui para acessar o seu conteúdo exclusivo!
-              </span>
+              <span>Clique aqui para acessar o seu conteúdo exclusivo!</span>
             </button>
           </Link>
-        
-          
         </div>
       ) : (
         <div className={`${styles.formContainer} animated-item`}>
-          
           <form>
-            <label className={`${styles.formLabel} animated-item`}>Email</label> 
+            <label className={`${styles.formLabel} animated-item`}>Email</label>
             <input
               className={`${styles.formInput} animated-item`}
               value={email}
@@ -161,26 +178,27 @@ export default function Dashboard() {
             placeholder="Digite sua senha"
           />
 
-          <button className={`${styles.formButton} animated-item`}onClick={logarUsuario}> 
+          <button
+            className={`${styles.formButton} animated-item`}
+            onClick={logarUsuario}
+          >
             Fazer Login
           </button>
-        </div> )}
+        </div>
+      )}
 
-        <div className={`${styles.beneficiosAluno} animated-item`}>
-       
+      <div className={`${styles.beneficiosAluno} animated-item`}>
         <Image
-                className={`${styles.img2} animated-item`} 
-                src={beneficios}
-                alt="Music For All Logo"
-                loading="lazy"
-              />
-   
-   
-  </div>
+          className={`${styles.img2} animated-item`}
+          src={beneficios}
+          alt="Music For All Logo"
+          loading="lazy"
+        />
+      </div>
 
-     {/* <button onClick={novoUsuario}>Cadastrar</button> */}
-{/* <button onClick={logarUsuario}>Fazer Login</button> */}
-{/* <button onClick={fazerLogout}>Fazer logout</button> */}
-  </div>
-);
+      {/* <button onClick={novoUsuario}>Cadastrar</button> */}
+      {/* <button onClick={logarUsuario}>Fazer Login</button> */}
+      {/* <button onClick={fazerLogout}>Fazer logout</button> */}
+    </div>
+  );
 }

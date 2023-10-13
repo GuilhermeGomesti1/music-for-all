@@ -9,6 +9,7 @@ import logo from "../../../../public/images/logo.png";
 import { MenuIcon } from "../Icons/iconsHome/iconMenu";
 import { IconClose } from "../Icons/iconsHome/iconClose";
 import { LogoutIcon } from "../Icons/iconsHome/iconLogout";
+import { toast } from "react-toastify";
 
 export function Header() {
 
@@ -36,7 +37,9 @@ export function Header() {
       try {
         await signOut(auth);
         setLoggedIn(false);
+        toast.info('Logout feito com sucesso');
         window.location.href = "/";
+        
       } catch (error) {
         console.error("Erro ao fazer logout:", error);
       }

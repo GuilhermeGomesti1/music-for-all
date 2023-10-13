@@ -109,7 +109,7 @@ export default function Alunos() {
             </div>
 
             <div className={`${styles.conteudoalunos} animated-item`}>
-              <Link href={"/videoaulas"}>
+              <Link href={"/materiais"}>
                 <Image
                   className={styles.imgCursos}
                   src={materiais}

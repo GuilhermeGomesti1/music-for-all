@@ -1,0 +1,51 @@
+.containerViolao {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+  
+  .img {
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
+    margin: 0 auto;
+    max-height: 507px;
+    width: 100vw;
+    display: flex;
+  }
+  
+  .violaoContainer {
+    display: none;
+  }
+  .titlesection {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+  }
+.divImgMateriais{
+    margin: 0 auto;
+    max-width: 80%; 
+}
+  .imgCursos {
+    width: 420px;
+    height: 282px;
+  }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .img {
+      display: none;
+    }
+  
+    .violaoContainer {
+      display: flex;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
+      min-width: 100%;
+    }
+    .titlesection {font-size: 1rem;
+        font-weight: bolder;
+    margin-top: -0.5rem;
+    margin-bottom: -0.5rem;}
+}  
