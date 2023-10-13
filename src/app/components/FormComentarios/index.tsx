@@ -30,6 +30,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
   const [showReplies, setShowReplies] = useState<{
     [commentId: string]: boolean;
   }>({});
+  const [commentsToShow, setCommentsToShow] = useState(3);
 
 
   useEffect(() => {
@@ -260,13 +261,19 @@ function CommentComponent({ videoId }: { videoId?: string }) {
 
       {/* Lista de Comentários */}
       <ul className= {`${styles.commentList} animated-item`}> 
-        {comments.map((comment, index) => (
+      {comments.slice(0, commentsToShow).map((comment, index)=> (
           <li key={comment.id} className={styles.commentItem}>
             <span className={styles.commentAuthor}>{comment.authorEmail}:</span>{" "}
             {comment.text} -{" "}
             <span className={styles.commentTimestamp}>
               {comment.timestamp.toDate().toLocaleString()}
             </span>
+
+            {commentsToShow < comments.length && (
+  <button onClick={() => setCommentsToShow(commentsToShow + 1)}>
+    Ver mais comentários
+  </button>
+)}
             {/* Botão para selecionar o comentário para resposta */}
             {user ? (
   <button
