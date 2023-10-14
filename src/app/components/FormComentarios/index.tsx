@@ -31,7 +31,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
     [commentId: string]: boolean;
   }>({});
   const [commentsToShow, setCommentsToShow] = useState(3);
-
+  const [areCommentsOpen, setAreCommentsOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -224,6 +224,11 @@ function CommentComponent({ videoId }: { videoId?: string }) {
     setCommentsToShow((prevCount) => prevCount + 1);
   };
 
+
+  const handleShowLessComments = () => {
+    setCommentsToShow(3);
+  };
+
   return (
     <div>   
       {/* Formulário de Comentário */}
@@ -289,6 +294,8 @@ function CommentComponent({ videoId }: { videoId?: string }) {
     Ver mais comentários
   </button>
 )}
+
+
             {user && user.email === comment.authorEmail && (
               <button
                 className={styles.deleteButton}
@@ -351,11 +358,16 @@ function CommentComponent({ videoId }: { videoId?: string }) {
                       </div>
                     </li>
                   )
-                )}
+                )} 
             </ul>
           </li>
         ))}
       </ul>
+      {commentsToShow > 3 && (
+      <button onClick={handleShowLessComments}>
+        Ver Menos Comentários
+      </button>
+    )}
     </div>
   );
 }
