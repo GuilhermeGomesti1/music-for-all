@@ -220,6 +220,10 @@ function CommentComponent({ videoId }: { videoId?: string }) {
     }
   };
 
+  const handleShowMoreComments = () => {
+    setCommentsToShow((prevCount) => prevCount + 1);
+  };
+
   return (
     <div>   
       {/* Formulário de Comentário */}
@@ -260,20 +264,15 @@ function CommentComponent({ videoId }: { videoId?: string }) {
       )}
 
       {/* Lista de Comentários */}
-      <ul className= {`${styles.commentList} animated-item`}> 
-      {comments.slice(0, commentsToShow).map((comment, index)=> (
+      <ul className={`${styles.commentList} animated-item`}>
+        {comments.slice(0, commentsToShow).map((comment, index) => (
           <li key={comment.id} className={styles.commentItem}>
             <span className={styles.commentAuthor}>{comment.authorEmail}:</span>{" "}
             {comment.text} -{" "}
             <span className={styles.commentTimestamp}>
               {comment.timestamp.toDate().toLocaleString()}
             </span>
-
-            {commentsToShow < comments.length && (
-  <button onClick={() => setCommentsToShow(commentsToShow + 1)}>
-    Ver mais comentários
-  </button>
-)}
+          
             {/* Botão para selecionar o comentário para resposta */}
             {user ? (
   <button
@@ -282,8 +281,13 @@ function CommentComponent({ videoId }: { videoId?: string }) {
   >
     Responder
   </button>
+  
 ) : (
   <Link href="/dashboard" className={styles.loginbuttonresponder}>Faça login para responder</Link>
+)}  {index === commentsToShow - 1 && commentsToShow < comments.length && (
+  <button onClick={handleShowMoreComments}>
+    Ver mais comentários
+  </button>
 )}
             {user && user.email === comment.authorEmail && (
               <button
