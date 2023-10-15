@@ -20,6 +20,8 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import Link from "next/link";
+import { DownArrow } from "../Icons/OtherIcons/downArrow";
+import { UpArrow } from "../Icons/OtherIcons/upArrow";
 
 function CommentComponent({ videoId }: { videoId?: string }) {
   const [commentText, setCommentText] = useState("");
@@ -230,7 +232,8 @@ function CommentComponent({ videoId }: { videoId?: string }) {
   };
 
   return (
-    <div>   
+    <div>
+    <div className={styles.containerComentarios}>   
       {/* Formulário de Comentário */}
       {user ? (
         <div className={`${styles.formContainer} animated-item`}>
@@ -291,7 +294,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
   <Link href="/dashboard" className={styles.loginbuttonresponder}>Faça login para responder</Link>
 )}  {index === commentsToShow - 1 && commentsToShow < comments.length && (
   <button onClick={handleShowMoreComments}>
-    Ver mais comentários
+   <DownArrow/>  
   </button>
 )}
 
@@ -365,9 +368,10 @@ function CommentComponent({ videoId }: { videoId?: string }) {
       </ul>
       {commentsToShow > 3 && (
       <button onClick={handleShowLessComments}>
-        Ver Menos Comentários
+       <UpArrow/> 
       </button>
     )}
+    </div>
     </div>
   );
 }
