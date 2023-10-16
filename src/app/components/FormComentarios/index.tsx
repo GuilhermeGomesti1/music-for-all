@@ -367,19 +367,27 @@ function CommentComponent({ videoId }: { videoId?: string }) {
                 >
                   Apagar <DeleteIcon />
                 </button>
+
+
+
+
+
               )}
               <span className={styles.commentLikes}>
                 {comment.likes.length}{" "}
                 {comment.likes.length === 1 ? "Like" : "Likes"}
               </span>
-              <button
-                className={`${styles.likeButton} ${
-                  likedComments.includes(comment.id) ? styles.liked : ""
-                }`}
-                onClick={() => likeComment(comment.id)}
-              >
-                <LikeIcon />
-              </button>
+              {user && (
+        <button
+          className={`${styles.likeButton} ${
+            likedComments.includes(comment.id) ? styles.liked : ""
+          }`}
+          onClick={() => likeComment(comment.id)}
+        >
+          <LikeIcon />
+        </button>
+      )}
+
               {index === commentsToShow - 1 &&
                 commentsToShow < comments.length && (
                   <button
@@ -448,7 +456,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
                             {reply.likes.length}{" "}
                             {reply.likes.length === 1 ? "Like" : "Likes"}
                           </span>
-                          <button
+                          {user && ( <button
                             className={`${styles.likeButtonreply} ${
                               likedComments.includes(reply.id)
                                 ? styles.liked
@@ -457,7 +465,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
                             onClick={() => likeReply(comment.id, replyIndex)}
                           >
                             <LikeIcon />
-                          </button>
+                          </button> )}
                         </div>
                       </li>
                     )
