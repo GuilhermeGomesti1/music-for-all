@@ -367,27 +367,21 @@ function CommentComponent({ videoId }: { videoId?: string }) {
                 >
                   Apagar <DeleteIcon />
                 </button>
-
-
-
-
-
               )}
               <span className={styles.commentLikes}>
                 {comment.likes.length}{" "}
                 {comment.likes.length === 1 ? "Like" : "Likes"}
               </span>
               {user && (
-        <button
-          className={`${styles.likeButton} ${
-            likedComments.includes(comment.id) ? styles.liked : ""
-          }`}
-          onClick={() => likeComment(comment.id)}
-        >
-          <LikeIcon />
-        </button>
-      )}
-
+                <button
+                  className={`${styles.likeButton} ${
+                    likedComments.includes(comment.id) ? styles.liked : ""
+                  }`}
+                  onClick={() => likeComment(comment.id)}
+                >
+                  <LikeIcon />
+                </button>
+              )}
               {index === commentsToShow - 1 &&
                 commentsToShow < comments.length && (
                   <button
@@ -456,16 +450,18 @@ function CommentComponent({ videoId }: { videoId?: string }) {
                             {reply.likes.length}{" "}
                             {reply.likes.length === 1 ? "Like" : "Likes"}
                           </span>
-                          {user && ( <button
-                            className={`${styles.likeButtonreply} ${
-                              likedComments.includes(reply.id)
-                                ? styles.liked
-                                : ""
-                            }`}
-                            onClick={() => likeReply(comment.id, replyIndex)}
-                          >
-                            <LikeIcon />
-                          </button> )}
+                          {user && (
+                            <button
+                              className={`${styles.likeButtonreply} ${
+                                likedComments.includes(reply.id)
+                                  ? styles.liked
+                                  : ""
+                              }`}
+                              onClick={() => likeReply(comment.id, replyIndex)}
+                            >
+                              <LikeIcon />
+                            </button>
+                          )}
                         </div>
                       </li>
                     )
