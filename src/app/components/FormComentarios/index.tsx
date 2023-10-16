@@ -22,6 +22,7 @@ import {
 import Link from "next/link";
 import { DownArrow } from "../Icons/OtherIcons/downArrow";
 import { UpArrow } from "../Icons/OtherIcons/upArrow";
+import { LikeIcon } from "../Icons/OtherIcons/like";
 
 function CommentComponent({ videoId }: { videoId?: string }) {
   const [commentText, setCommentText] = useState("");
@@ -34,6 +35,10 @@ function CommentComponent({ videoId }: { videoId?: string }) {
   }>({});
   const [commentsToShow, setCommentsToShow] = useState(3);
   const [areCommentsOpen, setAreCommentsOpen] = useState(false);
+  const hasUserLiked = (item: DocumentData) => {
+    return item.likes.includes(user?.email);
+  };
+  const [likedComments, setLikedComments] = useState<string[]>([]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -137,6 +142,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
           text: replyText,
           authorEmail: userEmail,
           timestamp: Timestamp.fromDate(new Date()),
+          likes: [],
         };
 
         // Certifique-se de que a propriedade "replies" existe
@@ -226,153 +232,250 @@ function CommentComponent({ videoId }: { videoId?: string }) {
     setCommentsToShow((prevCount) => prevCount + 1);
   };
 
-
   const handleShowLessComments = () => {
     setCommentsToShow(3);
   };
 
+  const likeComment = async (commentId: string) => {
+    const comment = comments.find((c) => c.id === commentId);
+
+    if (comment) {
+      const firestore = db as Firestore;
+      const commentDocRef = doc(firestore, "comentarios", comment.id);
+
+      const userLiked = comment.likes.includes(user?.email);
+
+      if (userLiked) {
+        const updatedLikes = comment.likes.filter(
+          (email: string) => email !== user?.email
+        );
+        await updateDoc(commentDocRef, {
+          likes: updatedLikes,
+        });
+
+        // Remove o comentário do estado likedComments
+        setLikedComments(likedComments.filter((id) => id !== commentId));
+      } else {
+        comment.likes.push(user?.email);
+        await updateDoc(commentDocRef, {
+          likes: comment.likes,
+        });
+
+        // Adicione o comentário ao estado likedComments
+        setLikedComments([...likedComments, commentId]);
+      }
+    }
+  };
+  const likeReply = async (commentId: string, replyIndex: number) => {
+    const comment = comments.find((c) => c.id === commentId);
+
+    if (comment && comment.replies && comment.replies.length > replyIndex) {
+      const reply = comment.replies[replyIndex];
+      const firestore = db as Firestore;
+      const commentDocRef = doc(firestore, "comentarios", comment.id);
+
+      const userLiked = reply.likes.includes(user?.email);
+
+      if (userLiked) {
+        const updatedLikes = reply.likes.filter(
+          (email: string) => email !== user?.email
+        );
+        reply.likes = updatedLikes;
+
+        // Remove a resposta do estado likedComments
+        setLikedComments(likedComments.filter((id) => id !== reply.id));
+      } else {
+        reply.likes.push(user?.email);
+
+        // Adicione a resposta ao estado likedComments
+        setLikedComments([...likedComments, reply.id]);
+      }
+
+      await updateDoc(commentDocRef, {
+        replies: comment.replies,
+      });
+    }
+  };
+
   return (
     <div>
-    <div className={styles.containerComentarios}>   
-      {/* Formulário de Comentário */}
-      {user ? (
-        <div className={`${styles.formContainer} animated-item`}>
-          <textarea
-            className={styles.textareaInput}
-            placeholder="Digite seu comentário..."
-            value={commentText}
-            onChange={(e) => setCommentText(e.target.value)}
-          />
-          <button
-            className={`${styles.submitButton} ${
-              commentText.trim() === ""
-                ? styles.buttonBefore
-                : styles.buttonAfter
-            }`}
-            onClick={addComment}
-            disabled={commentText.trim() === ""}
-          >
-            Enviar Comentário
-          </button>
-        </div>
-      ) : (
-        <div className={`${styles.formContainer} animated-item`}>
-          <Link  className={styles.pointerCursor} href="/dashboard">
+      <div className={styles.containerComentarios}>
+        {/* Formulário de Comentário */}
+        {user ? (
+          <div className={`${styles.formContainer} animated-item`}>
             <textarea
-              className={`${styles.textareaInput} ${styles.pointerCursor}`} 
-              placeholder="Faça login para comentar..."
-              disabled
-              
+              className={styles.textareaInput}
+              placeholder="Digite seu comentário..."
+              value={commentText}
+              onChange={(e) => setCommentText(e.target.value)}
             />
-            <button className={styles.submitButton} disabled>
+            <button
+              className={`${styles.submitButton} ${
+                commentText.trim() === ""
+                  ? styles.buttonBefore
+                  : styles.buttonAfter
+              }`}
+              onClick={addComment}
+              disabled={commentText.trim() === ""}
+            >
               Enviar Comentário
-            </button>{" "}
-          </Link>
-        </div>
-      )}
-
-      {/* Lista de Comentários */}
-      <ul className={`${styles.commentList} animated-item`}>
-        {comments.slice(0, commentsToShow).map((comment, index) => (
-          <li key={comment.id} className={styles.commentItem}>
-            <span className={styles.commentAuthor}>{comment.authorEmail}:</span>{" "}
-            {comment.text} -{" "}
-            <span className={styles.commentTimestamp}>
-              {comment.timestamp.toDate().toLocaleString()}
-            </span>
-          
-            {/* Botão para selecionar o comentário para resposta */}
-            {user ? (
-  <button
-    className={styles.buttonresponder}
-    onClick={() => selectReplyingTo(comment.id)}
-  >
-    Responder
-  </button>
-  
-) : (
-  <Link href="/dashboard" className={styles.loginbuttonresponder}>Faça login para responder</Link>
-)} 
-
-            {user && user.email === comment.authorEmail && (
-              <button
-                className={styles.deleteButton}
-                onClick={() => deleteComment(comment.id)}
-              >
-                Apagar <DeleteIcon />
-              </button>
-            )}   {index === commentsToShow - 1 && commentsToShow < comments.length && (
-              <button className={styles.downButton} onClick={handleShowMoreComments}>
-               <DownArrow/> <span className={styles.vermaistext}>Ver Mais</span>
-              </button>
-            )}
-            
-            {/* Formulário de resposta para este comentário se estiver selecionado */}
-            {replyingTo === comment.id && (
-              <div className={styles.replyForm}>
-                <textarea
-                  className={styles.textareaInput}
-                  placeholder="Digite sua resposta..."
-                  value={replyText}
-                  onChange={(e) => setReplyText(e.target.value)}
-                />
-                <button
-                  className={`${styles.rsubmitButton} ${
-                    replyText.trim() === ""
-                      ? styles.rbuttonBefore
-                      : styles.rbuttonAfter
-                  }`}
-                  onClick={() => addReply(comment.id)}
-                >
-                  Enviar Resposta
-                </button>
-
-                <button className={styles.cancelButton} onClick={cancelReply}>
-                  Cancelar 
-                </button>
-              </div>
-            )}
-            {/* Lista de respostas para este comentário */}
-            <ul className={styles.replyList}>
-              {comment.replies &&
-                comment.replies.map(
-                  (reply: DocumentData, replyIndex: number) => (
-                    <li key={replyIndex} className={styles.replyItem}>
-                      <div className={styles.divrespostas}>
-                        {" "}
-                        <span className={styles.titlerespostas}>
-                          Resposta de{" "}
-                        </span>
-                        <span className={styles.replyAuthor}>
-                          {reply.authorEmail}:
-                        </span>{" "}
-                        {reply.text} -{" "}
-                        <span className={styles.replyTimestamp}>
-                          {reply.timestamp.toDate().toLocaleString()}
-                        </span>{" "}
-                        {user && user.email === reply.authorEmail && (
-                          <button
-                            className={styles.deleteButtonreply}
-                            onClick={() => deleteReply(comment.id, replyIndex)}
-                          >
-                            Apagar<DeleteIcon />
-                          </button>
-                        )}{" "}
-                      </div>
-                    </li>
-                  )
-                )} 
-            </ul>
-          </li>
-
-        ))} {commentsToShow > 3 && (
-          <button className={styles.upButton} onClick={handleShowLessComments}>
-                <UpArrow/> <span className={styles.vermenostext}>Fechar comentários </span>
-          </button>         
+            </button>
+          </div>
+        ) : (
+          <div className={`${styles.formContainer} animated-item`}>
+            <Link className={styles.pointerCursor} href="/dashboard">
+              <textarea
+                className={`${styles.textareaInput} ${styles.pointerCursor}`}
+                placeholder="Faça login para comentar..."
+                disabled
+              />
+              <button className={styles.submitButton} disabled>
+                Enviar Comentário
+              </button>{" "}
+            </Link>
+          </div>
         )}
-      </ul>
-     
-    </div>
+
+        {/* Lista de Comentários */}
+        <ul className={`${styles.commentList} animated-item`}>
+          {comments.slice(0, commentsToShow).map((comment, index) => (
+            <li key={comment.id} className={styles.commentItem}>
+              <span className={styles.commentAuthor}>
+                {comment.authorEmail}:
+              </span>{" "}
+              {comment.text} -{" "}
+              <span className={styles.commentTimestamp}>
+                {comment.timestamp.toDate().toLocaleString()}
+              </span>
+              {/* Botão para selecionar o comentário para resposta */}
+              {user ? (
+                <button
+                  className={styles.buttonresponder}
+                  onClick={() => selectReplyingTo(comment.id)}
+                >
+                  Responder
+                </button>
+              ) : (
+                <Link href="/dashboard" className={styles.loginbuttonresponder}>
+                  Faça login para responder
+                </Link>
+              )}
+              {user && user.email === comment.authorEmail && (
+                <button
+                  className={styles.deleteButton}
+                  onClick={() => deleteComment(comment.id)}
+                >
+                  Apagar <DeleteIcon />
+                </button>
+              )}
+              <span className={styles.commentLikes}>
+                {comment.likes.length}{" "}
+                {comment.likes.length === 1 ? "Like" : "Likes"}
+              </span>
+              <button
+                className={`${styles.likeButton} ${
+                  likedComments.includes(comment.id) ? styles.liked : ""
+                }`}
+                onClick={() => likeComment(comment.id)}
+              >
+                <LikeIcon />
+              </button>
+              {index === commentsToShow - 1 &&
+                commentsToShow < comments.length && (
+                  <button
+                    className={styles.downButton}
+                    onClick={handleShowMoreComments}
+                  >
+                    <DownArrow />{" "}
+                    <span className={styles.vermaistext}>Ver Mais</span>
+                  </button>
+                )}
+              {/* Formulário de resposta para este comentário se estiver selecionado */}
+              {replyingTo === comment.id && (
+                <div className={styles.replyForm}>
+                  <textarea
+                    className={styles.textareaInput}
+                    placeholder="Digite sua resposta..."
+                    value={replyText}
+                    onChange={(e) => setReplyText(e.target.value)}
+                  />
+                  <button
+                    className={`${styles.rsubmitButton} ${
+                      replyText.trim() === ""
+                        ? styles.rbuttonBefore
+                        : styles.rbuttonAfter
+                    }`}
+                    onClick={() => addReply(comment.id)}
+                  >
+                    Enviar Resposta
+                  </button>
+
+                  <button className={styles.cancelButton} onClick={cancelReply}>
+                    Cancelar
+                  </button>
+                </div>
+              )}
+              {/* Lista de respostas para este comentário */}
+              <ul className={styles.replyList}>
+                {comment.replies &&
+                  comment.replies.map(
+                    (reply: DocumentData, replyIndex: number) => (
+                      <li key={replyIndex} className={styles.replyItem}>
+                        <div className={styles.divrespostas}>
+                          {" "}
+                          <span className={styles.titlerespostas}>
+                            Resposta de{" "}
+                          </span>
+                          <span className={styles.replyAuthor}>
+                            {reply.authorEmail}:
+                          </span>{" "}
+                          {reply.text} -{" "}
+                          <span className={styles.replyTimestamp}>
+                            {reply.timestamp.toDate().toLocaleString()}
+                          </span>{" "}
+                          {user && user.email === reply.authorEmail && (
+                            <button
+                              className={styles.deleteButtonreply}
+                              onClick={() =>
+                                deleteReply(comment.id, replyIndex)
+                              }
+                            >
+                              Apagar
+                              <DeleteIcon />
+                            </button>
+                          )}{" "}
+                          <span className={styles.replyLikes}>
+                            {reply.likes.length}{" "}
+                            {reply.likes.length === 1 ? "Like" : "Likes"}
+                          </span>
+                          <button
+                            className={`${styles.likeButtonreply} ${
+                              likedComments.includes(reply.id)
+                                ? styles.liked
+                                : ""
+                            }`}
+                            onClick={() => likeReply(comment.id, replyIndex)}
+                          >
+                            <LikeIcon />
+                          </button>
+                        </div>
+                      </li>
+                    )
+                  )}
+              </ul>
+            </li>
+          ))}{" "}
+          {commentsToShow > 3 && (
+            <button
+              className={styles.upButton}
+              onClick={handleShowLessComments}
+            >
+              <UpArrow />{" "}
+              <span className={styles.vermenostext}>Fechar comentários </span>
+            </button>
+          )}
+        </ul>
+      </div>
     </div>
   );
 }

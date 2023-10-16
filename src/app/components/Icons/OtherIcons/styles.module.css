@@ -14,6 +14,22 @@
     vertical-align: middle;
     
 }
+.LikeIcon {
+  border: none;
+  background-color: #FFFAFA;
+  font-size: 20px;
+  border-radius: 50%;
+  color: blue;
+  vertical-align: middle;
+  cursor: pointer; 
+  transition: color 0.3s; 
+}
+
+
+.LikeIcon:active {
+  color: red; /* Cor quando clicado */
+}
+
 
 .UpArrow{
   border: none;

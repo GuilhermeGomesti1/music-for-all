@@ -93,6 +93,21 @@
   top:0;
 }
 
+.commentLikes{
+  display: inline-block;
+  margin-left: 10px; 
+}
+
+.likeButton{
+  display: inline-block;
+  margin-left: 10px; 
+}
+.replyLikes{
+  display: inline-block;
+  margin-left: 10px; 
+
+}
+
 .upButton{
   display: block;
   margin: 0 auto;
@@ -133,8 +148,39 @@
   border: none;
   margin-left: 1rem;
   cursor: pointer;
+  margin-top: 3px;
+}
+.likeButton { transition: background-color 0.3s, color 0.3s;
+  position: absolute; /* Positioning */
+  top: 0; /* Align to the top */
+  right: 160px; 
+  font-weight: bolder;
+  border: none;
+  margin-left: 1rem;
+  cursor: pointer;
+  border-radius: 50%
 }
 
+.likeButtonreply { transition: background-color 0.3s, color 0.3s;
+  font-weight: bolder;
+  background-color: white;
+  border: none;
+  margin-left: 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+
+
+.replyLikes{
+  color: blue;
+  font-size: 0.8rem;
+
+}
+.commentLikes{
+color: blue;
+font-size: 0.8rem;
+}
 .loginbuttonresponder{
   font-weight: bolder;
   background-color: white;
@@ -256,6 +302,34 @@ color: #666;
   margin-top: 10px;
   font-size: 0.7rem;
  
+}
+
+.likeButton { position: static;
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.7rem;
+}
+
+.likeButtonreply { position: static;
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.7rem;
+}
+
+
+
+.replyLikes{
+  position: static;
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.7rem;
+
+}
+.commentLikes{
+  position: static;
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.7rem;
 }
 
 .replyForm{
