@@ -42,7 +42,7 @@
 @media (max-width: 768px) {
   .DeleteIcon {
     background-color: transparent;
-    font-size: 10px;
+    font-size: 20px;
     border-radius: 50%;
   }
 }
