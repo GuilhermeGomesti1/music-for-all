@@ -22,7 +22,7 @@
   color: blue;
   vertical-align: middle;
   cursor: pointer; 
-  transition: color 0.3s; 
+  transition: ease color 0.3s; 
 }
 
 

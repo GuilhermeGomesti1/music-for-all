@@ -130,7 +130,7 @@
   position: relative; 
   padding: 5px; /* Espaçamento interno para separar os comentários */
   word-wrap: break-word; 
-  border-bottom:  #f57b4233 groove 3px;
+  border-bottom:  #f57b4218 groove 2px;
 }
 
 .commentAuthor {
