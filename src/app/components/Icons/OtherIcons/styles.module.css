@@ -3,19 +3,25 @@
   background-color: transparent;
   font-size: 20px;
   border-radius: 50%;
+  vertical-align: middle;
 }
 .DownArrow{
-    color: black;
-    background-color: transparent;
+   border: none;
+    background-color: #FFFAFA;
     font-size: 20px;
     border-radius: 50%;
+    color: #F57A42;
+    vertical-align: middle;
+    
 }
 
 .UpArrow{
-    color: black;
-    background-color: transparent;
-    font-size: 20px;
-    border-radius: 50%;
+  border: none;
+  background-color: #FFFAFA;
+  font-size: 20px;
+  border-radius: 50%;
+  color: #F57A42;
+  vertical-align: middle;
 }
 @media (max-width: 768px) {
   .DeleteIcon {

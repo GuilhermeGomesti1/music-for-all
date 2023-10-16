@@ -292,21 +292,21 @@ function CommentComponent({ videoId }: { videoId?: string }) {
   
 ) : (
   <Link href="/dashboard" className={styles.loginbuttonresponder}>Faça login para responder</Link>
-)}  {index === commentsToShow - 1 && commentsToShow < comments.length && (
-  <button onClick={handleShowMoreComments}>
-   <DownArrow/>  
-  </button>
-)}
-
+)} 
 
             {user && user.email === comment.authorEmail && (
               <button
                 className={styles.deleteButton}
                 onClick={() => deleteComment(comment.id)}
               >
-                Apagar Comentário <DeleteIcon />
+                Apagar <DeleteIcon />
+              </button>
+            )}   {index === commentsToShow - 1 && commentsToShow < comments.length && (
+              <button className={styles.downButton} onClick={handleShowMoreComments}>
+               <DownArrow/> <span className={styles.vermaistext}>Ver Mais</span>
               </button>
             )}
+            
             {/* Formulário de resposta para este comentário se estiver selecionado */}
             {replyingTo === comment.id && (
               <div className={styles.replyForm}>
@@ -328,7 +328,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
                 </button>
 
                 <button className={styles.cancelButton} onClick={cancelReply}>
-                  Cancelar Resposta
+                  Cancelar 
                 </button>
               </div>
             )}
@@ -355,7 +355,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
                             className={styles.deleteButtonreply}
                             onClick={() => deleteReply(comment.id, replyIndex)}
                           >
-                            Apagar Resposta <DeleteIcon />
+                            Apagar<DeleteIcon />
                           </button>
                         )}{" "}
                       </div>
@@ -364,13 +364,14 @@ function CommentComponent({ videoId }: { videoId?: string }) {
                 )} 
             </ul>
           </li>
-        ))}
+
+        ))} {commentsToShow > 3 && (
+          <button className={styles.upButton} onClick={handleShowLessComments}>
+                <UpArrow/> <span className={styles.vermenostext}>Fechar comentários </span>
+          </button>         
+        )}
       </ul>
-      {commentsToShow > 3 && (
-      <button onClick={handleShowLessComments}>
-       <UpArrow/> 
-      </button>
-    )}
+     
     </div>
     </div>
   );

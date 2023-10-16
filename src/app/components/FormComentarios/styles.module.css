@@ -8,6 +8,7 @@
     margin-top: -4rem; 
     margin-bottom: 2px;
     width: 40%; 
+    transition: all 0.3s; 
   }
 
   .pointerCursor {
@@ -19,7 +20,7 @@
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
-    
+    transition: all 0.3s;
   }
   
   .textareaInput::before {
@@ -41,6 +42,7 @@
     cursor: pointer;
     width: 100%;
     margin-left: 0.5rem;
+    transition: all 0.3s;
   }
 
   .buttonAfter {
@@ -71,10 +73,45 @@
   background-color:#FFFAFA;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.089), 0 1px 2px rgba(0, 0, 0, 0.027);
   border-radius: 4px;
+  padding-bottom: 2rem;
+}
+.downButton{  display: block;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10px; /* Adjust this margin as needed to control the vertical spacing */
+  font-weight: bolder;
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
-.commentItem {  margin-bottom: 10px;
+.vermaistext{ 
+  color: #F57A42;
+  right: 0;
+  top:0;
+}
+
+.upButton{
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 1px; /* Adjust this margin as needed to control the vertical spacing */
+  font-weight: bolder;
+  background-color: transparent;
+  color: white;
+  border: none;
+
+  cursor: pointer;
   
+}
+.vermenostext{
+ color: #F57A42;
+  right: 0;
+}
+.commentItem {  margin-bottom: 10px;
+  position: relative; 
   padding: 5px; /* Espaçamento interno para separar os comentários */
   word-wrap: break-word; 
 }
@@ -88,7 +125,9 @@
   font-size: 0.9em;
 }
 
-.buttonresponder{
+.buttonresponder{position: absolute; /* Positioning */
+  top: 0; /* Align to the top */
+  right: 0; 
   font-weight: bolder;
   background-color: white;
   border: none;
@@ -110,7 +149,9 @@
   width: 100%;
 }
 
-.deleteButton{
+.deleteButton{  position: absolute; 
+  top: 0; 
+  right: 80px; 
   font-weight: bolder;
   background-color: white;
   border: none;
@@ -121,10 +162,10 @@
 
 .divrespostas{
    border-radius: 8px;
-  background-color: #f57b4233;
+  
 }
 .titlerespostas{ margin-left: 0.8rem;
-  color: blue;
+  color: #F57A42;
   font-size: 0.8em;
 }
 .replyList{
@@ -136,7 +177,7 @@
 font-size: 0.9em;
 }
 
-.replyAuthor{color: blue;
+.replyAuthor{
   font-weight: bold;
 }
 
@@ -199,6 +240,7 @@ color: #666;
 
 .commentItem {  margin-bottom: 10px;
   font-size: 0.8rem;
+  position: relative;
 }
 
 .commentAuthor {
@@ -209,15 +251,20 @@ color: #666;
   font-size: 0.8rem;
 }
 
-.buttonresponder{
+.buttonresponder{  position: static;
+  display: inline-block;
+  margin-top: 10px;
   font-size: 0.7rem;
+ 
 }
 
 .replyForm{
  
 }
 
-.deleteButton{
+.deleteButton{  position: static;
+  display: inline-block;
+  margin-top: 10px;
   font-size: 0.7rem;
 }
 
