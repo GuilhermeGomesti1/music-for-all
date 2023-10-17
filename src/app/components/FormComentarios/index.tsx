@@ -342,7 +342,8 @@ function CommentComponent({ videoId }: { videoId?: string }) {
             <li key={comment.id} className={styles.commentItem}>
               <span className={styles.commentAuthor}>
                 {comment.authorEmail}:
-              </span>{" "}
+              </span>
+              <br/>
               {comment.text} -{" "}
               <span className={styles.commentTimestamp}>
                 {comment.timestamp.toDate().toLocaleString()}

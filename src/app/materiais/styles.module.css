@@ -1,3 +1,5 @@
+
+
 .containerViolao {
     width: 100%;
     max-width: 100%;
@@ -104,22 +106,22 @@
   max-width: 90%; 
   margin: 0 auto; 
   margin-top: 2rem;
-  margin-bottom: 2rem;
+
 }
 
-.allmateriais {
+.allmateriais {margin-top: -1rem;
   justify-content: center; 
 }
 
 .divImgMateriais {
-  max-width: 80%; 
+  max-width: 100%; 
   margin: 0 auto; 
 }
 
 .imgCursos {
-  width: 100%; 
-  max-width: 350px; 
-  height: auto; 
+ margin-top: 1rem;
+  width: 350px;
+        height: 235px;
 }
 
 

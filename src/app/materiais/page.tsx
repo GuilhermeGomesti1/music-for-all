@@ -10,7 +10,7 @@ import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsapp
 export default function Materiais() {
   return (
     <>
-      <main>
+      <main >
         <div className={styles.containerViolao}>
           <Image
             className={styles.img}
@@ -44,8 +44,8 @@ export default function Materiais() {
           </div>
 
 
-        <div className={styles.allmateriais}>
-          <div className={styles.divImgMateriais}>
+        <div className={`${styles.allmateriais} animated-item`}>  
+          <div className= {`${styles.divImgMateriais} animated-item`}> 
             <a href="/images/apostilamusicforall.pdf" download>
               {" "}
               <Image
@@ -58,7 +58,7 @@ export default function Materiais() {
             </a>
           </div>
 
-          <div className={styles.divImgMateriais}>
+          <div className= {`${styles.divImgMateriais} animated-item`}>
             <a href="/images/pauta.pdf" download>
               <Image
                 className={styles.imgCursos}
@@ -70,7 +70,7 @@ export default function Materiais() {
             </a>
           </div>
 
-          <div className={styles.divImgMateriais}>
+          <div className= {`${styles.divImgMateriais} animated-item`}>
             <a href="/images/tablaturas.pdf" download>
               <Image
                 className={styles.imgCursos}
