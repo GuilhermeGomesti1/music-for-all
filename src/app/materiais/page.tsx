@@ -2,7 +2,10 @@ import Image from "next/image";
 import styles from "./styles.module.css";
 import homeoficial from "../../../public/images/homeoficial.png";
 import homecursos from "../../../public/images/homecursos.png";
-import materiais from "../../../public/images/materiais.png";
+import materiais from "../../../public/images/apostila.png";
+import partituraimg from "../../../public/images/partituraimg.png";
+import tablaturaimg from "../../../public/images/tablaturaimg.png";
+import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
 
 export default function Materiais() {
   return (
@@ -28,27 +31,56 @@ export default function Materiais() {
             placeholder="blur"
           />
         </div>
+        <IconWhatsappfixed />
+          
 
-        <div className={`${styles.titlesection} animated-item`}>
-          <span>Material de Acesso Exclusivo</span>
-        </div>
+          <div className= {`${styles.description} animated-item`}>
 
-        <div className={styles.divImgMateriais}>
-          <Image
-            className={styles.imgCursos}
-            src={materiais}
-            alt="Imagem do curso"
-            loading="lazy"
-            placeholder="blur"
-          />
-        </div>
+         
+            <h1 className={`${styles.titledescription} animated-item`}>Materiais Exclusivos</h1>  
+            <span className={`${styles.spandescription} animated-item`}>
+            Aqui, você encontrará uma série de recursos personalizados para aprimorar sua jornada musical. Basta clicar e baixar!
+            </span>
+          </div>
 
-        <div>
-          <a href="/images/apostilamusicforall.pdf" download>
-            {" "}
-            {/* Caminho relativo à pasta 'public' */}
-            Baixar PDF
-          </a>
+
+        <div className={styles.allmateriais}>
+          <div className={styles.divImgMateriais}>
+            <a href="/images/apostilamusicforall.pdf" download>
+              {" "}
+              <Image
+                className={styles.imgCursos}
+                src={materiais}
+                alt="Imagem do curso"
+                loading="lazy"
+                placeholder="blur"
+              />{" "}
+            </a>
+          </div>
+
+          <div className={styles.divImgMateriais}>
+            <a href="/images/pauta.pdf" download>
+              <Image
+                className={styles.imgCursos}
+                src={partituraimg}
+                alt="Imagem do curso"
+                loading="lazy"
+                placeholder="blur"
+              />
+            </a>
+          </div>
+
+          <div className={styles.divImgMateriais}>
+            <a href="/images/tablaturas.pdf" download>
+              <Image
+                className={styles.imgCursos}
+                src={tablaturaimg}
+                alt="Imagem do curso"
+                loading="lazy"
+                placeholder="blur"
+              />
+            </a>
+          </div>
         </div>
       </main>
     </>
