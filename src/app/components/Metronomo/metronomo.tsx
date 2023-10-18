@@ -3,6 +3,10 @@ import React, { useEffect, useState } from "react"; // Importe o useEffect
 import styles from "./styles.module.css";
 export default function Metronome() {
   const [bpm, setBpm] = useState(140);
+  const [beatsPerMeasure, setBeatsPerMeasure] = useState(4);
+
+
+  
   useEffect(() => {
     const tempoDisplay = document.querySelector(".tempo") as HTMLElement | null;
     const tempoText = document.querySelector(
@@ -17,10 +21,9 @@ export default function Metronome() {
     const tempoSlider = document.querySelector(
       ".slider"
     ) as HTMLInputElement | null;
-    const subrtractBeats = document.querySelector(
-      ".subtractBeats"
-    ) as HTMLElement | null;
-    const addBeats = document.querySelector(".addBeats") as HTMLElement | null;
+    const subtractBeatsButton = document.querySelector(".subtractBeats") as HTMLElement | null;
+    const addBeatsButton = document.querySelector(".addBeats") as HTMLElement | null;
+
     const measureCount = document.querySelector(
       ".measureCount"
     ) as HTMLElement | null;
@@ -41,9 +44,11 @@ export default function Metronome() {
 
       return () => {
         tempoSlider.removeEventListener("input", updateBpm);
-      };
-    }
-  }, []);
+      }; 
+    } 
+     
+
+  },  []);  
 
   return (
     <div className={styles.container}>
@@ -82,16 +87,16 @@ export default function Metronome() {
           </button>
         </div>
         <div className={`${styles.startStop} ${styles.ralewayfont}`}>
-          {" "}
+         
           Start
         </div>
         <div className={styles.measures}>
-          <div className={`${styles.subtractBeats} ${styles.stepper}`}> - </div>
-          <div className={styles.measureCount}>4</div>
+          <div className={`${styles.subtractBeats} ${styles.stepper}`} > - </div>
+          <div className={styles.measureCount}>{beatsPerMeasure}</div>
           <div className={`${styles.addBeats} ${styles.stepper}`}> + </div>
         </div>
         <span className={styles.beatsPerMeasureText}>
-          {" "}
+          
           Batidas por compasso
         </span>
       </div>
