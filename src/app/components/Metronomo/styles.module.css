@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,200;1,400&family=Raleway:wght@400;700&family=Roboto:wght@400;500;700&display=swap");
+
+.ralewayfont {
+  font-family: "Raleway", sans-serif;
+  color: #525252;
+}
+.container {
+  font-family: "Raleway", sans-serif;
+  color: #525252;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.metronome {
+
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 250px;
+  justify-content: space-between;
+}
+
+.bpmDisplay {
+  width: 100%;
+  text-align: center;
+  color: #fa545c;
+}
+
+.tempo {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+.bpm {  font-weight: bold;
+    color: #fa545c;
+}
+
+.tempoText{
+    font-size: .8em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+.tempoSettings{
+display: flex;
+justify-content: space-between;
+
+}
+
+.adjustTempobtn{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    text-align: center;
+    cursor: pointer;
+    font-size: 40px;
+
+}
+
+ .slider{ width: 70%;
+    -webkit-appearance: none;
+    background-color: transparent;
+
+ }
+
+
+.slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fa545c;
+    cursor: pointer;
+    margin-top: -8px;
+}
+
+
+.slider::-moz-range-thumb{
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fa545c;
+    cursor: pointer;
+    border: none;
+}
+
+.slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 1px;
+    background: #ddd
+}
+
+.slider::-moz-range-track {
+    width: 100%;
+    height: 1px;
+    background: #ddd
+}
+
+.slider:focus{
+    outline: none;
+
+}
+
+
+
+.adjustTempobtn:hover{
+    background-color: #fa545c;
+    color: #fff;
+}
+
+.decreaseTempo{
+line-height: 32px;
+
+}
+.increaseTempo{
+    line-height: 32px;
+    
+    }
+
+
+ 
+.startStop{
+        width: 50px;
+        height: 50px;
+        font-size: 0.7em;
+        text-align: center;
+        background-color: #fa545c;
+        border-radius: 50%;
+        color: white;
+        line-height: 50px;
+        margin: 0 auto;
+        cursor: pointer;
+
+  }
+
+ .startStop:hover{
+background-color: #ff656c;
+    }
+
+.measures{
+        display: flex;
+        justify-content: center;
+    }
+
+.stepper{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid #ddd;
+        text-align: center;
+        margin: 0 5px;
+        cursor: pointer;
+}
+
+.stepper:hover{
+    background-color: #ff656c;
+    color: white;
+
+}
+
+.addBeats{
+    line-height: 20px;
+    
+}
+.subtractBeats{
+    line-height: 20px;
+}
+
+.beatsPerMeasureText{
+    text-align: center;
+    font-size: 0.5em;
+    text-transform: uppercase;
+}
