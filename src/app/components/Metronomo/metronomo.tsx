@@ -1,53 +1,78 @@
 "use client";
 import React, { useEffect, useState } from "react"; // Importe o useEffect
 import styles from "./styles.module.css";
+import click1Sound from "../../../../public/audios/click1.mp3"
+import click2Sound from "../../../../public/audios/click2.mp3"
+
 export default function Metronome() {
   const [bpm, setBpm] = useState(140);
   const [beatsPerMeasure, setBeatsPerMeasure] = useState(4);
-  const [tempoTextString, setTempoTextString] = useState("Médio");
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentBeat, setCurrentBeat] = useState(0);
+  const click1 = new Audio(click1Sound);
+  const click2 = new Audio(click2Sound);
+  let metronomeInterval: NodeJS.Timeout | null = null;
 
-  
+
+
+  const toggleMetronome = () => {
+    if (isPlaying) {
+      stopMetronome();
+    } else {
+      startMetronome();
+    }
+  };
+
+  const handleStartStopClick = () => {
+    if (isPlaying) {
+      stopMetronome();
+    } else {
+      startMetronome();
+    }
+  };
+
+  const startMetronome = () => {
+    setIsPlaying(true);
+    const interval = 60000 / bpm;
+    let beatCount = 0;
+    
+    metronomeInterval = setInterval(() => {
+      let audio;
+      if (beatCount % beatsPerMeasure === 0) {
+        audio = click1;
+      } else {
+        audio = click2;
+      }
+      audio.play();
+      beatCount++;
+      setCurrentBeat((prevBeat) => (prevBeat + 1) % beatsPerMeasure);
+    }, interval);
+  };
+
+  const stopMetronome = () => {
+  if (metronomeInterval !== null) {
+    clearInterval(metronomeInterval);
+    metronomeInterval = null;
+    setIsPlaying(false);
+    setCurrentBeat(0);
+  }
+};
+
+
+
   useEffect(() => {
     const tempoDisplay = document.querySelector(".tempo") as HTMLElement | null;
     const tempoText = document.querySelector(".tempoText") as HTMLElement | null;
-    const increaseTempobtn = document.querySelector(
-      ".increaseTempo"
-    ) as HTMLElement | null;
-    const tempoSlider = document.querySelector(
-      ".slider"
-    ) as HTMLInputElement | null;
+    const tempoSlider = document.querySelector(".slider") as HTMLInputElement | null;
     const subtractBeatsButton = document.querySelector(".subtractBeats") as HTMLElement | null;
     const addBeatsButton = document.querySelector(".addBeats") as HTMLElement | null;
-    const measureCount = document.querySelector(
-      ".measureCount"
-    ) as HTMLElement | null;
-    
+    const measureCount = document.querySelector(".measureCount") as HTMLElement | null;
 
-    if (tempoDisplay && tempoSlider && tempoText){
+    if (tempoDisplay && tempoSlider) {
       // Função para atualizar a exibição do metrônomo
       const updateMetronome = () => {
         tempoDisplay.textContent = bpm.toString();
         tempoSlider.value = bpm.toString();
-      
-        if (bpm < 40) {
-          setTempoTextString("Super Lento");
-        } else if (bpm >= 40 && bpm < 80) {
-          setTempoTextString("Lento");
-        } else if (bpm >= 80 && bpm < 120) {
-          setTempoTextString("Chegando lá");
-        } else if (bpm >= 120 && bpm < 180) {
-          setTempoTextString("Agradável e Estável");
-        } else if (bpm >= 180 && bpm < 220) {
-          setTempoTextString("Rock 'n' Roll");
-        } else if (bpm >= 220 && bpm < 240) {
-          setTempoTextString("Funk Stuff");
-        } else if (bpm >= 240 && bpm < 260) {
-          setTempoTextString("Relaxe, cara");
-        } else if (bpm >= 260 && bpm < 280) {
-          setTempoTextString("Eddie Van Halen");
-        }
-      
-        console.log("updateMetronome chamado, tempoTextString:", tempoTextString);
       };
 
       // Função para validar o valor do tempo
@@ -79,35 +104,28 @@ export default function Metronome() {
           tempoSlider.removeEventListener("input", updateBpm);
         };
       }
+    }
 
-        
-
-    } 
     if (subtractBeatsButton) {
       subtractBeatsButton.addEventListener("click", () => {
-        // Garanta que o valor de beatsPerMeasure nunca seja inferior a 4
         const newBeats = Math.max(beatsPerMeasure - 1, 4);
-        setBeatsPerMeasure(newBeats); // Atualize o estado
+        setBeatsPerMeasure(newBeats);
         if (measureCount) {
-          measureCount.textContent = newBeats.toString(); // Atualize o elemento na tela
+          measureCount.textContent = newBeats.toString();
         }
-        console.log("beatsPerMeasure:", newBeats);
-      });
-    }
-    
-    if (addBeatsButton) {
-      addBeatsButton.addEventListener("click", () => {
-        // Garanta que o valor de beatsPerMeasure nunca seja superior a 12
-        const newBeats = Math.min(beatsPerMeasure + 1, 12);
-        setBeatsPerMeasure(newBeats); // Atualize o estado
-        if (measureCount) {
-          measureCount.textContent = newBeats.toString(); // Atualize o elemento na tela
-        }
-        console.log("beatsPerMeasure:", newBeats);
       });
     }
 
-    // Retorne funções de limpeza para os ouvintes de evento
+    if (addBeatsButton) {
+      addBeatsButton.addEventListener("click", () => {
+        const newBeats = Math.min(beatsPerMeasure + 1, 12);
+        setBeatsPerMeasure(newBeats);
+        if (measureCount) {
+          measureCount.textContent = newBeats.toString();
+        }
+      });
+    }
+
     return () => {
       if (subtractBeatsButton) {
         subtractBeatsButton.removeEventListener("click", () => {
@@ -121,7 +139,17 @@ export default function Metronome() {
         });
       }
     };
-  }, []);
+  }, []);   useEffect(() => {
+    const startStopButton = document.querySelector(".startStop") as HTMLElement | null;
+
+    if (startStopButton) {
+      startStopButton.addEventListener("click", handleStartStopClick);
+
+      return () => {
+        startStopButton.removeEventListener("click", handleStartStopClick);
+      };
+    }
+  }, [isPlaying]);
 
   return (
     <div className={styles.container}>
@@ -131,7 +159,7 @@ export default function Metronome() {
           <span className={`${styles.bpm} ${styles.ralewayfont}`}>BPM</span>
         </div>
         <div className={`${styles.tempoText} ${styles.ralewayfont}`}>
-        {tempoTextString}
+          Super Fast
         </div>
         <div className={styles.tempoSettings}>
           <button
@@ -159,10 +187,9 @@ export default function Metronome() {
             +
           </button>
         </div>
-        <div className={`${styles.startStop} ${styles.ralewayfont}`}>
-         
-          Start
-        </div>
+        <div className={`${styles.startStop} ${styles.ralewayfont}`} onClick={handleStartStopClick}>
+        {isPlaying ? "Parar" : "Iniciar"}
+      </div>
         <div className={styles.measures}>
         <button
     className={`${styles.subtractBeats} ${styles.stepper}`}
@@ -188,6 +215,7 @@ export default function Metronome() {
           
           Batidas por compasso
         </span>
+        
       </div>
     </div>
   );
