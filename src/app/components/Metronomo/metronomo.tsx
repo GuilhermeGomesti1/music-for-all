@@ -139,17 +139,27 @@ export default function Metronome() {
         });
       }
     };
-  }, []);   useEffect(() => {
+  }, []);   
+  
+  useEffect(() => {
     const startStopButton = document.querySelector(".startStop") as HTMLElement | null;
-
+  
+    const handleStartStopClick = () => {
+      if (isPlaying) {
+        stopMetronome();
+      } else {
+        startMetronome();
+      };
+    };
+  
     if (startStopButton) {
       startStopButton.addEventListener("click", handleStartStopClick);
-
+  
       return () => {
         startStopButton.removeEventListener("click", handleStartStopClick);
       };
     }
-  }, [isPlaying]);
+  }, [isPlaying, handleStartStopClick]);
 
   return (
     <div className={styles.container}>
