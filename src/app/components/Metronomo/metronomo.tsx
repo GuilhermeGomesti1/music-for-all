@@ -9,8 +9,9 @@ export default function Metronome() {
   const [beatsPerMeasure, setBeatsPerMeasure] = useState(4);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentBeat, setCurrentBeat] = useState(0);
-  const click1 = new Audio(click1Sound);
-  const click2 = new Audio(click2Sound);
+
+  const click1 = typeof window !== "undefined" ? new Audio(click1Sound) : null;
+  const click2 = typeof window !== "undefined" ? new Audio(click2Sound) : null;
   let metronomeInterval: NodeJS.Timeout | null = null;
 
 
@@ -35,7 +36,7 @@ export default function Metronome() {
     setIsPlaying(true);
     const interval = 60000 / bpm;
     let beatCount = 0;
-    
+  
     metronomeInterval = setInterval(() => {
       let audio;
       if (beatCount % beatsPerMeasure === 0) {
@@ -43,7 +44,11 @@ export default function Metronome() {
       } else {
         audio = click2;
       }
-      audio.play();
+  
+      if (audio) {
+        audio.play();
+      }
+  
       beatCount++;
       setCurrentBeat((prevBeat) => (prevBeat + 1) % beatsPerMeasure);
     }, interval);
