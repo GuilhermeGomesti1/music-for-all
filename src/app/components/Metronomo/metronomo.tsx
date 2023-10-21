@@ -6,11 +6,16 @@ export default function Metronome() {
   const [beatsPerMeasure, setBeatsPerMeasure] = useState(4);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentBeat, setCurrentBeat] = useState(0);
-
-  const [click1, setClick1] = useState<HTMLAudioElement | null>(null);
-  const [click2, setClick2] = useState<HTMLAudioElement | null>(null);
-
-
+  const tempoDisplay = document.querySelector(".tempo") as HTMLElement | null;
+  const tempoText = document.querySelector(".tempoText") as HTMLElement | null;
+  const tempoSlider = document.querySelector(".slider") as HTMLInputElement | null;
+  const subtractBeatsButton = document.querySelector(".subtractBeats") as HTMLElement | null;
+  const addBeatsButton = document.querySelector(".addBeats") as HTMLElement | null;
+  const measureCount = document.querySelector(".measureCount") as HTMLElement | null;
+  const [audios, setAudios] = useState<{ click1: HTMLAudioElement | null, click2: HTMLAudioElement | null }>({
+    click1: null,
+    click2: null,
+  });
   let metronomeInterval: NodeJS.Timeout | null = null;
 
   const handleStartStopClick = () => {
@@ -25,19 +30,19 @@ export default function Metronome() {
     setIsPlaying(true);
     const interval = 60000 / bpm;
     let beatCount = 0;
-
+  
     metronomeInterval = setInterval(() => {
       let audio;
       if (beatCount % beatsPerMeasure === 0) {
-        audio = click1;
+        audio = audios.click1;
       } else {
-        audio = click2;
+        audio = audios.click2;
       }
-
+  
       if (audio) {
         audio.play();
       }
-
+  
       beatCount++;
       setCurrentBeat((prevBeat) => (prevBeat + 1) % beatsPerMeasure);
     }, interval);
@@ -54,20 +59,15 @@ export default function Metronome() {
 
   useEffect(() => {
     import("../../../../public/audios/click1.mp3").then((audioModule) => {
-      setClick1(new Audio(audioModule.default));
+      setAudios((prevAudios) => ({ ...prevAudios, click1: new Audio(audioModule.default) }));
     });
     import("../../../../public/audios/click2.mp3").then((audioModule) => {
-      setClick2(new Audio(audioModule.default));
+      setAudios((prevAudios) => ({ ...prevAudios, click2: new Audio(audioModule.default) }));
     });
   }, []);
 
   useEffect(() => {
-    const tempoDisplay = document.querySelector(".tempo") as HTMLElement | null;
-    const tempoText = document.querySelector(".tempoText") as HTMLElement | null;
-    const tempoSlider = document.querySelector(".slider") as HTMLInputElement | null;
-    const subtractBeatsButton = document.querySelector(".subtractBeats") as HTMLElement | null;
-    const addBeatsButton = document.querySelector(".addBeats") as HTMLElement | null;
-    const measureCount = document.querySelector(".measureCount") as HTMLElement | null;
+   
 
     if (tempoDisplay && tempoSlider) {
       const updateMetronome = () => {
@@ -158,7 +158,9 @@ export default function Metronome() {
         startStopButton.removeEventListener("click", handleStartStopClick);
       };
     }
-  }, [isPlaying]);
+  }, [isPlaying, startMetronome, stopMetronome]);
+
+  
   return (
     <div className={styles.container}>
       <div className={styles.metronome}>
