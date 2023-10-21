@@ -158,7 +158,7 @@ export default function Metronome() {
         startStopButton.removeEventListener("click", handleStartStopClick);
       };
     }
-  }, [isPlaying, startMetronome, stopMetronome]);
+  }, [isPlaying]);
 
   
   return (
