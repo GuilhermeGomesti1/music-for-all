@@ -1,28 +1,17 @@
 "use client";
 import React, { useEffect, useState } from "react"; // Importe o useEffect
 import styles from "./styles.module.css";
-import click1Sound from "../../../../public/audios/click1.mp3"
-import click2Sound from "../../../../public/audios/click2.mp3"
-
 export default function Metronome() {
   const [bpm, setBpm] = useState(140);
   const [beatsPerMeasure, setBeatsPerMeasure] = useState(4);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentBeat, setCurrentBeat] = useState(0);
 
-  const click1 = typeof window !== "undefined" ? new Audio(click1Sound) : null;
-  const click2 = typeof window !== "undefined" ? new Audio(click2Sound) : null;
+  const [click1, setClick1] = useState<HTMLAudioElement | null>(null);
+  const [click2, setClick2] = useState<HTMLAudioElement | null>(null);
+
+
   let metronomeInterval: NodeJS.Timeout | null = null;
-
-
-
-  const toggleMetronome = () => {
-    if (isPlaying) {
-      stopMetronome();
-    } else {
-      startMetronome();
-    }
-  };
 
   const handleStartStopClick = () => {
     if (isPlaying) {
@@ -36,7 +25,7 @@ export default function Metronome() {
     setIsPlaying(true);
     const interval = 60000 / bpm;
     let beatCount = 0;
-  
+
     metronomeInterval = setInterval(() => {
       let audio;
       if (beatCount % beatsPerMeasure === 0) {
@@ -44,26 +33,33 @@ export default function Metronome() {
       } else {
         audio = click2;
       }
-  
+
       if (audio) {
         audio.play();
       }
-  
+
       beatCount++;
       setCurrentBeat((prevBeat) => (prevBeat + 1) % beatsPerMeasure);
     }, interval);
   };
 
   const stopMetronome = () => {
-  if (metronomeInterval !== null) {
-    clearInterval(metronomeInterval);
-    metronomeInterval = null;
-    setIsPlaying(false);
-    setCurrentBeat(0);
-  }
-};
+    if (metronomeInterval !== null) {
+      clearInterval(metronomeInterval);
+      metronomeInterval = null;
+      setIsPlaying(false);
+      setCurrentBeat(0);
+    }
+  };
 
-
+  useEffect(() => {
+    import("../../../../public/audios/click1.mp3").then((audioModule) => {
+      setClick1(new Audio(audioModule.default));
+    });
+    import("../../../../public/audios/click2.mp3").then((audioModule) => {
+      setClick2(new Audio(audioModule.default));
+    });
+  }, []);
 
   useEffect(() => {
     const tempoDisplay = document.querySelector(".tempo") as HTMLElement | null;
@@ -74,13 +70,11 @@ export default function Metronome() {
     const measureCount = document.querySelector(".measureCount") as HTMLElement | null;
 
     if (tempoDisplay && tempoSlider) {
-      // Função para atualizar a exibição do metrônomo
       const updateMetronome = () => {
         tempoDisplay.textContent = bpm.toString();
         tempoSlider.value = bpm.toString();
       };
 
-      // Função para validar o valor do tempo
       const validateTempo = (value: number) => {
         return Math.min(Math.max(value, 20), 280);
       };
@@ -144,28 +138,27 @@ export default function Metronome() {
         });
       }
     };
-  }, []);   
-  
+  }, [bpm]);
+
   useEffect(() => {
     const startStopButton = document.querySelector(".startStop") as HTMLElement | null;
-  
+
     const handleStartStopClick = () => {
       if (isPlaying) {
         stopMetronome();
       } else {
         startMetronome();
-      };
+      }
     };
-  
+
     if (startStopButton) {
       startStopButton.addEventListener("click", handleStartStopClick);
-  
+
       return () => {
         startStopButton.removeEventListener("click", handleStartStopClick);
       };
     }
-  }, [isPlaying, handleStartStopClick]);
-
+  }, [isPlaying]);
   return (
     <div className={styles.container}>
       <div className={styles.metronome}>
@@ -203,34 +196,32 @@ export default function Metronome() {
           </button>
         </div>
         <div className={`${styles.startStop} ${styles.ralewayfont}`} onClick={handleStartStopClick}>
-        {isPlaying ? "Parar" : "Iniciar"}
-      </div>
+          {isPlaying ? "Parar" : "Iniciar"}
+        </div>
         <div className={styles.measures}>
-        <button
-    className={`${styles.subtractBeats} ${styles.stepper}`}
-    onClick={() => {
-      const newBeats = Math.max(beatsPerMeasure - 1, 2);
-      setBeatsPerMeasure(newBeats); // Atualize o estado
-    }}
-  >
-    -
-  </button>
-  <div className={styles.measureCount}>{beatsPerMeasure}</div>
-  <button
-    className={`${styles.addBeats} ${styles.stepper}`}
-    onClick={() => {
-      const newBeats = Math.min(beatsPerMeasure + 1, 12);
-      setBeatsPerMeasure(newBeats); // Atualize o estado
-    }}
-  >
-    +
-  </button>
+          <button
+            className={`${styles.subtractBeats} ${styles.stepper}`}
+            onClick={() => {
+              const newBeats = Math.max(beatsPerMeasure - 1, 2);
+              setBeatsPerMeasure(newBeats);
+            }}
+          >
+            -
+          </button>
+          <div className={styles.measureCount}>{beatsPerMeasure}</div>
+          <button
+            className={`${styles.addBeats} ${styles.stepper}`}
+            onClick={() => {
+              const newBeats = Math.min(beatsPerMeasure + 1, 12);
+              setBeatsPerMeasure(newBeats);
+            }}
+          >
+            +
+          </button>
         </div>
         <span className={styles.beatsPerMeasureText}>
-          
           Batidas por compasso
         </span>
-        
       </div>
     </div>
   );
