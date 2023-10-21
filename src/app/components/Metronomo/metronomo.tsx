@@ -15,7 +15,7 @@ export default function Metronome() {
   const subtractBeatsButtonRef = useRef<HTMLButtonElement | null>(null);
 const addBeatsButtonRef = useRef<HTMLButtonElement | null>(null);
 const measureCountRef = useRef<HTMLDivElement | null>(null);
-
+const [timerInstance, setTimerInstance] = useState<Timer | null>(null);
   const [audios, setAudios] = useState<{ click1: HTMLAudioElement | null, click2: HTMLAudioElement | null }>({
     click1: null,
     click2: null,
@@ -28,24 +28,46 @@ const measureCountRef = useRef<HTMLDivElement | null>(null);
     } else {
       audio = audios.click2;
     }
-
+  
     if (audio) {
       audio.play();
     }
-
+  
     setCurrentBeat((prevBeat) => (prevBeat + 1) % beatsPerMeasure);
   }, 60000 / bpm, { immediate: true });
 
   const startMetronome = () => {
-    timer.start();
-    setIsPlaying(true);
-  };
+    if (!isPlaying) {
+      // Certifique-se de criar uma nova instância do Timer
+      const newTimer = new Timer(() => {
+        let audio;
+        if (currentBeat % beatsPerMeasure === 0) {
+          audio = audios.click1;
+        } else {
+          audio = audios.click2;
+        }
+    
+        if (audio) {
+          audio.play();
+        }
+    
+        setCurrentBeat((prevBeat) => (prevBeat + 1) % beatsPerMeasure);
+      }, 60000 / bpm, { immediate: true });
 
-  const stopMetronome = () => {
-    timer.stop();
-    setIsPlaying(false);
-    setCurrentBeat(0);
+      setTimerInstance(newTimer);
+      newTimer.start();
+      setIsPlaying(true);
+    }
   };
+  
+  const stopMetronome = () => {
+    if (isPlaying && timerInstance) {
+      console.log('Parar botão clicado');
+      timerInstance.stop();
+      setIsPlaying(false);
+      setCurrentBeat(0);
+    }
+  }
 
   useEffect(() => {
     import("../../../../public/audios/click1.mp3").then((audioModule) => {
@@ -127,6 +149,11 @@ const measureCountRef = useRef<HTMLDivElement | null>(null);
       }
     };
   }, [bpm]);
+
+  useEffect(() => {
+    console.log('isPlaying:', isPlaying); // Valor atualizado de isPlaying
+    console.log('currentBeat:', currentBeat); // Valor atualizado de currentBeat
+  }, [isPlaying, currentBeat]);
 
   return (
     <div className={styles.container}>
