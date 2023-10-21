@@ -1,17 +1,17 @@
 "use client";
-import React, { useEffect, useState } from "react"; // Importe o useEffect
+import React, { useEffect, useRef, useState } from "react"; // Importe o useEffect
 import styles from "./styles.module.css";
 export default function Metronome() {
   const [bpm, setBpm] = useState(140);
   const [beatsPerMeasure, setBeatsPerMeasure] = useState(4);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentBeat, setCurrentBeat] = useState(0);
-  const tempoDisplay = document.querySelector(".tempo") as HTMLElement | null;
-  const tempoText = document.querySelector(".tempoText") as HTMLElement | null;
-  const tempoSlider = document.querySelector(".slider") as HTMLInputElement | null;
-  const subtractBeatsButton = document.querySelector(".subtractBeats") as HTMLElement | null;
-  const addBeatsButton = document.querySelector(".addBeats") as HTMLElement | null;
-  const measureCount = document.querySelector(".measureCount") as HTMLElement | null;
+  const tempoDisplayRef = useRef<HTMLElement | null>(null);
+  const tempoSliderRef = useRef<HTMLInputElement | null>(null);
+  const subtractBeatsButtonRef = useRef<HTMLElement | null>(null);
+  const addBeatsButtonRef = useRef<HTMLElement | null>(null);
+  const measureCountRef = useRef<HTMLElement | null>(null);
+
   const [audios, setAudios] = useState<{ click1: HTMLAudioElement | null, click2: HTMLAudioElement | null }>({
     click1: null,
     click2: null,
@@ -68,72 +68,71 @@ export default function Metronome() {
 
   useEffect(() => {
    
-
-    if (tempoDisplay && tempoSlider) {
+    if (tempoDisplayRef.current && tempoSliderRef.current) {
       const updateMetronome = () => {
-        tempoDisplay.textContent = bpm.toString();
-        tempoSlider.value = bpm.toString();
+        if (tempoDisplayRef.current && tempoSliderRef.current) {
+          tempoDisplayRef.current.textContent = bpm.toString();
+          tempoSliderRef.current.value = bpm.toString();
+        }
       };
 
       const validateTempo = (value: number) => {
         return Math.min(Math.max(value, 20), 280);
       };
 
-      const decreaseTempobtn = document.querySelector(".decreaseTempo") as HTMLElement | null;
-      const increaseTempobtn = document.querySelector(".increaseTempo") as HTMLElement | null;
-
-      if (decreaseTempobtn && tempoSlider) {
-        decreaseTempobtn.addEventListener("click", () => {
+      if (subtractBeatsButtonRef.current) {
+        subtractBeatsButtonRef.current.addEventListener("click", () => {
           const newBpm = validateTempo(bpm - 1);
           setBpm(newBpm);
           updateMetronome();
         });
       }
 
-      if (tempoSlider) {
+      if (tempoSliderRef.current) {
+        tempoSliderRef.current.value = bpm.toString();
         const updateBpm = (event: Event) => {
           const newBpm = validateTempo(parseInt((event.target as HTMLInputElement).value));
           setBpm(newBpm);
           updateMetronome();
         };
 
-        tempoSlider.addEventListener("input", updateBpm);
+        tempoSliderRef.current.addEventListener("input", updateBpm);
 
         return () => {
-          tempoSlider.removeEventListener("input", updateBpm);
+          tempoSliderRef.current?.removeEventListener("input", updateBpm);
         };
       }
     }
 
-    if (subtractBeatsButton) {
-      subtractBeatsButton.addEventListener("click", () => {
+    if (subtractBeatsButtonRef.current) {
+      subtractBeatsButtonRef.current.addEventListener("click", () => {
         const newBeats = Math.max(beatsPerMeasure - 1, 4);
         setBeatsPerMeasure(newBeats);
-        if (measureCount) {
-          measureCount.textContent = newBeats.toString();
+        if (measureCountRef.current) {
+          measureCountRef.current.textContent = newBeats.toString();
         }
-      });
+        })
     }
 
-    if (addBeatsButton) {
-      addBeatsButton.addEventListener("click", () => {
+    if (addBeatsButtonRef.current) {
+      addBeatsButtonRef.current.addEventListener("click", () => {
         const newBeats = Math.min(beatsPerMeasure + 1, 12);
         setBeatsPerMeasure(newBeats);
-        if (measureCount) {
-          measureCount.textContent = newBeats.toString();
+        if (measureCountRef.current) {
+          measureCountRef.current.textContent = newBeats.toString();
         }
       });
     }
 
     return () => {
-      if (subtractBeatsButton) {
-        subtractBeatsButton.removeEventListener("click", () => {
+      if (subtractBeatsButtonRef.current) {
+        subtractBeatsButtonRef.current?.removeEventListener("click", () => {
           setBeatsPerMeasure((prevBeats) => Math.max(prevBeats - 1, 4));
         });
       }
 
-      if (addBeatsButton) {
-        addBeatsButton.removeEventListener("click", () => {
+      if (addBeatsButtonRef.current) {
+        addBeatsButtonRef.current?.removeEventListener("click", () => {
           setBeatsPerMeasure((prevBeats) => Math.min(prevBeats + 1, 12));
         });
       }
@@ -159,7 +158,6 @@ export default function Metronome() {
       };
     }
   }, [isPlaying]);
-
   
   return (
     <div className={styles.container}>
