@@ -142,7 +142,39 @@ line-height: 32px;
 
  .startStop:hover{
 background-color: #ff656c;
+
     }
+    .startStopbtn{  width: 50px;
+        height: 50px;
+        font-size: 0.7em;
+        text-align: center;
+        background-color: #fa545c;
+        border-radius: 50%;
+        color: white;
+        line-height: 50px;
+        margin: 0 auto;
+        cursor: pointer;
+        margin-bottom: 1rem;
+        border: none;
+    }
+    .startStopbtn:hover{
+        background-color: #ff656c;
+    }
+
+
+.stopbutton{ width: 50px;
+    height: 50px;
+    font-size: 0.7em;
+    text-align: center;
+    background-color: #fa545c;
+    border-radius: 50%;
+    color: white;
+    line-height: 50px;
+    margin: 0 auto;
+    cursor: pointer;
+    margin-top: 1rem;
+    border: none;
+}
 
 .measures{
         display: flex;

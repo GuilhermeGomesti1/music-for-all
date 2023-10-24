@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import Timer from "../timer/timer";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -13,61 +12,38 @@ export default function Metronome() {
   const tempoDisplayRef = useRef<HTMLElement | null>(null);
   const tempoSliderRef = useRef<HTMLInputElement | null>(null);
   const subtractBeatsButtonRef = useRef<HTMLButtonElement | null>(null);
-const addBeatsButtonRef = useRef<HTMLButtonElement | null>(null);
-const measureCountRef = useRef<HTMLDivElement | null>(null);
-const [timerInstance, setTimerInstance] = useState<Timer | null>(null);
+  const addBeatsButtonRef = useRef<HTMLButtonElement | null>(null);
+  const measureCountRef = useRef<HTMLDivElement | null>(null);
+  const [timerInstance, setTimerInstance] = useState<Timer | null>(null);
   const [audios, setAudios] = useState<{ click1: HTMLAudioElement | null, click2: HTMLAudioElement | null }>({
     click1: null,
     click2: null,
   });
 
-  const timer = new Timer(() => {
-    let audio;
-    if (currentBeat % beatsPerMeasure === 0) {
-      audio = audios.click1;
-    } else {
-      audio = audios.click2;
+  const updateMetronome = () => {
+    if (timerInstance) {
+      timerInstance.stop();
     }
-  
-    if (audio) {
-      audio.play();
-    }
-  
-    setCurrentBeat((prevBeat) => (prevBeat + 1) % beatsPerMeasure);
-  }, 60000 / bpm, { immediate: true });
 
-  const startMetronome = () => {
-    if (!isPlaying) {
-      // Certifique-se de criar uma nova instância do Timer
-      const newTimer = new Timer(() => {
-        let audio;
-        if (currentBeat % beatsPerMeasure === 0) {
-          audio = audios.click1;
-        } else {
-          audio = audios.click2;
-        }
-    
-        if (audio) {
-          audio.play();
-        }
-    
-        setCurrentBeat((prevBeat) => (prevBeat + 1) % beatsPerMeasure);
-      }, 60000 / bpm, { immediate: true });
+    setCurrentBeat(0); // Reinicia a contagem de batidas
+    const newTimer = new Timer(() => {
+      let audio;
+      if (currentBeat % beatsPerMeasure === 0) {
+        audio = audios.click1;
+      } else {
+        audio = audios.click2;
+      }
+      if (audio) {
+        audio.play();
+      }
+      setCurrentBeat((prevBeat) => (prevBeat + 1) % beatsPerMeasure);
+    }, 60000 / bpm, { immediate: true });
 
-      setTimerInstance(newTimer);
+    setTimerInstance(newTimer);
+    if (isPlaying) {
       newTimer.start();
-      setIsPlaying(true);
     }
   };
-  
-  const stopMetronome = () => {
-    if (isPlaying && timerInstance) {
-      console.log('Parar botão clicado');
-      timerInstance.stop();
-      setIsPlaying(false);
-      setCurrentBeat(0);
-    }
-  }
 
   useEffect(() => {
     import("../../../../public/audios/click1.mp3").then((audioModule) => {
@@ -79,49 +55,38 @@ const [timerInstance, setTimerInstance] = useState<Timer | null>(null);
   }, []);
 
   useEffect(() => {
-    if (tempoDisplayRef.current && tempoSliderRef.current) {
-      const updateMetronome = () => {
-        if (tempoDisplayRef.current && tempoSliderRef.current) {
-          tempoDisplayRef.current.textContent = bpm.toString();
-          tempoSliderRef.current.value = bpm.toString();
-        }
+    console.log('isPlaying:', isPlaying); // Valor atualizado de isPlaying
+    console.log('currentBeat:', currentBeat); // Valor atualizado de currentBeat
+  }, [isPlaying, currentBeat]);
+
+  // UseEffect separado para a lógica do BPM
+  useEffect(() => {
+    const validateTempo = (value: number) => {
+      return Math.min(Math.max(value, 20), 280);
+    };
+
+    if (tempoSliderRef.current) {
+      tempoSliderRef.current.value = bpm.toString();
+      const updateBpm = (event: Event) => {
+        const newBpm = validateTempo(parseInt((event.target as HTMLInputElement).value));
+        setBpm(newBpm);
+        updateMetronome();
       };
 
-      const validateTempo = (value: number) => {
-        return Math.min(Math.max(value, 20), 280);
+      tempoSliderRef.current.addEventListener("input", updateBpm);
+
+      return () => {
+        tempoSliderRef.current?.removeEventListener("input", updateBpm);
       };
-
-      if (subtractBeatsButtonRef.current) {
-        subtractBeatsButtonRef.current.addEventListener("click", () => {
-          const newBpm = validateTempo(bpm - 1);
-          setBpm(newBpm);
-          updateMetronome();
-        });
-      }
-
-      if (tempoSliderRef.current) {
-        tempoSliderRef.current.value = bpm.toString();
-        const updateBpm = (event: Event) => {
-          const newBpm = validateTempo(parseInt((event.target as HTMLInputElement).value));
-          setBpm(newBpm);
-          updateMetronome();
-        };
-
-        tempoSliderRef.current.addEventListener("input", updateBpm);
-
-        return () => {
-          tempoSliderRef.current?.removeEventListener("input", updateBpm);
-        };
-      }
     }
+  }, [bpm]);
 
+  // UseEffect para botões de medidas
+  useEffect(() => {
     if (subtractBeatsButtonRef.current) {
       subtractBeatsButtonRef.current.addEventListener("click", () => {
-        const newBeats = Math.max(beatsPerMeasure - 1, 4);
+        const newBeats = Math.max(beatsPerMeasure - 1, 2);
         setBeatsPerMeasure(newBeats);
-        if (measureCountRef.current) {
-          measureCountRef.current.textContent = newBeats.toString();
-        }
       });
     }
 
@@ -129,9 +94,6 @@ const [timerInstance, setTimerInstance] = useState<Timer | null>(null);
       addBeatsButtonRef.current.addEventListener("click", () => {
         const newBeats = Math.min(beatsPerMeasure + 1, 12);
         setBeatsPerMeasure(newBeats);
-        if (measureCountRef.current) {
-          measureCountRef.current.textContent = newBeats.toString();
-        }
       });
     }
 
@@ -148,18 +110,48 @@ const [timerInstance, setTimerInstance] = useState<Timer | null>(null);
         });
       }
     };
-  }, [bpm]);
+  }, [beatsPerMeasure]);
 
-  useEffect(() => {
-    console.log('isPlaying:', isPlaying); // Valor atualizado de isPlaying
-    console.log('currentBeat:', currentBeat); // Valor atualizado de currentBeat
-  }, [isPlaying, currentBeat]);
+  const startMetronome = () => {
+    if (!isPlaying) {
+      // Certifique-se de criar uma nova instância do Timer
+      const newTimer = new Timer(() => {
+        let audio;
+        if (currentBeat % beatsPerMeasure === 0) {
+          audio = audios.click1;
+        } else {
+          audio = audios.click2;
+        }
+
+        if (audio) {
+          audio.play();
+        }
+
+        setCurrentBeat((prevBeat) => (prevBeat + 1) % beatsPerMeasure);
+      }, 60000 / bpm, { immediate: true });
+
+      setTimerInstance(newTimer);
+      newTimer.start();
+      setIsPlaying(true);
+    }
+  };
+
+  const stopMetronome = () => {
+    if (isPlaying && timerInstance) {
+      console.log('Parar botão clicado');
+      timerInstance.stop();
+      setIsPlaying(false);
+      setCurrentBeat(0);
+    }
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.metronome}>
         <div className={styles.bpmDisplay}>
-          <span className={styles.tempo} ref={tempoDisplayRef}>{bpm}</span>
+          <span className={styles.tempo} ref={tempoDisplayRef}>
+            {bpm}
+          </span>
           <span className={`${styles.bpm} ${styles.ralewayfont}`}>BPM</span>
         </div>
         <div className={`${styles.tempoText} ${styles.ralewayfont}`}>
@@ -179,7 +171,7 @@ const [timerInstance, setTimerInstance] = useState<Timer | null>(null);
             max="280"
             step="1"
             value={bpm}
-            onChange={(event) => setBpm(parseInt(event.target.value))} 
+            onChange={(event) => setBpm(parseInt(event.target.value))}
             ref={tempoSliderRef}
           ></input>
           <button
@@ -189,14 +181,13 @@ const [timerInstance, setTimerInstance] = useState<Timer | null>(null);
             +
           </button>
         </div>
-        <div className={`${styles.startStop} ${styles.ralewayfont}`}>
-          <button onClick={startMetronome} disabled={isPlaying}>
-            Iniciar
-          </button>
-          <button className={styles.stopbutton} onClick={stopMetronome} disabled={!isPlaying}>
-            Parar
-          </button>
-        </div>
+        <button
+          className={`${styles.startStopbtn} ${styles.ralewayfont}`}
+          onClick={startMetronome}
+          disabled={isPlaying}
+        >
+          Iniciar
+        </button>
         <div className={styles.measures}>
           <button
             className={`${styles.subtractBeats} ${styles.stepper}`}
@@ -222,9 +213,14 @@ const [timerInstance, setTimerInstance] = useState<Timer | null>(null);
             +
           </button>
         </div>
-        <span className={styles.beatsPerMeasureText}>
-          Batidas por compasso
-        </span>
+        <span className={styles.beatsPerMeasureText}>Batidas por compasso</span>{" "}
+        <button
+          className={`${styles.stopbutton} ${styles.ralewayfont}`}
+          onClick={stopMetronome}
+          disabled={!isPlaying}
+        >
+          Parar
+        </button>
       </div>
     </div>
   );
