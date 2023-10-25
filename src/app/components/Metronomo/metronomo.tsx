@@ -13,9 +13,14 @@ export default function Metronome() {
   const [tempoTextString, setTempoTextString] = useState('Medium');
   const metronomeRef = useRef(new Timer(playClick, 60000 / bpm, { immediate: false, errorCallback: null }));
 
+
+  
   const click1 = new Audio(click1Sound);
   const click2 = new Audio(click2Sound);
 
+
+
+  
   let count = 0;
   let isRunning = false;
 
