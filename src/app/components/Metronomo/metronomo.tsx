@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useRef, useState } from "react"; // Importe o useEffect
+import React, { useCallback, useEffect, useRef, useState } from "react"; // Importe o useEffect
 import styles from "./styles.module.css";
 import click1Sound from "../../../../public/audios/click1.mp3"
 import click2Sound from "../../../../public/audios/click2.mp3"
@@ -51,8 +51,7 @@ export default function Metronome() {
       isRunning = false;
     }
   };
-
-  const updateMetronome = () => {
+  const updateMetronome = useCallback(() => {
     if (bpm < 40) {
       setTempoTextString('Super Lento');
     } else if (bpm >= 40 && bpm < 80) {
@@ -70,7 +69,7 @@ export default function Metronome() {
     } else if (bpm >= 260 && bpm < 280) {
       setTempoTextString('Eddie Van Halen');
     }
-  };
+  }, [bpm]);
 
   const validateTempo = (value: number) => {
     return Math.min(Math.max(value, 20), 280);
