@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 import click1Sound from "../../../../public/audios/click1.mp3"
 import click2Sound from "../../../../public/audios/click2.mp3"
 import Timer from "../../components/timer/timer.js"
-import { count } from "console";
+
 
 
 export default function Metronome() {
