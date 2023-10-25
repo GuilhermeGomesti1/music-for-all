@@ -13,11 +13,13 @@ export default function Metronome() {
   const [tempoTextString, setTempoTextString] = useState('Medium');
   const metronomeRef = useRef(new Timer(playClick, 60000 / bpm, { immediate: false, errorCallback: null }));
 
-
+  let click1: HTMLAudioElement | undefined;
+  let click2: HTMLAudioElement | undefined;
   
-  const click1 = new Audio(click1Sound);
-  const click2 = new Audio(click2Sound);
-
+  if (typeof Audio !== "undefined") {
+    click1 = new Audio(click1Sound);
+    click2 = new Audio(click2Sound);
+  }
 
 
   
@@ -29,10 +31,12 @@ export default function Metronome() {
       count = 0;
     }
     if (count === 0) {
-      click1.play();
+      click1?.play(); // Adicione o operador de verificação de nulidade
     } else {
-      click2.play();
-      click2.currentTime = 0;
+      click2?.play(); // Adicione o operador de verificação de nulidade
+      if (click2) {
+        click2.currentTime = 0;
+      }
     }
     count++;
   }
