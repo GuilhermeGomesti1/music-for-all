@@ -98,14 +98,13 @@ export default function Metronome() {
   const addBeats = () => {
     setBeatsPerMeasure(Math.min(beatsPerMeasure + 1, 12));
   };
-
   useEffect(() => {
     if (metronomeRef.current) {
       metronomeRef.current.timeInterval = 60000 / bpm;
     }
   
     updateMetronome();
-  }, [bpm, tempoTextString]);
+  }, [bpm, tempoTextString, updateMetronome]);
 
   return (
     <div className={styles.container}>
