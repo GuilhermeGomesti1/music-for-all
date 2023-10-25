@@ -1,166 +1,121 @@
 "use client"
-import Timer from "../timer/timer";
-import React, { useEffect, useRef, useState } from "react";
-
+import React, { useEffect, useRef, useState } from "react"; // Importe o useEffect
 import styles from "./styles.module.css";
+import click1Sound from "../../../../public/audios/click1.mp3"
+import click2Sound from "../../../../public/audios/click2.mp3"
+import Timer from "../../components/timer/timer.js"
+import { count } from "console";
+
 
 export default function Metronome() {
   const [bpm, setBpm] = useState(140);
   const [beatsPerMeasure, setBeatsPerMeasure] = useState(4);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentBeat, setCurrentBeat] = useState(0);
-  const tempoDisplayRef = useRef<HTMLElement | null>(null);
-  const tempoSliderRef = useRef<HTMLInputElement | null>(null);
-  const subtractBeatsButtonRef = useRef<HTMLButtonElement | null>(null);
-  const addBeatsButtonRef = useRef<HTMLButtonElement | null>(null);
-  const measureCountRef = useRef<HTMLDivElement | null>(null);
-  const [timerInstance, setTimerInstance] = useState<Timer | null>(null);
-  const [audios, setAudios] = useState<{ click1: HTMLAudioElement | null, click2: HTMLAudioElement | null }>({
-    click1: null,
-    click2: null,
-  });
+  const [tempoTextString, setTempoTextString] = useState('Medium');
+  const metronomeRef = useRef(new Timer(playClick, 60000 / bpm, { immediate: false, errorCallback: null }));
+
+  const click1 = new Audio(click1Sound);
+  const click2 = new Audio(click2Sound);
+
+  let count = 0;
+  let isRunning = false;
+
+  function playClick() {
+    if (count === beatsPerMeasure) {
+      count = 0;
+    }
+    if (count === 0) {
+      click1.play();
+    } else {
+      click2.play();
+      click2.currentTime = 0;
+    }
+    count++;
+  }
+  
+
+  const startStopMetronome = () => {
+    if (!isRunning) {
+      if (metronomeRef.current) {
+        metronomeRef.current.start();
+      }
+      isRunning = true;
+    } else {
+      if (metronomeRef.current) {
+        metronomeRef.current.stop();
+      }
+      isRunning = false;
+    }
+  };
 
   const updateMetronome = () => {
-    if (timerInstance) {
-      timerInstance.stop();
-    }
-
-    setCurrentBeat(0); // Reinicia a contagem de batidas
-    const newTimer = new Timer(() => {
-      let audio;
-      if (currentBeat % beatsPerMeasure === 0) {
-        audio = audios.click1;
-      } else {
-        audio = audios.click2;
-      }
-      if (audio) {
-        audio.play();
-      }
-      setCurrentBeat((prevBeat) => (prevBeat + 1) % beatsPerMeasure);
-    }, 60000 / bpm, { immediate: true });
-
-    setTimerInstance(newTimer);
-    if (isPlaying) {
-      newTimer.start();
+    if (bpm < 40) {
+      setTempoTextString('Super Lento');
+    } else if (bpm >= 40 && bpm < 80) {
+      setTempoTextString('Lento');
+    } else if (bpm >= 80 && bpm < 120) {
+      setTempoTextString('Chegando lá');
+    } else if (bpm >= 120 && bpm < 180) {
+      setTempoTextString('Agradável e Estável');
+    } else if (bpm >= 180 && bpm < 220) {
+      setTempoTextString("Rock 'n' Roll");
+    } else if (bpm >= 220 && bpm < 240) {
+      setTempoTextString('Funk Stuff');
+    } else if (bpm >= 240 && bpm < 260) {
+      setTempoTextString('Relaxe, cara');
+    } else if (bpm >= 260 && bpm < 280) {
+      setTempoTextString('Eddie Van Halen');
     }
   };
 
-  useEffect(() => {
-    import("../../../../public/audios/click1.mp3").then((audioModule) => {
-      setAudios((prevAudios) => ({ ...prevAudios, click1: new Audio(audioModule.default) }));
-    });
-    import("../../../../public/audios/click2.mp3").then((audioModule) => {
-      setAudios((prevAudios) => ({ ...prevAudios, click2: new Audio(audioModule.default) }));
-    });
-  }, []);
-
-  useEffect(() => {
-    console.log('isPlaying:', isPlaying); // Valor atualizado de isPlaying
-    console.log('currentBeat:', currentBeat); // Valor atualizado de currentBeat
-  }, [isPlaying, currentBeat]);
-
-  // UseEffect separado para a lógica do BPM
-  useEffect(() => {
-    const validateTempo = (value: number) => {
-      return Math.min(Math.max(value, 20), 280);
-    };
-
-    if (tempoSliderRef.current) {
-      tempoSliderRef.current.value = bpm.toString();
-      const updateBpm = (event: Event) => {
-        const newBpm = validateTempo(parseInt((event.target as HTMLInputElement).value));
-        setBpm(newBpm);
-        updateMetronome();
-      };
-
-      tempoSliderRef.current.addEventListener("input", updateBpm);
-
-      return () => {
-        tempoSliderRef.current?.removeEventListener("input", updateBpm);
-      };
-    }
-  }, [bpm]);
-
-  // UseEffect para botões de medidas
-  useEffect(() => {
-    if (subtractBeatsButtonRef.current) {
-      subtractBeatsButtonRef.current.addEventListener("click", () => {
-        const newBeats = Math.max(beatsPerMeasure - 1, 2);
-        setBeatsPerMeasure(newBeats);
-      });
-    }
-
-    if (addBeatsButtonRef.current) {
-      addBeatsButtonRef.current.addEventListener("click", () => {
-        const newBeats = Math.min(beatsPerMeasure + 1, 12);
-        setBeatsPerMeasure(newBeats);
-      });
-    }
-
-    return () => {
-      if (subtractBeatsButtonRef.current) {
-        subtractBeatsButtonRef.current?.removeEventListener("click", () => {
-          setBeatsPerMeasure((prevBeats) => Math.max(prevBeats - 1, 4));
-        });
-      }
-
-      if (addBeatsButtonRef.current) {
-        addBeatsButtonRef.current?.removeEventListener("click", () => {
-          setBeatsPerMeasure((prevBeats) => Math.min(prevBeats + 1, 12));
-        });
-      }
-    };
-  }, [beatsPerMeasure]);
-
-  const startMetronome = () => {
-    if (!isPlaying) {
-      // Certifique-se de criar uma nova instância do Timer
-      const newTimer = new Timer(() => {
-        let audio;
-        if (currentBeat % beatsPerMeasure === 0) {
-          audio = audios.click1;
-        } else {
-          audio = audios.click2;
-        }
-
-        if (audio) {
-          audio.play();
-        }
-
-        setCurrentBeat((prevBeat) => (prevBeat + 1) % beatsPerMeasure);
-      }, 60000 / bpm, { immediate: true });
-
-      setTimerInstance(newTimer);
-      newTimer.start();
-      setIsPlaying(true);
-    }
+  const validateTempo = (value: number) => {
+    return Math.min(Math.max(value, 20), 280);
   };
 
-  const stopMetronome = () => {
-    if (isPlaying && timerInstance) {
-      console.log('Parar botão clicado');
-      timerInstance.stop();
-      setIsPlaying(false);
-      setCurrentBeat(0);
-    }
+  const decreaseTempo = () => {
+    setBpm(validateTempo(bpm - 1));
+    updateMetronome();
   };
+
+  const increaseTempo = () => {
+    setBpm(validateTempo(bpm + 1));
+    updateMetronome();
+  };
+
+  const onTempoSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setBpm(validateTempo(parseInt(event.target.value)));
+    updateMetronome();
+  };
+
+  const subtractBeats = () => {
+    setBeatsPerMeasure(Math.max(beatsPerMeasure - 1, 2));
+  };
+
+  const addBeats = () => {
+    setBeatsPerMeasure(Math.min(beatsPerMeasure + 1, 12));
+  };
+
+  useEffect(() => {
+    if (metronomeRef.current) {
+      metronomeRef.current.timeInterval = 60000 / bpm;
+    }
+
+    if (tempoTextString) {
+      updateMetronome();
+    }
+  }, [bpm, tempoTextString]);
 
   return (
     <div className={styles.container}>
       <div className={styles.metronome}>
         <div className={styles.bpmDisplay}>
-          <span className={styles.tempo} ref={tempoDisplayRef}>
-            {bpm}
-          </span>
+          <span className={styles.tempo}>{bpm}</span>
           <span className={`${styles.bpm} ${styles.ralewayfont}`}>BPM</span>
         </div>
-        <div className={`${styles.tempoText} ${styles.ralewayfont}`}>
-          Super Fast
-        </div>
+        <div className={`${styles.tempoText} ${styles.ralewayfont}`}>{tempoTextString}</div>
         <div className={styles.tempoSettings}>
           <button
             className={` ${styles.adjustTempobtn} ${styles.decreaseTempo}`}
-            onClick={() => setBpm((prevBpm) => Math.max(prevBpm - 1, 20))}
+            onClick={decreaseTempo}
           >
             -
           </button>
@@ -171,56 +126,24 @@ export default function Metronome() {
             max="280"
             step="1"
             value={bpm}
-            onChange={(event) => setBpm(parseInt(event.target.value))}
-            ref={tempoSliderRef}
+            onChange={onTempoSliderChange}
           ></input>
           <button
             className={`${styles.adjustTempobtn} ${styles.increaseTempo}`}
-            onClick={() => setBpm((prevBpm) => Math.min(prevBpm + 1, 280))}
+            onClick={increaseTempo}
           >
             +
           </button>
         </div>
-        <button
-          className={`${styles.startStopbtn} ${styles.ralewayfont}`}
-          onClick={startMetronome}
-          disabled={isPlaying}
-        >
-          Iniciar
-        </button>
+        <div className={`${styles.startStop} ${styles.ralewayfont}`} onClick={startStopMetronome}>
+          {isRunning ? 'STOP' : 'START'}
+        </div>
         <div className={styles.measures}>
-          <button
-            className={`${styles.subtractBeats} ${styles.stepper}`}
-            onClick={() => {
-              const newBeats = Math.max(beatsPerMeasure - 1, 2);
-              setBeatsPerMeasure(newBeats);
-            }}
-            ref={subtractBeatsButtonRef}
-          >
-            -
-          </button>
-          <div className={styles.measureCount} ref={measureCountRef}>
-            {beatsPerMeasure}
-          </div>
-          <button
-            className={`${styles.addBeats} ${styles.stepper}`}
-            onClick={() => {
-              const newBeats = Math.min(beatsPerMeasure + 1, 12);
-              setBeatsPerMeasure(newBeats);
-            }}
-            ref={addBeatsButtonRef}
-          >
-            +
-          </button>
+          <button className={`${styles.subtractBeats} ${styles.stepper}`} onClick={subtractBeats}>-</button>
+          <div className={styles.measureCount}>{beatsPerMeasure}</div>
+          <button className={`${styles.addBeats} ${styles.stepper}`} onClick={addBeats}>+</button>
         </div>
-        <span className={styles.beatsPerMeasureText}>Batidas por compasso</span>{" "}
-        <button
-          className={`${styles.stopbutton} ${styles.ralewayfont}`}
-          onClick={stopMetronome}
-          disabled={!isPlaying}
-        >
-          Parar
-        </button>
+        <span className={styles.beatsPerMeasureText}>Batidas por compasso</span>
       </div>
     </div>
   );
