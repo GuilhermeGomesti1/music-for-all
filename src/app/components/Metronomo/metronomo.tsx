@@ -103,10 +103,8 @@ export default function Metronome() {
     if (metronomeRef.current) {
       metronomeRef.current.timeInterval = 60000 / bpm;
     }
-
-    if (tempoTextString) {
-      updateMetronome();
-    }
+  
+    updateMetronome();
   }, [bpm, tempoTextString]);
 
   return (
