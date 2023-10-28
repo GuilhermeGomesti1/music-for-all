@@ -1,28 +1,26 @@
-"use client"
+"use client";
 import React, { useCallback, useEffect, useRef, useState } from "react"; // Importe o useEffect
 import styles from "./styles.module.css";
-import click1Sound from "../../../../public/audios/click1.mp3"
-import click2Sound from "../../../../public/audios/click2.mp3"
-import Timer from "../../components/timer/timer.js"
-
-
+import click1Sound from "../../../../public/audios/click1.mp3";
+import click2Sound from "../../../../public/audios/click2.mp3";
+import Timer from "../../components/timer/timer.js";
 
 export default function Metronome() {
   const [bpm, setBpm] = useState(140);
   const [beatsPerMeasure, setBeatsPerMeasure] = useState(4);
-  const [tempoTextString, setTempoTextString] = useState('Medium');
-  const metronomeRef = useRef(new Timer(playClick, 60000 / bpm, { immediate: false, errorCallback: null }));
+  const [tempoTextString, setTempoTextString] = useState("Medium");
+  const metronomeRef = useRef(
+    new Timer(playClick, 60000 / bpm, { immediate: false, errorCallback: null })
+  );
 
   let click1: HTMLAudioElement | undefined;
   let click2: HTMLAudioElement | undefined;
-  
+
   if (typeof Audio !== "undefined") {
     click1 = new Audio(click1Sound);
     click2 = new Audio(click2Sound);
   }
 
-
-  
   let count = 0;
   let isRunning = false;
 
@@ -40,7 +38,6 @@ export default function Metronome() {
     }
     count++;
   }
-  
 
   const startStopMetronome = () => {
     if (!isRunning) {
@@ -57,21 +54,21 @@ export default function Metronome() {
   };
   const updateMetronome = useCallback(() => {
     if (bpm < 40) {
-      setTempoTextString('Super Lento');
+      setTempoTextString("Super Lento");
     } else if (bpm >= 40 && bpm < 80) {
-      setTempoTextString('Lento');
+      setTempoTextString("Lento");
     } else if (bpm >= 80 && bpm < 120) {
-      setTempoTextString('Chegando lá');
+      setTempoTextString("Chegando lá");
     } else if (bpm >= 120 && bpm < 180) {
-      setTempoTextString('Agradável e Estável');
+      setTempoTextString("Agradável e Estável");
     } else if (bpm >= 180 && bpm < 220) {
       setTempoTextString("Rock 'n' Roll");
     } else if (bpm >= 220 && bpm < 240) {
-      setTempoTextString('Funk Stuff');
+      setTempoTextString("Funk Stuff");
     } else if (bpm >= 240 && bpm < 260) {
-      setTempoTextString('Relaxe, cara');
+      setTempoTextString("Relaxe, cara");
     } else if (bpm >= 260 && bpm < 280) {
-      setTempoTextString('Eddie Van Halen');
+      setTempoTextString("Eddie Van Halen");
     }
   }, [bpm]);
 
@@ -105,51 +102,82 @@ export default function Metronome() {
     if (metronomeRef.current) {
       metronomeRef.current.timeInterval = 60000 / bpm;
     }
-  
+
     updateMetronome();
   }, [bpm, tempoTextString, updateMetronome]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.metronome}>
-        <div className={styles.bpmDisplay}>
-          <span className={styles.tempo}>{bpm}</span>
-          <span className={`${styles.bpm} ${styles.ralewayfont}`}>BPM</span>
-        </div>
-        <div className={`${styles.tempoText} ${styles.ralewayfont}`}>{tempoTextString}</div>
-        <div className={styles.tempoSettings}>
-          <button
-            className={` ${styles.adjustTempobtn} ${styles.decreaseTempo}`}
-            onClick={decreaseTempo}
-          >
-            -
-          </button>
-          <input
-            className={styles.slider}
-            type="range"
-            min="20"
-            max="280"
-            step="1"
-            value={bpm}
-            onChange={onTempoSliderChange}
-          ></input>
-          <button
-            className={`${styles.adjustTempobtn} ${styles.increaseTempo}`}
-            onClick={increaseTempo}
-          >
-            +
-          </button>
-        </div>
-        <div className={`${styles.startStop} ${styles.ralewayfont}`} onClick={startStopMetronome}>
-          {isRunning ? 'STOP' : 'START'}
-        </div>
-        <div className={styles.measures}>
-          <button className={`${styles.subtractBeats} ${styles.stepper}`} onClick={subtractBeats}>-</button>
-          <div className={styles.measureCount}>{beatsPerMeasure}</div>
-          <button className={`${styles.addBeats} ${styles.stepper}`} onClick={addBeats}>+</button>
-        </div>
-        <span className={styles.beatsPerMeasureText}>Batidas por compasso</span>
+    <>
+    
+      <div className={styles.desccription}>
+        <h1 className={styles.titleMetronome}>Metrônomo</h1>
+        <p>
+          Um metrônomo musical é um dispositivo ou aplicativo utilizado por
+          músicos para auxiliar na manutenção do tempo e na marcação rítmica
+          durante a execução de peças musicais. Sua função principal é
+          proporcionar uma referência consistente e precisa de andamento,
+          permitindo que os músicos mantenham uma cadência regular e evitem
+          variações no ritmo ao longo de uma música.
+        </p>
       </div>
-    </div>
+      <div className={styles.container}>
+        <div className={styles.metronome}>
+          <div className={styles.bpmDisplay}>
+            <span className={styles.tempo}>{bpm}</span>
+            <span className={`${styles.bpm} ${styles.ralewayfont}`}>BPM</span>
+          </div>
+          <div className={`${styles.tempoText} ${styles.ralewayfont}`}>
+            {tempoTextString}
+          </div>
+          <div className={styles.tempoSettings}>
+            <button
+              className={` ${styles.adjustTempobtn} ${styles.decreaseTempo}`}
+              onClick={decreaseTempo}
+            >
+              -
+            </button>
+            <input
+              className={styles.slider}
+              type="range"
+              min="20"
+              max="280"
+              step="1"
+              value={bpm}
+              onChange={onTempoSliderChange}
+            ></input>
+            <button
+              className={`${styles.adjustTempobtn} ${styles.increaseTempo}`}
+              onClick={increaseTempo}
+            >
+              +
+            </button>
+          </div>
+          <div
+            className={`${styles.startStop} ${styles.ralewayfont}`}
+            onClick={startStopMetronome}
+          >
+            {isRunning ? "STOP" : "START"}
+          </div>
+          <div className={styles.measures}>
+            <button
+              className={`${styles.subtractBeats} ${styles.stepper}`}
+              onClick={subtractBeats}
+            >
+              -
+            </button>
+            <div className={styles.measureCount}>{beatsPerMeasure}</div>
+            <button
+              className={`${styles.addBeats} ${styles.stepper}`}
+              onClick={addBeats}
+            >
+              +
+            </button>
+          </div>
+          <span className={styles.beatsPerMeasureText}>
+            Batidas por compasso
+          </span>
+        </div>
+      </div>
+    </>
   );
 }

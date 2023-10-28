@@ -4,7 +4,6 @@ import styles from "./styles.module.css";
 import facapartemobile from "../../../public/images/facapartemobile.png";
 import curiosidades from "../../../public/images/curiosidades.png";
 import musicoterapia from "../../../public/images/musicoterapia.png";
-import recital from "../../../public/images/recital.jpeg";
 import facaparte from "../../../public/images/facaparte.png";
 import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
 import { VerticalMenu } from "../components/VerticalMenu";
@@ -99,33 +98,6 @@ export default function Blog() {
         <IconWhatsappfixed />
 
         <div className={`${styles.principal} animated-item`}>
-
-
-        <div className={`${styles.videoAndText} animated-item`}>
-            <div className={`${styles.divvideo} animated-item`}>
-              <h1 className={`${styles.titles} animated-item`}>
-                Um Recital Memorável
-              </h1>
-              <Image
-                className={styles.video}
-                src={recital}
-                alt="Music For All Logo"
-                width={700}
-                height={394}
-                quality={100}
-                placeholder="blur"
-                loading="lazy"
-              />
-            </div>
-            <p className={`${styles.subtitles} animated-item`}>
-             O Auditório Leonardo Diniz, na sede da Prefeitura de João Monlevade, ficou lotado na noite dessa quinta-feira (26/10/2023) para a realização do Recitalde Violão <br/>
-             O evento, que é realizado anualmente, contou com a apresentação dos alunos do curso de Violão, ministrado pelo professor Guilherme Gomes, que coordenou as apresentações. O auditório recebeu centenas de familiares e amigos dos alunos, além de convidados. Foram realizadas 13 apresentações, com a participação de 30 alunos.
-            </p>
-          </div>
-
-
-
-
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
               <h1 className={`${styles.titles} animated-item`}>

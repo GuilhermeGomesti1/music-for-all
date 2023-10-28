@@ -88,7 +88,7 @@ export function Footer() {
             </a>
           </li>
           <li className={styles.itemContato}>
-            {" "}
+            
             <a href="mailto:escolamusicforall@gmail.com">
               <IconEmail />
             </a>

@@ -43,7 +43,8 @@ export function VerticalMenu() {
         <li className={ `${styles.itemContato} animated-item`}>
           <IconYoutube />
         </li>
-        <li className={ `${styles.itemContato} animated-item`}>
+        
+        <li className={ `${styles.itemContato} animated-item`} >
           <a
             href="https://api.whatsapp.com/send?phone=5531986132070"
             target="_blank"

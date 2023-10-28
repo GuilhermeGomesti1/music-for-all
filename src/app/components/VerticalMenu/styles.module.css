@@ -23,7 +23,7 @@
   align-items: center;
 }
 
-.itemContato{
+.itemContato{ cursor: pointer;
   margin-top: 1rem;
 }
 .itemContato:not(:first-child) {
