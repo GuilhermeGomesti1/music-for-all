@@ -151,6 +151,28 @@ export default function Blog() {
             </p>
           </div>
           <CommentComponent videoId="ReDuOTb9vRE" />
+
+
+
+          <div className={`${styles.videoAndText} animated-item`}>
+            <div className={`${styles.divvideo} animated-item`}>
+              <h1 className={`${styles.titles} animated-item`}>
+              Oh! Darling - Canção dos Beatles interpretada por Iolanda Martins de Souza e Josiano Miranda de Souza
+              </h1>
+              <iframe
+                className={styles.video}
+                width="700"
+                height="394"
+                src="https://www.youtube.com/embed/hxps_ojn7Gc?si=g-ioScsAcQr8bxvA"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              ></iframe>
+            </div>
+            <p className={`${styles.subtitles} animated-item`}>
+            Uma belíssima apresentação interpretada em família! (Pai e filha).
+            </p>
+          </div>
+          <CommentComponent videoId="hxps_ojn7Gc" />
           
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>

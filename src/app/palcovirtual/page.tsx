@@ -13,21 +13,16 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import CommentComponent from "../components/FormComentarios";
 
-
-
 export default function Blog() {
-
-
   const videodata = [
     {
-      title: "O Palco é Deles: Alunos Brilhando na Escola de Música!",
-      videoId: "ReDuOTb9vRE",
+      title: " Oh! Darling - Canção dos Beatles interpretada por Iolanda Martins de Souza e Josiano Miranda de Souza",
+      videoId: "hxps_ojn7Gc",
     },
     {
       title: "Aula de violão- Trevo(Tu) - Anavitória.",
       videoId: "9srQ84b4iYw",
     },
-    
   ];
 
   const [loggedIn, setLoggedIn] = useState(false);
@@ -53,7 +48,6 @@ export default function Blog() {
     }
   }, []);
 
-
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -62,11 +56,9 @@ export default function Blog() {
         setLoggedIn(false);
       }
     });
-  
+
     return () => unsubscribe();
   }, []);
-
-  
 
   return (
     <>
@@ -94,36 +86,30 @@ export default function Blog() {
             placeholder="blur"
           />
         </div>
-      
+
         <IconWhatsappfixed />
 
         <div className={`${styles.principal} animated-item`}>
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
               <h1 className={`${styles.titles} animated-item`}>
-                O Palco é Deles: Alunos Brilhando na Escola de Música!
+              Oh! Darling - Canção dos Beatles interpretada por Iolanda Martins de Souza e Josiano Miranda de Souza
               </h1>
               <iframe
                 className={styles.video}
                 width="700"
                 height="394"
-                src="https://www.youtube.com/embed/ReDuOTb9vRE?si=p2zRmIz_bBg9txC7"
+                src="https://www.youtube.com/embed/hxps_ojn7Gc?si=g-ioScsAcQr8bxvA"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               ></iframe>
             </div>
             <p className={`${styles.subtitles} animated-item`}>
-              Observar a performance de nossos alunos é uma experiência
-              verdadeiramente inspiradora, e isso nos lembra de um importante
-              aspecto da jornada musical: o talento é algo que merece ser
-              nutrido e cultivado. Ele não é apenas uma habilidade, mas um
-              presente especial que deve ser compartilhado com o mundo. É com
-              grande honra que fazemos parte deste processo de crescimento como
-              músicos, junto com cada um de nossos alunos{" "}
+            Uma belíssima apresentação interpretada em família! (Pai e filha).
             </p>
           </div>
-          <CommentComponent videoId="ReDuOTb9vRE" />
-          
+          <CommentComponent videoId="hxps_ojn7Gc" />
+
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
               <h1 className={`${styles.titles} animated-item`}>
@@ -191,11 +177,14 @@ export default function Blog() {
               vão muito além! Acesso ilimitado a uma biblioteca de vídeo aulas
               exclusivas, tutoriais detalhados para músicas populares e técnicas
               avançadas, e conteúdo personalizado para impulsionar o seu
-              progresso musical. <br/>
-              <Link href={loggedIn ? "/alunos" : "/dashboard"} className={styles.cliqueaqui}>
-              Já é aluno? Clique aqui para acessar o conteúdo exclusivo.
+              progresso musical. <br />
+              <Link
+                href={loggedIn ? "/alunos" : "/dashboard"}
+                className={styles.cliqueaqui}
+              >
+                Já é aluno? Clique aqui para acessar o conteúdo exclusivo.
               </Link>
-            </p> 
+            </p>
           </div>
           <CommentComponent videoId="9srQ84b4iYw" />
 
