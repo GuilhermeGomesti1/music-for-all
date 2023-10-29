@@ -10,11 +10,11 @@ O projeto "Music For All" é uma plataforma online dedicada à música, que ofer
 ![Web 2](public/images/layoutmetronomo.png)
 # Tecnologias utilizadas
 ### Next.js:
-Framework React para construção de aplicações web.
-### React:
-Biblioteca JavaScript para criação de interfaces de usuário.
-### CSS Modules:
-Método de estilização em que as classes CSS são escopadas localmente em componentes React.
+### React
+### CSS Modules
+### React-Image
+### React Icons
+### FireBase 
 
 
 # Autor
