@@ -121,7 +121,7 @@ export default function Alunos() {
             </div>
 
             <div className={`${styles.conteudoalunos} animated-item`}>
-              <Link href={"/videoaulas"}>
+              <Link href={"/agendaecalendario"}>
                 <Image
                   className={styles.imgCursos}
                   src={agenda}
@@ -133,7 +133,7 @@ export default function Alunos() {
             </div>
 
             <div className={`${styles.conteudoalunos} animated-item`}>
-              <Link href={"/videoaulas"}>
+              <Link href={"/forum"}>
                 <Image
                   className={styles.imgCursos}
                   src={forum}
