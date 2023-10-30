@@ -8,6 +8,9 @@ import { Form } from "../components/Form";
 import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
 import { useEffect } from "react";
 
+
+
+
 export default function Contato() {
   useEffect(() => {
 
@@ -32,7 +35,7 @@ export default function Contato() {
   }, []);
 
   return (
-    <>
+    <>   <title>Contato- Escola de Música Music For All</title>
       <main>
         <div>
           <Image

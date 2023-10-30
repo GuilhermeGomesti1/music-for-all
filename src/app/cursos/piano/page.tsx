@@ -31,7 +31,7 @@ export default function Cursos() {
     }
   }, []);
   return (
-    <>
+    <><title>Curso de Piano e teclado- Escola de Música Music For All</title>
       <main>
       <div className={styles.containerViolao}>
       <Image

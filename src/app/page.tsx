@@ -1,6 +1,6 @@
 "use client";
 
-import Head from "next/head";
+
 import Image from "next/image";
 import { IconCursos } from "./components/Icons/iconsHome/iconCursos";
 import { IconBlog } from "./components/Icons/iconsHome/iconBlog";

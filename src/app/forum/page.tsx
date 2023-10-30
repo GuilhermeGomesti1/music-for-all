@@ -32,7 +32,7 @@ export default function Contato() {
   }, []);
 
   return (
-    <>
+    <><title>Forum- Escola de Música Music For All</title>
       <main>
         <div>
           <Image

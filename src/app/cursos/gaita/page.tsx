@@ -7,6 +7,10 @@ import homecursos from "../../../../public/images/homecursos.png"
 import { Form } from "@/app/components/Form";
 import { IconWhatsappfixed } from "@/app/components/Icons/IconsContato/iconWhatsappfixed";
 import { useEffect } from "react";
+
+
+
+
 export default function Cursos() {
 
 
@@ -35,7 +39,7 @@ export default function Cursos() {
 
   
   return (
-    <>
+    <> <title>Curso de Gaita- Escola de Música Music For All</title>
       <main>
         <div className={styles.containerViolao}>
                

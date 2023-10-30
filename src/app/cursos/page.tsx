@@ -18,8 +18,6 @@ import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsapp
 import { useEffect } from "react";
 
 
-
-
 export default function Cursos() {
   useEffect(() => {
     if (process.browser) {
@@ -52,7 +50,7 @@ export default function Cursos() {
     window.open(linkWhatsApp);
   };
   return (
-    <>
+    <> <title>Nossos Cursos- Escola de Música Music For All</title>
       <main>
         <div className={styles.containerViolao}>
           <Image

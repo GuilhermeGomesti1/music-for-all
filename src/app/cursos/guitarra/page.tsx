@@ -30,7 +30,7 @@ export default function Cursos() {
     }
   }, []);
   return (
-    <>
+    <> <title>Curso de Guitarra- Escola de Música Music For All</title>
       <main>
         <div className={styles.containerViolao}>
           <Image

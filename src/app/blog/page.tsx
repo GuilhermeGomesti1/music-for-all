@@ -16,13 +16,14 @@ import CommentComponent from "../components/FormComentarios";
 
 
 
+
 export default function Blog() {
 
 
   const videodata = [
     {
       title: "O Palco é Deles: Alunos Brilhando na Escola de Música!",
-      videoId: "ReDuOTb9vRE",
+      videoId: "515LzJBC4ko",
     },
     {
       title: "Aula de violão- Trevo(Tu) - Anavitória.",
@@ -70,7 +71,7 @@ export default function Blog() {
   
 
   return (
-    <>
+    <> <title>Blog- Escola de Música Music For All</title>
       <main className={styles.contentAll}>
         <div>
           <Image
@@ -163,7 +164,7 @@ export default function Blog() {
                 className={styles.video}
                 width="700"
                 height="394"
-                src="https://www.youtube.com/embed/hxps_ojn7Gc?si=g-ioScsAcQr8bxvA"
+                src="https://www.youtube.com/embed/515LzJBC4ko?si=z_B-2njP2MQ5LRkA"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               ></iframe>

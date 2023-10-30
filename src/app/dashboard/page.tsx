@@ -112,7 +112,7 @@ export default function Dashboard() {
     checkLogin();
   }, []);
 
-  return (
+  return (  <><title>Área de Login- Escola de Música Music For All</title>
     <div className={`${styles.container} animated-item`}>
       <div className={styles.containerViolao}>
         <Image
@@ -199,6 +199,6 @@ export default function Dashboard() {
       {/* <button onClick={novoUsuario}>Cadastrar</button> */}
       {/* <button onClick={logarUsuario}>Fazer Login</button> */}
       {/* <button onClick={fazerLogout}>Fazer logout</button> */}
-    </div>
+    </div></>
   );
 }

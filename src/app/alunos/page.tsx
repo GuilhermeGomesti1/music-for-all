@@ -19,6 +19,9 @@ import styles from "./styles.module.css";
 import Dashboard from "../dashboard/page";
 
 
+
+
+
 export default function Alunos() {
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -56,7 +59,8 @@ export default function Alunos() {
     }
   }, [loggedIn]);
 
-  return (
+  return (   
+    <>  <title>Área do Aluno- Escola de Música Music For All</title>
     <div className={styles.main}>
       {loggedIn ? (
         // Conteúdo exclusivo para alunos autenticados
@@ -173,6 +177,6 @@ export default function Alunos() {
         // Mensagem de login e link para a página de login
       <Dashboard/>
       )}
-    </div>
+    </div></>
   );
 }

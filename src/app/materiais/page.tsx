@@ -7,10 +7,17 @@ import partituraimg from "../../../public/images/partituraimg.png";
 import tablaturaimg from "../../../public/images/tablaturaimg.png";
 import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
 
+
+
+
+
+
 export default function Materiais() {
   return (
     <>
-      <main >
+    <title>Materiais Exclusivos- Escola de Música Music For All</title>
+      <main>
+       
         <div className={styles.containerViolao}>
           <Image
             className={styles.img}
@@ -32,20 +39,19 @@ export default function Materiais() {
           />
         </div>
         <IconWhatsappfixed />
-          
 
-          <div className= {`${styles.description} animated-item`}>
+        <div className={`${styles.description} animated-item`}>
+          <h1 className={`${styles.titledescription} animated-item`}>
+            Materiais Exclusivos
+          </h1>
+          <span className={`${styles.spandescription} animated-item`}>
+            Aqui, você encontrará uma série de recursos personalizados para
+            aprimorar sua jornada musical. <span className={styles.spanBasta}>Basta clicar e baixar!</span>
+          </span>
+        </div>
 
-         
-            <h1 className={`${styles.titledescription} animated-item`}>Materiais Exclusivos</h1>  
-            <span className={`${styles.spandescription} animated-item`}>
-            Aqui, você encontrará uma série de recursos personalizados para aprimorar sua jornada musical. Basta clicar e baixar!
-            </span>
-          </div>
-
-
-        <div className={`${styles.allmateriais} animated-item`}>  
-          <div className= {`${styles.divImgMateriais} animated-item`}> 
+        <div className={`${styles.allmateriais} animated-item`}>
+          <div className={`${styles.divImgMateriais} animated-item`}>
             <a href="/images/apostilamusicforall.pdf" download>
               {" "}
               <Image
@@ -58,7 +64,7 @@ export default function Materiais() {
             </a>
           </div>
 
-          <div className= {`${styles.divImgMateriais} animated-item`}>
+          <div className={`${styles.divImgMateriais} animated-item`}>
             <a href="/images/pauta.pdf" download>
               <Image
                 className={styles.imgCursos}
@@ -70,7 +76,7 @@ export default function Materiais() {
             </a>
           </div>
 
-          <div className= {`${styles.divImgMateriais} animated-item`}>
+          <div className={`${styles.divImgMateriais} animated-item`}>
             <a href="/images/tablaturas.pdf" download>
               <Image
                 className={styles.imgCursos}

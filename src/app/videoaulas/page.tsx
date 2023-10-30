@@ -113,7 +113,7 @@ export default function VideoAulas() {
   
 
   return (
-    <>
+    <><title>Vídeo Aulas- Escola de Música Music For All</title>
       <main className={styles.contentAll}>
         <div>
           <Image
