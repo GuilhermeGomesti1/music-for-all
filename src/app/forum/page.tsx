@@ -62,7 +62,7 @@ export default function Contato() {
          
           <h1 className=   {`${styles.title} animated-item`}>Página em construção!</h1>
           <p className={styles.descricaoconstucao}>
-          Estamos dedicados a aprimorar todas as funcionalidades do nosso site! Atualmente, estamos em pleno processo de construção, mas estamos trabalhando incansavelmente para proporcionar a melhor experiência possível em breve. Aguarde ansiosamente por todas as novidades que estamos preparando para você.
+          Estamos dedicados a aprimorar todas as funcionalidades do nosso site! Atualmente, estamos em pleno processo de construção, mas estamos trabalhando incansavelmente para proporcionar a melhor experiência possível em breve. Aguarde ansiosamente por todas as novidades que estamos preparando para você
           </p>
         </div>
 
