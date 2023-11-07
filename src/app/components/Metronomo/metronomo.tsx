@@ -111,7 +111,7 @@ export default function Metronome() {
     
       <div className={styles.desccription}>
         <h1 className={styles.titleMetronome}>Metrônomo</h1>
-        <p>
+        <p className={styles.pmetronomo}> 
           Um metrônomo musical é um dispositivo ou aplicativo utilizado por
           músicos para auxiliar na manutenção do tempo e na marcação rítmica
           durante a execução de peças musicais. Sua função principal é
