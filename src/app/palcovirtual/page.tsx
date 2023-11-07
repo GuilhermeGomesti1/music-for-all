@@ -24,9 +24,10 @@ export default function Blog() {
       title: "  Até o fim- Canção de Engenheiros do Hawaii interpretada por João Vitor Moscon e João Lucas.",
       videoId: "_7NyyVXwbUg",
     },
+    
     {
-      title: "Aula de violão- Trevo(Tu) - Anavitória.",
-      videoId: "9srQ84b4iYw",
+      title:    "Anunciação- Canção de Alceu Valença (Cover) Recital de Violão.",
+      videoId: "I4tLeAPOh18",
     },
   ];
 
@@ -137,8 +138,34 @@ export default function Blog() {
 
             </p>
           </div>
+          
           <CommentComponent videoId="_7NyyVXwbUg" /> 
 
+
+
+
+          <div className={`${styles.videoAndText} animated-item`}>
+            <div className={`${styles.divvideo} animated-item`}>
+              <h1 className={`${styles.titles} animated-item`}>
+              Anunciação- Canção de Alceu Valença (Cover) Recital de Violão.
+              </h1>
+              <iframe
+                className={styles.video}
+                width="700"
+                height="394"
+                src="https://www.youtube.com/embed/I4tLeAPOh18?si=QquvaHnkplVPE9IC" 
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              ></iframe>
+            </div>
+            <p className={`${styles.subtitles} animated-item`}>
+            Essa turma brilha! Alunos mais que especiais, Amanda Pereira, Iara Sâmea e Joyce Nara, juntamente com a professora Thayra Martins no violino e o Professor Rafael Morais no teclado.
+
+            </p>
+          </div>
+          
+          <CommentComponent videoId="I4tLeAPOh18" /> 
+        
          
           </div>
         
