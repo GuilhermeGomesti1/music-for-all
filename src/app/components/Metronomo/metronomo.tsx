@@ -117,7 +117,7 @@ export default function Metronome() {
           durante a execução de peças musicais. Sua função principal é
           proporcionar uma referência consistente e precisa de andamento,
           permitindo que os músicos mantenham uma cadência regular e evitem
-          variações no ritmo ao longo de uma música.
+          variações no ritmo ao longo de uma música
         </p>
       </div>
       <div className={styles.container}>
