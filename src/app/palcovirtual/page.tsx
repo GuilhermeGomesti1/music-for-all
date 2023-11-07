@@ -29,7 +29,12 @@ export default function Blog() {
       title:    "Anunciação- Canção de Alceu Valença (Cover) Recital de Violão.",
       videoId: "I4tLeAPOh18",
     },
-  ];
+
+    {
+      title:    "Trevo (Tu) - Canção de Anavitória (Cover) - Recital de Violão.",
+      videoId: "wMPUHEP32yM",
+    },
+  ];  
 
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -166,6 +171,27 @@ export default function Blog() {
           
           <CommentComponent videoId="I4tLeAPOh18" /> 
         
+
+          <div className={`${styles.videoAndText} animated-item`}>
+            <div className={`${styles.divvideo} animated-item`}>
+              <h1 className={`${styles.titles} animated-item`}>
+              Trevo (Tu) - Canção de Anavitória (Cover) - Recital de Violão.
+              </h1>
+              <iframe
+                className={styles.video}
+                width="700"
+                height="394"
+                src="https://www.youtube.com/embed/wMPUHEP32yM?si=5vEQhdwDG3sXvwt9" 
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              ></iframe>
+            </div>
+            <p className={`${styles.subtitles} animated-item`}>
+            Assista a nossa interpretação da canção Trevo (Tu) de Anavitória no recital de violão. Joyce Nara no violão e voz, Amanda Pereira na voz, Alessandra Mayrink no violão, professora Thayra Martins no violino, professor Guilherme Gomes na gaita e professor Rafael Morais no teclado. Uma apresentação musical única que você não vai querer perder
+            </p>
+          </div>
+          
+          <CommentComponent videoId="wMPUHEP32yM" /> 
          
           </div>
         
