@@ -107,7 +107,7 @@ export default function Metronome() {
   }, [bpm, tempoTextString, updateMetronome]);
 
   return (
-    <>
+    <>  <title>Recursos- Escola de Música Music For All</title>
     
       <div className={styles.desccription}>
         <h1 className={styles.titleMetronome}>Metrônomo</h1>
