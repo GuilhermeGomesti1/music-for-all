@@ -27,6 +27,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href="../public/faviicon/faviicon.ico" />
       </Head>
       <body>
+        <Header/>
         <ToastContainer autoClose={3000} />
         {children}
         <Footer />
