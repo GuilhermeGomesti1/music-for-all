@@ -26,6 +26,7 @@ export default function RootLayout({
       <Head>
         <link rel="shortcut icon" href="../public/faviicon/faviicon.ico" />
       </Head>
+      <meta name="google-site-verification" content="OTGVRM3dX1SxQkV60D8vU00mKlK8Od3sZ2qA9FCvgWs" />
       <body>
         <Header/>
         <ToastContainer autoClose={3000} />

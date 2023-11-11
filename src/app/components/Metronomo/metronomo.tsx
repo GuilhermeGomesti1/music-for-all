@@ -12,14 +12,15 @@ export default function Metronome() {
   const metronomeRef = useRef(
     new Timer(playClick, 60000 / bpm, { immediate: false, errorCallback: null })
   );
+  console.log("rodou");
 
   let click1: HTMLAudioElement | undefined;
   let click2: HTMLAudioElement | undefined;
 
-  if (typeof Audio !== "undefined") {
+  useEffect(() => {
     click1 = new Audio(click1Sound);
     click2 = new Audio(click2Sound);
-  }
+  }, []);
 
   let count = 0;
   let isRunning = false;
@@ -107,11 +108,12 @@ export default function Metronome() {
   }, [bpm, tempoTextString, updateMetronome]);
 
   return (
-    <>  <title>Recursos- Escola de Música Music For All</title>
-    
+    <>
+      {" "}
+      <title>Recursos- Escola de Música Music For All</title>
       <div className={styles.desccription}>
         <h1 className={styles.titleMetronome}>Metrônomo</h1>
-        <p className={styles.pmetronomo}> 
+        <p className={styles.pmetronomo}>
           Um metrônomo musical é um dispositivo ou aplicativo utilizado por
           músicos para auxiliar na manutenção do tempo e na marcação rítmica
           durante a execução de peças musicais. Sua função principal é
