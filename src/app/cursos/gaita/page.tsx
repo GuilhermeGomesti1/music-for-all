@@ -102,7 +102,7 @@ export default function Cursos() {
               <li  className="animated-item">
                 {" "}
                 Comunidade Musical: Junte-se a outros músicos apaixonados pela
-                gaita e compartilhe seu amor pela música.{" "}
+                gaita e compartilhe seu amor pela música.
               </li >
             </ul>
 
