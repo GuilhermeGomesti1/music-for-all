@@ -176,6 +176,7 @@ export default function Dashboard() {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
             placeholder="Digite sua senha"
+            type="password"
           />
 
           <button
