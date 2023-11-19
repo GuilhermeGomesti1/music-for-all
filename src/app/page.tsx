@@ -71,7 +71,7 @@ export default function Home() {
                 className={styles.img}
                 src={homeoficial}
                 alt="Music For All Logo"
-                width={1895}
+                width={1833}
                 height={598}
                 quality={100}
                 placeholder="blur"

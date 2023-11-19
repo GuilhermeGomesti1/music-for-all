@@ -60,6 +60,7 @@ export default function Materiais() {
                 alt="Imagem do curso"
                 loading="lazy"
                 placeholder="blur"
+                title="Clique para baixar!"
               />{" "}
             </a>
           </div>
@@ -72,6 +73,7 @@ export default function Materiais() {
                 alt="Imagem do curso"
                 loading="lazy"
                 placeholder="blur"
+                title="Clique para baixar!"
               />
             </a>
           </div>
@@ -84,6 +86,7 @@ export default function Materiais() {
                 alt="Imagem do curso"
                 loading="lazy"
                 placeholder="blur"
+                title="Clique para baixar!"
               />
             </a>
           </div>
