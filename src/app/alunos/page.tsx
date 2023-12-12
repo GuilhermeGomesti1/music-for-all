@@ -28,15 +28,14 @@ export default function Alunos() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        // O usuário está autenticado, atualize a variável de estado
+       
         setLoggedIn(true);
       } else {
-        // O usuário não está autenticado, mantenha a variável de estado como falsa
+     
         setLoggedIn(false);
       }
     });
 
-    // Certifique-se de cancelar a inscrição quando o componente for desmontado
     return () => unsubscribe();
   }, []);
 
