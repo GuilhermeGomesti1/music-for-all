@@ -27,7 +27,7 @@
   "include": [
     "**/*.tsx",
     "next-env.d.ts",
-
+    "cypress/support/commands.ts",
     ".next/types/**/*.ts",
     "src/app/lo",
     "cypress/support/e2e.tsx",
