@@ -29,11 +29,16 @@ declare global {
   namespace Cypress {
     interface Chainable {
       mount: typeof mount;
+      getDataTest(dataTestSelector: string): Chainable<JQuery<HTMLElement>>;
     }
   }
 }
 
 Cypress.Commands.add("mount", mount);
+
+Cypress.Commands.add("getDataTest", (dataTestSelector: string) => {
+  return cy.get(`[data-test="${dataTestSelector}"]`);
+});
 
 // Example use:
 // cy.mount(<MyComponent />)
