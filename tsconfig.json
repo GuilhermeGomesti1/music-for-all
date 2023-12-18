@@ -31,13 +31,13 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/lo",
-    "cypress/support/commands.ts",
+    "cypress/support/commands.tsx",
     "cypress/support/e2e.ts",
-    "cypress/support/commands.ts",
+    "cypress/support/commands.tsx",
     "cypress/e2e/page.cy.tsx",
     "cypress/support/commands.jsx",
     "src",
     "cypress"
   ],
-  "exclude": ["cypress.config.ts", "node_modules"]
+  "exclude": ["node_modules"]
 }
