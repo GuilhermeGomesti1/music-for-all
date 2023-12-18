@@ -1,8 +1,8 @@
 "use client";
 import React, { useCallback, useEffect, useRef, useState } from "react"; // Importe o useEffect
 import styles from "./styles.module.css";
-import click1Sound from "../../../../public/audios/click1.mp3";
-import click2Sound from "../../../../public/audios/click2.mp3";
+//import click1Sound from "../../../../public/audios/click1.mp3";
+//import click2Sound from "../../../../public/audios/click2.mp3";
 import Timer from "../../components/timer/timer.js";
 
 export default function Metronome() {
@@ -18,8 +18,8 @@ export default function Metronome() {
   let click2: HTMLAudioElement | undefined;
 
   useEffect(() => {
-    click1 = new Audio(click1Sound);
-    click2 = new Audio(click2Sound);
+    // click1 = new Audio(click1Sound);
+    // click2 = new Audio(click2Sound);
   }, []);
 
   let count = 0;

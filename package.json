@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "check-types": "tsc"
   },
   "dependencies": {
     "@types/node": "20.5.9",
