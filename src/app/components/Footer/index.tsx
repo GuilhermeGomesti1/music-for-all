@@ -12,12 +12,10 @@ import { IconTel } from "../Icons/iconsFooter/iconTel";
 import { useEffect } from "react";
 
 export function Footer() {
-
   useEffect(() => {
-
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       // O código abaixo será executado apenas no navegador
-      import('scrollreveal').then((ScrollRevealModule) => {
+      import("scrollreveal").then((ScrollRevealModule) => {
         const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
 
         const sr = ScrollReveal({
@@ -26,15 +24,14 @@ export function Footer() {
           // Outras opções de configuração aqui
         });
 
-        sr.reveal('.animated-item', {
-          origin: 'bottom',
-          distance: '20px',
-          easing: 'ease-in-out',
+        sr.reveal(".animated-item", {
+          origin: "bottom",
+          distance: "20px",
+          easing: "ease-in-out",
         });
       });
     }
   }, []);
-
 
   const copyToClipboard = (text: string) => {
     const textArea = document.createElement("textarea");
@@ -60,10 +57,13 @@ export function Footer() {
     alert("Endereço copiado para a área de transferência: " + address);
   };
   return (
-    <div className={`${styles.footer} animated-item`}>
+    <div
+      data-test="footer-contains"
+      className={`${styles.footer} animated-item`}
+    >
       <div>
         <Image
-          className={styles.img} 
+          className={styles.img}
           src={logofooter}
           alt="Logotipo Music For All"
           width={120}
@@ -88,7 +88,6 @@ export function Footer() {
             </a>
           </li>
           <li className={styles.itemContato}>
-            
             <a href="mailto:escolamusicforall@gmail.com">
               <IconEmail />
             </a>

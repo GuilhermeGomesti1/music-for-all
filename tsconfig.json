@@ -39,5 +39,5 @@
     "src",
     "cypress"
   ],
-  "exclude": ["cypress.config.ts", "cypress", "node_modules"]
+  "exclude": ["cypress.config.ts", "node_modules"]
 }
