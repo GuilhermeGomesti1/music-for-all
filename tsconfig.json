@@ -25,10 +25,9 @@
     }
   },
   "include": [
-    "**/*.ts",
-    "next-env.d.ts",
-    "**/*.ts",
     "**/*.tsx",
+    "next-env.d.ts",
+
     ".next/types/**/*.ts",
     "src/app/lo",
     "cypress/support/e2e.tsx",
