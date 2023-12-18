@@ -93,7 +93,7 @@ export function Footer() {
       </div>
 
       <div className={styles.divContact}>
-        <ul>
+        <ul data-test="footer-contains">
           <li
             className={styles.itemContato}
             onClick={handlePhoneClick}
@@ -116,7 +116,6 @@ export function Footer() {
             onClick={handleAddressClick}
             id="endereco"
             title="Clique aqui para copiar"
-            data-test="footer-contains"
           >
             Av.Wilson Alvarenga, 1140, sala 504-João Monlevade/MG
             <IconCopy />
