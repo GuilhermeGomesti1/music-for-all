@@ -35,6 +35,9 @@
 //     }
 //   }
 // }
-Cypress.Commands.add("getDataTest", (dataTestSelector: string) => {
-  return cy.get(`[data-test="${dataTestSelector}"]`);
-});
+declare namespace Cypress {
+  interface Chainable {
+    // Definindo o tipo para o comando getDataTest
+    getDataTest(dataTestSelector: string): Chainable<Element>;
+  }
+}
