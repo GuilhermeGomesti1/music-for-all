@@ -57,10 +57,7 @@ export function Footer() {
     alert("Endereço copiado para a área de transferência: " + address);
   };
   return (
-    <div
-      data-test="footer-contains"
-      className={`${styles.footer} animated-item`}
-    >
+    <div className={`${styles.footer} animated-item`}>
       <div>
         <Image
           className={styles.img}
@@ -119,6 +116,7 @@ export function Footer() {
             onClick={handleAddressClick}
             id="endereco"
             title="Clique aqui para copiar"
+            data-test="footer-contains"
           >
             Av.Wilson Alvarenga, 1140, sala 504-João Monlevade/MG
             <IconCopy />
