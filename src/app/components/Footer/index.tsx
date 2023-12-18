@@ -93,7 +93,7 @@ export function Footer() {
       </div>
 
       <div className={styles.divContact}>
-        <ul data-test="footer-contains">
+        <ul>
           <li
             className={styles.itemContato}
             onClick={handlePhoneClick}
@@ -112,6 +112,7 @@ export function Footer() {
             </a>
           </li>
           <li
+            data-test="contem-footer"
             className={styles.itemContato}
             onClick={handleAddressClick}
             id="endereco"

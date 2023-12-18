@@ -4,6 +4,6 @@ describe("Verificar se contém o Footer", () => {
   it("Verificar Footer", () => {
     cy.mount(<Footer />);
 
-    cy.getDataTest("footer-contains").contains(/Av.Wilson Alvarenga/i);
+    cy.getDataTest("contem-footer").contains(/Av.Wilson Alvarenga/i);
   });
 });
