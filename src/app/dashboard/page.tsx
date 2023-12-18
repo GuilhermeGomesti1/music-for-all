@@ -77,9 +77,7 @@ export default function Dashboard() {
       } else if (errorString.includes("auth/user-not-found")) {
         toast.error("Usuário não cadastrado. Por favor, registre-se.");
       } else {
-        toast.error(
-          "E-mail ou senha inválidos. Por favor, tente novamente."
-        );
+        toast.error("E-mail ou senha inválidos. Por favor, tente novamente.");
       }
     }
   }
@@ -112,94 +110,112 @@ export default function Dashboard() {
     checkLogin();
   }, []);
 
-  return (  <><title>Área de Login- Escola de Música Music For All</title>
-    <div className={`${styles.container} animated-item`}>
-      <div className={styles.containerViolao}>
-        <Image
-          className={styles.img}
-          src={homeoficial}
-          alt="Music For All Logo"
-          width={1895}
-          height={598}
-          quality={100}
-          loading="lazy"
-          placeholder="blur"
-        />
-
-        <Image
-          className={styles.violaoContainer}
-          src={homecursos}
-          alt="Music For All Logo"
-          loading="lazy"
-          placeholder="blur"
-        />
-      </div>
-      <li className={styles.itemContato}>
-        <IconWhatsappfixed />
-      </li>
-      <div className={`${styles.titlesection} animated-item`}>
-        {user ? (
-          <span>Seja bem-vindo: {userDetail?.email}</span>
-        ) : (
-          <span className={`${styles.facalogintext} animated-item`}>
-            Faça login para acessar o conteúdo. Como aluno, você terá acesso a
-            recursos exclusivos para aprimorar suas habilidades musicais.
-          </span>
-        )}
-      </div>
-      {user ? (
-        <div>
-          <Link
-            href={"/alunos"}
-            className={`${styles.buttonContainer} animated-item`}
-          >
-            <button className={styles.subtitleButton}>
-              <span>Clique aqui para acessar o seu conteúdo exclusivo!</span>
-            </button>
-          </Link>
-        </div>
-      ) : (
-        <div className={`${styles.formContainer} animated-item`}>
-          <form>
-            <label className={`${styles.formLabel} animated-item`}>Email</label>
-            <input
-              className={`${styles.formInput} animated-item`}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Digite seu e-mail"
-            />
-          </form>
-
-          <label className={`${styles.formLabel} animated-item`}>Senha</label>
-          <input
-            className={`${styles.formInput} animated-item`}
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
-            placeholder="Digite sua senha"
-            type="password"
+  return (
+    <>
+      <title data-test="title-dashboard">
+        Área de Login- Escola de Música Music For All
+      </title>
+      <div className={`${styles.container} animated-item`}>
+        <div className={styles.containerViolao}>
+          <Image
+            className={styles.img}
+            src={homeoficial}
+            alt="Music For All Logo"
+            width={1895}
+            height={598}
+            quality={100}
+            loading="lazy"
+            placeholder="blur"
           />
 
-          <button
-            className={`${styles.formButton} animated-item`}
-            onClick={logarUsuario}
-          >
-            Fazer Login
-          </button>
+          <Image
+            className={styles.violaoContainer}
+            src={homecursos}
+            alt="Music For All Logo"
+            loading="lazy"
+            placeholder="blur"
+          />
         </div>
-      )}
+        <li className={styles.itemContato}>
+          <IconWhatsappfixed />
+        </li>
+        <div className={`${styles.titlesection} animated-item`}>
+          {user ? (
+            <span>Seja bem-vindo: {userDetail?.email}</span>
+          ) : (
+            <span className={`${styles.facalogintext} animated-item`}>
+              Faça login para acessar o conteúdo. Como aluno, você terá acesso a
+              recursos exclusivos para aprimorar suas habilidades musicais.
+            </span>
+          )}
+        </div>
+        {user ? (
+          <div>
+            <Link
+              href={"/alunos"}
+              className={`${styles.buttonContainer} animated-item`}
+            >
+              <button
+                data-test="button-alunoLogado"
+                className={styles.subtitleButton}
+              >
+                <span data-test="span-logado">
+                  Clique aqui para acessar o seu conteúdo exclusivo!
+                </span>
+              </button>
+            </Link>
+          </div>
+        ) : (
+          <div
+            data-test="form-login"
+            className={`${styles.formContainer} animated-item`}
+          >
+            <form>
+              <label className={`${styles.formLabel} animated-item`}>
+                Email
+              </label>
+              <input
+                data-test="email-input"
+                className={`${styles.formInput} animated-item`}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Digite seu e-mail"
+              />
+            </form>
 
-      <div className={`${styles.beneficiosAluno} animated-item`}>
-        <Image
-          className={`${styles.img2} animated-item`}
-          src={beneficios}
-          alt="Music For All Logo"
-          loading="lazy"
-        />
+            <label className={`${styles.formLabel} animated-item`}>Senha</label>
+            <input
+              data-test="senha-input"
+              className={`${styles.formInput} animated-item`}
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+              placeholder="Digite sua senha"
+              type="password"
+            />
+
+            <button
+              data-test="login-button"
+              className={`${styles.formButton} animated-item`}
+              onClick={logarUsuario}
+            >
+              Fazer Login
+            </button>
+          </div>
+        )}
+
+        <div className={`${styles.beneficiosAluno} animated-item`}>
+          <Image
+            className={`${styles.img2} animated-item`}
+            src={beneficios}
+            alt="Music For All Logo"
+            loading="lazy"
+          />
+        </div>
+
+        {/* <button onClick={novoUsuario}>Cadastrar</button> */}
+        {/* <button onClick={logarUsuario}>Fazer Login</button> */}
+        {/* <button onClick={fazerLogout}>Fazer logout</button> */}
       </div>
-
-      {/* <button onClick={novoUsuario}>Cadastrar</button> */}
-      {/* <button onClick={logarUsuario}>Fazer Login</button> */}
-      {/* <button onClick={fazerLogout}>Fazer logout</button> */}
-    </div></>
+    </>
   );
 }

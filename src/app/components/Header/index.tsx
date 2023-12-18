@@ -12,10 +12,6 @@ import { LogoutIcon } from "../Icons/iconsHome/iconLogout";
 import { toast } from "react-toastify";
 
 export function Header() {
-
-
-
-  
   const [menuOpen, setMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -37,9 +33,8 @@ export function Header() {
       try {
         await signOut(auth);
         setLoggedIn(false);
-        toast.info('Logout feito com sucesso');
+        toast.info("Logout feito com sucesso");
         window.location.href = "/";
-        
       } catch (error) {
         console.error("Erro ao fazer logout:", error);
       }
@@ -81,6 +76,7 @@ export function Header() {
               className={styles.img}
               src={logo}
               alt="Logotipo Music For All"
+              data-test="logo-image"
             />
           </a>
         </div>
@@ -121,19 +117,32 @@ export function Header() {
               Contato
             </Link>
 
-            {loggedIn ?(<Link
-              href="/alunos"
-              className={styles.aContainer}
-              onClick={closeMenu}
-            >
-              Aluno
-            </Link> ) : (  <Link href="/dashboard"  className={styles.aContainer}
-              onClick={closeMenu}>Aluno</Link>)}
-            
+            {loggedIn ? (
+              <Link
+                href="/alunos"
+                className={styles.aContainer}
+                onClick={closeMenu}
+              >
+                Aluno
+              </Link>
+            ) : (
+              <Link
+                href="/dashboard"
+                className={styles.aContainer}
+                onClick={closeMenu}
+              >
+                Aluno
+              </Link>
+            )}
 
             {loggedIn && (
-              <a href="/" title="Logout" className={styles.logout} onClick={handleLogout}>
-                <LogoutIcon/> 
+              <a
+                href="/"
+                title="Logout"
+                className={styles.logout}
+                onClick={handleLogout}
+              >
+                <LogoutIcon />
               </a>
             )}
           </nav>
