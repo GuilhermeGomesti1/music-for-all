@@ -15,6 +15,9 @@
 
 // Import commands.js using ES2015 syntax:
 import "./commands";
+Cypress.Commands.add("getDataTest", (dataTestSelector: string) => {
+  return cy.get(`[data-test="${dataTestSelector}"]`);
+});
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
