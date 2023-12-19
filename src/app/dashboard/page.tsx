@@ -67,7 +67,7 @@ export default function Dashboard() {
     } catch (error) {
       console.error("Erro ao fazer login", error);
 
-      const errorString = String(error); // Converta error para string
+      const errorString = String(error);
 
       if (
         errorString.includes("auth/invalid-email") ||
