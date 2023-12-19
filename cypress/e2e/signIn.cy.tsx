@@ -17,5 +17,6 @@ describe("Testes signIn", () => {
     cy.contains(/Clique aqui para acessar o seu conteúdo exclusivo/i).should(
       "be.visible"
     );
+    cy.getDataTest("span-logado").click();
   });
 });

@@ -150,15 +150,12 @@ export default function Dashboard() {
           )}
         </div>
         {user ? (
-          <div>
+          <div data-test="button-alunoLogado">
             <Link
               href={"/alunos"}
               className={`${styles.buttonContainer} animated-item`}
             >
-              <button
-                data-test="button-alunoLogado"
-                className={styles.subtitleButton}
-              >
+              <button className={styles.subtitleButton}>
                 <span data-test="span-logado">
                   Clique aqui para acessar o seu conteúdo exclusivo!
                 </span>
