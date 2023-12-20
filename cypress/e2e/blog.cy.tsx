@@ -1,6 +1,6 @@
 describe("testes página blog", () => {
-  beforeEach(() => {
+  beforeEach(() => {});
+  it("Verificando signin", () => {
     cy.visit("/blog");
   });
-  it("", () => {});
 });

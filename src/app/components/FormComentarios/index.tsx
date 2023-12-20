@@ -302,7 +302,10 @@ function CommentComponent({ videoId }: { videoId?: string }) {
       <div className={styles.containerComentarios}>
         {/* Formulário de Comentário */}
         {user ? (
-          <div className={`${styles.formContainer} animated-item`}>
+          <div
+            data-test="form-usuario-logado"
+            className={`${styles.formContainer} animated-item`}
+          >
             <textarea
               className={styles.textareaInput}
               placeholder="Digite seu comentário..."
@@ -343,7 +346,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
               <span className={styles.commentAuthor}>
                 {comment.authorEmail}:
               </span>
-              <br/>
+              <br />
               {comment.text} -{" "}
               <span className={styles.commentTimestamp}>
                 {comment.timestamp.toDate().toLocaleString()}

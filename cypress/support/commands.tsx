@@ -55,6 +55,8 @@ Cypress.Commands.add("signIn", () => {
   cy.contains(/Clique aqui para acessar o seu conteúdo exclusivo/i).should(
     "be.visible"
   );
+  Cypress.env("isAuthenticated", true);
   cy.getDataTest("span-logado").click();
+
   cy.url().should("contain", "/alunos");
 });
