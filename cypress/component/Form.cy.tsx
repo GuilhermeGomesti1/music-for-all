@@ -2,6 +2,7 @@ import { Form } from "../../src/app/components/Form";
 describe("Verificar se o form está sendo preenchido e enviado", () => {
   it("form test", () => {
     cy.mount(<Form />);
+
     cy.getDataTest("form-contato-whatsapp").contains(
       /gostaria de mais informações/i
     );
@@ -36,6 +37,7 @@ describe("Verificar se o form está sendo preenchido e enviado", () => {
       cy.stub(win, "open").as("open");
     });
     cy.getDataTest("enviar-formulario").click();
+    cy.get("@open").should("be.called");
 
     cy.getDataTest("form-contato-whatsapp").should("have.value", "");
   });

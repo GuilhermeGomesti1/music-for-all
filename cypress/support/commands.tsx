@@ -38,3 +38,23 @@
 Cypress.Commands.add("getDataTest", (dataTestSelector: string) => {
   return cy.get(`[data-test="${dataTestSelector}"]`);
 });
+
+Cypress.Commands.add("signIn", () => {
+  cy.visit("/dashboard");
+  cy.getDataTest("title-dashboard").should(
+    "contain.text",
+    "Área de Login- Escola de Música Music For All"
+  );
+
+  cy.getDataTest("form-login").find("input").as("subscribe-input");
+
+  cy.getDataTest("email-input").type("guilherme@teste.com");
+  cy.getDataTest("senha-input").type("123123");
+  cy.getDataTest("login-button").click();
+  cy.wait(3000);
+  cy.contains(/Clique aqui para acessar o seu conteúdo exclusivo/i).should(
+    "be.visible"
+  );
+  cy.getDataTest("span-logado").click();
+  cy.url().should("contain", "/alunos");
+});

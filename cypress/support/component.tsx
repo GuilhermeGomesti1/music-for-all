@@ -30,6 +30,7 @@ declare global {
     interface Chainable {
       mount: typeof mount;
       getDataTest(dataTestSelector: string): Chainable<JQuery<HTMLElement>>;
+      signIn: () => void;
     }
   }
 }
