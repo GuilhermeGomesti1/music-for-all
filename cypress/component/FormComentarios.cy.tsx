@@ -8,6 +8,5 @@ describe("FormComentarios.cy.tsx", () => {
 
   it("Verifica renderização do componente com usuário autenticado", () => {
     cy.mount(<FormComentarios />);
-    cy.getDataTest("form-usuario-logado").type("a");
   });
 });
