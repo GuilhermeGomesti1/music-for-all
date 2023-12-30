@@ -354,7 +354,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
               {/* Botão para selecionar o comentário para resposta */}
               {user ? (
                 <button
-                  data-test="res-button-commment"
+                  data-test="res-button-comment"
                   className={styles.buttonresponder}
                   onClick={() => selectReplyingTo(comment.id)}
                 >

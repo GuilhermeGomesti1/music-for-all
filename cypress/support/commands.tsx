@@ -52,8 +52,6 @@ Cypress.Commands.add("signIn", () => {
   cy.getDataTest("senha-input").type("123123");
   cy.getDataTest("login-button").click();
 
-  cy.wait(3000);
-
   cy.contains(/Clique aqui para acessar o seu conteúdo exclusivo/i).should(
     "be.visible"
   );
