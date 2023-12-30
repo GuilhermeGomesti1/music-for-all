@@ -354,6 +354,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
               {/* Botão para selecionar o comentário para resposta */}
               {user ? (
                 <button
+                  data-test="res-button-commment"
                   className={styles.buttonresponder}
                   onClick={() => selectReplyingTo(comment.id)}
                 >
@@ -400,12 +401,14 @@ function CommentComponent({ videoId }: { videoId?: string }) {
               {replyingTo === comment.id && (
                 <div className={styles.replyForm}>
                   <textarea
+                    data-test="textAreaResposta"
                     className={styles.textareaInput}
                     placeholder="Digite sua resposta..."
                     value={replyText}
                     onChange={(e) => setReplyText(e.target.value)}
                   />
                   <button
+                    data-test="button-enviar-resposta"
                     className={`${styles.rsubmitButton} ${
                       replyText.trim() === ""
                         ? styles.rbuttonBefore
@@ -429,7 +432,10 @@ function CommentComponent({ videoId }: { videoId?: string }) {
                       <li key={replyIndex} className={styles.replyItem}>
                         <div className={styles.divrespostas}>
                           {" "}
-                          <span className={styles.titlerespostas}>
+                          <span
+                            data-test="res-confirm"
+                            className={styles.titlerespostas}
+                          >
                             Resposta de{" "}
                           </span>
                           <span className={styles.replyAuthor}>

@@ -1,4 +1,4 @@
-describe("Blog Page", () => {
+describe("Testando acesso e funções de comentários para aréa de blog com um uśuario autentificado", () => {
   beforeEach(() => {
     cy.checkAuthAndNavigate();
     cy.intercept(
@@ -21,23 +21,26 @@ describe("Blog Page", () => {
 
     cy.visit("/palcovirtual");
     cy.wait("@getStories");
+
     cy.intercept({ resourceType: /xhr|fetch/ }, { log: false });
   });
 
-  it("Verificar o formulário de comentários", () => {
+  it("Verificando o envio de um comentário", () => {
     cy.contains(/até o fim/i);
-    //  cy.get(
-    //  ':nth-child(2) > .styles_containerComentarios__YBCCL > [data-test="form-usuario-logado"] > .styles_submitButton__C5jh0'
-    //  ).contains("not-be-visible");
+
     cy.get(
       ':nth-child(2) > .styles_containerComentarios__YBCCL > [data-test="form-usuario-logado"] > .styles_textareaInput__J1TcJ'
     ).type("testando comentários");
     cy.get(
       ':nth-child(2) > .styles_containerComentarios__YBCCL > [data-test="form-usuario-logado"] > .styles_submitButton__C5jh0'
     ).click();
-    //cy.get(
-    //  ':nth-child(2) > .styles_containerComentarios__YBCCL > [data-test="form-usuario-logado"] > .styles_submitButton__C5jh0'
-    //).contains("be-visible");
+  });
+
+  it("Verificando a resposta do comentário", () => {
+    cy.getDataTest("res-button-commment").click();
+    cy.getDataTest("textAreaResposta").type("respondendo comentário");
+    cy.getDataTest("button-enviar-resposta").click();
+    cy.getDataTest("res-confirm").contains("Resposta de");
   });
 
   // Adicione mais testes para outras funcionalidades, como curtir, excluir, etc.
