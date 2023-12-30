@@ -31,6 +31,7 @@ declare global {
       mount: typeof mount;
       getDataTest(dataTestSelector: string): Chainable<JQuery<HTMLElement>>;
       signIn: () => void;
+      checkAuthAndNavigate(): void;
     }
   }
 }

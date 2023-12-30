@@ -1,5 +1,6 @@
 describe("Blog Page", () => {
   beforeEach(() => {
+    cy.checkAuthAndNavigate();
     cy.intercept(
       "POST",
       "https://www.youtube.com/youtubei/v1/log_event?alt=json&key=AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8"

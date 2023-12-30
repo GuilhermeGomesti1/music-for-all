@@ -59,3 +59,13 @@ Cypress.Commands.add("signIn", () => {
   );
   Cypress.env("isAuthenticated", true);
 });
+
+Cypress.Commands.add("checkAuthAndNavigate", () => {
+  const isAuthenticated = Cypress.env("isAuthenticated");
+
+  if (!isAuthenticated) {
+    cy.signIn();
+  }
+
+  cy.visit("/videoaulas");
+});
