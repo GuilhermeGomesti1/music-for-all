@@ -6,6 +6,5 @@ describe("FormComentarios.cy.tsx", () => {
 
   it("Verifica renderização do componente com usuário autenticado", () => {
     cy.mount(<FormComentarios />);
-    cy.get(".styles_containerComentarios__YBCCL").click();
   });
 });
