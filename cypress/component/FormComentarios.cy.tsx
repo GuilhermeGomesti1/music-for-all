@@ -1,6 +1,5 @@
 import FormComentarios from "@/app/components/FormComentarios";
 
-const user = require("../../cypress/fixtures/example.json");
 describe("FormComentarios aluno não autentificado", () => {
   beforeEach(() => {});
 

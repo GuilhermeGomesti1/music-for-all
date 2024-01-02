@@ -35,7 +35,32 @@ declare global {
     }
   }
 }
+Cypress.Commands.add("signIn", () => {
+  cy.visit("/dashboard");
+  cy.getDataTest("title-dashboard").should(
+    "contain.text",
+    "Área de Login- Escola de Música Music For All"
+  );
 
+  cy.getDataTest("form-login").find("input").as("subscribe-input");
+
+  cy.getDataTest("email-input").type("guilherme@teste.com");
+  cy.getDataTest("senha-input").type("123123");
+  cy.getDataTest("login-button").click();
+
+  cy.contains(/Clique aqui para acessar o seu conteúdo exclusivo/i).should(
+    "be.visible"
+  );
+  Cypress.env("isAuthenticated", true);
+});
+
+Cypress.Commands.add("checkAuthAndNavigate", () => {
+  const isAuthenticated = Cypress.env("isAuthenticated");
+
+  if (!isAuthenticated) {
+    cy.signIn();
+  }
+});
 Cypress.Commands.add("mount", mount);
 
 Cypress.Commands.add("getDataTest", (dataTestSelector: string) => {
