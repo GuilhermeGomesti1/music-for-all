@@ -1,3 +1,20 @@
+.CartIcon {
+  border: none;
+  background-color: #fffafa;
+  font-size: 25px;
+  border-radius: 50%;
+  color: #f15074;
+  vertical-align: middle;
+}
+
+.SearchIcon {
+  color: white;
+  background-color: transparent;
+  font-size: 20px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
 .DeleteIcon {
   color: red;
   background-color: transparent;
@@ -5,38 +22,35 @@
   border-radius: 50%;
   vertical-align: middle;
 }
-.DownArrow{
-   border: none;
-    background-color: #FFFAFA;
-    font-size: 20px;
-    border-radius: 50%;
-    color: #F57A42;
-    vertical-align: middle;
-    
+.DownArrow {
+  border: none;
+  background-color: #fffafa;
+  font-size: 20px;
+  border-radius: 50%;
+  color: #f57a42;
+  vertical-align: middle;
 }
 .LikeIcon {
   border: none;
-  background-color: #FFFAFA;
+  background-color: #fffafa;
   font-size: 20px;
   border-radius: 50%;
   color: blue;
   vertical-align: middle;
-  cursor: pointer; 
-  transition: ease color 0.3s; 
+  cursor: pointer;
+  transition: ease color 0.3s;
 }
-
 
 .LikeIcon:active {
   color: red; /* Cor quando clicado */
 }
 
-
-.UpArrow{
+.UpArrow {
   border: none;
-  background-color: #FFFAFA;
+  background-color: #fffafa;
   font-size: 20px;
   border-radius: 50%;
-  color: #F57A42;
+  color: #f57a42;
   vertical-align: middle;
 }
 @media (max-width: 768px) {

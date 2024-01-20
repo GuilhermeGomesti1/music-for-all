@@ -10,6 +10,7 @@ import { MenuIcon } from "../Icons/iconsHome/iconMenu";
 import { IconClose } from "../Icons/iconsHome/iconClose";
 import { LogoutIcon } from "../Icons/iconsHome/iconLogout";
 import { toast } from "react-toastify";
+import { CartIcon } from "../Icons/OtherIcons/cartIcon";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -134,6 +135,14 @@ export function Header() {
                 Aluno
               </Link>
             )}
+            <Link
+              href="/loja"
+              className={styles.aContainer}
+              onClick={closeMenu}
+              title="Loja"
+            >
+              <CartIcon />
+            </Link>
 
             {loggedIn && (
               <a

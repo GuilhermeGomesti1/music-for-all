@@ -30,12 +30,10 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  
- 
 }
 
-
-.aContainer {   cursor: pointer; 
+.aContainer {
+  cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.034);
   margin: 0 4rem;
   margin-left: auto;
@@ -43,7 +41,6 @@
   transition: color 0.3s;
   color: black;
   font-size: 0.8rem;
-  
 }
 .aContainer:visited {
   color: black;
@@ -59,8 +56,8 @@
   display: none;
 }
 
-.logout{
-  cursor: pointer; 
+.logout {
+  cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.034);
   margin: 0 4rem;
   margin-left: auto;
@@ -102,38 +99,39 @@
     position: fixed;
     padding-bottom: 1rem;
     opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.5s ease-in-out; 
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
   }
 
+  .navContainer.open {
+    opacity: 1;
+    max-height: 500px; /* Ajuste a altura máxima conforme necessário */
+    transition: all 0.5s ease-in-out;
+  }
 
-.navContainer.open {
-   opacity: 1;
-  max-height: 500px; /* Ajuste a altura máxima conforme necessário */
-  transition: all 0.5s ease-in-out; 
-}
-
-  .aContainer { transform: scale(1);
+  .aContainer {
+    transform: scale(1);
     opacity: 1;
     visibility: visible;
     width: 90%;
     text-align: right;
     margin-top: 1rem;
     font-size: 0.8rem;
-    transition: all 0.5s ease-in-out; 
-    
+    transition: all 0.5s ease-in-out;
   }
 
   .mobileMenuIcon {
     display: flex;
   }
-  .logout{ transform: scale(1);
+  .logout {
+    transform: scale(1);
     opacity: 1;
     visibility: visible;
     width: 90%;
     text-align: right;
     margin-top: 1rem;
     font-size: 0.8rem;
-    transition: all 0.5s ease-in-out; }
+    transition: all 0.5s ease-in-out;
+  }
 }
