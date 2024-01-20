@@ -37,10 +37,10 @@ const Products = () => {
               alt="productImage"
             />
             <div className={styles.divSpan}>
-              <span>
+              <span className={styles.spanIcons}>
                 <CartIcon />
               </span>
-              <span>
+              <span className={styles.spanIcons}>
                 <HeartIcon />
               </span>
             </div>

@@ -1,6 +1,6 @@
 .CartIcon {
   border: none;
-  background-color: #fffafa;
+  background-color: transparent;
   font-size: 25px;
   border-radius: 50%;
   color: #f15074;
@@ -14,13 +14,16 @@
   border-radius: 50%;
   vertical-align: middle;
 }
+
 .HeartIcon {
-  color: red;
+  border: none;
   background-color: transparent;
-  font-size: 20px;
+  font-size: 25px;
   border-radius: 50%;
+  color: #f15074;
   vertical-align: middle;
 }
+
 .DeleteIcon {
   color: red;
   background-color: transparent;

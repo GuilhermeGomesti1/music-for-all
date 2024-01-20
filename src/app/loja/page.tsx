@@ -34,7 +34,7 @@ export default function Loja() {
 
   return (
     <>
-      <title>Contato- Escola de Música Music For All</title>
+      <title>Loja- Escola de Música Music For All</title>
       <main>
         <div>
           <Image
