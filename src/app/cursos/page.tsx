@@ -17,18 +17,15 @@ import { Form } from "../components/Form";
 import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
 import { useEffect } from "react";
 
-
 export default function Cursos() {
   useEffect(() => {
     if (process.browser) {
-    
       import("scrollreveal").then((ScrollRevealModule) => {
         const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
 
         const sr = ScrollReveal({
           duration: 1000,
           reset: false,
-          
         });
 
         sr.reveal(".animated-item", {
@@ -50,14 +47,16 @@ export default function Cursos() {
     window.open(linkWhatsApp);
   };
   return (
-    <> <title>Nossos Cursos- Escola de Música Music For All</title>
+    <>
+      {" "}
+      <title>Nossos Cursos- Escola de Música Music For All</title>
       <main>
         <div className={styles.containerViolao}>
           <Image
             className={styles.img}
             src={homeoficial}
             alt="Music For All Logo"
-            width={1895}
+            width={1833}
             height={598}
             quality={100}
             loading="lazy"
@@ -84,22 +83,19 @@ export default function Cursos() {
             />
 
             <span className={`${styles.spanCursos} animated-item`}>
-           
               ESCOLHA O QUE MAIS LHE INSPIRA!
             </span>
           </div>
           <IconWhatsappfixed />
 
-          <div className={`${styles.titlesection} animated-item`} > 
-            
+          <div className={`${styles.titlesection} animated-item`}>
             <span>
-             
               Nossos cursos de música são uma sinfonia de excelência e
               aprendizado.
             </span>
           </div>
 
-          <section className={`${styles.cursosSection} animated-item`} > 
+          <section className={`${styles.cursosSection} animated-item`}>
             <div className={`${styles.curso} animated-item`}>
               <Link href={"/cursos/violao"}>
                 <Image

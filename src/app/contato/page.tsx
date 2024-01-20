@@ -8,15 +8,11 @@ import { Form } from "../components/Form";
 import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
 import { useEffect } from "react";
 
-
-
-
 export default function Contato() {
   useEffect(() => {
-
     if (process.browser) {
       // O código abaixo será executado apenas no navegador
-      import('scrollreveal').then((ScrollRevealModule) => {
+      import("scrollreveal").then((ScrollRevealModule) => {
         const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
 
         const sr = ScrollReveal({
@@ -25,24 +21,26 @@ export default function Contato() {
           // Outras opções de configuração aqui
         });
 
-        sr.reveal('.animated-item', {
-          origin: 'bottom',
-          distance: '20px',
-          easing: 'ease-in-out',
+        sr.reveal(".animated-item", {
+          origin: "bottom",
+          distance: "20px",
+          easing: "ease-in-out",
         });
       });
     }
   }, []);
 
   return (
-    <>   <title>Contato- Escola de Música Music For All</title>
+    <>
+      {" "}
+      <title>Contato- Escola de Música Music For All</title>
       <main>
         <div>
           <Image
-            className={styles.img} 
+            className={styles.img}
             src={homeoficial}
             alt="Music For All Logo"
-            width={1895}
+            width={1833}
             height={598}
             quality={100}
             placeholder="blur"
@@ -61,9 +59,8 @@ export default function Contato() {
         </div>
         <IconWhatsappfixed />
 
-        <div className= {`${styles.textContent} animated-item`}>
-         
-          <h1 className=   {`${styles.title} animated-item`}>Fale Conosco!</h1>
+        <div className={`${styles.textContent} animated-item`}>
+          <h1 className={`${styles.title} animated-item`}>Fale Conosco!</h1>
           <p>
             Deseja obter mais detalhes? Sinta-se à vontade para entrar em
             contato conosco através de qualquer um dos meios listados abaixo.
@@ -71,18 +68,16 @@ export default function Contato() {
           </p>
         </div>
 
-        <div className= {`${styles.divLista} animated-item`}>   
-        <span className={styles.itens}>Telefone:</span>
+        <div className={`${styles.divLista} animated-item`}>
+          <span className={styles.itens}>Telefone:</span>
           <p className={styles.item}>(31)986132070</p>
           <span className={styles.itens}>E-mail:</span>
           <p className={styles.item}>escolamusicforall@gmail.com</p>
           <span className={styles.itens}>Endereço:</span>
           <p className={styles.item}>
-            Avenida. Wilson Alvarenga, 1140 – Carneirinhos Cep: 35930-001 – João Monlevade/ MG
-            – Brasil
+            Avenida. Wilson Alvarenga, 1140 – Carneirinhos Cep: 35930-001 – João
+            Monlevade/ MG – Brasil
           </p>
-         
-         
         </div>
         <div className={styles.form}>
           <Form />
