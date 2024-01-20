@@ -14,7 +14,13 @@
   border-radius: 50%;
   vertical-align: middle;
 }
-
+.HeartIcon {
+  color: red;
+  background-color: transparent;
+  font-size: 20px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
 .DeleteIcon {
   color: red;
   background-color: transparent;
