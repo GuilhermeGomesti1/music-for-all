@@ -1,8 +1,8 @@
-// src/components/Products.js
+"use client";
 import { useEffect, useState } from "react";
-
+import { StoreProduct } from "../../../../type.d";
 const Products = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<StoreProduct[]>([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -18,12 +18,12 @@ const Products = () => {
     };
 
     fetchProducts();
-  }, []);
+  });
 
   return (
     <div>
       {products.map((product) => (
-        <div key={product.id}>
+        <div key={product._id}>
           <p>{product.title}</p>
           {/* Adicione mais detalhes do produto conforme necessário */}
         </div>
