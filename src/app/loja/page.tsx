@@ -9,6 +9,9 @@ import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsapp
 import { useEffect } from "react";
 import { SearchIcon } from "../components/Icons/OtherIcons/search";
 import Products from "../components/Products";
+import { Provider } from "react-redux";
+import { persistor, store } from "@/store/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 export default function Loja() {
   useEffect(() => {
@@ -34,48 +37,52 @@ export default function Loja() {
 
   return (
     <>
-      <title>Loja- Escola de Música Music For All</title>
-      <main>
-        <div>
-          <Image
-            className={styles.img}
-            src={homeoficial}
-            alt="Music For All Logo"
-            width={1833}
-            height={598}
-            quality={100}
-            placeholder="blur"
-            loading="lazy"
-          />
-        </div>
+      <Provider store={store}>
+        <PersistGate persistor={persistor} loading={null}>
+          <title>Loja- Escola de Música Music For All</title>
+          <main>
+            <div>
+              <Image
+                className={styles.img}
+                src={homeoficial}
+                alt="Music For All Logo"
+                width={1833}
+                height={598}
+                quality={100}
+                placeholder="blur"
+                loading="lazy"
+              />
+            </div>
 
-        <div>
-          <Image
-            className={styles.violaoContainer}
-            src={homecursos}
-            alt="Music For All Logo"
-            loading="lazy"
-            placeholder="blur"
-          />
-        </div>
-        <IconWhatsappfixed />
+            <div>
+              <Image
+                className={styles.violaoContainer}
+                src={homecursos}
+                alt="Music For All Logo"
+                loading="lazy"
+                placeholder="blur"
+              />
+            </div>
+            <IconWhatsappfixed />
 
-        <div className={`${styles.textContent} animated-item`}>
-          <input
-            className={styles.serchProducts}
-            type="text"
-            placeholder="Pesquisar Produtos"
-          />
-          <span className={styles.search}>
-            <SearchIcon />
-          </span>
-        </div>
-        <Products />
+            <div className={`${styles.textContent} animated-item`}>
+              <input
+                className={styles.serchProducts}
+                type="text"
+                placeholder="Pesquisar Produtos"
+              />
+              <span className={styles.search}>
+                <SearchIcon />
+              </span>
+            </div>
+            <Products />
 
-        <div className={styles.form}>
-          <Form />
-        </div>
-      </main>
+            <div className={styles.form}>
+              <Form />
+            </div>
+          </main>
+        </PersistGate>
+      </Provider>
     </>
   );
 }

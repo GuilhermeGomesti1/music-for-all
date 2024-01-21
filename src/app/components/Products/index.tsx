@@ -5,7 +5,12 @@ import { StoreProduct } from "../../../../type.d";
 import Image from "next/image";
 import { CartIcon } from "../Icons/OtherIcons/cartIcon";
 import { HeartIcon } from "../Icons/OtherIcons/heart";
+import FormattedAmount from "../FmtPrice";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/store/nextSlice";
+
 const Products = () => {
+  const dispatch = useDispatch();
   const [products, setProducts] = useState<StoreProduct[]>([]);
 
   useEffect(() => {
@@ -37,16 +42,75 @@ const Products = () => {
               alt="productImage"
             />
             <div className={styles.divSpan}>
-              <span className={styles.spanIcons}>
+              <span
+                onClick={() =>
+                  dispatch(
+                    addToCart({
+                      _id: product._id,
+                      brand: product.brand,
+                      category: product.category,
+                      description: product.description,
+                      image: product.image,
+                      isNew: product.isNew,
+                      oldPrice: product.oldPrice,
+                      price: product.price,
+                      title: product.title,
+                      quantity: 1,
+                    })
+                  )
+                }
+                className={styles.spanIcons}
+              >
                 <CartIcon />
               </span>
               <span className={styles.spanIcons}>
                 <HeartIcon />
               </span>
             </div>
+            {product.isNew && (
+              <p className={styles.textpreço}>
+                ! Preços
+                <FormattedAmount amount={product.oldPrice - product.price} />
+              </p>
+            )}
           </div>
-          <p>{product.title}</p>
-          {/* Adicione mais detalhes do produto conforme necessário */}
+          <hr />
+          <div className={styles.divtextCategory}>
+            <p className={styles.pcategory}>{product.category}</p>
+            <p className={styles.ptitle}>{product.title}</p>
+            <p className={styles.pprice}>
+              <span className={styles.spanprice}>
+                <FormattedAmount amount={product.oldPrice} />
+              </span>
+              <span>
+                <FormattedAmount amount={product.price} />
+              </span>
+            </p>
+            <p className={styles.pdescription}>
+              {product.description.substring(0, 120)}
+            </p>
+            <button
+              onClick={() =>
+                dispatch(
+                  addToCart({
+                    _id: product._id,
+                    brand: product.brand,
+                    category: product.category,
+                    description: product.description,
+                    image: product.image,
+                    isNew: product.isNew,
+                    oldPrice: product.oldPrice,
+                    price: product.price,
+                    title: product.title,
+                    quantity: 1,
+                  })
+                )
+              }
+              className={styles.btnaddcart}
+            >
+              + carrinho
+            </button>
+          </div>
         </div>
       ))}
     </div>

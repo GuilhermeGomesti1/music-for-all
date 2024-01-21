@@ -141,6 +141,7 @@ export function Header() {
               onClick={closeMenu}
               title="Loja"
             >
+              <span>01</span>
               <CartIcon />
             </Link>
 
