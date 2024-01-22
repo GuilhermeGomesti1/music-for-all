@@ -11,16 +11,8 @@ import { IconClose } from "../Icons/iconsHome/iconClose";
 import { LogoutIcon } from "../Icons/iconsHome/iconLogout";
 import { toast } from "react-toastify";
 import { CartIcon } from "../Icons/OtherIcons/cartIcon";
-import { Provider, useSelector } from "react-redux";
-import { StateProps } from "../../../../type.d";
-import { store } from "@/store/store";
 
 export function Header() {
-  const { productData, favoriteData } = useSelector(
-    (state: StateProps) => state.next
-  );
-  console.log(productData, favoriteData);
-
   const [menuOpen, setMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -77,99 +69,95 @@ export function Header() {
   }, []);
 
   return (
-    <Provider store={store}>
-      <header className={styles.headerContainer}>
-        <div className={styles.headerContent}>
-          <div className={styles.logoContainer}>
-            <a href="/">
-              <Image
-                className={styles.img}
-                src={logo}
-                alt="Logotipo Music For All"
-                data-test="logo-image"
-              />
-            </a>
-          </div>
-
-          <div className={styles.mobileMenuIcon} onClick={toggleMenu}>
-            {menuOpen ? <IconClose /> : <MenuIcon />}
-          </div>
-
-          {(menuOpen || windowWidth >= 768) && (
-            <nav
-              className={`${styles.navContainer} ${
-                menuOpen ? styles.open : ""
-              }`}
-            >
-              <Link href="/" className={styles.aContainer} onClick={closeMenu}>
-                Início
-              </Link>
-
-              <Link
-                href="/cursos"
-                className={styles.aContainer}
-                onClick={closeMenu}
-              >
-                Cursos
-              </Link>
-
-              <Link
-                href="/blog"
-                className={styles.aContainer}
-                onClick={closeMenu}
-              >
-                Blog
-              </Link>
-
-              <Link
-                href="/contato"
-                className={styles.aContainer}
-                onClick={closeMenu}
-              >
-                Contato
-              </Link>
-
-              {loggedIn ? (
-                <Link
-                  href="/alunos"
-                  className={styles.aContainer}
-                  onClick={closeMenu}
-                >
-                  Aluno
-                </Link>
-              ) : (
-                <Link
-                  href="/dashboard"
-                  className={styles.aContainer}
-                  onClick={closeMenu}
-                >
-                  Aluno
-                </Link>
-              )}
-              <Link
-                href="/loja"
-                className={styles.aContainer}
-                onClick={closeMenu}
-                title="Loja"
-              >
-                <span>01</span>
-                <CartIcon />
-              </Link>
-
-              {loggedIn && (
-                <a
-                  href="/"
-                  title="Logout"
-                  className={styles.logout}
-                  onClick={handleLogout}
-                >
-                  <LogoutIcon />
-                </a>
-              )}
-            </nav>
-          )}
+    <header className={styles.headerContainer}>
+      <div className={styles.headerContent}>
+        <div className={styles.logoContainer}>
+          <a href="/">
+            <Image
+              className={styles.img}
+              src={logo}
+              alt="Logotipo Music For All"
+              data-test="logo-image"
+            />
+          </a>
         </div>
-      </header>
-    </Provider>
+
+        <div className={styles.mobileMenuIcon} onClick={toggleMenu}>
+          {menuOpen ? <IconClose /> : <MenuIcon />}
+        </div>
+
+        {(menuOpen || windowWidth >= 768) && (
+          <nav
+            className={`${styles.navContainer} ${menuOpen ? styles.open : ""}`}
+          >
+            <Link href="/" className={styles.aContainer} onClick={closeMenu}>
+              Início
+            </Link>
+
+            <Link
+              href="/cursos"
+              className={styles.aContainer}
+              onClick={closeMenu}
+            >
+              Cursos
+            </Link>
+
+            <Link
+              href="/blog"
+              className={styles.aContainer}
+              onClick={closeMenu}
+            >
+              Blog
+            </Link>
+
+            <Link
+              href="/contato"
+              className={styles.aContainer}
+              onClick={closeMenu}
+            >
+              Contato
+            </Link>
+
+            {loggedIn ? (
+              <Link
+                href="/alunos"
+                className={styles.aContainer}
+                onClick={closeMenu}
+              >
+                Aluno
+              </Link>
+            ) : (
+              <Link
+                href="/dashboard"
+                className={styles.aContainer}
+                onClick={closeMenu}
+              >
+                Aluno
+              </Link>
+            )}
+            <Link
+              href="/loja"
+              className={styles.aContainer}
+              onClick={closeMenu}
+              title="Loja"
+            >
+              <span>01</span>
+              <CartIcon />
+            </Link>
+
+            {loggedIn && (
+              <a
+                href="/"
+                title="Logout"
+                className={styles.logout}
+                onClick={handleLogout}
+              >
+                <LogoutIcon />
+              </a>
+            )}
+          </nav>
+        )}
+      </div>
+    </header>
   );
 }

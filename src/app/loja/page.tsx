@@ -12,8 +12,15 @@ import Products from "../components/Products";
 import { Provider } from "react-redux";
 import { persistor, store } from "@/store/store";
 import { PersistGate } from "redux-persist/integration/react";
+import { CartIcon } from "../components/Icons/OtherIcons/cartIcon";
+import { useSelector } from "react-redux";
+import { StateProps } from "../../../type.d";
 
 export default function Loja() {
+  // const { productData, favoriteData } = useSelector(
+  //  (state: StateProps) => state.next
+  //  );
+  // console.log(productData, favoriteData);
   useEffect(() => {
     if (process.browser) {
       // O código abaixo será executado apenas no navegador
@@ -36,8 +43,8 @@ export default function Loja() {
   }, []);
 
   return (
-    <>
-      <Provider store={store}>
+    <Provider store={store}>
+      <>
         <PersistGate persistor={persistor} loading={null}>
           <title>Loja- Escola de Música Music For All</title>
           <main>
@@ -74,6 +81,8 @@ export default function Loja() {
               <span className={styles.search}>
                 <SearchIcon />
               </span>
+              <span>01</span>
+              <CartIcon />
             </div>
             <Products />
 
@@ -82,7 +91,7 @@ export default function Loja() {
             </div>
           </main>
         </PersistGate>
-      </Provider>
-    </>
+      </>
+    </Provider>
   );
 }

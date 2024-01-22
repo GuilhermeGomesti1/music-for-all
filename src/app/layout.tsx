@@ -4,8 +4,6 @@ import { Footer } from "./components/Footer";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Head from "next/head";
-import { Provider } from "react-redux";
-import { store } from "@/store/store";
 
 export const metadata = {
   title: " Página Inicial- Ecola de Música Music For All",
@@ -31,9 +29,10 @@ export default function RootLayout({
       <meta
         name="google-site-verification"
         content="OTGVRM3dX1SxQkV60D8vU00mKlK8Od3sZ2qA9FCvgWs"
-      />
+      />{" "}
       <body>
         <Header />
+
         <ToastContainer autoClose={3000} />
         {children}
         <Footer />

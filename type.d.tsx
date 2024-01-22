@@ -1,3 +1,5 @@
+"use client";
+
 export interface ProductProps {
   brand: string;
   category: string;

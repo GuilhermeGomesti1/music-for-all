@@ -7,7 +7,7 @@ import { CartIcon } from "../Icons/OtherIcons/cartIcon";
 import { HeartIcon } from "../Icons/OtherIcons/heart";
 import FormattedAmount from "../FmtPrice";
 import { useDispatch } from "react-redux";
-import { addToCart } from "@/store/nextSlice";
+import { addToCart, addTofavorite } from "@/store/nextSlice";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -63,7 +63,25 @@ const Products = () => {
               >
                 <CartIcon />
               </span>
-              <span className={styles.spanIcons}>
+              <span
+                onClick={() =>
+                  dispatch(
+                    addTofavorite({
+                      _id: product._id,
+                      brand: product.brand,
+                      category: product.category,
+                      description: product.description,
+                      image: product.image,
+                      isNew: product.isNew,
+                      oldPrice: product.oldPrice,
+                      price: product.price,
+                      title: product.title,
+                      quantity: 1,
+                    })
+                  )
+                }
+                className={styles.spanIcons}
+              >
                 <HeartIcon />
               </span>
             </div>
