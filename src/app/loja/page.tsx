@@ -21,16 +21,15 @@ export default function Loja() {
   //  (state: StateProps) => state.next
   //  );
   // console.log(productData, favoriteData);
+
   useEffect(() => {
     if (process.browser) {
-      // O código abaixo será executado apenas no navegador
       import("scrollreveal").then((ScrollRevealModule) => {
         const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
 
         const sr = ScrollReveal({
           duration: 1000,
           reset: false,
-          // Outras opções de configuração aqui
         });
 
         sr.reveal(".animated-item", {
