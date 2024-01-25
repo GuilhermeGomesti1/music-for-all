@@ -11,8 +11,14 @@ import { IconClose } from "../Icons/iconsHome/iconClose";
 import { LogoutIcon } from "../Icons/iconsHome/iconLogout";
 import { toast } from "react-toastify";
 import { CartIcon } from "../Icons/OtherIcons/cartIcon";
+import { useSelector } from "react-redux";
+import { StateProps } from "../../../../type.d";
 
 export function Header() {
+  const { productData, favoriteData } = useSelector(
+    (state: StateProps) => state.next
+  );
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -141,7 +147,7 @@ export function Header() {
               onClick={closeMenu}
               title="Loja"
             >
-              <span>01</span>
+              <span>{productData ? productData.length : 0}</span>
               <CartIcon />
             </Link>
 

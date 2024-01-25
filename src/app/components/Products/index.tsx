@@ -41,6 +41,7 @@ const Products = () => {
               className={styles.imgproducts}
               alt="productImage"
             />
+
             <div className={styles.divSpan}>
               <span
                 onClick={() =>
@@ -63,6 +64,7 @@ const Products = () => {
               >
                 <CartIcon />
               </span>
+
               <span
                 onClick={() =>
                   dispatch(
@@ -85,6 +87,7 @@ const Products = () => {
                 <HeartIcon />
               </span>
             </div>
+
             {product.isNew && (
               <p className={styles.textpreço}>
                 ! Preços
@@ -107,6 +110,7 @@ const Products = () => {
             <p className={styles.pdescription}>
               {product.description.substring(0, 120)}
             </p>
+
             <button
               onClick={() =>
                 dispatch(
