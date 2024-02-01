@@ -142,10 +142,19 @@ export function Header() {
               </Link>
             )}
             <Link
-              href="/dashboard"
+              href="/dashboard" //loja
               className={styles.aContainer}
               onClick={closeMenu}
               title="Loja"
+            >
+              Loja
+            </Link>
+
+            <Link
+              href="/dashboard" //carrinho
+              className={styles.aContainer}
+              onClick={closeMenu}
+              title="Minhas compras"
             >
               <span>{productData ? productData.length : 0}</span>
               <CartIcon />

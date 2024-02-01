@@ -1,0 +1,26 @@
+.divCartProducts {
+  background-color: #f0f4f8;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.allproducts {
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  gap: 1rem;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.titleproduct {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
