@@ -16,6 +16,7 @@ import { CartIcon } from "../components/Icons/OtherIcons/cartIcon";
 import { useSelector } from "react-redux";
 import { StateProps } from "../../../type.d";
 import { HeartIcon } from "../components/Icons/OtherIcons/heart";
+import { useRouter } from "next/router";
 
 export default function Loja() {
   const { productData, favoriteData } = useSelector(
@@ -41,6 +42,9 @@ export default function Loja() {
     }
   }, []);
 
+  if (typeof window !== "undefined" && window.location.pathname !== "/loja") {
+    return null;
+  }
   return (
     <>
       <Provider store={store}>
