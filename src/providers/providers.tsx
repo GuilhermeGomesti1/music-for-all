@@ -12,8 +12,7 @@ export const Providers = ({ children }: { children: ReactNode }) => {
       <Provider store={store}>
         <PersistGate persistor={persistor} loading={null}>
           <Header />
-
-          <Loja />
+          {children}
         </PersistGate>
       </Provider>
     </>
