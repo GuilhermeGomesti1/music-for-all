@@ -5,7 +5,11 @@ import { AddIcon } from "../Icons/OtherIcons/add";
 import { RemoveIcon } from "../Icons/OtherIcons/remove";
 import { RemoveProduct } from "../Icons/OtherIcons/removeproduct";
 import { useDispatch } from "react-redux";
-import { decreaseQuantity, increaseQuantity } from "@/store/nextSlice";
+import {
+  decreaseQuantity,
+  deleteProduct,
+  increaseQuantity,
+} from "@/store/nextSlice";
 interface Item {
   brand: string;
   category: string;
@@ -90,7 +94,10 @@ export function CartProducts({ item }: CartProductsProps) {
               </span>
             </div>
           </div>
-          <div className={styles.divremoveproduct}>
+          <div
+            onClick={() => usedispatch(deleteProduct(item._id))}
+            className={styles.divremoveproduct}
+          >
             <RemoveProduct /> Remover
           </div>
         </div>
