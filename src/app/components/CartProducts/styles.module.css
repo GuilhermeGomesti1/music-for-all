@@ -24,3 +24,37 @@
   font-size: 1.125rem;
   font-weight: 600;
 }
+
+.descriptionproduct {
+  font-size: small;
+  color: gray;
+}
+
+.price {
+  color: black;
+  font-weight: bold;
+}
+.addAndRemove {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #d2d6dc;
+  padding: 0.25rem 1rem;
+  border-radius: 0.8rem;
+  width: 5.2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.divaddandremove {
+  gap: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.numberItens {
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,5 +1,8 @@
 import Image from "next/image";
 import styles from "./styles.module.css";
+import FmtPrice from "../FmtPrice";
+import { AddIcon } from "../Icons/OtherIcons/add";
+import { RemoveIcon } from "../Icons/OtherIcons/remove";
 
 interface Item {
   brand: string;
@@ -31,6 +34,25 @@ export function CartProducts({ item }: CartProductsProps) {
       <div className={styles.allproducts}>
         <div className={styles.products}>
           <p className={styles.titleproduct}>{item.title} </p>
+          <p className={styles.descriptionproduct}>{item.description} </p>
+          <p className={styles.descriptionproduct}>
+            Preço{" "}
+            <span className={styles.price}>
+              <FmtPrice amount={item.price} />
+            </span>
+          </p>
+
+          <div className={styles.addAndRemove}>
+            <div className={styles.divaddandremove}>
+              <span>
+                <AddIcon />
+              </span>
+              <span className={styles.numberItens}>{item.quantity}</span>
+              <span>
+                <RemoveIcon />
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
