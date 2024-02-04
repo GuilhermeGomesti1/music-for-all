@@ -3,7 +3,9 @@ import styles from "./styles.module.css";
 import FmtPrice from "../FmtPrice";
 import { AddIcon } from "../Icons/OtherIcons/add";
 import { RemoveIcon } from "../Icons/OtherIcons/remove";
-
+import { RemoveProduct } from "../Icons/OtherIcons/removeproduct";
+import { useDispatch } from "react-redux";
+import { decreaseQuantity, increaseQuantity } from "@/store/nextSlice";
 interface Item {
   brand: string;
   category: string;
@@ -22,6 +24,7 @@ interface CartProductsProps {
 }
 
 export function CartProducts({ item }: CartProductsProps) {
+  const usedispatch = useDispatch();
   return (
     <div className={styles.divCartProducts}>
       <Image
@@ -44,15 +47,55 @@ export function CartProducts({ item }: CartProductsProps) {
 
           <div className={styles.addAndRemove}>
             <div className={styles.divaddandremove}>
-              <span>
+              <span
+                onClick={() => {
+                  usedispatch(
+                    increaseQuantity({
+                      _id: item._id,
+                      brand: item.brand,
+                      category: item.category,
+                      description: item.description,
+                      image: item.image,
+                      isNew: item.isNew,
+                      oldPrice: item.oldPrice,
+                      price: item.price,
+                      title: item.title,
+                      quantity: 1,
+                    })
+                  );
+                }}
+              >
                 <AddIcon />
               </span>
               <span className={styles.numberItens}>{item.quantity}</span>
-              <span>
+              <span
+                onClick={() => {
+                  usedispatch(
+                    decreaseQuantity({
+                      _id: item._id,
+                      brand: item.brand,
+                      category: item.category,
+                      description: item.description,
+                      image: item.image,
+                      isNew: item.isNew,
+                      oldPrice: item.oldPrice,
+                      price: item.price,
+                      title: item.title,
+                      quantity: 1,
+                    })
+                  );
+                }}
+              >
                 <RemoveIcon />
               </span>
             </div>
           </div>
+          <div className={styles.divremoveproduct}>
+            <RemoveProduct /> Remover
+          </div>
+        </div>
+        <div className={styles.priceSell}>
+          <FmtPrice amount={item.price * item.quantity} />
         </div>
       </div>
     </div>

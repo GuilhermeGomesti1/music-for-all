@@ -82,6 +82,7 @@
   transition: color 0.3s ease;
   color: rgb(42, 129, 42);
 }
+
 @media (max-width: 768px) {
   .DeleteIcon {
     background-color: transparent;
