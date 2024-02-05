@@ -10,6 +10,8 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { StateProps, StoreProduct } from "../../../type.d";
 import { CartProducts } from "../components/CartProducts";
+import ResetCart from "../components/ResetCart";
+import Link from "next/link";
 
 export default function Carrinho() {
   const { productData } = useSelector((state: StateProps) => state.next);
@@ -80,6 +82,7 @@ export default function Carrinho() {
                       <CartProducts item={item} />
                     </div>
                   ))}
+                  <ResetCart />
                 </div>
               </div>
 
@@ -88,7 +91,11 @@ export default function Carrinho() {
           ) : (
             <div className={styles.vazio}>
               <h1 className={styles.text}>Seu carrinho está vazio!</h1>
-              <button className={styles.buttonVoltar}>Voltar as compras</button>
+              <Link href={"/loja"}>
+                <button className={styles.buttonVoltar}>
+                  Voltar as compras
+                </button>
+              </Link>
             </div>
           )}
         </div>

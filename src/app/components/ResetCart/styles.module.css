@@ -1,0 +1,14 @@
+.btnresetcart {
+  color: #fff;
+  border: none;
+  width: 11rem;
+  height: 2.5rem;
+  font-weight: 600;
+  background-color: #56ac30;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+.btnresetcart:hover {
+  background-color: #e53e3e;
+  color: white;
+}

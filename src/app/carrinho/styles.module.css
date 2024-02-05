@@ -29,7 +29,7 @@
 }
 
 .minhasCompras {
-  background-color: #f15074;
+  background-color: #fff;
   grid-column: span 4;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -39,7 +39,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #f15074;
+  border-bottom: 1px solid #fff;
   padding-bottom: 0.25rem;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .products {
-  background-color: #f15074;
+  background-color: #e3e3e3;
   height: 16rem;
   grid-column: span 1;
   padding: 1rem;
