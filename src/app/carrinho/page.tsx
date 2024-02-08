@@ -12,6 +12,7 @@ import { StateProps, StoreProduct } from "../../../type.d";
 import { CartProducts } from "../components/CartProducts";
 import ResetCart from "../components/ResetCart";
 import Link from "next/link";
+import CartPayment from "../components/CartPayment";
 
 export default function Carrinho() {
   const { productData } = useSelector((state: StateProps) => state.next);
@@ -86,7 +87,9 @@ export default function Carrinho() {
                 </div>
               </div>
 
-              <div className={styles.products}></div>
+              <div className={styles.products}>
+                <CartPayment />
+              </div>
             </>
           ) : (
             <div className={styles.vazio}>

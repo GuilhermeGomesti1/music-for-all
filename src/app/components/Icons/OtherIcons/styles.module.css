@@ -82,7 +82,15 @@
   transition: color 0.3s ease;
   color: rgb(42, 129, 42);
 }
-
+.cardIcon {
+  background-color: #48bb78;
+  border-radius: 9999px;
+  padding: 0.25rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  font-size: 0.875rem;
+  color: white;
+}
 @media (max-width: 768px) {
   .DeleteIcon {
     background-color: transparent;
