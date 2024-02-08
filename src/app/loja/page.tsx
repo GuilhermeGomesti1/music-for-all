@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import styles from "./styles.module.css";
-
+import { SessionProvider } from "next-auth/react";
 import homeoficial from "../../../public/images/homeoficial.png";
 import homecursos from "../../../public/images/homecursos.png";
 import { Form } from "../components/Form";
@@ -49,52 +49,56 @@ export default function Loja() {
     <>
       <Provider store={store}>
         <PersistGate persistor={persistor} loading={null}>
-          <title>Loja- Escola de Música Music For All</title>
-          <main>
-            <div>
-              <Image
-                className={styles.img}
-                src={homeoficial}
-                alt="Music For All Logo"
-                width={1833}
-                height={598}
-                quality={100}
-                placeholder="blur"
-                loading="lazy"
-              />
-            </div>
+          <SessionProvider>
+            <title>Loja- Escola de Música Music For All</title>
+            <main>
+              <div>
+                <Image
+                  className={styles.img}
+                  src={homeoficial}
+                  alt="Music For All Logo"
+                  width={1833}
+                  height={598}
+                  quality={100}
+                  placeholder="blur"
+                  loading="lazy"
+                />
+              </div>
 
-            <div>
-              <Image
-                className={styles.violaoContainer}
-                src={homecursos}
-                alt="Music For All Logo"
-                loading="lazy"
-                placeholder="blur"
-              />
-            </div>
-            <IconWhatsappfixed />
+              <div>
+                <Image
+                  className={styles.violaoContainer}
+                  src={homecursos}
+                  alt="Music For All Logo"
+                  loading="lazy"
+                  placeholder="blur"
+                />
+              </div>
+              <IconWhatsappfixed />
 
-            <div className={`${styles.textContent} animated-item`}>
-              <input
-                className={styles.serchProducts}
-                type="text"
-                placeholder="Pesquisar Produtos"
-              />
-              <span className={styles.search}>
-                <SearchIcon />
-              </span>
-              <span>
-                <HeartIcon />
-                {favoriteData.length > 0 && <span>{favoriteData.length} </span>}
-              </span>
-            </div>
-            <Products />
+              <div className={`${styles.textContent} animated-item`}>
+                <input
+                  className={styles.serchProducts}
+                  type="text"
+                  placeholder="Pesquisar Produtos"
+                />
+                <span className={styles.search}>
+                  <SearchIcon />
+                </span>
+                <span>
+                  <HeartIcon />
+                  {favoriteData.length > 0 && (
+                    <span>{favoriteData.length} </span>
+                  )}
+                </span>
+              </div>
+              <Products />
 
-            <div className={styles.form}>
-              <Form />
-            </div>
-          </main>
+              <div className={styles.form}>
+                <Form />
+              </div>
+            </main>
+          </SessionProvider>
         </PersistGate>
       </Provider>
     </>
