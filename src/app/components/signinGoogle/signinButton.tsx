@@ -19,7 +19,7 @@ const SigninButton = () => {
   };
 
   const handleLogout = () => {
-    dispatch(removeUser()); // Remova as informações do usuário do estado quando o usuário fizer logout
+    dispatch(removeUser());
     signOut();
     // Limpar o carrinho local ou fazer outras ações necessárias quando o usuário faz logout
   };
