@@ -17,6 +17,7 @@ import { useSelector } from "react-redux";
 import { StateProps } from "../../../type.d";
 import { HeartIcon } from "../components/Icons/OtherIcons/heart";
 import { useRouter } from "next/router";
+import SigninButton from "../components/signinGoogle/signinButton";
 
 export default function Loja() {
   const { productData, favoriteData } = useSelector(
@@ -81,7 +82,8 @@ export default function Loja() {
                   className={styles.serchProducts}
                   type="text"
                   placeholder="Pesquisar Produtos"
-                />
+                />{" "}
+                <SigninButton />
                 <span className={styles.search}>
                   <SearchIcon />
                 </span>

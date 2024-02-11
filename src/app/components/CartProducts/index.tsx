@@ -10,7 +10,7 @@ import {
   deleteProduct,
   increaseQuantity,
 } from "@/store/nextSlice";
-interface Item {
+export interface Item {
   brand: string;
   category: string;
   description: string;

@@ -23,10 +23,12 @@ export const nextSlice = createSlice({
       const existingProduct = state.productData.find(
         (item: StoreProduct) => item._id === action.payload._id
       );
+
       if (existingProduct) {
         existingProduct.quantity += action.payload.quantity;
       } else {
-        state.productData.push(action.payload);
+        const newItem = { ...action.payload, userId: state.userInfo };
+        state.productData.push(newItem);
       }
     },
 
