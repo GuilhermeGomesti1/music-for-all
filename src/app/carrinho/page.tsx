@@ -108,7 +108,7 @@ export default function Carrinho() {
                   <p className={`${styles.title} animated-item`}>
                     Lista de compras
                   </p>
-                  <p className={`${styles.title} animated-item`}>Subtitulo</p>
+                  <p className={`${styles.title} animated-item`}></p>
                 </div>
 
                 <div className={styles.carrinho}>

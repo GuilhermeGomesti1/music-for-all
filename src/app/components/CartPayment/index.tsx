@@ -8,7 +8,9 @@ import { useState, useEffect } from "react";
 import SigninButton from "../signinGoogle/signinButton";
 
 export default function CartPayment() {
-  const { productData } = useSelector((state: StateProps) => state.next);
+  const { productData, userInfo } = useSelector(
+    (state: StateProps) => state.next
+  );
   const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
@@ -37,17 +39,21 @@ export default function CartPayment() {
         </span>
       </p>
 
-      <div className={styles.buttons}>
-        <button className={styles.button}>Proseguir Pagamento</button>
-      </div>
-
-      <div className={styles.buttons}>
-        <button className={styles.button}>Proseguir Comprando</button>
-        <p className={styles.textLogin}>
-          {" "}
-          <SigninButton />
-        </p>
-      </div>
+      {userInfo ? (
+        <div className={styles.buttons}>
+          <button className={styles.button}>Proseguir Comprando</button>
+          <p className={styles.textLogin}>
+            <SigninButton />
+          </p>
+        </div>
+      ) : (
+        <div className={styles.buttons}>
+          <button className={styles.button}>Proseguir Comprando</button>
+          <p className={styles.textLogin}>
+            <SigninButton />
+          </p>
+        </div>
+      )}
     </div>
   );
 }
