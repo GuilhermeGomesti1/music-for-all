@@ -43,8 +43,10 @@ export default function CartPayment() {
 
       <div className={styles.buttons}>
         <button className={styles.button}>Proseguir Comprando</button>
-        <p className={styles.textLogin}>Favor fazer login</p>
-        <SigninButton />
+        <p className={styles.textLogin}>
+          {" "}
+          <SigninButton />
+        </p>
       </div>
     </div>
   );

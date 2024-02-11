@@ -151,7 +151,7 @@ export function Header() {
             </Link>
 
             <Link
-              href="/dashboard" //carrinho
+              href="/carrinho" //carrinho
               className={styles.aContainer}
               onClick={closeMenu}
               title="Minhas compras"

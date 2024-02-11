@@ -1,60 +1,96 @@
 "use client";
+import styles from "./styles.module.css";
 import { signIn, signOut, useSession } from "next-auth/react";
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import {
   addToCart,
   addUser,
   increaseQuantity,
   removeUser,
   setAllProducts,
+  resetCart,
+  resetFavoriteData,
 } from "@/store/nextSlice"; // Certifique-se de importar addUser e removeUser
 import { useDispatch } from "react-redux";
+import { StoreProduct } from "../../../../type.d";
 
 const SigninButton = () => {
   const dispatch = useDispatch();
   const { data: session } = useSession();
 
-  const handleLogin = () => {
-    signIn();
+  const handleLogin = async () => {
+    try {
+      await signIn(); // Aguarde o signIn ser concluído antes de atualizar o carrinho
+      updateCartOnLogin();
+    } catch (error) {
+      console.error("Erro durante o login:", error);
+    }
   };
-
   const handleLogout = () => {
-    dispatch(removeUser());
+    // Salve o carrinho local antes de fazer logout
+    const userCart = JSON.stringify(localStorage.getItem("userCart")) || "[]";
+    localStorage.setItem("userCartBackup", userCart);
+
     signOut();
     // Limpar o carrinho local ou fazer outras ações necessárias quando o usuário faz logout
   };
 
-  // Atualizar o carrinho e adicionar informações do usuário ao fazer login
-  const updateCartOnLogin = async () => {
+  const updateCartOnLogin = useCallback(async () => {
     if (session && session.user) {
       try {
-        // Faça uma chamada à API ou lógica apropriada para obter o carrinho do usuário
-        const userCart = await addUser(session.user); // Substitua 'fetchUserCart' com sua lógica
-        dispatch(setAllProducts(userCart)); // Atualize o estado do carrinho no Redux
+        const backupCartString = localStorage.getItem("userCartBackup");
+        const backupCart: StoreProduct[] = backupCartString
+          ? JSON.parse(backupCartString)
+          : [];
 
-        // Adicione as informações do usuário ao estado Redux
-        dispatch(addUser(session.user.name)); // Substitua 'name' pela propriedade do usuário que deseja armazenar
+        const savedCartString = localStorage.getItem("userCart");
+        const savedCart: StoreProduct[] = savedCartString
+          ? JSON.parse(savedCartString)
+          : [];
+
+        const updatedCart: StoreProduct[] = savedCart.map(
+          (item: StoreProduct) => ({
+            ...item,
+            userId: session.user!.name,
+          })
+        );
+
+        // Adicionar os itens do backup ao carrinho atualizado
+        const finalCart = [...updatedCart, ...backupCart];
+
+        dispatch(setAllProducts(finalCart));
+        dispatch(addUser(session.user.name));
+
+        // Limpar o backup do carrinho local
+        localStorage.removeItem("userCartBackup");
+
+        console.log("Carrinho atualizado no login");
       } catch (error) {
-        console.error("Erro ao atualizar o carrinho após o login:", error);
+        console.error("Erro ao atualizar carrinho após o login:", error);
       }
     }
-  };
+  }, [session, dispatch]);
 
-  // Executar a atualização do carrinho quando o usuário faz login
-  React.useEffect(() => {
+  useEffect(() => {
     updateCartOnLogin();
-  }, [session]);
+  }, [updateCartOnLogin]);
 
   if (session && session.user) {
     return (
       <div>
-        <p>{session.user.name}</p>
-        <button onClick={handleLogout}>Sign Out</button>
+        <p>Bem vindo {session.user.name}</p>
+        <button className={styles.btnsignout} onClick={handleLogout}>
+          Sair
+        </button>
       </div>
     );
   }
 
-  return <button onClick={handleLogin}>Sign In</button>;
+  return (
+    <button className={styles.textLogin} onClick={handleLogin}>
+      Fazer o login para prosseguir a compra
+    </button>
+  );
 };
 
 export default SigninButton;

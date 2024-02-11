@@ -30,6 +30,7 @@ export const nextSlice = createSlice({
         const newItem = { ...action.payload, userId: state.userInfo };
         state.productData.push(newItem);
       }
+      localStorage.setItem("userCart", JSON.stringify(state.productData));
     },
 
     addTofavorite: (state, action) => {
@@ -73,6 +74,7 @@ export const nextSlice = createSlice({
 
     resetCart: (state) => {
       state.productData = [];
+      localStorage.removeItem("userCart");
     },
     resetFavoriteData: (state) => {
       state.favoriteData = [];

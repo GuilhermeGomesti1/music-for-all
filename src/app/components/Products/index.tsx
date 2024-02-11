@@ -8,6 +8,7 @@ import { HeartIcon } from "../Icons/OtherIcons/heart";
 import FormattedAmount from "../FmtPrice";
 import { useDispatch } from "react-redux";
 import { addToCart, addTofavorite } from "@/store/nextSlice";
+import { useSession } from "next-auth/react";
 
 const Products = () => {
   const dispatch = useDispatch();
