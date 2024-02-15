@@ -30,13 +30,20 @@ export default function CartPayment() {
   const handleCheckOut = async () => {
     const stripe = await stripePromise;
 
-    const response = await fetch("/api/auth/ckeckout", {
+    const response = await fetch("/api/checkout", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify({ items: productData, email: session?.user?.email }),
     });
+    console.log("Response status:", response.status);
+    if (!response.ok) {
+      console.error(`Error: ${response.status} - ${response.statusText}`);
+      console.error("Response body:", await response.text());
+      return;
+    }
+
     const checkoutSession = await response.json();
     const result: any = await stripe?.redirectToCheckout({
       sessionId: checkoutSession.id,
@@ -66,7 +73,9 @@ export default function CartPayment() {
 
       {userInfo ? (
         <div className={styles.buttons}>
-          <button className={styles.button}>Proseguir Comprando</button>
+          <button onClick={handleCheckOut} className={styles.button}>
+            Proseguir Comprando
+          </button>
           <p className={styles.textLogin}>
             <SigninButton />
           </p>
