@@ -29,7 +29,8 @@ export default function CartPayment() {
   const { data: session } = useSession();
   const handleCheckOut = async () => {
     const stripe = await stripePromise;
-    const response = await fetch("/api/ckeckout", {
+
+    const response = await fetch("/api/auth/ckeckout", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -72,7 +73,9 @@ export default function CartPayment() {
         </div>
       ) : (
         <div className={styles.buttons}>
-          <button className={styles.button}>Proseguir Comprando</button>
+          <button onClick={handleCheckOut} className={styles.button}>
+            Proseguir Comprando
+          </button>
           <p className={styles.textLogin}>
             <SigninButton />
           </p>
