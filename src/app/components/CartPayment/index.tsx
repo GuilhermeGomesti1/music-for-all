@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { StateProps, StoreProduct } from "../../../../type.d";
 import { useState, useEffect } from "react";
 import SigninButton from "../signinGoogle/signinButton";
+import { loadStripe } from "@stripe/stripe-js";
+import { useSession } from "next-auth/react";
 
 export default function CartPayment() {
   const { productData, userInfo } = useSelector(
@@ -21,6 +23,28 @@ export default function CartPayment() {
     });
     setTotalAmount(amt);
   }, [productData]);
+
+  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISH_KEY!);
+
+  const { data: session } = useSession();
+  const handleCheckOut = async () => {
+    const stripe = await stripePromise;
+    const response = await fetch("/api/ckeckout", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ items: productData, email: session?.user?.email }),
+    });
+    const checkoutSession = await response.json();
+    const result: any = await stripe?.redirectToCheckout({
+      sessionId: checkoutSession.id,
+    });
+    if (result.error) {
+      alert(result?.error.message);
+    }
+  };
+
   return (
     <div className={styles.all}>
       <div className={styles.divprincipal}>
