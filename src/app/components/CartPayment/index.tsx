@@ -30,13 +30,20 @@ export default function CartPayment() {
   const handleCheckOut = async () => {
     const stripe = await stripePromise;
 
-    const response = await fetch("/api/checkout", {
+    const requestHeaders = { "Content-type": "application/json" };
+    const requestBody = { items: productData, email: session?.user?.email };
+
+    console.log("Request Headers:", requestHeaders);
+    console.log("Request Body:", requestBody);
+
+    const response = await fetch("src/app/api/auth/[...nextauth]/checkout.ts", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify({ items: productData, email: session?.user?.email }),
     });
+
     console.log("Response status:", response.status);
     if (!response.ok) {
       console.error(`Error: ${response.status} - ${response.statusText}`);

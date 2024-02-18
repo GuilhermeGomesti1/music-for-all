@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { StoreProduct } from "../../../../type.d";
+import { StoreProduct } from "../../../../../type.d";
 import { current } from "@reduxjs/toolkit";
 import { metadata } from "@/app/layout";
 
