@@ -36,7 +36,7 @@ export default function CartPayment() {
     console.log("Request Headers:", requestHeaders);
     console.log("Request Body:", requestBody);
 
-    const response = await fetch("src/app/api/auth/[...nextauth]/checkout.ts", {
+    const response = await fetch("/api/checkout", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
