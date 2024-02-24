@@ -43,8 +43,10 @@ export default function CartPayment() {
       },
       body: JSON.stringify({ items: productData, email: session?.user?.email }),
     });
-
+    console.log("Após a Requisição Fetch");
     console.log("Response status:", response.status);
+    console.log("Response headers:", response.headers);
+    console.log("Request Body:", requestBody);
     if (!response.ok) {
       console.error(`Error: ${response.status} - ${response.statusText}`);
       console.error("Response body:", await response.text());
