@@ -40,6 +40,7 @@ export default function CartPayment() {
 
     console.log("Request Headers:", requestHeaders);
     console.log("Request Body:", requestBody);
+    console.log("Request Body:", JSON.stringify(requestBody));
 
     const response = await fetch("/api/auth/checkout", {
       method: "POST",
@@ -48,10 +49,13 @@ export default function CartPayment() {
       },
       body: JSON.stringify({ items: productData, email: session?.user?.email }),
     });
+    console.log("Request Body:", JSON.stringify(requestBody));
     console.log("Após a Requisição Fetch");
     console.log("Response status:", response.status);
     console.log("Response headers:", response.headers);
     console.log("Request Body:", requestBody);
+    console.log("Product Data (Client):", productData);
+    console.log("Session Email (Client):", session?.user?.email);
     if (!response.ok) {
       console.error(`Error: ${response.status} - ${response.statusText}`);
       console.error("Response body:", await response.text());

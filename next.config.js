@@ -9,6 +9,7 @@ const nextConfig = {
   images: {
     domains: ["i.ibb.co"],
   },
+  api: {},
 };
 
 module.exports = withImages({
