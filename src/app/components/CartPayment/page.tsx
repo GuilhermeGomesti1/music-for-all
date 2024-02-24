@@ -17,11 +17,13 @@ export default function CartPayment() {
 
   useEffect(() => {
     let amt = 0;
-    productData.map((item: StoreProduct) => {
-      amt += item.price * item.quantity;
-      return;
-    });
-    setTotalAmount(amt);
+    if (productData) {
+      productData.map((item: StoreProduct) => {
+        amt += item.price * item.quantity;
+        return;
+      });
+      setTotalAmount(amt);
+    }
   }, [productData]);
 
   const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISH_KEY!);
@@ -29,14 +31,17 @@ export default function CartPayment() {
   const { data: session } = useSession();
   const handleCheckOut = async () => {
     const stripe = await stripePromise;
-
+    if (!productData || !productData.length || !session?.user?.email) {
+      console.error("Invalid data for checkout");
+      return;
+    }
     const requestHeaders = { "Content-type": "application/json" };
     const requestBody = { items: productData, email: session?.user?.email };
 
     console.log("Request Headers:", requestHeaders);
     console.log("Request Body:", requestBody);
 
-    const response = await fetch("/api/checkout", {
+    const response = await fetch("/api/auth/checkout", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

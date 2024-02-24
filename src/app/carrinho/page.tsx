@@ -12,7 +12,7 @@ import { StateProps } from "../../../type.d";
 import { CartProducts } from "../components/CartProducts";
 import ResetCart from "../components/ResetCart";
 import Link from "next/link";
-import CartPayment from "../components/CartPayment";
+import CartPayment from "../components/CartPayment/page";
 import SigninButton from "../components/signinGoogle/signinButton";
 interface StoreProduct {
   category: string;
