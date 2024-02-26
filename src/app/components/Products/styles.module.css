@@ -122,6 +122,7 @@
 }
 
 .btnaddcart {
+  border: none;
   height: 2.5rem;
   font-weight: 500;
   background-color: #f15074;

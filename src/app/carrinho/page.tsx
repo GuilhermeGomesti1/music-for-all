@@ -123,7 +123,7 @@ export default function Carrinho() {
                 </div>
               </div>
 
-              <div className={styles.products}>
+              <div className={styles.areaPgm}>
                 <CartPayment />
               </div>
             </>

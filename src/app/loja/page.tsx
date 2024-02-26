@@ -98,16 +98,12 @@ export default function Loja() {
                   <p className={styles.infoMessage}>
                     <InfoIcon />
                     &ldquo;Caro visitante, agradecemos por explorar nossa loja
-                    em desenvolvimento. No momento, estamos aprimorando nossa
-                    plataforma para oferecer produtos reais em breve. Por favor,
-                    note que os produtos atualmente exibidos não são reais e
-                    estão presentes apenas para o processo de desenvolvimento da
-                    loja. Sua paciência é valiosa, e mal podemos esperar para
-                    apresentar nossos produtos genuínos. Fique atento às
-                    atualizações e, enquanto isso, sinta-se à vontade para
-                    entrar em contato conosco para quaisquer perguntas. A
-                    transparência é a base de nossa jornada, e estamos ansiosos
-                    para compartilhar nossa evolução consigo.&rdquo;
+                    em desenvolvimento. Gostaríamos de informar que os itens
+                    atualmente exibidos são fictícios, fazendo parte do processo
+                    de desenvolvimento. No momento, esses produtos não estão
+                    disponíveis para compra. Estamos trabalhando diligentemente
+                    para aprimorar nossa plataforma e em breve apresentaremos
+                    produtos reais.&rdquo;
                   </p>
                 </div>
               </div>
