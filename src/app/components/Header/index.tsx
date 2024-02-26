@@ -142,7 +142,7 @@ export function Header() {
               </Link>
             )}
             <Link
-              href="/dashboard" //loja
+              href="/loja" //loja
               className={styles.aContainer}
               onClick={closeMenu}
               title="Loja"
