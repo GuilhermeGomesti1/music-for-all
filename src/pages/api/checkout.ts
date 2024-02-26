@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { StoreProduct } from "../../../../../type.d";
+import { StoreProduct } from "../../../type.d";
 import { current } from "@reduxjs/toolkit";
 import { metadata } from "@/app/layout";
 
@@ -9,11 +9,20 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  console.log("Full Request Body:", req);
   try {
     console.log("Request Body Before:", req.body);
 
     // Verifica se req.body existe e tem a propriedade 'items'
-    if (!req.body || !req.body.items) {
+    if (!req.body) {
+      console.error("O corpo da requisição está vazio");
+      res.status(400).json({
+        error: "O corpo da requisição está vazio",
+      });
+      return;
+    }
+
+    if (!req.body.items) {
       console.error("O corpo da requisição não contém a propriedade 'items'");
       res.status(400).json({
         error: "O corpo da requisição não contém a propriedade 'items'",
@@ -48,7 +57,7 @@ export default async function handle(
     const session = await stripe.checkout.session.create({
       payment_method_types: ["card"],
       shipping_address_collection: {
-        allowed_countries: ["BD", "US", "OM", "BRL", "CA", "GB"],
+        allowed_countries: ["BD", "US", "OM", "CA", "GB"],
       },
       line_items: modifiedItems,
       mode: "payment",

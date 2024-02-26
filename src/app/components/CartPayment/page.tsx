@@ -20,7 +20,6 @@ export default function CartPayment() {
     if (productData) {
       productData.map((item: StoreProduct) => {
         amt += item.price * item.quantity;
-        return;
       });
       setTotalAmount(amt);
     }
@@ -42,7 +41,7 @@ export default function CartPayment() {
     console.log("Request Body:", requestBody);
     console.log("Request Body:", JSON.stringify(requestBody));
 
-    const response = await fetch("/api/auth/checkout", {
+    const response = await fetch("/api/checkout", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

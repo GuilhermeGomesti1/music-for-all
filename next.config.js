@@ -9,7 +9,11 @@ const nextConfig = {
   images: {
     domains: ["i.ibb.co"],
   },
-  api: {},
+  api: {
+    bodyParser: {
+      bodyParser: false,
+    },
+  },
 };
 
 module.exports = withImages({
