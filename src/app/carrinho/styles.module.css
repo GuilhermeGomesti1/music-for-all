@@ -36,6 +36,8 @@
 }
 
 .compras {
+  flex-direction: column; /* Altere para coluna para centralizar verticalmente */
+  align-items: center;
   display: flex;
   align-items: center;
   justify-content: space-between;
