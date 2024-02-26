@@ -1,16 +1,27 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { StoreProduct } from "../../../type.d";
-import { current } from "@reduxjs/toolkit";
 import { metadata } from "@/app/layout";
+import stripeLib from "stripe";
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+if (!stripeSecretKey) {
+  console.error("Erro: Chave secreta do Stripe não está definida.");
+  throw new Error("Chave secreta do Stripe não está definida.");
+}
+
+const stripe = new stripeLib(stripeSecretKey);
 
 export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  console.log("Full Request Body:", req);
+  if (!process.env.STRIPE_SECRET_KEY) {
+    console.error("Erro: Chave secreta do Stripe não está definida.");
+    return res.status(500).json({ error: "Erro interno do servidor" });
+  }
+
   try {
+    console.log("Full Request Body:", req);
     console.log("Request Body Before:", req.body);
 
     // Verifica se req.body existe e tem a propriedade 'items'
@@ -29,6 +40,7 @@ export default async function handle(
       });
       return;
     }
+
     console.log("Request Body Before:", req.body);
     const { items, email } = req.body;
 
@@ -43,7 +55,7 @@ export default async function handle(
     const modifiedItems = items.map((item: StoreProduct) => ({
       quantity: item.quantity,
       price_data: {
-        currency: "BRL",
+        currency: "usd",
         unit_amount: item.price * 100,
         product_data: {
           name: item.title,
@@ -54,7 +66,7 @@ export default async function handle(
     }));
     console.log("Modified Items:", modifiedItems);
 
-    const session = await stripe.checkout.session.create({
+    const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       shipping_address_collection: {
         allowed_countries: ["BD", "US", "OM", "CA", "GB"],
@@ -73,6 +85,7 @@ export default async function handle(
       id: session.id,
     });
   } catch (error) {
-    console.error(error);
+    console.error("Erro durante a criação da sessão Stripe:", error);
+    res.status(500).json({ error: "Erro interno do servidor" });
   }
 }
