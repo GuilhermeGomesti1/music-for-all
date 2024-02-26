@@ -75,7 +75,7 @@ export default function Carrinho() {
   return (
     <>
       <title>Carrinho- Escola de Música Music For All</title>
-      <main>
+      <main className={styles.main}>
         <div>
           <Image
             className={styles.img}
