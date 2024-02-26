@@ -43,8 +43,9 @@ export default function Loja() {
     }
   }, []);
 
-  if (typeof window !== "undefined" && window.location.pathname !== "/loja") {
-    return null;
+  if (typeof window !== "undefined") {
+    if (window.location.pathname !== "/loja" || !productData) {
+    }
   }
   return (
     <>

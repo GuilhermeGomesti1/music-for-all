@@ -24,9 +24,7 @@ export default async function handle(
     console.log("Full Request Body:", req);
     console.log("Request Body Before:", req.body);
 
-    // Verifica se req.body existe e tem a propriedade 'items'
     if (!req.body) {
-      console.error("O corpo da requisição está vazio");
       res.status(400).json({
         error: "O corpo da requisição está vazio",
       });
@@ -41,13 +39,9 @@ export default async function handle(
       return;
     }
 
-    console.log("Request Body Before:", req.body);
     const { items, email } = req.body;
 
-    console.log("Items:", items);
-    console.log("Email:", email);
     if (!Array.isArray(items)) {
-      console.error("Items não é um array válido");
       res.status(400).json({ error: "Items não é um array válido" });
       return;
     }
@@ -64,7 +58,6 @@ export default async function handle(
         },
       },
     }));
-    console.log("Modified Items:", modifiedItems);
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
@@ -80,7 +73,7 @@ export default async function handle(
         images: JSON.stringify(items.map((item: any) => item.image)),
       },
     });
-    console.log("Stripe Session:", session);
+
     res.status(200).json({
       id: session.id,
     });
