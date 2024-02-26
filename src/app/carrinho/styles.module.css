@@ -68,7 +68,7 @@
 }
 
 .vazio {
-  background-color: #f1507370;
+  color: #333;
   height: 16rem;
   grid-column: span 5;
   display: flex;
@@ -85,13 +85,22 @@
 }
 
 .buttonVoltar {
+  cursor: pointer;
+  margin-top: 1rem;
+  border: none;
   width: 13rem;
   height: 2.5rem;
-  background-color: #f15074;
+  background-color: #fa0875;
   color: white;
   border-radius: 0.5rem;
   font-size: 0.875rem;
   font-weight: 600;
+  transition: background-color 0.5s;
+}
+
+.buttonVoltar:hover {
+  background-color: green;
+  transition: background-color 0.5s ease;
 }
 
 .brand {
