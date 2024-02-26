@@ -55,7 +55,7 @@ export default async function handle(
     const modifiedItems = items.map((item: StoreProduct) => ({
       quantity: item.quantity,
       price_data: {
-        currency: "usd",
+        currency: "brl",
         unit_amount: item.price * 100,
         product_data: {
           name: item.title,
