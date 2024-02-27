@@ -59,9 +59,12 @@
 }
 
 .areaPgm {
+  width: 280px;
+  margin-top: 8vh;
+  background-color: #dedede85;
   height: 16rem;
   grid-column: span 1;
-  padding: 1rem;
+  padding: 0.8rem;
   border-radius: 0.5rem;
   display: flex;
   align-items: center;

@@ -19,12 +19,13 @@
   justify-content: space-between;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .spanValue {
+  font-weight: 600;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .buttons {
@@ -34,6 +35,8 @@
 }
 
 .button {
+  color: white;
+  background-color: #55ac30ad;
   cursor: pointer;
   border-radius: 4px;
   width: 100%;
@@ -42,10 +45,10 @@
   font-weight: 600;
   transition: all 1s;
   border: none;
+  transition: box-shadow 1s;
 }
 .button:hover {
-  background-color: rgba(0, 0, 0, 0.466);
-  color: yellow;
+  box-shadow: rgb(85, 172, 48);
   border: none;
 }
 .textLogin {
