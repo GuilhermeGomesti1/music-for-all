@@ -80,6 +80,7 @@
 }
 @media (max-width: 768px) {
   .divCartProducts {
+    width: 350px;
     background-color: white;
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
