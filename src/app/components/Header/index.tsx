@@ -156,8 +156,7 @@ export function Header() {
               onClick={closeMenu}
               title="Minhas compras"
             >
-              <span>{productData ? productData.length : 0}</span>
-              <CartIcon />
+              <CartIcon /> <span>({productData ? productData.length : 0})</span>
             </Link>
 
             {loggedIn && (

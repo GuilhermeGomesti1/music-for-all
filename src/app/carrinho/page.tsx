@@ -14,6 +14,7 @@ import ResetCart from "../components/ResetCart";
 import Link from "next/link";
 import CartPayment from "../components/CartPayment/page";
 import SigninButton from "../components/signinGoogle/signinButton";
+import { CartIcon } from "../components/Icons/OtherIcons/cartIcon";
 interface StoreProduct {
   category: string;
   description: string;
@@ -106,7 +107,10 @@ export default function Carrinho() {
               <div className={styles.minhasCompras}>
                 <div className={styles.compras}>
                   <p className={`${styles.title} animated-item`}>
-                    Lista de compras
+                    Carrinho <CartIcon />{" "}
+                    <span className={styles.cartNumber}>
+                      ({productData ? productData.length : 0})
+                    </span>
                   </p>
                 </div>
 

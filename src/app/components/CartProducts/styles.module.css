@@ -1,9 +1,11 @@
 .divCartProducts {
-  background-color: #dedede;
+  background-color: #fff;
   border-radius: 0.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
 }
 
 .allproducts {
@@ -77,6 +79,11 @@
   font-weight: bold;
 }
 @media (max-width: 768px) {
+  .divCartProducts {
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
   .descriptionproduct {
     overflow: hidden;
     display: -webkit-box;

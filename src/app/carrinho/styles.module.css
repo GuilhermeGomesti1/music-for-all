@@ -110,6 +110,9 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+.cartNumber {
+  font-size: 1rem;
+}
 @media (max-width: 768px) {
   .main {
     background-color: #d4d4d4;
