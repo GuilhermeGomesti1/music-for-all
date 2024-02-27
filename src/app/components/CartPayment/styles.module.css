@@ -45,10 +45,10 @@
   font-weight: 600;
   transition: all 1s;
   border: none;
-  transition: box-shadow 1s;
+  transition: background-color 1s, color 1s;
 }
 .button:hover {
-  box-shadow: rgb(85, 172, 48);
+  background-color: rgb(85, 172, 48);
   border: none;
 }
 .textLogin {

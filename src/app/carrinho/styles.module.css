@@ -145,6 +145,9 @@
   .minhasCompras {
     grid-column: 1;
   }
+  .carrinho {
+    padding-left: 0;
+  }
 
   .areaPgm {
     background-color: #dedede;
