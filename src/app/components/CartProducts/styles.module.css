@@ -76,3 +76,11 @@
 .priceSell {
   font-weight: bold;
 }
+@media (max-width: 768px) {
+  .descriptionproduct {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Número de linhas a serem exibidas */
+    -webkit-box-orient: vertical;
+  }
+}

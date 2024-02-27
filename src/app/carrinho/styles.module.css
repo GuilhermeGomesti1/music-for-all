@@ -130,4 +130,20 @@
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
     min-width: 100%;
   }
+  .cartmain {
+    background-color: #fff;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .minhasCompras {
+    grid-column: 1;
+  }
+
+  .areaPgm {
+    background-color: #dedede;
+    margin: 0 auto;
+    grid-column: 1;
+    max-width: 300px;
+  }
 }
