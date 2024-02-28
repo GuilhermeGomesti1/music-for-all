@@ -85,7 +85,8 @@ export default function Carrinho() {
               <div className={styles.minhasCompras}>
                 <div className={styles.compras}>
                   <p className={`${styles.title} animated-item`}>
-                    Carrinho <CartIcon />{" "}
+                    Carrinho
+                    <CartIcon />{" "}
                     <span className={styles.cartNumber}>
                       ({productData ? productData.length : 0})
                     </span>
