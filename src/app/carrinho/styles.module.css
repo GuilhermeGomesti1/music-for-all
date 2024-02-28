@@ -153,15 +153,17 @@
 
   .minhasCompras {
     grid-column: 1;
+    margin-bottom: 4rem;
   }
   .carrinho {
     padding-left: 0;
   }
 
   .areaPgm {
+    margin-top: -8rem;
     display: contents;
     position: fixed;
-    bottom: 10;
+    bottom: 0;
     left: 0;
     width: 95%;
     background-color: transparent;
