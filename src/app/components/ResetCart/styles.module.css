@@ -1,14 +1,14 @@
 .btnresetcart {
-  color: #fff;
+  cursor: pointer;
+  color: #56ac30;
   border: none;
   width: 11rem;
   height: 2.5rem;
   font-weight: 600;
-  background-color: #56ac30;
+  background-color: transparent;
   border-radius: 0.5rem;
-  transition: background-color 0.3s, color 0.3s;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
 }
 .btnresetcart:hover {
-  background-color: #e53e3e;
-  color: white;
+  transform: scale(1.05);
 }

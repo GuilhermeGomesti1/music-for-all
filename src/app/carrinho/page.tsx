@@ -77,28 +77,6 @@ export default function Carrinho() {
     <>
       <title>Carrinho- Escola de Música Music For All</title>
       <main className={styles.main}>
-        <div>
-          <Image
-            className={styles.img}
-            src={homeoficial}
-            alt="Music For All Logo"
-            width={1833}
-            height={598}
-            quality={100}
-            placeholder="blur"
-            loading="lazy"
-          />
-        </div>
-
-        <div>
-          <Image
-            className={styles.violaoContainer}
-            src={homecursos}
-            alt="Music For All Logo"
-            loading="lazy"
-            placeholder="blur"
-          />
-        </div>
         <IconWhatsappfixed />
 
         <div className={styles.cartmain}>

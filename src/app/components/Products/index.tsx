@@ -91,8 +91,8 @@ const Products = () => {
 
             {product.isNew && (
               <p className={styles.textpreço}>
-                ! Preços
-                <FormattedAmount amount={product.oldPrice - product.price} />
+                (<FormattedAmount amount={product.oldPrice - product.price} />{" "}
+                de desconto)
               </p>
             )}
           </div>

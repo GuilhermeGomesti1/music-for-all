@@ -67,15 +67,15 @@
   color: black;
 }
 .textpreço {
+  color: black;
   padding-top: 1rem;
   padding-right: 0.5rem;
   position: absolute;
   top: 0;
   right: 0;
-  color: black;
+
   font-size: medium;
-  font-size: 0.875rem;
-  letter-spacing: 0.05em;
+  font-size: 0.8rem;
 
   animation: pulse 2s infinite;
 }

@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import styles from "./styles.module.css";
 import { resetCart } from "@/store/nextSlice";
+import { DashCartIcon } from "../Icons/OtherIcons/dashCart";
 
 export default function ResetCart() {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ export default function ResetCart() {
   };
   return (
     <button onClick={handleResetCart} className={styles.btnresetcart}>
-      Limpar carrinho
+      <DashCartIcon /> Esvaziar carrinho
     </button>
   );
 }

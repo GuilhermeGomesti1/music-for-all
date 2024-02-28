@@ -6,7 +6,14 @@
   color: #0a9745;
   vertical-align: middle;
 }
+.DashCartIcon {
+  border: none;
+  background-color: transparent;
+  font-size: 25px;
 
+  color: #0a9745;
+  vertical-align: middle;
+}
 .SearchIcon {
   color: white;
   background-color: transparent;
