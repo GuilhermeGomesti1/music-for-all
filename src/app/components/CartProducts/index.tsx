@@ -31,13 +31,15 @@ export function CartProducts({ item }: CartProductsProps) {
   const usedispatch = useDispatch();
   return (
     <div className={styles.divCartProducts}>
-      <Image
-        className="object-cover"
-        width="150"
-        height="150"
-        src={item.image}
-        alt="foto do produto"
-      />
+      <div>
+        <Image
+          className={styles.imgProduct}
+          width="150"
+          height="150"
+          src={item.image}
+          alt="foto do produto"
+        />
+      </div>
       <div className={styles.allproducts}>
         <div className={styles.products}>
           <p className={styles.titleproduct}>{item.title} </p>
