@@ -115,9 +115,9 @@ export default function Carrinho() {
                   <Image
                     className={styles.dadoscartao}
                     src={dadoscartao}
-                    alt="foto dos alunos"
-                    width={412}
-                    height={133}
+                    alt="fake card"
+                    width={380}
+                    height={123}
                     loading="lazy"
                     placeholder="blur"
                   />
