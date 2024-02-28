@@ -58,6 +58,9 @@
   font-weight: 600;
   animation: pulse 2s infinite;
 }
+.dadoscartao {
+  margin-top: 4rem;
+}
 @keyframes pulse {
   0%,
   100% {

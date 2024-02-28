@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 import { Item } from "../components/CartProducts";
 import homeoficial from "../../../public/images/homeoficial.png";
 import homecursos from "../../../public/images/homecursos.png";
+import dadoscartao from "../../../public/images/dadoscartao.png";
 import { Form } from "../components/Form";
 import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
 import { useEffect } from "react";
@@ -107,6 +108,20 @@ export default function Carrinho() {
 
               <div className={styles.areaPgm}>
                 <CartPayment />
+              </div>
+              <div>
+                {" "}
+                <div className={styles.divCardData}>
+                  <Image
+                    className={styles.dadoscartao}
+                    src={dadoscartao}
+                    alt="foto dos alunos"
+                    width={412}
+                    height={133}
+                    loading="lazy"
+                    placeholder="blur"
+                  />
+                </div>
               </div>
             </>
           ) : (

@@ -116,6 +116,12 @@
 .cartNumber {
   font-size: 1rem;
 }
+
+.divCardData {
+  margin-left: 75vw;
+}
+.dadoscartao {
+}
 @media (max-width: 768px) {
   .main {
     background-color: #d4d4d4;
@@ -160,5 +166,9 @@
     background-color: transparent;
     padding-top: -2rem;
     z-index: 0.8;
+  }
+
+  .divCardData {
+    margin-left: 0;
   }
 }
