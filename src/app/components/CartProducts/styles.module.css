@@ -108,4 +108,11 @@
   }
   .priceSell {
   }
+  .addAndRemove {
+    margin-left: -3rem;
+  }
+
+  .divremoveproduct {
+    margin-left: -2.2rem;
+  }
 }

@@ -67,3 +67,15 @@
     opacity: 0.5;
   }
 }
+
+@media (max-width: 768px) {
+  .all {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 95%;
+    background-color: white;
+    padding: 1rem;
+    z-index: 0.9;
+  }
+}
