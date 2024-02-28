@@ -153,9 +153,6 @@
   }
 
   .areaPgm {
-    background-color: #dedede;
-    margin: 0 auto;
-    grid-column: 1;
-    max-width: 300px;
+    background-color: white;
   }
 }
