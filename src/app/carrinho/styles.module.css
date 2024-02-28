@@ -153,6 +153,12 @@
   }
 
   .areaPgm {
-    background-color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 95%;
+    background-color: transparent;
+    padding-top: -2rem;
+    z-index: 0.8;
   }
 }
