@@ -79,6 +79,7 @@
     z-index: 0.9;
   }
   .textLogin {
+    background-color: white;
     margin-bottom: 1rem;
   }
 }
