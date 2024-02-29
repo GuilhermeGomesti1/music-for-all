@@ -21,7 +21,15 @@
   border-radius: 50%;
   vertical-align: middle;
 }
+.checkIcon {
+  margin-right: 4px;
+  border: none;
+  background-color: transparent;
+  font-size: 15px;
 
+  color: #0a9745;
+  vertical-align: middle;
+}
 .HeartIcon {
   border: none;
   background-color: transparent;

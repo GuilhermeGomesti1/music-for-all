@@ -11,6 +11,8 @@ export default function ResetCart() {
     );
     if (confirmReset) {
       dispatch(resetCart());
+
+      localStorage.setItem("showMessageMap", "{}");
     }
   };
   return (

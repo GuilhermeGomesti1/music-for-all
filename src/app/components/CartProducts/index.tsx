@@ -97,7 +97,19 @@ export function CartProducts({ item }: CartProductsProps) {
             </div>
           </div>
           <div
-            onClick={() => usedispatch(deleteProduct(item._id))}
+            onClick={() => {
+              usedispatch(deleteProduct(item._id));
+
+              // Remova a mensagem associada ao produto do Local Storage
+              const storedShowMessageMap = JSON.parse(
+                localStorage.getItem("showMessageMap") || "{}"
+              );
+              delete storedShowMessageMap[item._id];
+              localStorage.setItem(
+                "showMessageMap",
+                JSON.stringify(storedShowMessageMap)
+              );
+            }}
             className={styles.divremoveproduct}
           >
             <RemoveProduct /> Remover

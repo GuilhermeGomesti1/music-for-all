@@ -66,6 +66,13 @@
   background-color: #f15074;
   color: black;
 }
+.addedToCartMessage {
+  position: absolute;
+  right: 17px;
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: #56ac30;
+}
 .textpreço {
   color: black;
   padding-top: 1rem;

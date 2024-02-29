@@ -9,10 +9,14 @@ import FormattedAmount from "../FmtPrice";
 import { useDispatch } from "react-redux";
 import { addToCart, addTofavorite } from "@/store/nextSlice";
 import { useSession } from "next-auth/react";
+import { CheckIcon } from "../Icons/OtherIcons/check";
 
 const Products = () => {
   const dispatch = useDispatch();
   const [products, setProducts] = useState<StoreProduct[]>([]);
+  const [showMessageMap, setShowMessageMap] = useState<{
+    [key: string]: boolean;
+  }>({});
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -28,7 +32,18 @@ const Products = () => {
     };
 
     fetchProducts();
-  });
+  }, []);
+  useEffect(() => {
+    // Recuperar os dados do Local Storage ao carregar a página
+    const storedShowMessageMap = JSON.parse(
+      localStorage.getItem("showMessageMap") || "{}"
+    );
+    setShowMessageMap(storedShowMessageMap);
+  }, []);
+  useEffect(() => {
+    // Salvar os dados no Local Storage sempre que showMessageMap for atualizado
+    localStorage.setItem("showMessageMap", JSON.stringify(showMessageMap));
+  }, [showMessageMap]);
 
   return (
     <div className={styles.products}>
@@ -100,6 +115,14 @@ const Products = () => {
           <div className={styles.divtextCategory}>
             <p className={styles.pcategory}>{product.category}</p>
             <p className={styles.ptitle}>{product.title}</p>
+            {showMessageMap[product._id] && (
+              <div className={styles.addedToCartMessage}>
+                <p>
+                  <CheckIcon />
+                  Adicionado!
+                </p>
+              </div>
+            )}
             <p className={styles.pprice}>
               <span className={styles.spanprice}>
                 <FormattedAmount amount={product.oldPrice} />
@@ -113,7 +136,7 @@ const Products = () => {
             </p>
 
             <button
-              onClick={() =>
+              onClick={() => {
                 dispatch(
                   addToCart({
                     _id: product._id,
@@ -127,8 +150,13 @@ const Products = () => {
                     title: product.title,
                     quantity: 1,
                   })
-                )
-              }
+                );
+
+                setShowMessageMap((prevShowMessageMap) => ({
+                  ...prevShowMessageMap,
+                  [product._id]: true,
+                }));
+              }}
               className={styles.btnaddcart}
             >
               + carrinho
