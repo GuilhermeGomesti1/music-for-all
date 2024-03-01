@@ -87,6 +87,13 @@
     text-align: center;
     justify-content: center;
   }
+  .aContainer:visited {
+    text-decoration: none;
+  }
+
+  .aContainer:hover {
+    text-decoration: none;
+  }
   .dadoscartao {
     margin-top: 4rem;
   }

@@ -70,7 +70,7 @@ export default function CartLoja() {
           className={styles.aContainer}
           title="Minhas compras"
         >
-          Seu carrinho: <CartIcon />{" "}
+          Ir para o carrinho <CartIcon />{" "}
           <span>({productData ? productData.length : 0})</span>
         </Link>
       </div>
