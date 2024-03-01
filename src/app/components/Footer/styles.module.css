@@ -67,7 +67,6 @@
 
 @media (max-width: 768px) {
   .footer {
-    z-index: 1000;
     flex-direction: column;
     height: 300px;
     align-items: center;

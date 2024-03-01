@@ -26,3 +26,6 @@
   margin-left: 4.2rem;
   border: none;
 }
+.btnsignout:visited {
+  color: black;
+}
