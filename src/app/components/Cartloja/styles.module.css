@@ -1,0 +1,102 @@
+@media (min-width: 769px) {
+  /* Adicione a regra de estilo apenas para telas maiores que 768 pixels de largura */
+  .all {
+    display: none;
+  }
+}
+.all {
+}
+
+@media (max-width: 768px) {
+  .all {
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.144);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 95%;
+    background-color: white;
+    padding: 1rem;
+    z-index: 1000;
+  }
+  .textLogin {
+    background-color: white;
+    margin-bottom: 1rem;
+  }
+
+  .divprincipal {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .text {
+    font-size: small;
+  }
+
+  .textValue {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-weight: 500;
+  }
+
+  .spanValue {
+    font-weight: 600;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button {
+    color: white;
+    background-color: #55ac30ad;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    height: 2.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 1s;
+    border: none;
+    transition: background-color 1s, color 1s;
+  }
+  .button:hover {
+    background-color: rgb(85, 172, 48);
+    border: none;
+  }
+  .textLogin {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    color: #e53e3e;
+    font-weight: 600;
+    animation: pulse 2s infinite;
+  }
+  .aContainer {
+    animation: none;
+    font-weight: bolder;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    justify-content: center;
+  }
+  .dadoscartao {
+    margin-top: 4rem;
+  }
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+}

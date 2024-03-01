@@ -129,6 +129,7 @@
 }
 
 .btnaddcart {
+  cursor: pointer;
   border: none;
   height: 2.5rem;
   font-weight: 500;
@@ -142,9 +143,18 @@
 .btnaddcart:hover {
   background-color: #56ac30;
 }
+.btnaddcart:after {
+  background-color: red;
+}
+
 @media (min-width: 1024px) {
   .products {
     align-items: center;
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (max-width: 768px) {
+  .divSpan {
+    display: none;
   }
 }

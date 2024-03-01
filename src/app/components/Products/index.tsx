@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { addToCart, addTofavorite } from "@/store/nextSlice";
 import { useSession } from "next-auth/react";
 import { CheckIcon } from "../Icons/OtherIcons/check";
+import CartPayment from "../CartPayment/page";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -60,7 +61,7 @@ const Products = () => {
 
             <div className={styles.divSpan}>
               <span
-                onClick={() =>
+                onClick={() => {
                   dispatch(
                     addToCart({
                       _id: product._id,
@@ -74,8 +75,13 @@ const Products = () => {
                       title: product.title,
                       quantity: 1,
                     })
-                  )
-                }
+                  );
+
+                  setShowMessageMap((prevShowMessageMap) => ({
+                    ...prevShowMessageMap,
+                    [product._id]: true,
+                  }));
+                }}
                 className={styles.spanIcons}
               >
                 <CartIcon />
@@ -116,7 +122,7 @@ const Products = () => {
             <p className={styles.pcategory}>{product.category}</p>
             <p className={styles.ptitle}>{product.title}</p>
             {showMessageMap[product._id] && (
-              <div className={styles.addedToCartMessage}>
+              <div className={`${styles.addedToCartMessage} ${styles.show}`}>
                 <p>
                   <CheckIcon />
                   Adicionado!

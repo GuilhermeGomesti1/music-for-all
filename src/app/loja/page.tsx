@@ -20,6 +20,8 @@ import { HeartIcon } from "../components/Icons/OtherIcons/heart";
 import { useRouter } from "next/router";
 import SigninButton from "../components/signinGoogle/signinButton";
 
+import Cartloja from "../components/Cartloja";
+
 export default function Loja() {
   const { productData, favoriteData } = useSelector(
     (state: StateProps) => state.next
@@ -78,7 +80,7 @@ export default function Loja() {
                 />
               </div>
               <IconWhatsappfixed />
-
+              <Cartloja />
               <div className={`${styles.textContent} animated-item`}>
                 <input
                   className={styles.serchProducts}
