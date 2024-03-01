@@ -109,19 +109,17 @@ export default function Carrinho() {
               <div className={styles.areaPgm}>
                 <CartPayment />
               </div>
-              <div>
-                {" "}
-                <div className={styles.divCardData}>
-                  <Image
-                    className={styles.dadoscartao}
-                    src={dadoscartao}
-                    alt="fake card"
-                    width={380}
-                    height={123}
-                    loading="lazy"
-                    placeholder="blur"
-                  />
-                </div>
+
+              <div className={styles.divCardData}>
+                <Image
+                  className={styles.dadoscartao}
+                  src={dadoscartao}
+                  alt="fake card"
+                  width={380}
+                  height={123}
+                  loading="lazy"
+                  placeholder="blur"
+                />
               </div>
             </>
           ) : (
