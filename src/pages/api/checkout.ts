@@ -67,7 +67,7 @@ export default async function handle(
       line_items: modifiedItems,
       mode: "payment",
       success_url: `${process.env.NEXTAUTH_URL}/success`,
-      cancel_url: `${process.env.NEXTAUTH_URL}/checkout`,
+      cancel_url: `${process.env.NEXTAUTH_URL}/carrinho`,
       metadata: {
         email,
         images: JSON.stringify(items.map((item: any) => item.image)),
