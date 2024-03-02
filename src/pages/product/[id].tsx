@@ -15,8 +15,23 @@ export default function ProductPage() {
     <>
       <Providers>
         <div>
-          <Products selectedProduct={product} />
-
+          {product && (
+            //<div className={styles.main}>
+            // <h1 className={styles.title}>{product.title}</h1>
+            // <div className={styles.imgProduct}>
+            //   <Image
+            //    width={300}
+            //    height={300}
+            //    src={product.image}
+            //    alt="productImage"
+            //    />
+            //   </div>
+            <div>
+              <Products selectedProduct={product} />
+            </div>
+            // {/* Restante do código... */}
+            //   </div>
+          )}
           {/* Restante do código... */}
         </div>
       </Providers>
