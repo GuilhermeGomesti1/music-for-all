@@ -97,6 +97,7 @@
     -webkit-box-orient: vertical;
   }
   .imgProduct {
+    margin-right: 1rem;
     margin-left: -2rem;
   }
   .titleproduct {
