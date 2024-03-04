@@ -87,9 +87,9 @@ export default function CartLoja() {
 
       {userInfo ? (
         <div className={styles.buttons}>
-          <button onClick={handleCheckOut} className={styles.button}>
-            Proseguir Comprando
-          </button>
+          <Link className={styles.button} href={"/carrinho"}>
+            <button className={styles.button}>Proseguir Comprando</button>{" "}
+          </Link>
           <p className={styles.textLogin}>
             <SigninButton />
           </p>
