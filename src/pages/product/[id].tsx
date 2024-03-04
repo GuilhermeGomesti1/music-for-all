@@ -73,9 +73,6 @@ export default function ProductPage() {
         )}
         {/* Restante do código... */}
       </div>
-      <div className={styles.footer}>
-        <Footer />
-      </div>
     </Providers>
   );
 }

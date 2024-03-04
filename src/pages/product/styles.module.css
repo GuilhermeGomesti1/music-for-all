@@ -31,7 +31,7 @@
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
-
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.082);
   transform: scale(0.9);
   transition-property: transform;
   transition-duration: 300ms;
@@ -110,9 +110,5 @@
     flex-grow: 1;
     margin-left: 0;
     max-width: 350px;
-  }
-  .footer {
-    padding-top: 1px;
-    background-color: rgb(0, 0, 0);
   }
 }
