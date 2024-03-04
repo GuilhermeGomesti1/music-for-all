@@ -6,6 +6,7 @@ import { persistor, store } from "@/store/store";
 import { PersistGate } from "redux-persist/integration/react";
 import Loja from "@/app/loja/page";
 import { SessionProvider } from "next-auth/react";
+import { Footer } from "@/app/components/Footer";
 
 export const Providers = ({ children }: { children: ReactNode }) => {
   return (

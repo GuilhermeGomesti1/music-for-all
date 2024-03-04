@@ -67,6 +67,7 @@
 
 @media (max-width: 768px) {
   .footer {
+    padding-top: 2rem;
     flex-direction: column;
     height: 300px;
     align-items: center;

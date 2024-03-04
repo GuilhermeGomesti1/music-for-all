@@ -111,4 +111,7 @@
     margin-left: 0;
     max-width: 350px;
   }
+  .footer {
+    display: none;
+  }
 }
