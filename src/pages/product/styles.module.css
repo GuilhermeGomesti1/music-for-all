@@ -53,6 +53,7 @@
   text-decoration: line-through;
 }
 .btnVoltar {
+  margin-top: -1rem;
   margin-left: -1.4rem;
   cursor: pointer;
   color: #56ac30;
