@@ -45,7 +45,7 @@ export function CartProducts({ item }: CartProductsProps) {
           <p className={styles.titleproduct}>{item.title} </p>
           <p className={styles.descriptionproduct}>{item.description} </p>
           <p className={styles.descriptionproduct}>
-            Preço{" "}
+            Preço:{" "}
             <span className={styles.price}>
               <FmtPrice amount={item.price} />
             </span>

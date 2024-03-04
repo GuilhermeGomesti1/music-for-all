@@ -23,6 +23,7 @@
 }
 
 .titleproduct {
+  color: #666666;
   font-size: 1.125rem;
   font-weight: 600;
 }
@@ -101,6 +102,7 @@
     margin-left: -2rem;
   }
   .titleproduct {
+    color: #666666;
     margin-left: -2.5rem;
     width: 155px;
     font-size: 1rem;

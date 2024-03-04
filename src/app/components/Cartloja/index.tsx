@@ -34,6 +34,10 @@ export default function CartLoja() {
     const stripe = await stripePromise;
     if (!productData || !productData.length || !session?.user?.email) {
       console.error("Invalid data for checkout");
+      alert(
+        "Erro no checkout. Por favor, verifique os dados e tente novamente."
+      );
+
       return;
     }
     const requestHeaders = { "Content-type": "application/json" };
@@ -67,7 +71,7 @@ export default function CartLoja() {
       <div className={styles.divprincipal}>
         <Link
           href="/carrinho" //carrinho
-          className={styles.aContainer}
+          className={styles.anpmContainer}
           title="Minhas compras"
         >
           Ir para o carrinho <CartIcon />{" "}

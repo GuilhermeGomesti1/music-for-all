@@ -1,3 +1,4 @@
+"use client";
 import { useRouter } from "next/router";
 import styles from "./styles.module.css";
 import Image from "next/image";
@@ -6,6 +7,7 @@ import Products from "@/app/components/Products";
 import FormattedAmount from "../../app/components/FmtPrice";
 import Link from "next/link";
 import { BackLoja } from "@/app/components/Icons/OtherIcons/backloja";
+import { Footer } from "@/app/components/Footer";
 export default function ProductPage() {
   const router = useRouter();
 
@@ -70,6 +72,9 @@ export default function ProductPage() {
           </>
         )}
         {/* Restante do código... */}
+      </div>
+      <div className={styles.footer}>
+        <Footer />
       </div>
     </Providers>
   );

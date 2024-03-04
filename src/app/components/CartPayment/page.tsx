@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import SigninButton from "../signinGoogle/signinButton";
 import { loadStripe } from "@stripe/stripe-js";
 import { useSession } from "next-auth/react";
-
+import { toast } from "react-toastify";
 export default function CartPayment() {
   const { productData, userInfo } = useSelector(
     (state: StateProps) => state.next
@@ -32,6 +32,8 @@ export default function CartPayment() {
     const stripe = await stripePromise;
     if (!productData || !productData.length || !session?.user?.email) {
       console.error("Invalid data for checkout");
+      toast.error("Faça o login primeiro para continuar.");
+
       return;
     }
     const requestHeaders = { "Content-type": "application/json" };
