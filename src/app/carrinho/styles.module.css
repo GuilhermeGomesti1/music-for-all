@@ -139,7 +139,21 @@
 .btnVoltar:hover {
   transform: scale(1.05);
 }
-
+.btnVoltar1 {
+  margin-top: 1rem;
+  cursor: pointer;
+  color: #56ac30;
+  border: none;
+  width: 12rem;
+  height: 2.5rem;
+  font-weight: 800;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+.btnVoltar1:hover {
+  transform: scale(1.05);
+}
 @media (max-width: 768px) {
   .main {
     background-color: #d4d4d4;

@@ -134,8 +134,8 @@ export default function Carrinho() {
             <div className={styles.vazio}>
               <h1 className={styles.text}>Seu carrinho está vazio!</h1>
               <Link href={"/loja"}>
-                <button className={styles.buttonVoltar}>
-                  Voltar as compras
+                <button className={styles.btnVoltar1}>
+                  <BackLoja /> Voltar para a loja
                 </button>
               </Link>
             </div>
