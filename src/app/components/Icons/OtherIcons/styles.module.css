@@ -116,6 +116,14 @@
   font-size: 0.875rem;
   color: white;
 }
+.backLoja {
+  border: none;
+  background-color: transparent;
+  font-size: 25px;
+
+  color: #0a9745;
+  vertical-align: middle;
+}
 @media (max-width: 768px) {
   .DeleteIcon {
     background-color: transparent;

@@ -3,7 +3,9 @@ import styles from "./styles.module.css";
 import Image from "next/image";
 import { Providers } from "@/providers";
 import Products from "@/app/components/Products";
-
+import FormattedAmount from "../../app/components/FmtPrice";
+import Link from "next/link";
+import { BackLoja } from "@/app/components/Icons/OtherIcons/backloja";
 export default function ProductPage() {
   const router = useRouter();
 
@@ -12,29 +14,63 @@ export default function ProductPage() {
     : null;
 
   return (
-    <>
-      <Providers>
-        <div>
-          {product && (
-            //<div className={styles.main}>
-            // <h1 className={styles.title}>{product.title}</h1>
-            // <div className={styles.imgProduct}>
-            //   <Image
-            //    width={300}
-            //    height={300}
-            //    src={product.image}
-            //    alt="productImage"
-            //    />
-            //   </div>
-            <div>
+    <Providers>
+      <div>
+        {product && (
+          <>
+            <div className={styles.main}>
+              <div className={styles.column}>
+                <h1 className={styles.title}>{product.title}</h1>
+                <div className={styles.imgProduct}>
+                  <Image
+                    width={500}
+                    height={500}
+                    src={product.image}
+                    alt="productImage"
+                  />
+                </div>
+              </div>
+              <div className={styles.divDescription}>
+                <span className={styles.titleDescription}>
+                  Informações do produto
+                </span>
+                <p className={styles.description}>{product.description}</p>
+
+                <p className={styles.description}>
+                  <span className={styles.titleDescription}>Categoria: </span>
+                  {product.category}
+                </p>
+
+                <p className={styles.description}>
+                  {" "}
+                  <span className={styles.titleDescription}>Marca: </span>
+                  {product.brand}
+                </p>
+                <p className={styles.pprice}>
+                  De
+                  <span className={styles.spanprice}>
+                    <FormattedAmount amount={product.oldPrice} />
+                  </span>
+                  Por
+                  <span>
+                    {" "}
+                    <FormattedAmount amount={product.price} />
+                  </span>
+                </p>
+                <Link href={"/loja"}>
+                  <button className={styles.btnVoltar}>
+                    <BackLoja /> Voltar para a loja
+                  </button>
+                </Link>
+              </div>
+            </div>
+            <div className={styles.productCard}>
               <Products selectedProduct={product} />
             </div>
-            // {/* Restante do código... */}
-            //   </div>
-          )}
-          {/* Restante do código... */}
-        </div>
-      </Providers>
-    </>
+          </>
+        )}
+        {/* Restante do código... */}
+      </div>
+    </Providers>
   );
 }

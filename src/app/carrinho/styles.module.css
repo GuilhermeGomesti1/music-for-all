@@ -122,6 +122,24 @@
 }
 .dadoscartao {
 }
+.bottons {
+  display: inline-block;
+}
+.btnVoltar {
+  cursor: pointer;
+  color: #56ac30;
+  border: none;
+  width: 11rem;
+  height: 2.5rem;
+  font-weight: 600;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+.btnVoltar:hover {
+  transform: scale(1.05);
+}
+
 @media (max-width: 768px) {
   .main {
     background-color: #d4d4d4;

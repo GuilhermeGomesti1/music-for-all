@@ -16,6 +16,7 @@ import Link from "next/link";
 import CartPayment from "../components/CartPayment/page";
 import SigninButton from "../components/signinGoogle/signinButton";
 import { CartIcon } from "../components/Icons/OtherIcons/cartIcon";
+import { BackLoja } from "../components/Icons/OtherIcons/backloja";
 interface StoreProduct {
   category: string;
   description: string;
@@ -102,7 +103,14 @@ export default function Carrinho() {
                       />
                     </div>
                   ))}
-                  <ResetCart />
+                  <div className={styles.bottons}>
+                    <ResetCart />
+                    <Link href={"/loja"}>
+                      <button className={styles.btnVoltar}>
+                        <BackLoja /> Voltar para a loja
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
 
