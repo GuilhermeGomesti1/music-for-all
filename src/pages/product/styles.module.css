@@ -6,7 +6,11 @@
   align-items: flex-start;
   margin-right: auto;
 }
+.blockDisplay {
+  display: block;
+}
 .productCard {
+  display: flex;
   margin-top: -35rem;
   margin-right: -50%;
   margin-left: 75%;
