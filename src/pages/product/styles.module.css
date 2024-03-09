@@ -94,12 +94,6 @@
   transform: scale(1.05);
 }
 @media (max-width: 768px) {
-  .all {
-    align-items: center;
-    justify-content: center;
-
-    padding: 0;
-  }
   .main {
     margin-right: auto;
     flex-direction: column;
