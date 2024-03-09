@@ -1,6 +1,9 @@
+.all {
+  margin: -1rem;
+}
 .main {
   margin-top: 4rem;
-  margin-left: 8rem;
+  margin-left: 3rem;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -10,8 +13,8 @@
   display: block;
 }
 .productCard {
-  margin-top: -35rem;
-
+  margin-top: -38.5rem;
+  margin-right: 4rem;
   align-items: center;
   justify-content: center;
   margin-left: auto;
@@ -92,17 +95,25 @@
   transform: scale(1.05);
 }
 @media (max-width: 768px) {
+  .all {
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+  }
   .main {
+    margin-right: auto;
     flex-direction: column;
     align-items: center;
     margin-left: auto;
   }
   .productCard {
     width: 350px;
+    margin-top: 0;
     margin-left: auto;
     margin-right: auto;
     z-index: 3;
-    margin: 0;
+
     margin-bottom: 4rem;
     padding: 0;
   }
@@ -124,6 +135,5 @@
     max-width: 350px;
   }
   .footer {
-    display: none;
   }
 }
