@@ -67,13 +67,14 @@
   }
 
   .button {
+    justify-content: center;
     margin-right: auto;
     margin-left: auto;
     color: white;
     background-color: #55ac30ad;
     cursor: pointer;
     border-radius: 4px;
-    width: 100%;
+    width: 90%;
     height: 2.5rem;
     font-size: 0.875rem;
     font-weight: 600;
