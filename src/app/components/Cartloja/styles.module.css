@@ -11,7 +11,7 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 95%;
+    width: 91%;
     background-color: white;
     padding: 1rem;
     z-index: 1000;
@@ -68,13 +68,12 @@
 
   .button {
     justify-content: center;
-    margin-right: auto;
-    margin-left: auto;
+
     color: white;
     background-color: #55ac30ad;
     cursor: pointer;
     border-radius: 4px;
-    width: 90%;
+    width: 100%;
     height: 2.5rem;
     font-size: 0.875rem;
     font-weight: 600;
