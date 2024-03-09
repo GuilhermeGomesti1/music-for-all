@@ -2,8 +2,7 @@
   padding-left: 1rem;
   padding-right: 1rem;
   display: grid;
-  align-items: center;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.2rem;
 }
 .productsNoGrid {
@@ -156,6 +155,8 @@
 
 @media (min-width: 1024px) {
   .products {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.2rem;
   }
 }
 @media (max-width: 768px) {
