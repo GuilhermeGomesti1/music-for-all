@@ -60,7 +60,7 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
   }, [showMessageMap]);
 
   return (
-    <div className={styles.products}>
+    <div className={selectedProduct ? styles.productsNoGrid : styles.products}>
       {products
         .filter((product) =>
           selectedProduct

@@ -8,6 +8,7 @@ import FormattedAmount from "../../app/components/FmtPrice";
 import Link from "next/link";
 import { BackLoja } from "@/app/components/Icons/OtherIcons/backloja";
 import { Footer } from "@/app/components/Footer";
+
 export default function ProductPage() {
   const router = useRouter();
 

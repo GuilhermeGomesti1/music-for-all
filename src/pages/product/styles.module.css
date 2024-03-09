@@ -10,10 +10,13 @@
   display: block;
 }
 .productCard {
-  display: flex;
   margin-top: -35rem;
-  margin-right: -50%;
-  margin-left: 75%;
+
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  display: flex;
+  width: 400px;
 }
 .column {
   justify-content: center;
@@ -95,6 +98,8 @@
     margin-left: auto;
   }
   .productCard {
+    margin-left: auto;
+    margin-right: auto;
     z-index: 3;
     margin: 0;
     margin-bottom: 4rem;
