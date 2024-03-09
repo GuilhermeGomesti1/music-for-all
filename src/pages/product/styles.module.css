@@ -95,18 +95,16 @@
 }
 @media (max-width: 768px) {
   .main {
-    margin-right: auto;
     flex-direction: column;
     align-items: center;
     margin-left: auto;
   }
   .productCard {
     width: 350px;
-    margin-top: 0;
     margin-left: auto;
     margin-right: auto;
     z-index: 3;
-
+    margin: 0;
     margin-bottom: 4rem;
     padding: 0;
   }
@@ -114,7 +112,6 @@
     font-size: 1.5rem;
     margin-top: -3rem;
   }
-
   .imgProduct {
     padding: 0;
     display: none;
@@ -128,5 +125,6 @@
     max-width: 350px;
   }
   .footer {
+    display: none;
   }
 }
