@@ -82,7 +82,7 @@
 @media (max-width: 768px) {
   .divCartProducts {
     margin: 0;
-    width: 100vw;
+    width: 90vw;
     background-color: white;
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;

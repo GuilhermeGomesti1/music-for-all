@@ -81,8 +81,10 @@
     left: 0;
     width: 91%;
     background-color: white;
-    padding: 1rem;
+    margin-right: auto;
+    margin-left: auto;
     z-index: 0.9;
+    padding-top: 1rem;
   }
   .textLogin {
     background-color: white;
