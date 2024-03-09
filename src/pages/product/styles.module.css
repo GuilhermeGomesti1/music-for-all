@@ -1,5 +1,6 @@
 .all {
-  margin: -1rem;
+  min-height: 100%;
+  min-width: 100%;
 }
 .main {
   margin-top: 4rem;
