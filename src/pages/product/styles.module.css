@@ -98,6 +98,7 @@
     margin-left: auto;
   }
   .productCard {
+    width: 350px;
     margin-left: auto;
     margin-right: auto;
     z-index: 3;
