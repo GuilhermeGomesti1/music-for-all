@@ -57,7 +57,7 @@ export function Footer() {
     alert("Endereço copiado para a área de transferência: " + address);
   };
   return (
-    <div className={styles.footer}>
+    <div className={`${styles.footer} animated-item`}>
       <div>
         <Image
           className={`${styles.img} animated-item`}
