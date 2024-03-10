@@ -67,7 +67,7 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
 
         const sr = ScrollReveal({
           duration: 1000,
-          reset: false,
+          reset: true,
           // Outras opções de configuração aqui
         });
 
