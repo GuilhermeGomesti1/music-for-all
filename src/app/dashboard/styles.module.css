@@ -1,146 +1,141 @@
 .containerViolao {
-    width: 100%;
-    max-width: 100%;
-    position: relative;
-  }
-  
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+.img {
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
+  margin: 0 auto;
+  max-height: 507px;
+  width: 100%;
+  display: flex;
+}
+.itemContato {
+  list-style: none;
+}
+.violaoContainer {
+  display: none;
+}
+
+.titlesection {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.formContainer {
+  align-items: center;
+  margin: 0 auto;
+  width: 30%;
+  padding: 15px;
+  background: linear-gradient(to bottom, white, #fad7cf);
+  border-radius: 4px;
+}
+
+.formlabel {
+  text-align: left;
+  display: block;
+  margin-bottom: 5px;
+  white-space: nowrap;
+}
+
+.formInput {
+  width: 95%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.formButton {
+  background-color: #d14029;
+  color: #fff;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 50%;
+  margin-left: 25%;
+  transition: background-color 0.3s;
+}
+
+.formButton:hover {
+  background-color: #fa0875;
+  transition: background-color 0.3s ease;
+}
+
+.buttonLogout {
+  background-color: #d14029;
+  color: #fff;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100px;
+  margin-left: 25%;
+  transition: background-color 0.3s;
+}
+
+.buttonLogout:hover {
+  background-color: #fa0875;
+  transition: background-color 0.3s ease;
+}
+
+.subtitleButton {
+  background-color: #d14029;
+  color: #fff;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 50%;
+  margin-left: 25%;
+  transition: background-color 0.3s;
+}
+
+.subtitleButton:hover {
+  background-color: #fa0875;
+  transition: background-color 0.3s ease;
+}
+.beneficiosAluno {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
   .img {
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
-    margin: 0 auto;
-    max-height: 507px;
-    width: 100vw;
-    display: flex;
-  }
-.itemContato{list-style: none;}
-  .violaoContainer {
     display: none;
   }
 
-  .titlesection {
-    text-align: center;
-    margin: 0 auto;
-    font-size: 1.2rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+  .violaoContainer {
+    display: flex;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
+    min-width: 100%;
   }
-
 
   .formContainer {
     align-items: center;
-    margin: 0 auto;
-    width: 30%;
+    float: none;
+    width: 80%;
     padding: 15px;
-    background: linear-gradient(to bottom, white, #FAD7CF);
-  border-radius: 4px;
   }
 
-
-
-.formlabel {
-    text-align: left;
-    display: block;
-    margin-bottom: 5px;
-    white-space: nowrap;
+  .img2 {
+    margin-top: 2rem;
+    max-width: 390px;
+    height: 295px;
   }
-  
-  .formInput {
-    width: 95%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+  .facalogintext {
+    text-align: justify;
+    font-size: 0.9rem;
   }
-
-
-
-.formButton {
-    background-color:#d14029 ;
-    color: #fff;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 4px;
-    width: 50%;
-    margin-left: 25%;
-    transition: background-color   0.3s;
-  }
-  
-  .formButton:hover {
-    background-color:#fa0875 ;
-    transition: background-color 0.3s ease;
-  }
-
-  .buttonLogout{
-    background-color:#d14029 ;
-    color: #fff;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 4px;
-    width: 100px;
-    margin-left: 25%;
-    transition: background-color   0.3s;
-  }
-
-  .buttonLogout:hover{
-    background-color:#fa0875 ;
-    transition: background-color 0.3s ease;
-  }
-
-  .subtitleButton{
-    background-color:#d14029 ;
-    color: #fff;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 4px;
-    width: 50%;
-    margin-left: 25%;
-    transition: background-color   0.3s;
-  }
-
-  .subtitleButton:hover{
-    background-color:#fa0875 ;
-    transition: background-color 0.3s ease;
-  }
-  .beneficiosAluno{
-    text-align: center; 
-    margin: 0 auto; 
-    width: 100%; 
-    margin-top: 1rem;
-  }
-
-  
-  /* Mobile */
-@media (max-width: 768px) {
- 
-    .img {
-        display: none;
-      }
-    
-      .violaoContainer {
-        display: flex;
-        width: auto;
-        height: auto;
-        max-width: 100%;
-        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
-        min-width: 100%;
-      }
-
-      .formContainer {
-        align-items: center;
-        float: none;
-        width: 80%;
-        padding: 15px;
-      }
-
-      .img2{
-        margin-top: 2rem;
-        max-width: 390px;
-        height: 295px;
-  
-      }
-    .facalogintext{text-align: justify;
-      font-size: 0.9rem;
-    }
 }
