@@ -1,4 +1,5 @@
 "use client";
+import "../../app/globals.css";
 import { useRouter } from "next/router";
 import styles from "./styles.module.css";
 import Image from "next/image";

@@ -1,6 +1,8 @@
 .all {
+  width: 100%;
 }
 .main {
+  margin-bottom: 2rem;
   margin-top: 4rem;
   margin-left: 3rem;
   display: flex;
@@ -12,7 +14,8 @@
   display: block;
 }
 .productCard {
-  margin-top: -38.5rem;
+  padding-bottom: 2rem;
+  margin-top: -37.5rem;
   margin-right: 4rem;
   align-items: center;
   justify-content: center;
