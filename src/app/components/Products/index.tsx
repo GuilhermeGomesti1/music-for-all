@@ -50,17 +50,6 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
   }, []);
 
   useEffect(() => {
-    // Recuperar os dados do Local Storage ao carregar a página
-    const storedShowMessageMap = JSON.parse(
-      localStorage.getItem("showMessageMap") || "{}"
-    );
-    setShowMessageMap(storedShowMessageMap);
-  }, []);
-  useEffect(() => {
-    localStorage.setItem("showMessageMap", JSON.stringify(showMessageMap));
-  }, [showMessageMap]);
-
-  useEffect(() => {
     if (typeof window !== "undefined") {
       // O código abaixo será executado apenas no navegador
       import("scrollreveal").then((ScrollRevealModule) => {
@@ -68,7 +57,7 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
 
         const sr = ScrollReveal({
           duration: 1000,
-          reset: true,
+          reset: false,
           // Outras opções de configuração aqui
         });
 
@@ -79,7 +68,17 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
         });
       });
     }
+  }, [products]);
+  useEffect(() => {
+    // Recuperar os dados do Local Storage ao carregar a página
+    const storedShowMessageMap = JSON.parse(
+      localStorage.getItem("showMessageMap") || "{}"
+    );
+    setShowMessageMap(storedShowMessageMap);
   }, []);
+  useEffect(() => {
+    localStorage.setItem("showMessageMap", JSON.stringify(showMessageMap));
+  }, [showMessageMap]);
 
   return (
     <div className={selectedProduct ? styles.productsNoGrid : styles.products}>

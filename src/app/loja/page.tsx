@@ -109,6 +109,7 @@ export default function Loja() {
                   </p>
                 </div>
               </div>
+
               <Products />
 
               <div className={styles.form}>
