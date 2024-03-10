@@ -8,7 +8,7 @@
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
   margin: 0 auto;
   max-height: 507px;
-  width: 100vw;
+  width: 99vw;
   display: flex;
 }
 
@@ -103,7 +103,8 @@
     align-items: center;
   }
 
-  .fotocurso { margin-left: auto;
+  .fotocurso {
+    margin-left: auto;
     margin-right: auto;
     margin-top: 1rem;
     width: 350px;
