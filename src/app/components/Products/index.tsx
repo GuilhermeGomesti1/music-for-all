@@ -48,6 +48,7 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
 
     fetchProducts();
   }, []);
+
   useEffect(() => {
     // Recuperar os dados do Local Storage ao carregar a página
     const storedShowMessageMap = JSON.parse(
@@ -67,7 +68,7 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
 
         const sr = ScrollReveal({
           duration: 1000,
-          reset: false,
+          reset: true,
           // Outras opções de configuração aqui
         });
 
