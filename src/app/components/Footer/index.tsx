@@ -60,14 +60,14 @@ export function Footer() {
     <div className={`${styles.footer} animated-item`}>
       <div>
         <Image
-          className={`${styles.img} animated-item`}
+          className={styles.img}
           src={logofooter}
           alt="Logotipo Music For All"
           width={120}
           height={130}
         />
       </div>
-      <div className={`${styles.contatos} animated-item`}>
+      <div className={styles.contatos}>
         <ul className={styles.contatosList}>
           <li className={styles.itemContato}>
             <IconInstagram className={styles.iconFooter} />
@@ -92,7 +92,7 @@ export function Footer() {
         </ul>
       </div>
 
-      <div className={`${styles.divContact} animated-item`}>
+      <div className={styles.divContact}>
         <ul>
           <li
             className={styles.itemContato}
