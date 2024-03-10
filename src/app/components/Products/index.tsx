@@ -59,6 +59,27 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
     localStorage.setItem("showMessageMap", JSON.stringify(showMessageMap));
   }, [showMessageMap]);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // O código abaixo será executado apenas no navegador
+      import("scrollreveal").then((ScrollRevealModule) => {
+        const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
+
+        const sr = ScrollReveal({
+          duration: 1000,
+          reset: false,
+          // Outras opções de configuração aqui
+        });
+
+        sr.reveal(".animated-item", {
+          origin: "bottom",
+          distance: "20px",
+          easing: "ease-in-out",
+        });
+      });
+    }
+  }, []);
+
   return (
     <div className={selectedProduct ? styles.productsNoGrid : styles.products}>
       {products
@@ -68,7 +89,10 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
             : true
         )
         .map((product) => (
-          <div key={product._id} className={styles.listaProducts}>
+          <div
+            key={product._id}
+            className={`${styles.listaProducts} animated-item`}
+          >
             <div>
               <Link
                 href={`/product/${product._id}?product=${JSON.stringify(
