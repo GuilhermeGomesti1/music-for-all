@@ -103,11 +103,12 @@
     margin-left: auto;
   }
   .productCard {
-    width: 350px;
+    align-items: center;
+    width: 80vw;
     margin-left: auto;
     margin-right: auto;
     z-index: 3;
-    margin: 0;
+    margin-top: 0;
     margin-bottom: 4rem;
     padding: 0;
   }
@@ -126,8 +127,5 @@
     flex-grow: 1;
     margin-left: 0;
     max-width: 350px;
-  }
-  .footer {
-    display: none;
   }
 }
