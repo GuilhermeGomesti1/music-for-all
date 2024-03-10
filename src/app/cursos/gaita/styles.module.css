@@ -1,163 +1,142 @@
-.containerViolao{
-    width: 100%;
-    max-width: 100%;
-    position: relative;
-   
-  }
+.containerViolao {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
 
-  
-  .img {box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
-    margin: 0 auto;
+.img {
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
+  margin: 0 auto;
   max-height: 507px;
-  width: 100vw;
-  display: flex;}
-  
-    .violaoContainer { display: none;
-     
-    }
+  width: 99vw;
+  display: flex;
+}
 
-  .cursodegaita{  clear: both;
-    margin-left: 6rem;
-    margin-right: 6rem;
-    text-align: center;
-    text-align: justify;
-    text-decoration: none;
-    justify-content: space-between;
-  }
+.violaoContainer {
+  display: none;
+}
 
-  .textContainer {
-    float: left;
-    width: 60%; 
-    margin-right: 1rem; 
-  }
+.cursodegaita {
+  clear: both;
+  margin-left: 6rem;
+  margin-right: 6rem;
+  text-align: center;
+  text-align: justify;
+  text-decoration: none;
+  justify-content: space-between;
+}
 
-  .imageContainer {
-    float: right;
-    width: 30%; 
-    align-items: center;
-  }
+.textContainer {
+  float: left;
+  width: 60%;
+  margin-right: 1rem;
+}
 
-  .fotocurso{
-    margin-left: 1rem;
-    max-width: 100%;
-    width: 420px;
-    height: 282px;
-   
-    
-  }
+.imageContainer {
+  float: right;
+  width: 30%;
+  align-items: center;
+}
 
-  .title{
-    
-   
-    font-size: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    text-shadow: rgba(0, 0, 0, 0.151) 0.1em 0.1em 0.2em
-  }
+.fotocurso {
+  margin-left: 1rem;
+  max-width: 100%;
+  width: 420px;
+  height: 282px;
+}
 
-  .item{
-    font-size: bolder;
-  }
+.title {
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  text-shadow: rgba(0, 0, 0, 0.151) 0.1em 0.1em 0.2em;
+}
 
-  .apresentacao{ text-decoration: none; 
-    list-style-type: none;
-    font-size: 1.2rem;
-    margin-bottom: 1rem
-  }
+.item {
+  font-size: bolder;
+}
 
-  .subtitle{
-   font-size: 1rem;
-    text-shadow: rgba(0, 0, 0, 0.048) 0.1em 0.1em 0.2em;
-    margin-bottom: 0.2rem;
-  }
+.apresentacao {
+  text-decoration: none;
+  list-style-type: none;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
 
-
+.subtitle {
+  font-size: 1rem;
+  text-shadow: rgba(0, 0, 0, 0.048) 0.1em 0.1em 0.2em;
+  margin-bottom: 0.2rem;
+}
 
 /* Mobile */
 @media (max-width: 768px) {
-  .cursodegaita{ flex-direction: column;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  align-items: center;
-  width: 100%;
+  .cursodegaita {
+    flex-direction: column;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    align-items: center;
+    width: 100%;
   }
 
+  .img {
+    display: none;
+  }
 
-
-  .img{display: none;}
-
-
-  .violaoContainer{
+  .violaoContainer {
     display: flex;
     width: auto;
     height: auto;
     max-width: 100%;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
-    
   }
-  
-
 
   .textContainer {
     float: none;
     width: 90%;
-   
   }
 
   .imageContainer {
     float: none;
-    
+
     width: 90%;
-    
+
     align-items: center;
     justify-content: center;
-    
   }
 
-  .fotocurso{
+  .fotocurso {
     margin-top: 1rem;
     width: 350px;
     height: 235px;
     align-items: center;
     justify-content: center;
-   text-align: center;
-   margin-left: auto;
-   margin-right: auto;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  
-  .title{
+  .title {
     text-align: center;
     width: 90%;
     font-size: 1.2rem;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
-    text-shadow: rgba(0, 0, 0, 0.151) 0.1em 0.1em 0.2em
+    text-shadow: rgba(0, 0, 0, 0.151) 0.1em 0.1em 0.2em;
   }
 
-  .item{
+  .item {
     font-size: bolder;
   }
 
-  .apresentacao{
+  .apresentacao {
     font-size: 0.8rem;
-    margin-bottom: 1rem
+    margin-bottom: 1rem;
   }
 
-  .subtitle{
-   font-size: 0.8rem;
+  .subtitle {
+    font-size: 0.8rem;
     text-shadow: rgba(0, 0, 0, 0.048) 0.1em 0.1em 0.2em;
     margin-bottom: 0.2rem;
   }
-
-  
-
-
-
-
-
-
-
-
-
 }
