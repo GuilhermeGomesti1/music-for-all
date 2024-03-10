@@ -68,7 +68,7 @@
 .iconWhatsappfixed {
   color: white;
   font-size: 60px;
-
+  padding-right: 0;
   position: fixed;
   bottom: 0px;
   right: 0px;

@@ -57,17 +57,17 @@ export function Footer() {
     alert("Endereço copiado para a área de transferência: " + address);
   };
   return (
-    <div className={`${styles.footer} animated-item`}>
+    <div className={styles.footer}>
       <div>
         <Image
-          className={styles.img}
+          className={`${styles.img} animated-item`}
           src={logofooter}
           alt="Logotipo Music For All"
           width={120}
           height={130}
         />
       </div>
-      <div className={styles.contatos}>
+      <div className={`${styles.contatos} animated-item`}>
         <ul className={styles.contatosList}>
           <li className={styles.itemContato}>
             <IconInstagram className={styles.iconFooter} />
@@ -92,7 +92,7 @@ export function Footer() {
         </ul>
       </div>
 
-      <div className={styles.divContact}>
+      <div className={`${styles.divContact} animated-item`}>
         <ul>
           <li
             className={styles.itemContato}

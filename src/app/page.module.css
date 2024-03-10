@@ -6,7 +6,6 @@
   justify-content: center;
 }
 
-
 .containerHeader {
   margin: 0 auto;
   max-width: 1200px;
@@ -16,6 +15,7 @@
 }
 
 .img {
+  width: 100vw;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
   margin: 0 auto;
   max-height: 507px;
@@ -26,7 +26,9 @@
   display: none;
 }
 
-.agendarMobile{display: none;}
+.agendarMobile {
+  display: none;
+}
 
 .buttonGroup {
   display: flex;
@@ -103,8 +105,9 @@
   padding-top: 2rem;
 }
 
-.cursosSection {max-width: 1350px;
- margin: 0 auto;
+.cursosSection {
+  max-width: 1350px;
+  margin: 0 auto;
 
   display: flex;
   flex-wrap: wrap;
@@ -124,12 +127,10 @@
 }
 
 .curso:hover {
- 
   filter: brightness(1.2);
-
-
 }
-.divTitle {visibility: hidden;
+.divTitle {
+  visibility: hidden;
   margin-left: 0 auto;
   text-align: center;
   justify-content: center;
@@ -393,7 +394,8 @@
     height: 235px;
   }
 
-  .textoCursos {color: black;
+  .textoCursos {
+    color: black;
     font-size: 1rem;
     margin-top: 3rem;
     margin-bottom: -6.5rem;
@@ -501,66 +503,69 @@
   }
 
   .agendaraula {
-  display: none;
+    display: none;
   }
 
   .agendar {
-   display: none;
+    display: none;
   }
 
-  .agendarMobile{ margin-bottom: -4rem;
-    display: flex; width: 100%;
+  .agendarMobile {
+    margin-bottom: -4rem;
+    display: flex;
+    width: 100%;
     max-width: 100%;
     position: relative;
     margin-top: 4rem;
-  padding-top: 4rem;
-padding-bottom: 2rem;}
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+  }
 
-    .buttonPresencialmobile {
-      border: none;
-      font-size: 1rem;
-      width: 170px;
-      padding: 15px;
-      line-height: 0.5;
-      cursor: pointer;
-      box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.103);
-      color: white;
-      background: #f34e24;
-      position: absolute;
-      top: 70%; /* ajuste a posição vertical conforme necessário */
-      left: 20px; /* ajuste a posição horizontal conforme necessário */
-      transform: translateY(-50%);
-      border-radius: 4px;
-      box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.103);
-    }
-    .buttonPresencialmobile:hover {
-      background-color: #f34d24ad;
-      transition: background-color 1s ease;
-    }
-    .buttonOnlinemobile {
-      font-size: 1rem;
-      width: 170px;
-      padding: 15px;
-      line-height: 0.5;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.103);
-      color: white;
-      background: #56ac30;
-      position: absolute;
-  top: 70%; /* ajuste a posição vertical conforme necessário */
-  right: 20px; /* ajuste a posição horizontal conforme necessário */
-  transform: translateY(-50%);
-  border-radius: 4px;
-  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.103);
-    }
-    
-    .buttonOnlinemobile:hover {
-      background-color: #55ac30cb;
-      transition: background-color 1s ease;
-    }
-    
+  .buttonPresencialmobile {
+    border: none;
+    font-size: 1rem;
+    width: 170px;
+    padding: 15px;
+    line-height: 0.5;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.103);
+    color: white;
+    background: #f34e24;
+    position: absolute;
+    top: 70%; /* ajuste a posição vertical conforme necessário */
+    left: 20px; /* ajuste a posição horizontal conforme necessário */
+    transform: translateY(-50%);
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.103);
+  }
+  .buttonPresencialmobile:hover {
+    background-color: #f34d24ad;
+    transition: background-color 1s ease;
+  }
+  .buttonOnlinemobile {
+    font-size: 1rem;
+    width: 170px;
+    padding: 15px;
+    line-height: 0.5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.103);
+    color: white;
+    background: #56ac30;
+    position: absolute;
+    top: 70%; /* ajuste a posição vertical conforme necessário */
+    right: 20px; /* ajuste a posição horizontal conforme necessário */
+    transform: translateY(-50%);
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.103);
+  }
+
+  .buttonOnlinemobile:hover {
+    background-color: #55ac30cb;
+    transition: background-color 1s ease;
+  }
+
   .contatos {
     display: flex;
     justify-content: space-between;

@@ -2,6 +2,7 @@
   display: none;
 }
 .facaparte {
+  width: 100vw;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.185);
 }
 
@@ -21,7 +22,8 @@
   margin-right: 4rem;
 }
 
-.videoAndText { margin-top: 2rem;
+.videoAndText {
+  margin-top: 2rem;
   max-width: 1200px;
   display: flex;
   flex-direction: row;
@@ -47,14 +49,14 @@
   max-width: 100%;
 }
 
-.cliqueaqui{
+.cliqueaqui {
   color: #f34e24;
   font-size: 1rem;
   font-weight: bolder;
   text-decoration: none;
   transition: color 0.3s;
 }
-.cliqueaqui:hover{
+.cliqueaqui:hover {
   color: #f15074;
   transition: color 0.3s ease;
   text-decoration: none;
@@ -122,5 +124,4 @@
     max-width: 320px;
     max-height: 200px;
   }
-
 }
