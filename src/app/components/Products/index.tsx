@@ -1,6 +1,5 @@
-"use client";
 import styles from "./styles.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { StoreProduct } from "../../../../type.d";
 import Image from "next/image";
 import { CartIcon } from "../Icons/OtherIcons/cartIcon";
@@ -39,7 +38,6 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
         const res = await fetch("https://fakestoreapiserver.reactbd.com/tech");
         const data = await res.json();
         setProducts(data);
-        console.log(products);
       } catch (error) {
         console.error("Erro ao buscar produtos:", error);
         setProducts([]);
@@ -56,29 +54,11 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
     );
     setShowMessageMap(storedShowMessageMap);
   }, []);
+
   useEffect(() => {
     localStorage.setItem("showMessageMap", JSON.stringify(showMessageMap));
   }, [showMessageMap]);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      import("scrollreveal").then((ScrollRevealModule) => {
-        const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
-
-        const sr = ScrollReveal({
-          duration: 1000,
-          reset: true,
-          // Outras opções de configuração aqui
-        });
-
-        sr.reveal(".animated-item", {
-          origin: "bottom",
-          distance: "20px",
-          easing: "ease-in-out",
-        });
-      });
-    }
-  }, []);
   return (
     <div className={selectedProduct ? styles.productsNoGrid : styles.products}>
       {products
@@ -88,135 +68,169 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
             : true
         )
         .map((product) => (
-          <div
+          <AnimatedProductItem
             key={product._id}
-            className={`${styles.listaProducts} animated-item`}
-          >
-            <div>
-              <Link
-                href={`/product/${product._id}?product=${JSON.stringify(
-                  product
-                )}`}
-              >
-                <Image
-                  width={300}
-                  height={300}
-                  src={product.image}
-                  className={styles.imgproducts}
-                  alt="productImage"
-                />
-              </Link>
-              <div className={styles.divSpan}>
-                <span
-                  onClick={() => {
-                    dispatch(
-                      addToCart({
-                        _id: product._id,
-                        brand: product.brand,
-                        category: product.category,
-                        description: product.description,
-                        image: product.image,
-                        isNew: product.isNew,
-                        oldPrice: product.oldPrice,
-                        price: product.price,
-                        title: product.title,
-                        quantity: 1,
-                      })
-                    );
-
-                    setShowMessageMap((prevShowMessageMap) => ({
-                      ...prevShowMessageMap,
-                      [product._id]: true,
-                    }));
-                  }}
-                  className={styles.spanIcons}
-                >
-                  <CartIcon />
-                </span>
-
-                <span
-                  onClick={() =>
-                    dispatch(
-                      addTofavorite({
-                        _id: product._id,
-                        brand: product.brand,
-                        category: product.category,
-                        description: product.description,
-                        image: product.image,
-                        isNew: product.isNew,
-                        oldPrice: product.oldPrice,
-                        price: product.price,
-                        title: product.title,
-                        quantity: 1,
-                      })
-                    )
-                  }
-                  className={styles.spanIcons}
-                >
-                  <HeartIcon />
-                </span>
-              </div>
-
-              {product.isNew && (
-                <p className={styles.textpreço}>
-                  (<FormattedAmount amount={product.oldPrice - product.price} />{" "}
-                  de desconto)
-                </p>
-              )}
-            </div>
-            <hr />
-            <div className={styles.divtextCategory}>
-              <p className={styles.pcategory}>{product.category}</p>
-              <p className={styles.ptitle}>{product.title}</p>
-              {showMessageMap[product._id] && (
-                <div className={`${styles.addedToCartMessage} ${styles.show}`}>
-                  <p>
-                    <CheckIcon />
-                    Adicionado!
-                  </p>
-                </div>
-              )}
-              <p className={styles.pprice}>
-                <span className={styles.spanprice}>
-                  <FormattedAmount amount={product.oldPrice} />
-                </span>
-                <span>
-                  <FormattedAmount amount={product.price} />
-                </span>
-              </p>
-              <p className={styles.pdescription}>
-                {product.description.substring(0, 120)}
-              </p>
-
-              <button
-                onClick={() => {
-                  dispatch(
-                    addToCart({
-                      _id: product._id,
-                      brand: product.brand,
-                      category: product.category,
-                      description: product.description,
-                      image: product.image,
-                      isNew: product.isNew,
-                      oldPrice: product.oldPrice,
-                      price: product.price,
-                      title: product.title,
-                      quantity: 1,
-                    })
-                  );
-
-                  setShowMessageMap((prevShowMessageMap) => ({
-                    ...prevShowMessageMap,
-                    [product._id]: true,
-                  }));
-                }}
-                className={styles.btnaddcart}
-              >
-                + carrinho
-              </button>
-            </div>
-          </div>
+            product={product}
+            showMessage={showMessageMap[product._id]}
+            setShowMessage={(value) =>
+              setShowMessageMap((prev) => ({ ...prev, [product._id]: value }))
+            }
+          />
         ))}
+    </div>
+  );
+};
+
+const AnimatedProductItem = ({
+  product,
+  showMessage,
+  setShowMessage,
+}: {
+  product: StoreProduct;
+  showMessage: boolean;
+  setShowMessage: (value: boolean) => void;
+}) => {
+  const dispatch = useDispatch();
+  const productRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (process.browser) {
+      import("scrollreveal").then((ScrollRevealModule) => {
+        const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
+
+        const sr = ScrollReveal({
+          duration: 1000,
+          reset: false,
+        });
+
+        if (productRef.current) {
+          sr.reveal(productRef.current, {
+            origin: "bottom",
+            distance: "20px",
+            easing: "ease-in-out",
+          });
+        }
+      });
+    }
+  }, [productRef]);
+
+  return (
+    <div ref={productRef} className={`${styles.listaProducts} animated-item`}>
+      <div>
+        <Link
+          href={`/product/${product._id}?product=${JSON.stringify(product)}`}
+        >
+          <Image
+            width={300}
+            height={300}
+            src={product.image}
+            className={styles.imgproducts}
+            alt="productImage"
+          />
+        </Link>
+        <div className={styles.divSpan}>
+          <span
+            onClick={() => {
+              dispatch(
+                addToCart({
+                  _id: product._id,
+                  brand: product.brand,
+                  category: product.category,
+                  description: product.description,
+                  image: product.image,
+                  isNew: product.isNew,
+                  oldPrice: product.oldPrice,
+                  price: product.price,
+                  title: product.title,
+                  quantity: 1,
+                })
+              );
+
+              setShowMessage(true);
+            }}
+            className={styles.spanIcons}
+          >
+            <CartIcon />
+          </span>
+
+          <span
+            onClick={() =>
+              dispatch(
+                addTofavorite({
+                  _id: product._id,
+                  brand: product.brand,
+                  category: product.category,
+                  description: product.description,
+                  image: product.image,
+                  isNew: product.isNew,
+                  oldPrice: product.oldPrice,
+                  price: product.price,
+                  title: product.title,
+                  quantity: 1,
+                })
+              )
+            }
+            className={styles.spanIcons}
+          >
+            <HeartIcon />
+          </span>
+        </div>
+
+        {product.isNew && (
+          <p className={styles.textpreço}>
+            (<FormattedAmount amount={product.oldPrice - product.price} /> de
+            desconto)
+          </p>
+        )}
+      </div>
+      <hr />
+      <div className={styles.divtextCategory}>
+        <p className={styles.pcategory}>{product.category}</p>
+        <p className={styles.ptitle}>{product.title}</p>
+        {showMessage && (
+          <div className={`${styles.addedToCartMessage} ${styles.show}`}>
+            <p>
+              <CheckIcon />
+              Adicionado!
+            </p>
+          </div>
+        )}
+        <p className={styles.pprice}>
+          <span className={styles.spanprice}>
+            <FormattedAmount amount={product.oldPrice} />
+          </span>
+          <span>
+            <FormattedAmount amount={product.price} />
+          </span>
+        </p>
+        <p className={styles.pdescription}>
+          {product.description.substring(0, 120)}
+        </p>
+
+        <button
+          onClick={() => {
+            dispatch(
+              addToCart({
+                _id: product._id,
+                brand: product.brand,
+                category: product.category,
+                description: product.description,
+                image: product.image,
+                isNew: product.isNew,
+                oldPrice: product.oldPrice,
+                price: product.price,
+                title: product.title,
+                quantity: 1,
+              })
+            );
+
+            setShowMessage(true);
+          }}
+          className={styles.btnaddcart}
+        >
+          + carrinho
+        </button>
+      </div>
     </div>
   );
 };
