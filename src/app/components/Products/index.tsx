@@ -36,7 +36,7 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
     const fetchProducts = async () => {
       try {
         const res = await fetch(
-          "https://api-products-alpha.vercel.app/server.js"
+          "https://fakestoreapiserver.reactbd.com/tech" // https://apiproducts-vbaz.onrender.com/api/products
         );
         const data = await res.json();
         setProducts(data);
