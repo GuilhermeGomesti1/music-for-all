@@ -120,13 +120,15 @@ const AnimatedProductItem = ({
         <Link
           href={`/product/${product._id}?product=${JSON.stringify(product)}`}
         >
-          <Image
-            width={300}
-            height={300}
-            src={product.image}
-            className={styles.imgproducts}
-            alt="productImage"
-          />
+          <div className={styles.imageContainer}>
+            <Image
+              width={300}
+              height={300}
+              src={product.image}
+              className={styles.imgproducts}
+              alt="productImage"
+            />
+          </div>
         </Link>
         <div className={styles.divSpan}>
           <span
