@@ -75,25 +75,27 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    if (typeof window !== "undefined" && menuOpen) {
-      // O código abaixo será executado apenas no navegador
-      import("scrollreveal").then((ScrollRevealModule) => {
-        const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
+    if (menuOpen) {
+      if (typeof window !== "undefined") {
+        // O código abaixo será executado apenas no navegador
+        import("scrollreveal").then((ScrollRevealModule) => {
+          const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
 
-        const sr = ScrollReveal({
-          duration: 300,
-          reset: true,
+          const sr = ScrollReveal({
+            duration: 300,
+            reset: true,
 
-          // Outras opções de configuração aqui
+            // Outras opções de configuração aqui
+          });
+
+          sr.reveal(".animated-itemh", {
+            origin: "right",
+            distance: "40px",
+            easing: "ease-in-out",
+            opacity: 0,
+          });
         });
-
-        sr.reveal(".animated-item", {
-          origin: "rigth",
-          distance: "40px",
-          easing: "ease-in-out",
-          opacity: 0,
-        });
-      });
+      }
     }
   }, [menuOpen]);
 
@@ -126,7 +128,7 @@ export function Header() {
           <nav
             className={`${styles.navContainer} ${
               menuOpen ? styles.open : ""
-            } animated-item`}
+            } animated-itemh`}
           >
             <Link href="/" className={styles.aContainer} onClick={closeMenu}>
               Início
@@ -195,7 +197,7 @@ export function Header() {
               <a
                 href="/"
                 title="Logout"
-                className={`${styles.aContainer} animated-item`}
+                className={`${styles.aContainer} animated-itemh`}
                 onClick={handleLogout}
               >
                 <LogoutIcon />
