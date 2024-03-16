@@ -28,6 +28,7 @@ export default function ProductPage() {
                   <h1 className={styles.title}>{product.title}</h1>
                   <div className={styles.imgProduct}>
                     <Image
+                      className={styles.img}
                       width={500}
                       height={500}
                       src={product.image}

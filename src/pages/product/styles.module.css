@@ -49,6 +49,9 @@
   transition-property: transform;
   transition-duration: 300ms;
 }
+.img {
+  object-fit: contain;
+}
 
 .imgProduct:hover {
   transform: scale(0.95);

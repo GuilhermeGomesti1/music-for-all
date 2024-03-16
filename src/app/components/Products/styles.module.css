@@ -105,6 +105,7 @@
   gap: 0.5rem;
 }
 .spanprice {
+  color: red;
   font-size: 0.875rem;
   text-decoration: line-through;
 }
@@ -112,6 +113,21 @@
   font-size: 0.75rem;
   color: #4b5563;
   text-align: justify;
+}
+.threeDot {
+  letter-spacing: 2px;
+  line-height: 2px;
+  font-weight: bolder;
+  color: black;
+}
+
+.goProduct {
+  text-decoration: none;
+  color: black;
+}
+.goProduct:visited {
+  text-decoration: none;
+  color: black;
 }
 @keyframes pulse {
   0%,

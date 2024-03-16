@@ -188,29 +188,50 @@ const AnimatedProductItem = ({
         )}
       </div>
       <hr />
-      <div className={styles.divtextCategory}>
-        <p className={styles.pcategory}>{product.category}</p>
-        <p className={styles.ptitle}>{product.title}</p>
-        {showMessage && (
-          <div className={`${styles.addedToCartMessage} ${styles.show}`}>
-            <p>
-              <CheckIcon />
-              Adicionado!
-            </p>
-          </div>
-        )}
-        <p className={styles.pprice}>
-          <span className={styles.spanprice}>
-            <FormattedAmount amount={product.oldPrice} />
-          </span>
-          <span>
-            <FormattedAmount amount={product.price} />
-          </span>
-        </p>
-        <p className={styles.pdescription}>
-          {product.description.substring(0, 120)}
-        </p>
 
+      <div className={styles.divtextCategory}>
+        <Link
+          className={styles.goProduct}
+          href={`/product/${product._id}?product=${JSON.stringify(product)}`}
+        >
+          <p className={styles.pcategory}>{product.category}</p>
+          <p className={styles.ptitle}>
+            {product.title.length > 30 ? (
+              <span className={styles.ptitle}>
+                {product.title.substring(0, 30)}
+                <span className={styles.threeDot}>{"..."}</span>
+              </span>
+            ) : (
+              product.title
+            )}
+          </p>
+          {showMessage && (
+            <div className={`${styles.addedToCartMessage} ${styles.show}`}>
+              <p>
+                <CheckIcon />
+                Adicionado!
+              </p>
+            </div>
+          )}
+          <p className={styles.pprice}>
+            <span className={styles.spanprice}>
+              <FormattedAmount amount={product.oldPrice} />
+            </span>
+            <span>
+              <FormattedAmount amount={product.price} />
+            </span>
+          </p>
+          <p className={styles.pdescription}>
+            {product.description.length > 120 ? (
+              <span>
+                {product.description.substring(0, 100)}
+                <span className={styles.threeDot}>{"..."}</span>
+              </span>
+            ) : (
+              product.description
+            )}
+          </p>
+        </Link>
         <button
           onClick={() => {
             dispatch(
