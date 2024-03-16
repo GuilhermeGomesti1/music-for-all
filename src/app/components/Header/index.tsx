@@ -75,7 +75,7 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined" && menuOpen) {
       // O código abaixo será executado apenas no navegador
       import("scrollreveal").then((ScrollRevealModule) => {
         const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
@@ -90,6 +90,7 @@ export function Header() {
           origin: "top",
           distance: "20px",
           easing: "ease-in-out",
+          delay: 200,
         });
       });
     }
