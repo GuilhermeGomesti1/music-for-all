@@ -13,6 +13,7 @@ export default function ResetCart() {
       dispatch(resetCart());
 
       localStorage.setItem("showMessageMap", "{}");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
   return (

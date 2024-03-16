@@ -33,7 +33,6 @@ export default function Contato() {
 
   return (
     <>
-      {" "}
       <ScrollToTop /> <title>Contato- Escola de Música Music For All</title>
       <main>
         <div>
