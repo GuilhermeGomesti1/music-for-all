@@ -33,8 +33,7 @@ export default function Cursos() {
 
   return (
     <>
-      {" "}
-      <ScrollToTop />{" "}
+      <ScrollToTop />
       <title>Curso de Gaita- Escola de Música Music For All</title>
       <main>
         <div className={styles.containerViolao}>

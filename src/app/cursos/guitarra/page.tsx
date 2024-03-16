@@ -7,6 +7,7 @@ import homecursos from "../../../../public/images/homecursos.png";
 import { Form } from "@/app/components/Form";
 import { IconWhatsappfixed } from "@/app/components/Icons/IconsContato/iconWhatsappfixed";
 import { useEffect } from "react";
+import ScrollToTop from "@/app/components/scrooltotop";
 
 export default function Cursos() {
   useEffect(() => {
@@ -30,7 +31,10 @@ export default function Cursos() {
     }
   }, []);
   return (
-    <> <title>Curso de Guitarra- Escola de Música Music For All</title>
+    <>
+      {" "}
+      <ScrollToTop />
+      <title>Curso de Guitarra- Escola de Música Music For All</title>
       <main>
         <div className={styles.containerViolao}>
           <Image
@@ -55,7 +59,7 @@ export default function Cursos() {
         <IconWhatsappfixed />
 
         <div className={styles.cursodeguitarra}>
-        <h1 className={`${styles.title} animated-item`}>Guitarra</h1>
+          <h1 className={`${styles.title} animated-item`}>Guitarra</h1>
 
           <div className={`${styles.textContainer} animated-item`}>
             <p className={`${styles.apresentacao} animated-item`}>
@@ -125,9 +129,9 @@ export default function Cursos() {
             </p>
           </div>
 
-          <div className= {`${styles.imageContainer} animated-item`}>
+          <div className={`${styles.imageContainer} animated-item`}>
             <Image
-             className={`${styles.fotocurso} animated-item`} 
+              className={`${styles.fotocurso} animated-item`}
               src={guitarra}
               alt="foto curso de guitarra"
               loading="lazy"
