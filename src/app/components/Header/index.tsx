@@ -83,15 +83,14 @@ export function Header() {
         const sr = ScrollReveal({
           duration: 700,
           reset: true,
-          delay: 200,
+
           // Outras opções de configuração aqui
         });
 
         sr.reveal(".animated-item", {
           origin: "top",
-          distance: "20px",
+          distance: "5px",
           easing: "ease-in-out",
-          delay: 200,
         });
       });
     }
