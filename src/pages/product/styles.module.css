@@ -33,12 +33,13 @@
   text-align: center;
   margin-left: 0 auto;
   margin-right: 0 auto;
-  font-size: 2rem;
+  font-size: 1.2rem;
 
   font-weight: normal;
 }
 
 .imgProduct {
+  max-width: 572.61px;
   border-color: #e5e7eb;
   border-width: 1px;
   border-style: solid;

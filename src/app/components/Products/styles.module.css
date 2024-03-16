@@ -25,8 +25,9 @@
 }
 .imgproducts {
   width: 60%;
-  height: 60%;
-  object-fit: cover;
+  max-width: 572.61px;
+  max-height: 270.71px;
+  object-fit: contain;
   transform: scale(0.9);
   transition-property: transform;
   transition-duration: 300ms;

@@ -36,7 +36,7 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
     const fetchProducts = async () => {
       try {
         const res = await fetch(
-          "https://fakestoreapiserver.reactbd.com/tech" // https://apiproducts-vbaz.onrender.com/api/products  "https://fakestoreapiserver.reactbd.com/tech"
+          "https://apiproducts-vbaz.onrender.com/api/products" // https://apiproducts-vbaz.onrender.com/api/products  "https://fakestoreapiserver.reactbd.com/tech"
         );
         const data = await res.json();
         setProducts(data);
