@@ -24,7 +24,7 @@ export function Footer() {
           // Outras opções de configuração aqui
         });
 
-        sr.reveal(".animated-item", {
+        sr.reveal(".animated-itemf", {
           origin: "bottom",
           distance: "20px",
           easing: "ease-in-out",
@@ -57,7 +57,7 @@ export function Footer() {
     alert("Endereço copiado para a área de transferência: " + address);
   };
   return (
-    <div className={`${styles.footer} animated-item`}>
+    <div className={`${styles.footer} animated-itemf`}>
       <div>
         <Image
           className={styles.img}
