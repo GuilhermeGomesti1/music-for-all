@@ -121,17 +121,13 @@ export function Header() {
               menuOpen ? styles.open : ""
             } animated-item`}
           >
-            <Link
-              href="/"
-              className={`${styles.aContainer} animated-item`}
-              onClick={closeMenu}
-            >
+            <Link href="/" className={styles.aContainer} onClick={closeMenu}>
               Início
             </Link>
 
             <Link
               href="/cursos"
-              className={`${styles.aContainer} animated-item`}
+              className={styles.aContainer}
               onClick={closeMenu}
             >
               Cursos
@@ -139,7 +135,7 @@ export function Header() {
 
             <Link
               href="/blog"
-              className={`${styles.aContainer} animated-item`}
+              className={styles.aContainer}
               onClick={closeMenu}
             >
               Blog
@@ -147,7 +143,7 @@ export function Header() {
 
             <Link
               href="/contato"
-              className={`${styles.aContainer} animated-item`}
+              className={styles.aContainer}
               onClick={closeMenu}
             >
               Contato
@@ -156,7 +152,7 @@ export function Header() {
             {loggedIn ? (
               <Link
                 href="/alunos"
-                className={`${styles.aContainer} animated-item`}
+                className={styles.aContainer}
                 onClick={closeMenu}
               >
                 Aluno
@@ -164,7 +160,7 @@ export function Header() {
             ) : (
               <Link
                 href="/dashboard"
-                className={`${styles.aContainer} animated-item`}
+                className={styles.aContainer}
                 onClick={closeMenu}
               >
                 Aluno
@@ -172,7 +168,7 @@ export function Header() {
             )}
             <Link
               href="/loja" //loja
-              className={`${styles.aContainer} animated-item`}
+              className={styles.aContainer}
               onClick={closeMenu}
               title="Loja"
             >
@@ -181,7 +177,7 @@ export function Header() {
 
             <Link
               href="/carrinho" //carrinho
-              className={`${styles.aContainer} animated-item`}
+              className={styles.aContainer}
               onClick={closeMenu}
               title="Minhas compras"
             >
