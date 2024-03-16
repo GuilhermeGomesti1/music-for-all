@@ -83,6 +83,7 @@
 .addedToCartMessage {
   position: absolute;
   right: 17px;
+  top: 265px;
   margin-left: auto;
   font-size: 0.8rem;
   color: #56ac30;
