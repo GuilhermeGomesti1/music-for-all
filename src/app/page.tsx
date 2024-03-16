@@ -26,6 +26,7 @@ import { IconYoutube } from "./components/Icons/IconsContato/iconYoutube";
 import { IconEmail } from "./components/Icons/IconsContato/iconEmail";
 import { IconWhatsappfixed } from "./components/Icons/IconsContato/iconWhatsappfixed";
 import { useEffect } from "react";
+import ScrollToTop from "./components/scrooltotop";
 
 export default function Home() {
   useEffect(() => {
@@ -61,6 +62,8 @@ export default function Home() {
 
   return (
     <>
+      {" "}
+      <ScrollToTop />
       <main className={styles.main}>
         <div className={styles.containerHeader}>
           <section className={styles.ctaText1}>

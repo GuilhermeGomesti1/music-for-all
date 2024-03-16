@@ -15,6 +15,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import Link from "next/link";
+import ScrollToTop from "../components/scrooltotop";
 
 export default function Dashboard() {
   interface UserDetail {
@@ -112,6 +113,8 @@ export default function Dashboard() {
 
   return (
     <>
+      {" "}
+      <ScrollToTop />
       <title data-test="title-dashboard">
         Área de Login- Escola de Música Music For All
       </title>

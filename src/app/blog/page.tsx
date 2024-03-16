@@ -13,13 +13,9 @@ import Link from "next/link";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import CommentComponent from "../components/FormComentarios";
-
-
-
+import ScrollToTop from "../components/scrooltotop";
 
 export default function Blog() {
-
-
   const videodata = [
     {
       title: "O Palco é Deles: Alunos Brilhando na Escola de Música!",
@@ -29,7 +25,6 @@ export default function Blog() {
       title: "Aula de violão- Trevo(Tu) - Anavitória.",
       videoId: "9srQ84b4iYw",
     },
-    
   ];
 
   const [loggedIn, setLoggedIn] = useState(false);
@@ -55,7 +50,6 @@ export default function Blog() {
     }
   }, []);
 
-
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -64,14 +58,13 @@ export default function Blog() {
         setLoggedIn(false);
       }
     });
-  
+
     return () => unsubscribe();
   }, []);
 
-  
-
   return (
-    <> <title>Blog- Escola de Música Music For All</title>
+    <>
+      <ScrollToTop /> <title>Blog- Escola de Música Music For All</title>
       <main className={styles.contentAll}>
         <div>
           <Image
@@ -96,13 +89,11 @@ export default function Blog() {
             placeholder="blur"
           />
         </div>
-      
+
         <IconWhatsappfixed />
 
         <div className={`${styles.principal} animated-item`}>
-
-
-        <div className={`${styles.videoAndText} animated-item`}>
+          <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
               <h1 className={`${styles.titles} animated-item`}>
                 Um Recital Memorável
@@ -119,13 +110,16 @@ export default function Blog() {
               />
             </div>
             <p className={`${styles.subtitles} animated-item`}>
-             O Auditório Leonardo Diniz, na sede da Prefeitura de João Monlevade, ficou lotado na noite dessa quinta-feira (26/10/2023) para a realização do Recitalde Violão <br/>
-             O evento, que é realizado anualmente, contou com a apresentação dos alunos do curso de Violão, ministrado pelo professor Guilherme Gomes, que coordenou as apresentações. O auditório recebeu centenas de familiares e amigos dos alunos, além de convidados. Foram realizadas 13 apresentações, com a participação de 30 alunos.
+              O Auditório Leonardo Diniz, na sede da Prefeitura de João
+              Monlevade, ficou lotado na noite dessa quinta-feira (26/10/2023)
+              para a realização do Recitalde Violão <br />O evento, que é
+              realizado anualmente, contou com a apresentação dos alunos do
+              curso de Violão, ministrado pelo professor Guilherme Gomes, que
+              coordenou as apresentações. O auditório recebeu centenas de
+              familiares e amigos dos alunos, além de convidados. Foram
+              realizadas 13 apresentações, com a participação de 30 alunos.
             </p>
           </div>
-
-
-
 
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
@@ -153,12 +147,11 @@ export default function Blog() {
           </div>
           <CommentComponent videoId="ReDuOTb9vRE" />
 
-
-
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
               <h1 className={`${styles.titles} animated-item`}>
-              Oh! Darling - Canção dos Beatles interpretada por Iolanda Martins de Souza e Josiano Miranda de Souza
+                Oh! Darling - Canção dos Beatles interpretada por Iolanda
+                Martins de Souza e Josiano Miranda de Souza
               </h1>
               <iframe
                 className={styles.video}
@@ -170,11 +163,11 @@ export default function Blog() {
               ></iframe>
             </div>
             <p className={`${styles.subtitles} animated-item`}>
-            Uma belíssima apresentação interpretada em família! (Pai e filha).
+              Uma belíssima apresentação interpretada em família! (Pai e filha).
             </p>
           </div>
           <CommentComponent videoId="hxps_ojn7Gc" />
-          
+
           <div className={`${styles.videoAndText} animated-item`}>
             <div className={`${styles.divvideo} animated-item`}>
               <h1 className={`${styles.titles} animated-item`}>
@@ -242,11 +235,14 @@ export default function Blog() {
               vão muito além! Acesso ilimitado a uma biblioteca de vídeo aulas
               exclusivas, tutoriais detalhados para músicas populares e técnicas
               avançadas, e conteúdo personalizado para impulsionar o seu
-              progresso musical. <br/>
-              <Link href={loggedIn ? "/alunos" : "/dashboard"} className={styles.cliqueaqui}>
-              Já é aluno? Clique aqui para acessar o conteúdo exclusivo.
+              progresso musical. <br />
+              <Link
+                href={loggedIn ? "/alunos" : "/dashboard"}
+                className={styles.cliqueaqui}
+              >
+                Já é aluno? Clique aqui para acessar o conteúdo exclusivo.
               </Link>
-            </p> 
+            </p>
           </div>
           <CommentComponent videoId="9srQ84b4iYw" />
 

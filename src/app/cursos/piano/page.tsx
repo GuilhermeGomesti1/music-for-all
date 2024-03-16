@@ -3,13 +3,13 @@ import Image from "next/image";
 import styles from "./styles.module.css";
 import violao from "../../../../public/images/violao.png";
 import piano from "../../../../public/images/piano.png";
-import homeoficial from "../../../../public/images/homeoficial.png"
-import homecursos from "../../../../public/images/homecursos.png"
+import homeoficial from "../../../../public/images/homeoficial.png";
+import homecursos from "../../../../public/images/homecursos.png";
 import { Form } from "@/app/components/Form";
 import { IconWhatsappfixed } from "@/app/components/Icons/IconsContato/iconWhatsappfixed";
 import { useEffect } from "react";
+import ScrollToTop from "@/app/components/scrooltotop";
 export default function Cursos() {
-
   useEffect(() => {
     if (process.browser) {
       // O código abaixo será executado apenas no navegador
@@ -31,20 +31,21 @@ export default function Cursos() {
     }
   }, []);
   return (
-    <><title>Curso de Piano e teclado- Escola de Música Music For All</title>
+    <>
+      <ScrollToTop />
+      <title>Curso de Piano e teclado- Escola de Música Music For All</title>
       <main>
-      <div className={styles.containerViolao}>
-      <Image
-                className={styles.img}
-                src={homeoficial}
-                alt="Music For All Logo" 
-                width={1895} 
-                height={598}
-                quality={100}
-                loading="lazy"
-                placeholder="blur"
-              />
-
+        <div className={styles.containerViolao}>
+          <Image
+            className={styles.img}
+            src={homeoficial}
+            alt="Music For All Logo"
+            width={1895}
+            height={598}
+            quality={100}
+            loading="lazy"
+            placeholder="blur"
+          />
 
           <Image
             className={styles.violaoContainer}
@@ -56,25 +57,25 @@ export default function Cursos() {
         </div>
         <IconWhatsappfixed />
         <div className={styles.cursodepiano}>
-        <h1 className={`${styles.title} animated-item`}>
-         Piano e Teclado
-          </h1>
+          <h1 className={`${styles.title} animated-item`}>Piano e Teclado</h1>
 
           <div className={`${styles.textContainer} animated-item`}>
-          <p className={`${styles.apresentacao} animated-item`}>
+            <p className={`${styles.apresentacao} animated-item`}>
               Bem-vindo ao universo mágico do piano e teclado, onde as notas
               fluem como poesia e a música ganha vida. Se você é um iniciante
               curioso ou um amante da música em busca de aprimoramento, você
               está no lugar certo!
             </p>
 
-            <h2 className= {`${styles.subtitle} animated-item`}>Por que o piano e teclado?</h2>
+            <h2 className={`${styles.subtitle} animated-item`}>
+              Por que o piano e teclado?
+            </h2>
 
             <ul className={`${styles.apresentacao} animated-item`}>
               <li className="animated-item">
                 {" "}
-                Versatilidade: O piano e teclado oferecem uma ampla gama de
-                sons e estilos musicais para explorar, desde clássico até pop e
+                Versatilidade: O piano e teclado oferecem uma ampla gama de sons
+                e estilos musicais para explorar, desde clássico até pop e
                 eletrônico.
               </li>
               <li className="animated-item">
@@ -95,7 +96,9 @@ export default function Cursos() {
               </li>
             </ul>
 
-            <h2 className= {`${styles.subtitle} animated-item`}>O que oferecemos:</h2>
+            <h2 className={`${styles.subtitle} animated-item`}>
+              O que oferecemos:
+            </h2>
             <ul className={`${styles.apresentacao} animated-item`}>
               <li className="animated-item">
                 Aulas Personalizadas: Nossos instrutores talentosos e
@@ -104,9 +107,9 @@ export default function Cursos() {
               </li>
               <li className="animated-item">
                 {" "}
-                Repertório Diversificado: Aprenda suas músicas favoritas enquanto
-                aprimora suas habilidades. Do clássico ao contemporâneo, temos
-                um vasto repertório!{" "}
+                Repertório Diversificado: Aprenda suas músicas favoritas
+                enquanto aprimora suas habilidades. Do clássico ao
+                contemporâneo, temos um vasto repertório!{" "}
               </li>
               <li className="animated-item">
                 {" "}
@@ -120,16 +123,19 @@ export default function Cursos() {
             </ul>
 
             <p className={`${styles.apresentacao} animated-item`}>
-              Não perca a oportunidade de desbloquear seu potencial musical com o
-              piano e teclado. Junte-se a nós e comece sua jornada musical hoje!
+              Não perca a oportunidade de desbloquear seu potencial musical com
+              o piano e teclado. Junte-se a nós e comece sua jornada musical
+              hoje!
             </p>
 
-            <p className={`${styles.apresentacao} animated-item`}>Vamos tocar juntos?</p>
+            <p className={`${styles.apresentacao} animated-item`}>
+              Vamos tocar juntos?
+            </p>
           </div>
 
-          <div className= {`${styles.imageContainer} animated-item`}>
+          <div className={`${styles.imageContainer} animated-item`}>
             <Image
-              className={`${styles.fotocurso} animated-item`} 
+              className={`${styles.fotocurso} animated-item`}
               src={piano}
               alt="foto curso de violão"
               loading="lazy"
@@ -137,7 +143,7 @@ export default function Cursos() {
             />
           </div>
 
-         <Form/>
+          <Form />
         </div>
       </main>
     </>

@@ -9,6 +9,7 @@ import FormattedAmount from "../../app/components/FmtPrice";
 import Link from "next/link";
 import { BackLoja } from "@/app/components/Icons/OtherIcons/backloja";
 import { Footer } from "@/app/components/Footer";
+import ScrollToTop from "@/app/components/scrooltotop";
 
 export default function ProductPage() {
   const router = useRouter();
@@ -19,6 +20,7 @@ export default function ProductPage() {
 
   return (
     <div className={styles.all}>
+      <ScrollToTop />
       <Providers>
         <div>
           {product && (

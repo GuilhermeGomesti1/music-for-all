@@ -16,6 +16,7 @@ import agendaraulamobile from "../../../public/images/agendaraulamobile.png";
 import { Form } from "../components/Form";
 import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
 import { useEffect } from "react";
+import ScrollToTop from "../components/scrooltotop";
 
 export default function Cursos() {
   useEffect(() => {
@@ -49,6 +50,7 @@ export default function Cursos() {
   return (
     <>
       {" "}
+      <ScrollToTop />{" "}
       <title>Nossos Cursos- Escola de Música Music For All</title>
       <main>
         <div className={styles.containerViolao}>

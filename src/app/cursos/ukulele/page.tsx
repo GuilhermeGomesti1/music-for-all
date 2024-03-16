@@ -2,13 +2,13 @@
 import Image from "next/image";
 import styles from "./styles.module.css";
 import ukulele from "../../../../public/images/ukulele.png";
-import homeoficial from "../../../../public/images/homeoficial.png"
-import homecursos from "../../../../public/images/homecursos.png"
+import homeoficial from "../../../../public/images/homeoficial.png";
+import homecursos from "../../../../public/images/homecursos.png";
 import { Form } from "@/app/components/Form";
 import { IconWhatsappfixed } from "@/app/components/Icons/IconsContato/iconWhatsappfixed";
 import { useEffect } from "react";
+import ScrollToTop from "@/app/components/scrooltotop";
 export default function Cursos() {
-
   useEffect(() => {
     if (process.browser) {
       // O código abaixo será executado apenas no navegador
@@ -30,20 +30,21 @@ export default function Cursos() {
     }
   }, []);
   return (
-    <><title>Curso de Ukulele- Escola de Música Music For All</title>
+    <>
+      <ScrollToTop />
+      <title>Curso de Ukulele- Escola de Música Music For All</title>
       <main>
-      <div className={styles.containerViolao}>
-      <Image
-                className={styles.img}
-                src={homeoficial}
-                alt="Music For All Logo" 
-                width={1895} 
-                height={598}
-                quality={100}
-                loading="lazy"
-                placeholder="blur"
-              />
-
+        <div className={styles.containerViolao}>
+          <Image
+            className={styles.img}
+            src={homeoficial}
+            alt="Music For All Logo"
+            width={1895}
+            height={598}
+            quality={100}
+            loading="lazy"
+            placeholder="blur"
+          />
 
           <Image
             className={styles.violaoContainer}
@@ -55,19 +56,19 @@ export default function Cursos() {
         </div>
         <IconWhatsappfixed />
         <div className={styles.cursodeukulele}>
-        <h1 className={`${styles.title} animated-item`}>
-          Ukulele
-          </h1>
+          <h1 className={`${styles.title} animated-item`}>Ukulele</h1>
 
           <div className={`${styles.textContainer} animated-item`}>
-          <p className={`${styles.apresentacao} animated-item`}>
+            <p className={`${styles.apresentacao} animated-item`}>
               Bem-vindo ao universo encantador do ukulele, onde as notas são
               como sorrisos e a música é pura alegria. Seja você um iniciante
-              curioso ou um amante da música em busca de novas experiências, você
-              está no lugar certo!
+              curioso ou um amante da música em busca de novas experiências,
+              você está no lugar certo!
             </p>
 
-            <h2 className= {`${styles.subtitle} animated-item`}>Por que o ukulele?</h2>
+            <h2 className={`${styles.subtitle} animated-item`}>
+              Por que o ukulele?
+            </h2>
 
             <ul className={`${styles.apresentacao} animated-item`}>
               <li className="animated-item">
@@ -90,12 +91,14 @@ export default function Cursos() {
               <li className="animated-item">
                 {" "}
                 Comunidade Musical: Faça parte de uma comunidade de entusiastas
-                do ukulele que compartilham a paixão por esse instrumento. Troque
-                músicas, dicas e histórias.{" "}
+                do ukulele que compartilham a paixão por esse instrumento.
+                Troque músicas, dicas e histórias.{" "}
               </li>
             </ul>
 
-            <h2 className= {`${styles.subtitle} animated-item`}>O que oferecemos:</h2>
+            <h2 className={`${styles.subtitle} animated-item`}>
+              O que oferecemos:
+            </h2>
             <ul className={`${styles.apresentacao} animated-item`}>
               <li className="animated-item">
                 Aulas Personalizadas: Nossos instrutores experientes estão
@@ -123,12 +126,14 @@ export default function Cursos() {
               ukulele. Junte-se a nós e comece sua jornada musical hoje!
             </p>
 
-            <p className={`${styles.apresentacao} animated-item`}>Vamos tocar juntos?</p>
+            <p className={`${styles.apresentacao} animated-item`}>
+              Vamos tocar juntos?
+            </p>
           </div>
 
-          <div className= {`${styles.imageContainer} animated-item`}>
+          <div className={`${styles.imageContainer} animated-item`}>
             <Image
-               className={`${styles.fotocurso} animated-item`} 
+              className={`${styles.fotocurso} animated-item`}
               src={ukulele}
               alt="foto curso de ukulele"
               loading="lazy"
@@ -136,7 +141,7 @@ export default function Cursos() {
             />
           </div>
 
-        <Form/>
+          <Form />
         </div>
       </main>
     </>

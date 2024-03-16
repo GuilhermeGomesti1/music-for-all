@@ -2,11 +2,12 @@
 import Image from "next/image";
 import styles from "./styles.module.css";
 import cursoviolao1 from "../../../../public/images/cursoviolao1.png";
-import homecursos from "../../../../public/images/homecursos.png"
-import homeoficial from "../../../../public/images/homeoficial.png"
+import homecursos from "../../../../public/images/homecursos.png";
+import homeoficial from "../../../../public/images/homeoficial.png";
 import { Form } from "@/app/components/Form";
 import { IconWhatsappfixed } from "@/app/components/Icons/IconsContato/iconWhatsappfixed";
 import { useEffect } from "react";
+import ScrollToTop from "@/app/components/scrooltotop";
 export default function Cursos() {
   useEffect(() => {
     if (process.browser) {
@@ -29,21 +30,21 @@ export default function Cursos() {
     }
   }, []);
   return (
-    <><title>Curso de Violão- Escola de Música Music For All</title>
+    <>
+      <ScrollToTop />
+      <title>Curso de Violão- Escola de Música Music For All</title>
       <main>
-      <div className={styles.containerViolao}>
-
-      <Image
-                className={styles.img}
-                src={homeoficial}
-                alt="Music For All Logo" 
-                width={1895} 
-                height={598}
-                quality={100}
-                loading="lazy"
-                placeholder="blur"
-              />
-
+        <div className={styles.containerViolao}>
+          <Image
+            className={styles.img}
+            src={homeoficial}
+            alt="Music For All Logo"
+            width={1895}
+            height={598}
+            quality={100}
+            loading="lazy"
+            placeholder="blur"
+          />
 
           <Image
             className={styles.violaoContainer}
@@ -55,12 +56,10 @@ export default function Cursos() {
         </div>
         <IconWhatsappfixed />
         <div className={styles.cursodeviolao}>
-        <h1 className={`${styles.title} animated-item`}>
-          Violão 
-          </h1>
+          <h1 className={`${styles.title} animated-item`}>Violão</h1>
 
           <div className={`${styles.textContainer} animated-item`}>
-          <p className={`${styles.apresentacao} animated-item`}>
+            <p className={`${styles.apresentacao} animated-item`}>
               Bem-vindo ao universo encantador do violão, onde as notas se
               transformam em emoções e os acordes criam histórias musicais
               inesquecíveis. Seja você um iniciante curioso ou um amante da
@@ -68,7 +67,9 @@ export default function Cursos() {
               lugar perfeito para você!
             </p>
 
-            <h2 className= {`${styles.subtitle} animated-item`}>Por que o violão?</h2>
+            <h2 className={`${styles.subtitle} animated-item`}>
+              Por que o violão?
+            </h2>
 
             <ul className={`${styles.apresentacao} animated-item`}>
               <li className="animated-item">
@@ -96,7 +97,9 @@ export default function Cursos() {
               </li>
             </ul>
 
-            <h2 className= {`${styles.subtitle} animated-item`}>O que oferecemos:</h2>
+            <h2 className={`${styles.subtitle} animated-item`}>
+              O que oferecemos:
+            </h2>
             <ul className={`${styles.apresentacao} animated-item`}>
               <li className="animated-item">
                 Aulas Personalizadas: Nossos instrutores talentosos e
@@ -126,12 +129,14 @@ export default function Cursos() {
               Junte-se a nós e comece a sua jornada musical hoje!
             </p>
 
-            <p className={`${styles.apresentacao} animated-item`}>Vamos tocar juntos?</p>
+            <p className={`${styles.apresentacao} animated-item`}>
+              Vamos tocar juntos?
+            </p>
           </div>
 
-          <div className= {`${styles.imageContainer} animated-item`}>
+          <div className={`${styles.imageContainer} animated-item`}>
             <Image
-             className={`${styles.fotocurso} animated-item`} 
+              className={`${styles.fotocurso} animated-item`}
               src={cursoviolao1}
               alt="foto curso de violão"
               loading="lazy"
@@ -139,7 +144,7 @@ export default function Cursos() {
             />
           </div>
 
-        <Form/>
+          <Form />
         </div>
       </main>
     </>

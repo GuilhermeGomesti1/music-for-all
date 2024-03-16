@@ -21,6 +21,7 @@ import { useRouter } from "next/router";
 import SigninButton from "../components/signinGoogle/signinButton";
 
 import Cartloja from "../components/Cartloja";
+import ScrollToTop from "../components/scrooltotop";
 
 export default function Loja() {
   const { productData, favoriteData } = useSelector(
@@ -52,6 +53,7 @@ export default function Loja() {
   }
   return (
     <>
+      <ScrollToTop />
       <Provider store={store}>
         <PersistGate persistor={persistor} loading={null}>
           <SessionProvider>

@@ -17,6 +17,7 @@ import CartPayment from "../components/CartPayment/page";
 import SigninButton from "../components/signinGoogle/signinButton";
 import { CartIcon } from "../components/Icons/OtherIcons/cartIcon";
 import { BackLoja } from "../components/Icons/OtherIcons/backloja";
+import ScrollToTop from "../components/scrooltotop";
 interface StoreProduct {
   category: string;
   description: string;
@@ -77,6 +78,7 @@ export default function Carrinho() {
 
   return (
     <>
+      <ScrollToTop />
       <title>Carrinho- Escola de Música Music For All</title>
       <main className={styles.main}>
         <IconWhatsappfixed />
