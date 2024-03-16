@@ -78,7 +78,7 @@ export default function CartLoja() {
           // Outras opções de configuração aqui
         });
 
-        sr.reveal(".animated-item", {
+        sr.reveal(".animated-iteml", {
           origin: "bottom",
           distance: "20px",
           easing: "ease-in-out",
@@ -91,7 +91,7 @@ export default function CartLoja() {
     <>
       {productData &&
         productData.length > 0 && ( // Renderizar apenas se houver itens no carrinho
-          <div className={`${styles.all} animated-item`}>
+          <div className={`${styles.all} animated-iteml`}>
             <div className={styles.divprincipal}>
               <Link
                 href="/carrinho" //carrinho
