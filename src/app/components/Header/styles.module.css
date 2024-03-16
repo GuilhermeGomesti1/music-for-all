@@ -93,7 +93,7 @@
     background-color: white;
     width: 100%;
     top: 40px;
-    border-top: solid 0.4px black;
+    border-top: none;
     left: 0;
     right: 0;
     position: fixed;
@@ -101,6 +101,7 @@
     opacity: 0;
     max-height: 0;
     overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
   }
 
   .navContainer.open {

@@ -89,8 +89,9 @@ export function Header() {
 
         sr.reveal(".animated-item", {
           origin: "top",
-          distance: "5px",
+          distance: "40px",
           easing: "ease-in-out",
+          opacity: 0,
         });
       });
     }
