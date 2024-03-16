@@ -74,6 +74,27 @@ export function Header() {
     return () => unsubscribe();
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // O código abaixo será executado apenas no navegador
+      import("scrollreveal").then((ScrollRevealModule) => {
+        const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
+
+        const sr = ScrollReveal({
+          duration: 1000,
+          reset: true,
+          // Outras opções de configuração aqui
+        });
+
+        sr.reveal(".animated-item", {
+          origin: "top",
+          distance: "20px",
+          easing: "ease-in-out",
+        });
+      });
+    }
+  }, [menuOpen]);
+
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
@@ -94,15 +115,21 @@ export function Header() {
 
         {(menuOpen || windowWidth >= 768) && (
           <nav
-            className={`${styles.navContainer} ${menuOpen ? styles.open : ""}`}
+            className={`${styles.navContainer} ${
+              menuOpen ? styles.open : ""
+            } animated-item`}
           >
-            <Link href="/" className={styles.aContainer} onClick={closeMenu}>
+            <Link
+              href="/"
+              className={`${styles.aContainer} animated-item`}
+              onClick={closeMenu}
+            >
               Início
             </Link>
 
             <Link
               href="/cursos"
-              className={styles.aContainer}
+              className={`${styles.aContainer} animated-item`}
               onClick={closeMenu}
             >
               Cursos
@@ -110,7 +137,7 @@ export function Header() {
 
             <Link
               href="/blog"
-              className={styles.aContainer}
+              className={`${styles.aContainer} animated-item`}
               onClick={closeMenu}
             >
               Blog
@@ -118,7 +145,7 @@ export function Header() {
 
             <Link
               href="/contato"
-              className={styles.aContainer}
+              className={`${styles.aContainer} animated-item`}
               onClick={closeMenu}
             >
               Contato
@@ -127,7 +154,7 @@ export function Header() {
             {loggedIn ? (
               <Link
                 href="/alunos"
-                className={styles.aContainer}
+                className={`${styles.aContainer} animated-item`}
                 onClick={closeMenu}
               >
                 Aluno
@@ -135,7 +162,7 @@ export function Header() {
             ) : (
               <Link
                 href="/dashboard"
-                className={styles.aContainer}
+                className={`${styles.aContainer} animated-item`}
                 onClick={closeMenu}
               >
                 Aluno
@@ -143,7 +170,7 @@ export function Header() {
             )}
             <Link
               href="/loja" //loja
-              className={styles.aContainer}
+              className={`${styles.aContainer} animated-item`}
               onClick={closeMenu}
               title="Loja"
             >
@@ -152,7 +179,7 @@ export function Header() {
 
             <Link
               href="/carrinho" //carrinho
-              className={styles.aContainer}
+              className={`${styles.aContainer} animated-item`}
               onClick={closeMenu}
               title="Minhas compras"
             >
@@ -163,7 +190,7 @@ export function Header() {
               <a
                 href="/"
                 title="Logout"
-                className={styles.logout}
+                className={`${styles.aContainer} animated-item`}
                 onClick={handleLogout}
               >
                 <LogoutIcon />

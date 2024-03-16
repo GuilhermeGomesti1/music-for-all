@@ -10,6 +10,7 @@ import {
   deleteProduct,
   increaseQuantity,
 } from "@/store/nextSlice";
+import Link from "next/link";
 export interface Item {
   brand: string;
   category: string;
@@ -31,15 +32,21 @@ export function CartProducts({ item }: CartProductsProps) {
   const usedispatch = useDispatch();
   return (
     <div className={styles.divCartProducts}>
-      <div>
-        <Image
-          className={styles.imgProduct}
-          width="150"
-          height="150"
-          src={item.image}
-          alt="foto do produto"
-        />
-      </div>
+      <Link
+        className={styles.goProduct}
+        href={`/product/${item._id}?product=${JSON.stringify(item)}`}
+      >
+        {" "}
+        <div>
+          <Image
+            className={styles.imgProduct}
+            width="150"
+            height="150"
+            src={item.image}
+            alt="foto do produto"
+          />
+        </div>{" "}
+      </Link>
       <div className={styles.allproducts}>
         <div className={styles.products}>
           <p className={styles.titleproduct}>{item.title} </p>

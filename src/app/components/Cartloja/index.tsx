@@ -66,44 +66,70 @@ export default function CartLoja() {
     }
   };
 
-  return (
-    <div className={styles.all}>
-      <div className={styles.divprincipal}>
-        <Link
-          href="/carrinho" //carrinho
-          className={styles.anpmContainer}
-          title="Minhas compras"
-        >
-          Ir para o carrinho <CartIcon />{" "}
-          <span>({productData ? productData.length : 0})</span>
-        </Link>
-      </div>
-      <p className={styles.textValue}>
-        Total:{""}
-        <span className={styles.spanValue}>
-          <FmtPrice amount={totalAmount} />
-        </span>
-      </p>
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // O código abaixo será executado apenas no navegador
+      import("scrollreveal").then((ScrollRevealModule) => {
+        const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
 
-      {userInfo ? (
-        <div className={styles.buttons}>
-          <Link className={styles.button} href={"/carrinho"}>
-            <button className={styles.button}>Proseguir Comprando</button>{" "}
-          </Link>
-          <p className={styles.textLogin}>
-            <SigninButton />
-          </p>
-        </div>
-      ) : (
-        <div className={styles.buttons}>
-          <Link className={styles.button} href={"/carrinho"}>
-            <button className={styles.button}>Proseguir Comprando</button>{" "}
-          </Link>
-          <p className={styles.textLogin}>
-            <SigninButton />
-          </p>
-        </div>
-      )}
-    </div>
+        const sr = ScrollReveal({
+          duration: 1000,
+          reset: true,
+          // Outras opções de configuração aqui
+        });
+
+        sr.reveal(".animated-item", {
+          origin: "bottom",
+          distance: "20px",
+          easing: "ease-in-out",
+        });
+      });
+    }
+  }, [productData]);
+
+  return (
+    <>
+      {productData &&
+        productData.length > 0 && ( // Renderizar apenas se houver itens no carrinho
+          <div className={`${styles.all} animated-item`}>
+            <div className={styles.divprincipal}>
+              <Link
+                href="/carrinho" //carrinho
+                className={styles.anpmContainer}
+                title="Minhas compras"
+              >
+                Ir para o carrinho <CartIcon />{" "}
+                <span>({productData.length})</span>
+              </Link>
+            </div>
+            <p className={styles.textValue}>
+              Total:{""}
+              <span className={styles.spanValue}>
+                <FmtPrice amount={totalAmount} />
+              </span>
+            </p>
+
+            {userInfo ? (
+              <div className={styles.buttons}>
+                <Link className={styles.button} href={"/carrinho"}>
+                  <button className={styles.button}>Proseguir Comprando</button>{" "}
+                </Link>
+                <p className={styles.textLogin}>
+                  <SigninButton />
+                </p>
+              </div>
+            ) : (
+              <div className={styles.buttons}>
+                <Link className={styles.button} href={"/carrinho"}>
+                  <button className={styles.button}>Proseguir Comprando</button>{" "}
+                </Link>
+                <p className={styles.textLogin}>
+                  <SigninButton />
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+    </>
   );
 }
