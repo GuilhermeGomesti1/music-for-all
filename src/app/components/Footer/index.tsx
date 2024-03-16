@@ -20,7 +20,7 @@ export function Footer() {
 
         const sr = ScrollReveal({
           duration: 1000,
-          reset: true,
+          reset: false,
           // Outras opções de configuração aqui
         });
 
