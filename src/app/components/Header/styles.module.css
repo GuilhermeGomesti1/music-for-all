@@ -102,6 +102,16 @@
     max-height: 0;
     overflow: hidden;
     transition: opacity 0.3s ease, max-height 0.3s ease;
+    z-index: 101;
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* cor e opacidade do fundo */
+    z-index: 100; /* garantir que a camada de fundo esteja acima de outros elementos */
   }
 
   .navContainer.open {

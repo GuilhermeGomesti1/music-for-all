@@ -116,6 +116,13 @@ export function Header() {
         </div>
 
         {(menuOpen || windowWidth >= 768) && (
+          <div
+            className={menuOpen ? styles.overlay : ""}
+            onClick={closeMenu}
+          ></div>
+        )}
+
+        {(menuOpen || windowWidth >= 768) && (
           <nav
             className={`${styles.navContainer} ${
               menuOpen ? styles.open : ""
