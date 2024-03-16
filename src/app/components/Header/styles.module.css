@@ -112,13 +112,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.616); /* cor e opacidade do fundo */
-    z-index: 100; /* garantir que a camada de fundo esteja acima de outros elementos */
+    background-color: rgba(0, 0, 0, 0.616);
+    z-index: 100;
   }
 
   .navContainer.open {
     opacity: 1;
-    max-height: 500px; /* Ajuste a altura máxima conforme necessário */
+    max-height: 500px;
   }
 
   .aContainer {
