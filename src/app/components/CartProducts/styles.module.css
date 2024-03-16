@@ -84,17 +84,17 @@
 }
 @media (max-width: 768px) {
   .divCartProducts {
-    margin: 0;
-    width: 90vw;
+    justify-content: center;
+
     background-color: white;
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .descriptionproduct {
-    max-width: 180px;
-    margin: 0;
-    margin-left: -2.5rem;
+    font-size: 0.8rem;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -103,22 +103,18 @@
   .imgProduct {
     width: 100px;
     height: 100px;
-    margin-right: 2rem;
   }
   .titleproduct {
+    font-size: 0.8rem;
     color: #666666;
-    margin-left: -2.5rem;
-    width: 155px;
-    font-size: 1rem;
+
     font-weight: 600;
   }
 
   .addAndRemove {
-    margin-left: -3rem;
   }
 
   .divremoveproduct {
-    margin-left: -2.2rem;
   }
   .priceSell {
   }

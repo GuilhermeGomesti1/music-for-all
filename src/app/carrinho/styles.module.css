@@ -185,6 +185,9 @@
   }
 
   .minhasCompras {
+    padding-left: 0;
+    margin-left: 2px;
+    margin-right: 2px;
     grid-column: 1;
     margin-bottom: 4rem;
   }
