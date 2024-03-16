@@ -54,6 +54,19 @@ export default function Carrinho() {
   const userCartItems: StoreProduct[] = productData.filter(
     (item: StoreProduct) => item.userId === userInfo
   );
+  useEffect(() => {
+    if (process.browser) {
+      window.scrollTo(0, 0); // Rolando para o topo quando o componente montar
+    }
+  }, []);
+  const isCartEmpty = productData.length === 0;
+
+  useEffect(() => {
+    if (process.browser && isCartEmpty) {
+      // Rolando para o topo quando o carrinho estiver vazio
+      window.scrollTo(0, 0);
+    }
+  }, [isCartEmpty]);
 
   useEffect(() => {
     if (process.browser) {
@@ -135,6 +148,7 @@ export default function Carrinho() {
           ) : (
             <div className={styles.vazio}>
               <h1 className={styles.text}>Seu carrinho está vazio!</h1>
+
               <Link href={"/loja"}>
                 <button className={styles.btnVoltar1}>
                   <BackLoja /> Voltar para a loja
