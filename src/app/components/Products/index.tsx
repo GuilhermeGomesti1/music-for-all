@@ -120,6 +120,7 @@ const AnimatedProductItem = ({
     <div ref={productRef} className={`${styles.listaProducts} animated-item`}>
       <div>
         <Link
+          title="Clique para saber mais"
           href={`/product/${product._id}?product=${JSON.stringify(product)}`}
         >
           <div className={styles.imageContainer}>
@@ -191,6 +192,7 @@ const AnimatedProductItem = ({
 
       <div className={styles.divtextCategory}>
         <Link
+          title="Clique para saber mais"
           className={styles.goProduct}
           href={`/product/${product._id}?product=${JSON.stringify(product)}`}
         >
