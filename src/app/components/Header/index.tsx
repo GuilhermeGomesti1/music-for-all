@@ -81,7 +81,7 @@ export function Header() {
         const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
 
         const sr = ScrollReveal({
-          duration: 700,
+          duration: 300,
           reset: true,
 
           // Outras opções de configuração aqui
