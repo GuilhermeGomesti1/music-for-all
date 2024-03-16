@@ -9,6 +9,7 @@
 }
 
 .allproducts {
+  justify-content: center;
   display: flex;
   align-items: center;
   padding-left: 0.5rem;
@@ -83,9 +84,12 @@
   font-weight: bold;
 }
 @media (max-width: 768px) {
+  .allproducts {
+    padding-left: 0;
+  }
   .divCartProducts {
     justify-content: center;
-
+    padding-left: 0;
     background-color: white;
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
@@ -94,13 +98,14 @@
   }
 
   .descriptionproduct {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
   .imgProduct {
+    padding-right: 0.5rem;
     width: 100px;
     height: 100px;
   }
