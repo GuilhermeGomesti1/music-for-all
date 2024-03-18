@@ -72,7 +72,11 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
   }, [showMessageMap]);
 
   if (loading) {
-    return <div>Carregando produtos...</div>;
+    return (
+      <div className={styles.loadingContainer}>
+        <div className={styles.loadingProducts}>Carregando produtos...</div>
+      </div>
+    );
   }
 
   return (
