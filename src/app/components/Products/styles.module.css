@@ -174,8 +174,47 @@
 .btnaddcart:hover {
   background-color: #56ac30;
 }
-.btnaddcart:after {
+.btnaddcart:active {
   background-color: red;
+}
+
+.added {
+  cursor: not-allowed;
+  background-color: #56ac30;
+}
+.cartText {
+  transition: opacity 0.3s ease;
+  color: white;
+}
+.cartText:visited {
+  color: white;
+}
+.link {
+  cursor: not-allowed;
+
+  color: white;
+}
+.link:visited {
+  text-decoration: none;
+  color: white;
+}
+.link:hover {
+}
+.removeButton {
+  border: none;
+  background-color: white;
+  position: absolute;
+  right: 17px;
+  top: 300px;
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: #718096;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.removeButton:hover {
+  color: #f56565;
 }
 
 @media (min-width: 1024px) {

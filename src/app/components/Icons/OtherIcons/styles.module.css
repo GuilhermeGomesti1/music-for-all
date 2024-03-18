@@ -124,6 +124,23 @@
   color: #0a9745;
   vertical-align: middle;
 }
+.CartIconadd {
+  border: none;
+  background-color: transparent;
+  font-size: 25px;
+  border-radius: 50%;
+  vertical-align: middle;
+  color: white;
+}
+.RemoveProduct {
+  color: red;
+
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+
+  vertical-align: middle;
+}
 @media (max-width: 768px) {
   .DeleteIcon {
     background-color: transparent;

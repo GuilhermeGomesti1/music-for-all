@@ -11,6 +11,14 @@ import { useSession } from "next-auth/react";
 import { CheckIcon } from "../Icons/OtherIcons/check";
 import CartPayment from "../CartPayment/page";
 import Link from "next/link";
+import { CartIconadd } from "../Icons/OtherIcons/carticon1";
+
+import {
+  decreaseQuantity,
+  deleteProduct,
+  increaseQuantity,
+} from "@/store/nextSlice";
+import { RemoveProduct } from "../Icons/OtherIcons/removeproduct";
 
 type Product = {
   _id: string;
@@ -50,7 +58,6 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
   }, []);
 
   useEffect(() => {
-    // Recuperar os dados do Local Storage ao carregar a página
     const storedShowMessageMap = JSON.parse(
       localStorage.getItem("showMessageMap") || "{}"
     );
@@ -93,6 +100,7 @@ const AnimatedProductItem = ({
   setShowMessage: (value: boolean) => void;
 }) => {
   const dispatch = useDispatch();
+
   const productRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -251,10 +259,29 @@ const AnimatedProductItem = ({
 
             setShowMessage(true);
           }}
-          className={styles.btnaddcart}
+          className={`${styles.btnaddcart} ${showMessage && styles.added}`}
+          disabled={showMessage}
         >
-          + carrinho
+          <span className={styles.cartText}>
+            {showMessage ? (
+              <span className={styles.link}> Adicionado ao carrinho</span>
+            ) : (
+              "+ Carrinho"
+            )}
+          </span>
         </button>
+        {showMessage && (
+          <button
+            onClick={() => {
+              setShowMessage(false);
+              dispatch(deleteProduct(product._id));
+            }}
+            className={styles.removeButton}
+          >
+            <RemoveProduct />
+            Remover
+          </button>
+        )}
       </div>
     </div>
   );
