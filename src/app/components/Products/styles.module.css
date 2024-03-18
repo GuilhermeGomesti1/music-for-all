@@ -210,9 +210,10 @@
   justify-content: center;
   align-items: center;
   background-color: rgb(0, 0, 0);
+
+  z-index: 100;
 }
 .loadingProducts {
-  color: white;
 }
 
 .removeButton {

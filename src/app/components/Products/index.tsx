@@ -74,7 +74,14 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
   if (loading) {
     return (
       <div className={styles.loadingContainer}>
-        <div className={styles.loadingProducts}>Carregando produtos...</div>
+        <div className={styles.loadingProducts}>
+          <Image
+            src="/images/loading.gif"
+            alt="loadinggif"
+            width={1152}
+            height={648}
+          />
+        </div>
       </div>
     );
   }
