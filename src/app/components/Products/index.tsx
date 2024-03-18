@@ -35,6 +35,7 @@ type Product = {
 
 const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState<boolean>(true);
   const [products, setProducts] = useState<StoreProduct[]>([]);
   const [showMessageMap, setShowMessageMap] = useState<{
     [key: string]: boolean;
@@ -44,13 +45,15 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
     const fetchProducts = async () => {
       try {
         const res = await fetch(
-          "https://apiproducts-vbaz.onrender.com/api/products" // https://apiproducts-vbaz.onrender.com/api/products  "https://fakestoreapiserver.reactbd.com/tech"
+          "https://apiproducts-vbaz.onrender.com/api/products"
         );
         const data = await res.json();
         setProducts(data);
+        setLoading(false); // Indicate that products are loaded
       } catch (error) {
         console.error("Erro ao buscar produtos:", error);
         setProducts([]);
+        setLoading(false); // Indicate that loading failed
       }
     };
 
@@ -67,6 +70,10 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
   useEffect(() => {
     localStorage.setItem("showMessageMap", JSON.stringify(showMessageMap));
   }, [showMessageMap]);
+
+  if (loading) {
+    return <div>Carregando produtos...</div>;
+  }
 
   return (
     <div className={selectedProduct ? styles.productsNoGrid : styles.products}>
