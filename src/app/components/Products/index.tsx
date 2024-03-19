@@ -33,7 +33,13 @@ type Product = {
   quantity: number;
 };
 
-const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
+const Products = ({
+  searchTerm,
+  selectedProduct,
+}: {
+  searchTerm: string;
+  selectedProduct?: Product;
+}) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState<boolean>(true);
   const [products, setProducts] = useState<StoreProduct[]>([]);
@@ -71,6 +77,10 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
     localStorage.setItem("showMessageMap", JSON.stringify(showMessageMap));
   }, [showMessageMap]);
 
+  const removeSpecialChars = (text: string): string => {
+    return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  };
+
   if (loading) {
     return (
       <div className={styles.loadingContainer}>
@@ -93,6 +103,16 @@ const Products = ({ selectedProduct }: { selectedProduct?: Product }) => {
           selectedProduct
             ? String(product._id) === String(selectedProduct._id)
             : true
+        )
+        .filter(
+          (product) =>
+            !searchTerm ||
+            searchTerm.trim() === "" ||
+            removeSpecialChars(product.title.toLowerCase()).includes(
+              removeSpecialChars(searchTerm.toLowerCase())
+            ) ||
+            product.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            product.description.toLowerCase().includes(searchTerm.toLowerCase())
         )
         .map((product) => (
           <AnimatedProductItem

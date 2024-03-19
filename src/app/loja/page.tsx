@@ -6,7 +6,7 @@ import homeoficial from "../../../public/images/homeoficial.png";
 import homecursos from "../../../public/images/homecursos.png";
 import { Form } from "../components/Form";
 import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { SearchIcon } from "../components/Icons/OtherIcons/search";
 import { InfoIcon } from "../components/Icons/OtherIcons/info";
 import Products from "../components/Products";
@@ -27,6 +27,7 @@ export default function Loja() {
   const { productData, favoriteData } = useSelector(
     (state: StateProps) => state.next
   );
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     if (process.browser) {
@@ -88,16 +89,18 @@ export default function Loja() {
                   className={styles.serchProducts}
                   type="text"
                   placeholder="Pesquisar Produtos"
-                />{" "}
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
                 <span className={styles.search}>
                   <SearchIcon />
                 </span>
-                <span>
-                  <HeartIcon />
-                  {favoriteData.length > 0 && (
-                    <span>{favoriteData.length} </span>
-                  )}
-                </span>
+                {/* <span>
+  <HeartIcon />
+  {favoriteData.length > 0 && (
+    <span>{favoriteData.length} </span>
+  )}
+</span> */}
                 <div>
                   <p className={styles.infoMessage}>
                     <InfoIcon />
@@ -112,7 +115,7 @@ export default function Loja() {
                 </div>
               </div>
 
-              <Products />
+              <Products searchTerm={searchTerm} />
 
               <div className={styles.form}>
                 <Form />
