@@ -10,6 +10,7 @@ import Link from "next/link";
 import { BackLoja } from "@/app/components/Icons/OtherIcons/backloja";
 import { Footer } from "@/app/components/Footer";
 import ScrollToTop from "@/app/components/scrooltotop";
+import { useState } from "react";
 
 export default function ProductPage() {
   const router = useRouter();
@@ -17,7 +18,9 @@ export default function ProductPage() {
   const product = router.query.product
     ? JSON.parse(router.query.product as string)
     : null;
-
+  const [searchTerm, setSearchTerm] = useState<string>(
+    product ? product.title : ""
+  );
   return (
     <div className={styles.all}>
       <ScrollToTop />
@@ -73,7 +76,7 @@ export default function ProductPage() {
                 </div>
               </div>
               <div className={styles.productCard}>
-                <Products selectedProduct={product} />
+                <Products selectedProduct={product} searchTerm={searchTerm} />
               </div>
             </>
           )}
