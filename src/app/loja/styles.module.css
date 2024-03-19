@@ -37,7 +37,7 @@
   vertical-align: middle;
   border: 1px solid #ccc;
   box-sizing: border-box;
-  border-left: none;
+  border-left: 1px solid #f15075;
 }
 
 .form {
