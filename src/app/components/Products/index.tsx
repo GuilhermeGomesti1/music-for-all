@@ -55,11 +55,11 @@ const Products = ({
         );
         const data = await res.json();
         setProducts(data);
-        setLoading(false); // Indicate that products are loaded
+        setLoading(false);
       } catch (error) {
         console.error("Erro ao buscar produtos:", error);
         setProducts([]);
-        setLoading(false); // Indicate that loading failed
+        setLoading(false);
       }
     };
 
