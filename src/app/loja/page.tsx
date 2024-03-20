@@ -85,7 +85,7 @@ export default function Loja() {
               </div>
               <IconWhatsappfixed />
               <Cartloja />
-              <MenuProducts />
+
               <div className={`${styles.textContent} animated-item`}>
                 <input
                   className={styles.serchProducts}
