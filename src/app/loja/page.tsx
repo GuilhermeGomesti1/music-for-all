@@ -22,6 +22,7 @@ import SigninButton from "../components/signinGoogle/signinButton";
 
 import Cartloja from "../components/Cartloja";
 import ScrollToTop from "../components/scrooltotop";
+import { MenuProducts } from "../components/menuProducts";
 
 export default function Loja() {
   const { productData, favoriteData } = useSelector(
@@ -84,6 +85,7 @@ export default function Loja() {
               </div>
               <IconWhatsappfixed />
               <Cartloja />
+              <MenuProducts />
               <div className={`${styles.textContent} animated-item`}>
                 <input
                   className={styles.serchProducts}

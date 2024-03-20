@@ -1,0 +1,36 @@
+.container {
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.menuContent {
+  position: absolute;
+  top: calc(100% + 10px); /* posicione o menu abaixo do botão com espaço */
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.menu {
+  position: relative; /* Torna o posicionamento absoluto relativo ao pai */
+  margin: 0 20px;
+}
+
+.menuButton {
+  background-color: white;
+  border: none;
+}
+
+.listaMenu {
+  background-color: white;
+}
+
+.aContainer {
+  list-style-type: none;
+  padding: 5px 0;
+}

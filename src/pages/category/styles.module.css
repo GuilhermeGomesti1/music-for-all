@@ -1,0 +1,136 @@
+.all {
+  width: 100%;
+}
+.main {
+  margin-bottom: 10rem;
+  margin-top: 2rem;
+  margin-left: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-right: auto;
+}
+.blockDisplay {
+  display: block;
+}
+.productCard {
+  padding-bottom: 9rem;
+  margin-top: -40.5rem;
+  margin-right: 4rem;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  display: flex;
+  width: 400px;
+}
+.column {
+  justify-content: center;
+  text-align: center;
+}
+.title {
+  color: #666666;
+  justify-content: center;
+  text-align: center;
+  margin-left: 0 auto;
+  margin-right: 0 auto;
+  font-size: 1.2rem;
+
+  font-weight: normal;
+}
+
+.imgProduct {
+  max-width: 572.61px;
+  border-color: #e5e7eb;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.082);
+  transform: scale(0.9);
+  transition-property: transform;
+  transition-duration: 300ms;
+}
+.img {
+  object-fit: contain;
+}
+
+.imgProduct:hover {
+  transform: scale(0.95);
+}
+
+.divDescription {
+  margin-top: 10rem;
+  flex-grow: 1;
+  margin-left: 2rem;
+  max-width: 600px;
+}
+.titleDescription {
+  color: #666666;
+  font-weight: bolder;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: #4b5563;
+  text-align: justify;
+}
+.pprice {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.spanprice {
+  color: red;
+  font-size: 0.875rem;
+  text-decoration: line-through;
+}
+.btnVoltar {
+  margin-top: -1rem;
+  margin-left: -1.4rem;
+  cursor: pointer;
+  color: #56ac30;
+  border: none;
+  width: 11rem;
+  height: 2.5rem;
+  font-weight: 600;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+.btnVoltar:hover {
+  transform: scale(1.05);
+}
+@media (max-width: 768px) {
+  .main {
+    margin-bottom: 1rem;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+  }
+  .productCard {
+    align-items: center;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 3;
+    margin-top: 0;
+    margin-bottom: 4rem;
+    padding: 0;
+  }
+  .title {
+    font-size: 1.5rem;
+    margin-top: -1rem;
+  }
+  .imgProduct {
+    padding: 0;
+    display: none;
+  }
+  .column {
+    margin-bottom: -10rem;
+  }
+  .divDescription {
+    flex-grow: 1;
+    margin-left: 0;
+    max-width: 350px;
+  }
+}

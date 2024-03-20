@@ -36,9 +36,11 @@ type Product = {
 const Products = ({
   searchTerm,
   selectedProduct,
+  categoryFilter,
 }: {
   searchTerm: string;
   selectedProduct?: Product;
+  categoryFilter?: string;
 }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState<boolean>(true);
@@ -55,11 +57,11 @@ const Products = ({
         );
         const data = await res.json();
         setProducts(data);
-        setLoading(false);
+        setLoading(false); // Indicate that products are loaded
       } catch (error) {
         console.error("Erro ao buscar produtos:", error);
         setProducts([]);
-        setLoading(false);
+        setLoading(false); // Indicate that loading failed
       }
     };
 
@@ -78,7 +80,7 @@ const Products = ({
   }, [showMessageMap]);
 
   const removeSpecialChars = (text: string): string => {
-    return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return text.normalize("NFD").replace(/[\u0300-\u036f\s]/g, "");
   };
 
   if (loading) {
@@ -113,6 +115,13 @@ const Products = ({
             ) ||
             product.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
             product.description.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        .filter((product) =>
+          categoryFilter
+            ? removeSpecialChars(product.category.toLowerCase()).includes(
+                removeSpecialChars(categoryFilter.toLowerCase())
+              )
+            : true
         )
         .map((product) => (
           <AnimatedProductItem
