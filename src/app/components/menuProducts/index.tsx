@@ -15,6 +15,7 @@ export function MenuProducts() {
     percussao: false,
     mesas: false,
   });
+  const [mouseOverButton, setMouseOverButton] = useState(false); // Estado para controlar se o mouse está sobre o botão
 
   const openMenu = (menuName: string) => {
     setMenuOpen((prevState) => ({
@@ -35,14 +36,33 @@ export function MenuProducts() {
       <div className={styles.menu}>
         <button
           className={styles.menuButton}
-          onMouseEnter={() => openMenu("instrumentos")}
-          onMouseLeave={() => closeMenu("instrumentos")}
+          onMouseEnter={() => {
+            openMenu("instrumentos");
+            setMouseOverButton(true);
+          }}
+          onMouseLeave={() => {
+            closeMenu("instrumentos");
+            setMouseOverButton(false);
+          }}
           onBlur={() => closeMenu("instrumentos")}
         >
-          <span className={styles.span}>
-            Por categoria <DownArrow />{" "}
-          </span>
+          Por categoria <DownArrow />{" "}
         </button>
+        {(menuOpen.instrumentos || mouseOverButton) && (
+          <div
+            className={styles.overlay}
+            onMouseEnter={() =>
+              setMenuOpen((prevState) => ({ ...prevState, instrumentos: true }))
+            }
+            onMouseLeave={() =>
+              setMenuOpen((prevState) => ({
+                ...prevState,
+                instrumentos: false,
+              }))
+            }
+            onClick={() => closeMenu("instrumentos")}
+          />
+        )}
         {menuOpen.instrumentos && (
           <nav
             className={styles.menuContent}

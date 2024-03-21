@@ -73,7 +73,6 @@ export default function Loja() {
                   loading="lazy"
                 />
               </div>
-
               <div>
                 <Image
                   className={styles.violaoContainer}
@@ -85,7 +84,6 @@ export default function Loja() {
               </div>
               <IconWhatsappfixed />
               <Cartloja />
-
               <div className={`${styles.textContent} animated-item`}>
                 <input
                   className={styles.serchProducts}
@@ -96,30 +94,28 @@ export default function Loja() {
                 />
                 <span className={styles.search}>
                   <SearchIcon />
-                </span>
-                <MenuProducts />
+                </span>{" "}
                 {/* <span>
   <HeartIcon />
   {favoriteData.length > 0 && (
     <span>{favoriteData.length} </span>
   )}
-</span> */}
-                <div>
-                  <p className={styles.infoMessage}>
-                    <InfoIcon />
-                    &ldquo;Caro visitante, agradecemos por explorar nossa loja
-                    em desenvolvimento. Gostaríamos de informar que os itens
-                    atualmente exibidos são fictícios, fazendo parte do processo
-                    de desenvolvimento. No momento, esses produtos não estão
-                    disponíveis para compra. Estamos trabalhando diligentemente
-                    para aprimorar nossa plataforma e em breve apresentaremos
-                    produtos reais.&rdquo;
-                  </p>
-                </div>
+</span> */}{" "}
+              </div>{" "}
+              <MenuProducts />
+              <div>
+                <p className={styles.infoMessage}>
+                  <InfoIcon />
+                  &ldquo;Caro visitante, agradecemos por explorar nossa loja em
+                  desenvolvimento. Gostaríamos de informar que os itens
+                  atualmente exibidos são fictícios, fazendo parte do processo
+                  de desenvolvimento. No momento, esses produtos não estão
+                  disponíveis para compra. Estamos trabalhando diligentemente
+                  para aprimorar nossa plataforma e em breve apresentaremos
+                  produtos reais.&rdquo;
+                </p>
               </div>
-
               <Products searchTerm={searchTerm} />
-
               <div className={styles.form}>
                 <Form />
               </div>
