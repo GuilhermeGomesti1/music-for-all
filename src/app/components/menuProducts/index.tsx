@@ -32,18 +32,6 @@ export function MenuProducts() {
 
   return (
     <div className={styles.container}>
-      {menuOpen.instrumentos ||
-      menuOpen.acessorios ||
-      menuOpen.pedais ||
-      menuOpen.percussao ||
-      menuOpen.mesas ? (
-        <div
-          className={styles.overlay}
-          onClick={() => setMenuOpen({})}
-          onMouseEnter={() => setMenuOpen({})}
-          onMouseLeave={() => setMenuOpen({})}
-        ></div>
-      ) : null}
       <div className={styles.menu}>
         <button
           className={styles.menuButton}
