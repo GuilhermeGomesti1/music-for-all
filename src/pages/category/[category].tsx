@@ -1,3 +1,4 @@
+import styles from "./styles.module.css";
 import Products from "@/app/components/Products";
 import { Providers } from "@/providers";
 import { useRouter } from "next/router";
@@ -11,7 +12,7 @@ export default function CategoryPage() {
     <Providers>
       {" "}
       <div>
-        <h2>Produtos da Categoria {category}</h2>
+        <h2 className={styles.title}>Produtos da Categoria: {category}</h2>
         <Products searchTerm={searchTerm} categoryFilter={category as string} />
       </div>
     </Providers>

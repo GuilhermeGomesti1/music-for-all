@@ -97,6 +97,7 @@ export default function Loja() {
                 <span className={styles.search}>
                   <SearchIcon />
                 </span>
+                <MenuProducts />
                 {/* <span>
   <HeartIcon />
   {favoriteData.length > 0 && (

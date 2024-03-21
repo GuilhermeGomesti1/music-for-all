@@ -83,21 +83,6 @@ const Products = ({
     return text.normalize("NFD").replace(/[\u0300-\u036f\s]/g, "");
   };
 
-  if (loading) {
-    return (
-      <div className={styles.loadingContainer}>
-        <div className={styles.loadingProducts}>
-          <Image
-            src="/images/loading.gif"
-            alt="loadinggif"
-            width={1152}
-            height={648}
-          />
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className={selectedProduct ? styles.productsNoGrid : styles.products}>
       {products
