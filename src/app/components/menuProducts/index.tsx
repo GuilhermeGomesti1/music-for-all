@@ -1,8 +1,11 @@
-import { useState } from "react";
+"use client";
+import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import Link from "next/link";
 import { DownArrow } from "../Icons/OtherIcons/downArrow";
-
+import Image from "next/image";
+import logofooter from "../../../../public/images/logotrasparente.png";
+import { IconCurso } from "../Icons/iconsHome/iconCurso";
 type MenuState = {
   [key: string]: boolean;
 };
@@ -31,6 +34,25 @@ export function MenuProducts() {
     }));
   };
 
+  useEffect(() => {
+    if (process.browser && menuOpen.instrumentos) {
+      import("scrollreveal").then((ScrollRevealModule) => {
+        const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
+
+        const sr = ScrollReveal({
+          duration: 300,
+          reset: false,
+        });
+
+        sr.reveal(".animated-itemM", {
+          origin: "top",
+          distance: "20px",
+          easing: "ease-in-out",
+        });
+      });
+    }
+  }, [menuOpen.instrumentos]);
+
   return (
     <div className={styles.container}>
       <div className={styles.menu}>
@@ -50,7 +72,7 @@ export function MenuProducts() {
         </button>
         {(menuOpen.instrumentos || mouseOverButton) && (
           <div
-            className={styles.overlay}
+            className={`${styles.overlay} animated-itemM`}
             onMouseEnter={() =>
               setMenuOpen((prevState) => ({ ...prevState, instrumentos: true }))
             }
@@ -65,32 +87,50 @@ export function MenuProducts() {
         )}
         {menuOpen.instrumentos && (
           <nav
-            className={styles.menuContent}
+            className={`${styles.menuContent} animated-itemM`}
             onMouseEnter={() => openMenu("instrumentos")}
             onMouseLeave={() => closeMenu("instrumentos")}
           >
-            <ul className={styles.listaMenu}>
+            <ul className={`${styles.listaMenu} animated-itemM`}>
               <Link href="/category/Instrumentos&nbsp;Musicais">
-                <li className={styles.aContainer}>Instrumentos Musicais</li>
+                <li className={styles.aContainer}>
+                  <IconCurso />
+                  Instrumentos Musicais
+                </li>
               </Link>
               <Link href="/category/Acessórios">
-                <li className={styles.aContainer}>Acessórios</li>
+                <li className={styles.aContainer}>
+                  <IconCurso />
+                  Acessórios
+                </li>
               </Link>
               <Link href="/category/Microfones">
-                <li className={styles.aContainer}>Microfones</li>
+                <li className={styles.aContainer}>
+                  <IconCurso />
+                  Microfones
+                </li>
               </Link>
               <Link href="/category/Pedais&nbsp;de&nbsp;Efeito">
-                <li className={styles.aContainer}>Pedais de Efeito</li>
+                <li className={styles.aContainer}>
+                  <IconCurso />
+                  Pedais de Efeito
+                </li>
               </Link>
               <Link href="/category/Baquetas">
-                <li className={styles.aContainer}>Percussão</li>
+                <li className={styles.aContainer}>
+                  <IconCurso />
+                  Percussão
+                </li>
               </Link>
               <Link href="/category/Mesas&nbsp;de&nbsp;Mixagem">
-                <li className={styles.aContainer}>Mesas de Mixagem</li>
+                <li className={styles.aContainer}>
+                  <IconCurso />
+                  Mesas de Mixagem
+                </li>
               </Link>
             </ul>
           </nav>
-        )}
+        )}{" "}
       </div>
     </div>
   );
