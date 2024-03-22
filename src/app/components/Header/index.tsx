@@ -82,7 +82,7 @@ export function Header() {
           const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
 
           const sr = ScrollReveal({
-            duration: 300,
+            duration: 250,
             reset: true,
 
             // Outras opções de configuração aqui
@@ -90,7 +90,7 @@ export function Header() {
 
           sr.reveal(".animated-itemh", {
             origin: "right",
-            distance: "40px",
+            distance: "400px",
             easing: "ease-in-out",
             opacity: 0,
           });
