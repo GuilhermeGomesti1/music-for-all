@@ -218,10 +218,10 @@
 
 .removeButton {
   border: none;
-  background-color: white;
+  background-color: transparent;
   position: absolute;
   right: 17px;
-  top: 290px;
+  top: 295px;
   margin-left: auto;
   font-size: 0.8rem;
   color: #718096;

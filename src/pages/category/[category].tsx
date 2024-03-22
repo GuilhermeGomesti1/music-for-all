@@ -5,13 +5,13 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 export default function CategoryPage() {
   const router = useRouter();
-  const { category } = router.query; // Obtém a categoria da URL
+  const { category } = router.query;
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   return (
     <Providers>
       {" "}
-      <div>
+      <div className={styles.all}>
         <h2 className={styles.title}>Produtos da Categoria: {category}</h2>
         <Products searchTerm={searchTerm} categoryFilter={category as string} />
       </div>
