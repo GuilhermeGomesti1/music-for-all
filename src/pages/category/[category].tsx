@@ -1,3 +1,4 @@
+import { Footer } from "@/app/components/Footer";
 import styles from "./styles.module.css";
 import Products from "@/app/components/Products";
 import { Providers } from "@/providers";
@@ -9,12 +10,18 @@ export default function CategoryPage() {
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   return (
-    <Providers>
+    <>
       {" "}
-      <h2 className={styles.title}>Produtos da Categoria: {category}</h2>{" "}
-      <div className={styles.all}>
-        <Products searchTerm={searchTerm} categoryFilter={category as string} />
-      </div>
-    </Providers>
+      <Providers>
+        <h2 className={styles.title}>Produtos da Categoria: {category}</h2>{" "}
+        <div className={styles.all}>
+          <Products
+            searchTerm={searchTerm}
+            categoryFilter={category as string}
+          />
+        </div>
+      </Providers>
+      <Footer />
+    </>
   );
 }
