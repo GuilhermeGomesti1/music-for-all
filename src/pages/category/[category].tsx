@@ -11,8 +11,8 @@ export default function CategoryPage() {
   return (
     <Providers>
       {" "}
+      <h2 className={styles.title}>Produtos da Categoria: {category}</h2>{" "}
       <div className={styles.all}>
-        <h2 className={styles.title}>Produtos da Categoria: {category}</h2>
         <Products searchTerm={searchTerm} categoryFilter={category as string} />
       </div>
     </Providers>
