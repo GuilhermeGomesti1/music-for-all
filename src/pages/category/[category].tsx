@@ -6,6 +6,7 @@ import Products from "@/app/components/Products";
 import { Providers } from "@/providers";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import ScrollToTop from "@/app/components/scrooltotop";
 export default function CategoryPage() {
   const router = useRouter();
   const { category } = router.query;
@@ -13,6 +14,7 @@ export default function CategoryPage() {
 
   return (
     <div className={styles.all}>
+      <ScrollToTop />
       <Providers>
         <div className={styles.main}>
           <h2 className={styles.title}>Produtos da Categoria: {category}</h2>{" "}
