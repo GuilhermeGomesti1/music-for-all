@@ -1,6 +1,9 @@
 .all {
+  width: 100%;
 }
-
+.main {
+  width: 100%;
+}
 .title {
   margin-top: 2rem;
   color: #666666;
@@ -12,10 +15,21 @@
   margin-bottom: 2rem;
   font-weight: normal;
 }
+.footer {
+  margin-top: 11rem;
+  width: 100vw;
+  position: relative;
+  bottom: 0;
+}
 
 @media (max-width: 768px) {
+  .all {
+  }
   .title {
-    font-size: 1.5rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+  .footer {
     margin-top: 1rem;
   }
 }
