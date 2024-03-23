@@ -1,8 +1,14 @@
 .all {
+  align-items: center;
   width: 100%;
+  justify-content: center;
+  text-align: center;
 }
 .main {
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  text-align: center;
 }
 .title {
   margin-top: 2rem;
