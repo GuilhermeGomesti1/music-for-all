@@ -34,7 +34,7 @@ export function MenuProducts() {
     }));
   };
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (process.browser && menuOpen.instrumentos) {
       import("scrollreveal").then((ScrollRevealModule) => {
         const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
@@ -51,7 +51,7 @@ export function MenuProducts() {
         });
       });
     }
-  }, [menuOpen.instrumentos]);
+  }, [menuOpen.instrumentos]);  */
 
   return (
     <div className={styles.container}>
