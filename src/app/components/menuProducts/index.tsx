@@ -34,13 +34,13 @@ export function MenuProducts() {
     }));
   };
 
-  /* useEffect(() => {
+  useEffect(() => {
     if (process.browser && menuOpen.instrumentos) {
       import("scrollreveal").then((ScrollRevealModule) => {
         const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
 
         const sr = ScrollReveal({
-          duration: 300,
+          duration: 150,
           reset: false,
         });
 
@@ -51,7 +51,7 @@ export function MenuProducts() {
         });
       });
     }
-  }, [menuOpen.instrumentos]);  */
+  }, [menuOpen.instrumentos]);
 
   return (
     <div className={styles.container}>
