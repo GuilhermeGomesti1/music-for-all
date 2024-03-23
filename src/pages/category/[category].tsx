@@ -17,7 +17,7 @@ export default function CategoryPage() {
       <ScrollToTop />
       <Providers>
         <div className={styles.main}>
-          <h2 className={styles.title}>Produtos da Categoria: {category}</h2>{" "}
+          <h2 className={styles.title}>Produtos da Categoria:{category}</h2>
           <Products
             searchTerm={searchTerm}
             categoryFilter={category as string}
