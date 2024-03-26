@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { SVGProps } from "react";
 import styles from "./styles.module.css";
 
@@ -9,14 +9,14 @@ export const LikeIcon = (props: SVGProps<SVGSVGElement>) => {
     setClicked(!clicked);
   };
 
-  const iconColor = clicked ? 'red' : 'blue';
+  const iconColor = clicked ? "red" : "blue";
 
   return (
     <svg
       className={styles.LikeIcon}
       stroke="currentColor"
       fill={iconColor}
-      stroke-width="0"
+      strokeWidth="0"
       viewBox="0 0 1024 1024"
       height="1em"
       width="1em"

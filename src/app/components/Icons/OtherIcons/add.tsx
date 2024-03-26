@@ -15,9 +15,9 @@ export const AddIcon = (props: SVGProps<SVGSVGElement>) => {
     >
       <path
         fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="32"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="32"
         d="M256 112v288m144-144H112"
       ></path>
     </svg>

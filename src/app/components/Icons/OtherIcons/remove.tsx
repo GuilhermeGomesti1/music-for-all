@@ -15,9 +15,9 @@ export const RemoveIcon = (props: SVGProps<SVGSVGElement>) => {
     >
       <path
         fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="32"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="32"
         d="M400 256H112"
       ></path>
     </svg>

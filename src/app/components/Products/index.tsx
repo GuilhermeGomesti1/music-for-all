@@ -45,28 +45,99 @@ const Products = ({
   const dispatch = useDispatch();
   const [loading, setLoading] = useState<boolean>(true);
   const [products, setProducts] = useState<StoreProduct[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const productsPerPage = 10;
+  const [totalNumberOfProducts, setTotalNumberOfProducts] = useState<number>(0);
+
+  const [productsLoaded, setProductsLoaded] = useState<boolean>(false);
+
   const [showMessageMap, setShowMessageMap] = useState<{
     [key: string]: boolean;
   }>({});
 
+  const loadMoreProducts = async () => {
+    try {
+      setLoading(true);
+      const res = await fetch(
+        `https://apiproducts-vbaz.onrender.com/api/products?page=${page}&perPage=${productsPerPage}`
+      );
+      const data = await res.json();
+      console.log(
+        "Número de itens recebidos na resposta do servidor:",
+        data.length
+      );
+
+      // Verifica se há mais itens a serem carregados
+      if (data.length > 0) {
+        setProducts((prevProducts) => {
+          // Filtra os novos produtos para garantir que nenhum produto existente seja repetido
+          const newProducts = data.filter(
+            (newProduct: { _id: number }) =>
+              !prevProducts.some(
+                (existingProduct) => existingProduct._id === newProduct._id
+              )
+          );
+          return [...prevProducts, ...newProducts]; // Concatena os novos produtos à lista existente
+        });
+        setPage(page + 1);
+      } else {
+        console.log("Não há mais itens para carregar.");
+        setLoading(false); // Indicate that loading has finished
+        return; // Stop further execution since no more items are available
+      }
+
+      setLoading(false);
+    } catch (error) {
+      console.error("Erro ao buscar mais produtos:", error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition =
+        window.innerHeight + document.documentElement.scrollTop;
+      const bottomOffset = 500; // Offset de 100 pixels antes do final da página
+
+      if (
+        scrollPosition >=
+          document.documentElement.offsetHeight - bottomOffset &&
+        !loading
+      ) {
+        loadMoreProducts();
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [loading]);
+
   useEffect(() => {
     const fetchProducts = async () => {
-      try {
-        const res = await fetch(
-          "https://apiproducts-vbaz.onrender.com/api/products"
-        );
-        const data = await res.json();
-        setProducts(data);
-        setLoading(false); // Indicate that products are loaded
-      } catch (error) {
-        console.error("Erro ao buscar produtos:", error);
-        setProducts([]);
-        setLoading(false); // Indicate that loading failed
+      if (!productsLoaded) {
+        try {
+          const res = await fetch(
+            "https://apiproducts-vbaz.onrender.com/api/products"
+          );
+          const data = await res.json();
+          console.log(
+            "Número de itens recebidos na primeira busca:",
+            data.length
+          ); // Adiciona este console.log para verificar o número de itens recebidos na primeira busca
+          setProducts(data);
+          setTotalNumberOfProducts(data.length); // Defina o número total de produtos
+          setLoading(false); // Indicate that products are loaded
+          setProductsLoaded(true); // Set productsLoaded to true after fetching products
+        } catch (error) {
+          console.error("Erro ao buscar produtos:", error);
+          setProducts([]);
+          setLoading(false); // Indicate that loading failed
+        }
       }
     };
 
     fetchProducts();
-  }, []);
+  }, [productsLoaded]);
 
   useEffect(() => {
     const storedShowMessageMap = JSON.parse(
@@ -164,6 +235,7 @@ const AnimatedProductItem = ({
         >
           <div className={styles.imageContainer}>
             <Image
+              loading="lazy"
               width={300}
               height={300}
               src={product.image}
