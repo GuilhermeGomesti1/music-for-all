@@ -6,18 +6,12 @@ import { CartIcon } from "../Icons/OtherIcons/cartIcon";
 import { HeartIcon } from "../Icons/OtherIcons/heart";
 import FormattedAmount from "../FmtPrice";
 import { useDispatch } from "react-redux";
-import { addToCart, addTofavorite } from "@/store/nextSlice";
+import { addToCart, addTofavorite, deleteProduct } from "@/store/nextSlice";
 import { useSession } from "next-auth/react";
 import { CheckIcon } from "../Icons/OtherIcons/check";
 import CartPayment from "../CartPayment/page";
 import Link from "next/link";
 import { CartIconadd } from "../Icons/OtherIcons/carticon1";
-
-import {
-  decreaseQuantity,
-  deleteProduct,
-  increaseQuantity,
-} from "@/store/nextSlice";
 import { RemoveProduct } from "../Icons/OtherIcons/removeproduct";
 
 type Product = {
@@ -44,12 +38,10 @@ const Products = ({
 }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState<boolean>(true);
-  const [products, setProducts] = useState<StoreProduct[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [page, setPage] = useState<number>(1);
   const productsPerPage = 10;
   const [totalNumberOfProducts, setTotalNumberOfProducts] = useState<number>(0);
-
-  const [productsLoaded, setProductsLoaded] = useState<boolean>(false);
 
   const [showMessageMap, setShowMessageMap] = useState<{
     [key: string]: boolean;
@@ -66,7 +58,7 @@ const Products = ({
       if (data.length > 0) {
         setProducts((prevProducts) => {
           const newProducts = data.filter(
-            (newProduct: { _id: number }) =>
+            (newProduct: { _id: string }) =>
               !prevProducts.some(
                 (existingProduct) => existingProduct._id === newProduct._id
               )
@@ -74,14 +66,11 @@ const Products = ({
           return [...prevProducts, ...newProducts];
         });
         setPage(page + 1);
-      } else {
-        setLoading(false);
-        return;
       }
-
-      setLoading(false);
+      setLoading(false); // Move setLoading inside the if statement
     } catch (error) {
       setLoading(false);
+      console.error("Error loading more products:", error);
     }
   };
 
@@ -106,7 +95,7 @@ const Products = ({
 
   useEffect(() => {
     const fetchProducts = async () => {
-      if (!productsLoaded) {
+      if (products.length === 0) {
         try {
           const res = await fetch(
             "https://apiproducts-vbaz.onrender.com/api/products"
@@ -116,7 +105,6 @@ const Products = ({
           setProducts(data);
           setTotalNumberOfProducts(data.length);
           setLoading(false);
-          setProductsLoaded(true);
         } catch (error) {
           setProducts([]);
           setLoading(false);
@@ -125,18 +113,7 @@ const Products = ({
     };
 
     fetchProducts();
-  }, [productsLoaded]);
-
-  useEffect(() => {
-    const storedShowMessageMap = JSON.parse(
-      localStorage.getItem("showMessageMap") || "{}"
-    );
-    setShowMessageMap(storedShowMessageMap);
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem("showMessageMap", JSON.stringify(showMessageMap));
-  }, [showMessageMap]);
 
   const removeSpecialChars = (text: string): string => {
     return text.normalize("NFD").replace(/[\u0300-\u036f\s]/g, "");
@@ -171,10 +148,8 @@ const Products = ({
           <AnimatedProductItem
             key={product._id}
             product={product}
-            showMessage={showMessageMap[product._id]}
-            setShowMessage={(value) =>
-              setShowMessageMap((prev) => ({ ...prev, [product._id]: value }))
-            }
+            showMessageMap={showMessageMap}
+            setShowMessageMap={setShowMessageMap}
           />
         ))}
     </div>
@@ -183,20 +158,21 @@ const Products = ({
 
 const AnimatedProductItem = ({
   product,
-  showMessage,
-  setShowMessage,
+  showMessageMap,
+  setShowMessageMap,
 }: {
-  product: StoreProduct;
-  showMessage: boolean;
-  setShowMessage: (value: boolean) => void;
+  product: Product;
+  showMessageMap: { [key: string]: boolean };
+  setShowMessageMap: (value: { [key: string]: boolean }) => void;
 }) => {
   const dispatch = useDispatch();
 
   const productRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (process.browser) {
-      import("scrollreveal").then((ScrollRevealModule) => {
+    const handleScrollReveal = async () => {
+      if (typeof window !== "undefined") {
+        const ScrollRevealModule = await import("scrollreveal");
         const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
 
         const sr = ScrollReveal({
@@ -211,9 +187,50 @@ const AnimatedProductItem = ({
             easing: "ease-in-out",
           });
         }
-      });
-    }
+      }
+    };
+
+    handleScrollReveal();
+
+    return () => {
+      // Cleanup ScrollReveal
+    };
   }, [productRef]);
+
+  const addToCartAndShowMessage = () => {
+    dispatch(
+      addToCart({
+        _id: product._id,
+        brand: product.brand,
+        category: product.category,
+        description: product.description,
+        image: product.image,
+        isNew: product.isNew,
+        oldPrice: product.oldPrice,
+        price: product.price,
+        title: product.title,
+        quantity: 1,
+      })
+    );
+    setShowMessageMap({ ...showMessageMap, [product._id]: true });
+  };
+
+  const addToFavorite = () => {
+    dispatch(
+      addTofavorite({
+        _id: product._id,
+        brand: product.brand,
+        category: product.category,
+        description: product.description,
+        image: product.image,
+        isNew: product.isNew,
+        oldPrice: product.oldPrice,
+        price: product.price,
+        title: product.title,
+        quantity: 1,
+      })
+    );
+  };
 
   return (
     <div ref={productRef} className={`${styles.listaProducts} animated-item`}>
@@ -233,49 +250,11 @@ const AnimatedProductItem = ({
           </div>
         </Link>
         <div className={styles.divSpan}>
-          <span
-            onClick={() => {
-              dispatch(
-                addToCart({
-                  _id: product._id,
-                  brand: product.brand,
-                  category: product.category,
-                  description: product.description,
-                  image: product.image,
-                  isNew: product.isNew,
-                  oldPrice: product.oldPrice,
-                  price: product.price,
-                  title: product.title,
-                  quantity: 1,
-                })
-              );
-
-              setShowMessage(true);
-            }}
-            className={styles.spanIcons}
-          >
+          <span onClick={addToCartAndShowMessage} className={styles.spanIcons}>
             <CartIcon />
           </span>
 
-          <span
-            onClick={() =>
-              dispatch(
-                addTofavorite({
-                  _id: product._id,
-                  brand: product.brand,
-                  category: product.category,
-                  description: product.description,
-                  image: product.image,
-                  isNew: product.isNew,
-                  oldPrice: product.oldPrice,
-                  price: product.price,
-                  title: product.title,
-                  quantity: 1,
-                })
-              )
-            }
-            className={styles.spanIcons}
-          >
+          <span onClick={addToFavorite} className={styles.spanIcons}>
             <HeartIcon />
           </span>
         </div>
@@ -305,7 +284,7 @@ const AnimatedProductItem = ({
               product.title
             )}
           </p>
-          {showMessage && (
+          {showMessageMap[product._id] && (
             <div className={`${styles.addedToCartMessage} ${styles.show}`}>
               <p>
                 <CheckIcon />
@@ -314,12 +293,8 @@ const AnimatedProductItem = ({
             </div>
           )}
           <p className={styles.pprice}>
-            <span className={styles.spanprice}>
-              <FormattedAmount amount={product.oldPrice} />
-            </span>
-            <span>
-              <FormattedAmount amount={product.price} />
-            </span>
+            <span className={styles.spanprice}>{product.oldPrice}</span>
+            <span>{product.price}</span>
           </p>
           <p className={styles.pdescription}>
             {product.description.length > 120 ? (
@@ -333,39 +308,26 @@ const AnimatedProductItem = ({
           </p>
         </Link>
         <button
-          onClick={() => {
-            dispatch(
-              addToCart({
-                _id: product._id,
-                brand: product.brand,
-                category: product.category,
-                description: product.description,
-                image: product.image,
-                isNew: product.isNew,
-                oldPrice: product.oldPrice,
-                price: product.price,
-                title: product.title,
-                quantity: 1,
-              })
-            );
-
-            setShowMessage(true);
-          }}
-          className={`${styles.btnaddcart} ${showMessage && styles.added}`}
-          disabled={showMessage}
+          onClick={addToCartAndShowMessage}
+          className={`${styles.btnaddcart} ${
+            showMessageMap[product._id] && styles.added
+          }`}
+          disabled={showMessageMap[product._id]}
         >
           <span className={styles.cartText}>
-            {showMessage ? (
+            {showMessageMap[product._id] ? (
               <span className={styles.link}> Adicionado ao carrinho</span>
             ) : (
               "+ Carrinho"
             )}
           </span>
         </button>
-        {showMessage && (
+        {showMessageMap[product._id] && (
           <button
             onClick={() => {
-              setShowMessage(false);
+              const newShowMessageMap = { ...showMessageMap };
+              delete newShowMessageMap[product._id];
+              setShowMessageMap(newShowMessageMap);
               dispatch(deleteProduct(product._id));
             }}
             className={styles.removeButton}
