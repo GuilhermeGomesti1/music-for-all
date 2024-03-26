@@ -62,33 +62,25 @@ const Products = ({
         `https://apiproducts-vbaz.onrender.com/api/products?page=${page}&perPage=${productsPerPage}`
       );
       const data = await res.json();
-      console.log(
-        "Número de itens recebidos na resposta do servidor:",
-        data.length
-      );
 
-      // Verifica se há mais itens a serem carregados
       if (data.length > 0) {
         setProducts((prevProducts) => {
-          // Filtra os novos produtos para garantir que nenhum produto existente seja repetido
           const newProducts = data.filter(
             (newProduct: { _id: number }) =>
               !prevProducts.some(
                 (existingProduct) => existingProduct._id === newProduct._id
               )
           );
-          return [...prevProducts, ...newProducts]; // Concatena os novos produtos à lista existente
+          return [...prevProducts, ...newProducts];
         });
         setPage(page + 1);
       } else {
-        console.log("Não há mais itens para carregar.");
-        setLoading(false); // Indicate that loading has finished
-        return; // Stop further execution since no more items are available
+        setLoading(false);
+        return;
       }
 
       setLoading(false);
     } catch (error) {
-      console.error("Erro ao buscar mais produtos:", error);
       setLoading(false);
     }
   };
@@ -120,18 +112,14 @@ const Products = ({
             "https://apiproducts-vbaz.onrender.com/api/products"
           );
           const data = await res.json();
-          console.log(
-            "Número de itens recebidos na primeira busca:",
-            data.length
-          ); // Adiciona este console.log para verificar o número de itens recebidos na primeira busca
+
           setProducts(data);
-          setTotalNumberOfProducts(data.length); // Defina o número total de produtos
-          setLoading(false); // Indicate that products are loaded
-          setProductsLoaded(true); // Set productsLoaded to true after fetching products
+          setTotalNumberOfProducts(data.length);
+          setLoading(false);
+          setProductsLoaded(true);
         } catch (error) {
-          console.error("Erro ao buscar produtos:", error);
           setProducts([]);
-          setLoading(false); // Indicate that loading failed
+          setLoading(false);
         }
       }
     };
