@@ -97,7 +97,7 @@ const Products = ({
     const handleScroll = () => {
       const scrollPosition =
         window.innerHeight + document.documentElement.scrollTop;
-      const bottomOffset = 500; // Offset de 100 pixels antes do final da página
+      const bottomOffset = 700; // Offset de 100 pixels antes do final da página
 
       if (
         scrollPosition >=
