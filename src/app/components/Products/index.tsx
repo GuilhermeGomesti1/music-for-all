@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart, addTofavorite, deleteProduct } from "@/store/nextSlice";
