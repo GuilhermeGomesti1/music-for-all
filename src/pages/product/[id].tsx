@@ -11,6 +11,9 @@ import { BackLoja } from "@/app/components/Icons/OtherIcons/backloja";
 import { Footer } from "@/app/components/Footer";
 import ScrollToTop from "@/app/components/scrooltotop";
 import { useState } from "react";
+import { IconWhatsappfixed } from "@/app/components/Icons/IconsContato/iconWhatsappfixed";
+import Cartloja from "@/app/components/Cartloja";
+import { CartIcon } from "@/app/components/Icons/OtherIcons/cartIcon";
 
 export default function ProductPage() {
   const router = useRouter();
@@ -37,6 +40,7 @@ export default function ProductPage() {
                     alt="productImage"
                   />
                 </div>
+                <IconWhatsappfixed />
               </div>
               <div className={styles.divDescription}>
                 <span className={styles.titleDescription}>
@@ -68,6 +72,11 @@ export default function ProductPage() {
                 <Link href={"/loja"}>
                   <button className={styles.btnVoltar}>
                     <BackLoja /> Voltar para a loja
+                  </button>
+                </Link>
+                <Link href={"/carrinho"}>
+                  <button className={styles.btnVoltar}>
+                    <CartIcon /> Ir para o carrinho
                   </button>
                 </Link>
               </div>
