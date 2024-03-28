@@ -71,9 +71,12 @@ export default function ProductPage() {
                   </button>
                 </Link>
               </div>
-            </div>
-            <div className={styles.productCard}>
-              <Products selectedProduct={product} searchTerm={product.title} />
+              <div className={styles.productCard}>
+                <Products
+                  selectedProduct={product}
+                  searchTerm={product.title}
+                />
+              </div>
             </div>
           </>
         )}

@@ -93,20 +93,17 @@ const Products = ({
 
   return (
     <div className={selectedProduct ? styles.productsNoGrid : styles.products}>
-      {loading && !selectedProduct ? (
-        // Renderiza o componente de esqueleto enquanto os dados estão sendo carregados
+      {loading ? (
         <>
-          <SkeletonProduct />
-          <SkeletonProduct />
-          <SkeletonProduct />
-          <SkeletonProduct />
-          <SkeletonProduct />
-          <SkeletonProduct />
-          <SkeletonProduct />
-          <SkeletonProduct />
+          {[
+            ...Array(
+              selectedProduct ? 1 : categoryFilter ? products.length : 8
+            ),
+          ].map((_, index) => (
+            <SkeletonProduct key={index} />
+          ))}
         </>
       ) : (
-        // Renderiza os produtos reais após o carregamento dos dados
         products
           .filter(
             (product) =>

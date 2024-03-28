@@ -14,14 +14,11 @@
   display: block;
 }
 .productCard {
-  padding-bottom: 9rem;
-  margin-top: -40.5rem;
-  margin-right: 4rem;
-  align-items: center;
-  justify-content: center;
+  margin-top: 3rem;
   margin-left: auto;
-  display: flex;
+  margin-right: 3rem;
   width: 400px;
+  align-self: flex-start;
 }
 .column {
   justify-content: center;
@@ -34,7 +31,7 @@
   margin-left: 0 auto;
   margin-right: 0 auto;
   font-size: 1.2rem;
-
+  max-width: 572px;
   font-weight: normal;
 }
 
@@ -58,10 +55,12 @@
 }
 
 .divDescription {
+  align-items: center;
+  justify-content: center;
   margin-top: 10rem;
-  flex-grow: 1;
+
   margin-left: 2rem;
-  max-width: 600px;
+  max-width: 800px;
 }
 .titleDescription {
   color: #666666;
@@ -109,7 +108,7 @@
   }
   .productCard {
     align-items: center;
-    width: 80vw;
+    width: 92vw;
     margin-left: auto;
     margin-right: auto;
     z-index: 3;
