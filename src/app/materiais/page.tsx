@@ -6,18 +6,14 @@ import materiais from "../../../public/images/apostila.png";
 import partituraimg from "../../../public/images/partituraimg.png";
 import tablaturaimg from "../../../public/images/tablaturaimg.png";
 import { IconWhatsappfixed } from "../components/Icons/IconsContato/iconWhatsappfixed";
-
-
-
-
-
+import ScrollToTop from "../components/scrooltotop";
 
 export default function Materiais() {
   return (
     <>
-    <title>Materiais Exclusivos- Escola de Música Music For All</title>
+      <ScrollToTop />
+      <title>Materiais Exclusivos- Escola de Música Music For All</title>
       <main>
-       
         <div className={styles.containerViolao}>
           <Image
             className={styles.img}
@@ -46,7 +42,8 @@ export default function Materiais() {
           </h1>
           <span className={`${styles.spandescription} animated-item`}>
             Aqui, você encontrará uma série de recursos personalizados para
-            aprimorar sua jornada musical. <span className={styles.spanBasta}>Basta clicar e baixar!</span>
+            aprimorar sua jornada musical.{" "}
+            <span className={styles.spanBasta}>Basta clicar e baixar!</span>
           </span>
         </div>
 
