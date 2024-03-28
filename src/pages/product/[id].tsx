@@ -91,7 +91,10 @@ export default function ProductPage() {
         )}
         <div className={styles.footer}></div>
       </Providers>
-      <Footer />
+      <div className={styles.footer}>
+        {" "}
+        <Footer />
+      </div>
     </div>
   );
 }
