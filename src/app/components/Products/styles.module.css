@@ -23,7 +23,11 @@
   position: relative;
   overflow: hidden;
 }
+.loading {
+  opacity: 0.5; /* Defina a opacidade desejada */
+}
 .imgproducts {
+  cursor: pointer;
   width: 60%;
   max-width: 572.61px;
   max-height: 270.71px;
@@ -33,6 +37,7 @@
   transition-duration: 300ms;
 }
 .imageContainer {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   width: 100%;

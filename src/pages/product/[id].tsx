@@ -18,70 +18,65 @@ export default function ProductPage() {
   const product = router.query.product
     ? JSON.parse(router.query.product as string)
     : null;
-  const [searchTerm, setSearchTerm] = useState<string>(
-    product ? product.title : ""
-  );
+
   return (
     <div className={styles.all}>
       <ScrollToTop />
       <Providers>
-        <div>
-          {product && (
-            <>
-              <div className={styles.main}>
-                <div className={styles.column}>
-                  <h1 className={styles.title}>{product.title}</h1>
-                  <div className={styles.imgProduct}>
-                    <Image
-                      className={styles.img}
-                      width={500}
-                      height={500}
-                      src={product.image}
-                      alt="productImage"
-                    />
-                  </div>
+        {product && (
+          <>
+            <div className={styles.main}>
+              <div className={styles.column}>
+                <h1 className={styles.title}>{product.title}</h1>
+                <div className={styles.imgProduct}>
+                  <Image
+                    className={styles.img}
+                    width={500}
+                    height={500}
+                    src={product.image}
+                    alt="productImage"
+                  />
                 </div>
-                <div className={styles.divDescription}>
-                  <span className={styles.titleDescription}>
-                    Informações do produto
+              </div>
+              <div className={styles.divDescription}>
+                <span className={styles.titleDescription}>
+                  Informações do produto
+                </span>
+                <p className={styles.description}>{product.description}</p>
+
+                <p className={styles.description}>
+                  <span className={styles.titleDescription}>Categoria: </span>
+                  {product.category}
+                </p>
+
+                <p className={styles.description}>
+                  {" "}
+                  <span className={styles.titleDescription}>Marca: </span>
+                  {product.brand}
+                </p>
+                <p className={styles.pprice}>
+                  De
+                  <span className={styles.spanprice}>
+                    <FormattedAmount amount={product.oldPrice} />
                   </span>
-                  <p className={styles.description}>{product.description}</p>
-
-                  <p className={styles.description}>
-                    <span className={styles.titleDescription}>Categoria: </span>
-                    {product.category}
-                  </p>
-
-                  <p className={styles.description}>
+                  Por
+                  <span>
                     {" "}
-                    <span className={styles.titleDescription}>Marca: </span>
-                    {product.brand}
-                  </p>
-                  <p className={styles.pprice}>
-                    De
-                    <span className={styles.spanprice}>
-                      <FormattedAmount amount={product.oldPrice} />
-                    </span>
-                    Por
-                    <span>
-                      {" "}
-                      <FormattedAmount amount={product.price} />
-                    </span>
-                  </p>
-                  <Link href={"/loja"}>
-                    <button className={styles.btnVoltar}>
-                      <BackLoja /> Voltar para a loja
-                    </button>
-                  </Link>
-                </div>
+                    <FormattedAmount amount={product.price} />
+                  </span>
+                </p>
+                <Link href={"/loja"}>
+                  <button className={styles.btnVoltar}>
+                    <BackLoja /> Voltar para a loja
+                  </button>
+                </Link>
               </div>
-              <div className={styles.productCard}>
-                <Products selectedProduct={product} searchTerm={searchTerm} />
-              </div>
-            </>
-          )}
-          {/* Restante do código... */}
-        </div>
+            </div>
+            <div className={styles.productCard}>
+              <Products selectedProduct={product} searchTerm={product.title} />
+            </div>
+          </>
+        )}
         <div className={styles.footer}></div>
       </Providers>
       <Footer />
