@@ -208,9 +208,9 @@ const Products = ({
                     </span>
                   </p>
                   <p className={styles.pdescription}>
-                    {product.description.length > 120 ? (
+                    {product.description.length > 100 ? (
                       <span>
-                        {product.description.substring(0, 100)}
+                        {product.description.substring(0, 90)}
                         <span className={styles.threeDot}>{"..."}</span>
                       </span>
                     ) : (
