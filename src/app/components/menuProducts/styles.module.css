@@ -96,4 +96,7 @@
     width: 150px;
     height: 225px;
   }
+  .menuButton {
+    color: black;
+  }
 }
