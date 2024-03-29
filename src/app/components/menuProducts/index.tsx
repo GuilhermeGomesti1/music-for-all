@@ -135,6 +135,7 @@ export function MenuProducts() {
               alt="Foto do menu"
               width={180}
               height={270}
+              loading="lazy"
             />
           </nav>
         )}{" "}
