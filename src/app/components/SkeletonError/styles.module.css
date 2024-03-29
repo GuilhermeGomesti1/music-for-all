@@ -1,0 +1,60 @@
+.listaProducts {
+  width: calc(80% - 2rem);
+  padding: 1rem;
+  width: 90%;
+  background-color: white;
+  border-color: #e5e7eb;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.imggif {
+  display: block; /* Para evitar espaços adicionais */
+  margin: 0 auto; /* Define as margens laterais como automáticas para centralizar horizontalmente */
+  width: 150px;
+  height: 150px;
+}
+.skeleton {
+  background-color: white;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 300px; /* Altura da imagem do produto */
+}
+
+.divSpan {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem; /* Espaçamento entre os ícones */
+}
+
+.spanIcons {
+  width: 30px; /* Largura dos ícones */
+  height: 30px; /* Altura dos ícones */
+  background-color: white;
+}
+
+.textpreço {
+  margin-top: 1rem; /* Espaçamento entre o texto de preço e a linha */
+}
+
+.divtextCategory {
+  margin-top: 1rem; /* Espaçamento entre a linha e o texto da categoria */
+}
+
+.pcategory,
+.ptitle,
+.pprice,
+.pdescription {
+  height: 16px; /* Altura das linhas de texto */
+  background-color: white;
+  margin-bottom: 0.5rem; /* Espaçamento entre as linhas de texto */
+}
+
+.hr {
+  margin-top: 1rem; /* Espaçamento entre a linha e o texto da categoria */
+}

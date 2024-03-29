@@ -13,6 +13,7 @@ import { CartIcon } from "../Icons/OtherIcons/cartIcon";
 import { HeartIcon } from "../Icons/OtherIcons/heart";
 import { StoreProduct } from "../../../../type.d";
 import SkeletonProduct from "../SkeletonProduct";
+import SkeletonErrorProduct from "../SkeletonError";
 type Product = StoreProduct;
 
 const Products = ({
@@ -103,7 +104,7 @@ const Products = ({
             <SkeletonProduct key={index} />
           ))}
         </>
-      ) : (
+      ) : products.length > 0 ? (
         products
           .filter(
             (product) =>
@@ -247,6 +248,8 @@ const Products = ({
               </div>
             </div>
           ))
+      ) : (
+        <SkeletonErrorProduct />
       )}
     </div>
   );
