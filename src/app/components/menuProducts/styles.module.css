@@ -8,18 +8,24 @@
 }
 
 .menuContent {
-  border-radius: 8px;
+  display: flex;
+
+  justify-content: space-between;
+  border-radius: 4px;
   position: absolute;
   top: calc(100%);
   left: 50%;
   transform: translateX(-50%);
   background-color: #fff;
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 30px;
   z-index: 9999;
-  width: 400px;
+  width: 500px;
 }
-
+.menuImage {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.479), 0 1px 2px rgba(0, 0, 0, 0.486);
+  border-radius: 10px;
+}
 .menu {
   position: relative;
   margin: 0 80px;
@@ -61,8 +67,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Cor do overlay com transparência */
-  z-index: 9998; /* Valor alto de z-index para garantir que cubra outros elementos */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
 }
 
 @media (max-width: 768px) {
@@ -74,7 +80,7 @@
     background-color: white;
   }
   .menuContent {
-    border-radius: 8px;
+    border-radius: 0 0 4px 4px;
     position: absolute;
     top: calc(100%);
     left: 50%;
@@ -84,5 +90,9 @@
     padding: 10px;
     z-index: 9999;
     width: 95vw;
+  }
+  .menuImage {
+    width: 150px;
+    height: 225px;
   }
 }

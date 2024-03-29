@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 import Link from "next/link";
 import { DownArrow } from "../Icons/OtherIcons/downArrow";
 import Image from "next/image";
-import logofooter from "../../../../public/images/logotrasparente.png";
+import fotomenu from "../../../../public/images/fotomenu1.png";
 import { IconCurso } from "../Icons/iconsHome/iconCurso";
 type MenuState = {
   [key: string]: boolean;
@@ -129,6 +129,13 @@ export function MenuProducts() {
                 </li>
               </Link>
             </ul>
+            <Image
+              className={styles.menuImage}
+              src={fotomenu}
+              alt="Foto do menu"
+              width={180}
+              height={270}
+            />
           </nav>
         )}{" "}
       </div>
