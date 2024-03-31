@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import Link from "next/link";
@@ -33,25 +34,6 @@ export function MenuProducts() {
       [menuName]: false,
     }));
   };
-
-  /*useEffect(() => {
-    if (process.browser && menuOpen.instrumentos) {
-      import("scrollreveal").then((ScrollRevealModule) => {
-        const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
-
-        const sr = ScrollReveal({
-          duration: 250,
-          reset: false,
-        });
-
-        sr.reveal(".animated-itemM", {
-          origin: "top",
-          distance: "20px",
-          easing: "ease-in-out",
-        });
-      });
-    }
-  }, [menuOpen.instrumentos]);*/
 
   return (
     <div className={styles.container}>
