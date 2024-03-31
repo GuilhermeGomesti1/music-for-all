@@ -363,7 +363,7 @@
   }
 
   .imgMobile {
-    max-width: 100vw;
+    width: 100vw;
     display: flex;
     margin: 0 auto;
     background-color: white;
