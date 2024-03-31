@@ -249,7 +249,11 @@ const Products = ({
             </div>
           ))
       ) : (
-        <SkeletonErrorProduct />
+        <>
+          {[...Array(4)].map((_, index) => (
+            <SkeletonErrorProduct key={index} />
+          ))}
+        </>
       )}
     </div>
   );
