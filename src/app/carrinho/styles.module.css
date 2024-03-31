@@ -158,6 +158,7 @@
 }
 @media (max-width: 768px) {
   .main {
+    min-height: 100%;
     background-color: #d4d4d4;
     flex-direction: column;
     align-items: center;
