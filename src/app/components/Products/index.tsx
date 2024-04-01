@@ -35,10 +35,19 @@ const Products = ({
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("https://apiproducts.vercel.app/api/products");
-        const data = await res.json();
-        setProducts(data);
-        setLoading(false);
+        const cachedProducts = localStorage.getItem("products");
+        if (cachedProducts) {
+          setProducts(JSON.parse(cachedProducts));
+          setLoading(false);
+        } else {
+          const res = await fetch(
+            "https://apiproducts.vercel.app/api/products"
+          );
+          const data = await res.json();
+          setProducts(data);
+          localStorage.setItem("products", JSON.stringify(data));
+          setLoading(false);
+        }
       } catch (error) {
         console.error("Erro ao buscar produtos:", error);
         setProducts([]);
