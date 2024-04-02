@@ -19,7 +19,7 @@ export function MenuProducts() {
     percussao: false,
     mesas: false,
   });
-  const [mouseOverButton, setMouseOverButton] = useState(false); // Estado para controlar se o mouse está sobre o botão
+  const [mouseOverButton, setMouseOverButton] = useState(false);
 
   const openMenu = (menuName: string) => {
     setMenuOpen((prevState) => ({
