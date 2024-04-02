@@ -14,7 +14,7 @@ import { HeartIcon } from "../Icons/OtherIcons/heart";
 import { StoreProduct } from "../../../../type.d";
 import SkeletonProduct from "../SkeletonProduct";
 import SkeletonErrorProduct from "../SkeletonError";
-import { useRouter } from "next/router";
+import router, { useRouter } from "next/router";
 type Product = StoreProduct;
 
 const Products = ({
@@ -34,16 +34,27 @@ const Products = ({
   }>({});
 
   useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const element = document.getElementById(hash.substring(1));
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth" });
-        }, 5000); // Adicione um pequeno atraso, por exemplo, 100ms
-      }
-    }
+    const handleHashScroll = () => {
+      setTimeout(() => {
+        const hash = window.location.hash;
+
+        if (hash) {
+          const element = document.getElementById(hash.substring(1));
+
+          if (element) {
+            const scrollOffset = -80;
+            const elementPosition = element.offsetTop + scrollOffset;
+            window.scrollTo({
+              top: elementPosition,
+              behavior: "smooth",
+            });
+          }
+        }
+      }, 100);
+    };
+    handleHashScroll();
   }, []);
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
