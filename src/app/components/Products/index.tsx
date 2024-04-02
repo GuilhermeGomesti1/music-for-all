@@ -83,15 +83,18 @@ const Products = ({
 
   useEffect(() => {
     if (process.browser) {
-      import("scrollreveal").then((module) => {
-        const ScrollReveal = module.default || module;
-        const sr = ScrollReveal({ duration: 1000, reset: false });
-        sr.reveal(`.${styles.listaProducts}`, {
-          origin: "bottom",
-          distance: "5px",
-          easing: "ease-in-out",
+      const hashInUrl = window.location.hash;
+      if (!hashInUrl) {
+        import("scrollreveal").then((module) => {
+          const ScrollReveal = module.default || module;
+          const sr = ScrollReveal({ duration: 800, reset: false });
+          sr.reveal(`.${styles.listaProducts}`, {
+            origin: "bottom",
+            distance: "5px",
+            easing: "ease-in-out",
+          });
         });
-      });
+      }
     }
   }, [products]);
   useEffect(() => {
