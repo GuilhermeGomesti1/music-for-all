@@ -25,40 +25,42 @@ export default function CategoryPage() {
   }, [category]);
 
   return (
-    <div className={styles.all}>
-      <ScrollToTop />
-      <Providers>
-        <div className={styles.main}>
-          {loading ? (
-            <div className={styles.skeleton}>
-              <SkeletonProduct />
-            </div>
-          ) : (
-            <>
-              <h2 className={styles.title}>
-                Produtos da Categoria: {category}
-              </h2>
-              <Products
-                searchTerm={searchTerm}
-                categoryFilter={category as string}
-              />
-              <Link href={"/loja"}>
-                <button className={styles.btnVoltar}>
-                  <BackLoja /> Voltar para a loja
-                </button>
-              </Link>
-              <Link href={"/carrinho"}>
-                <button className={styles.btnVoltar}>
-                  <CartIcon /> Ir para o carrinho
-                </button>
-              </Link>
-            </>
-          )}
-        </div>
-      </Providers>
+    <>
+      <div className={styles.all}>
+        <ScrollToTop />
+        <Providers>
+          <div className={styles.main}>
+            {loading ? (
+              <div className={styles.skeleton}>
+                <SkeletonProduct />
+              </div>
+            ) : (
+              <>
+                <h2 className={styles.title}>
+                  Produtos da Categoria: {category}
+                </h2>
+                <Products
+                  searchTerm={searchTerm}
+                  categoryFilter={category as string}
+                />
+                <Link href={"/loja"}>
+                  <button className={styles.btnVoltar}>
+                    <BackLoja /> Voltar para a loja
+                  </button>
+                </Link>
+                <Link href={"/carrinho"}>
+                  <button className={styles.btnVoltar}>
+                    <CartIcon /> Ir para o carrinho
+                  </button>
+                </Link>
+              </>
+            )}
+          </div>
+        </Providers>
+      </div>
       <div className={styles.footer}>
         <Footer />
       </div>
-    </div>
+    </>
   );
 }

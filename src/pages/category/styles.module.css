@@ -1,13 +1,16 @@
 .all {
+  min-height: 90vh;
+
+  flex-direction: column;
   align-items: center;
   width: 100%;
   justify-content: center;
   text-align: center;
 }
 .skeleton {
-  height: 100vh;
 }
 .main {
+  flex: 1;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -24,10 +27,9 @@
   font-weight: normal;
 }
 .footer {
-  margin-top: 11rem;
-  width: 100vw;
-  position: relative;
-  bottom: 0;
+  margin-top: auto;
+
+  width: 100%;
 }
 .btnVoltar {
   display: none;
