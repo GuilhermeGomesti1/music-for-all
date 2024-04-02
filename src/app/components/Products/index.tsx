@@ -14,6 +14,7 @@ import { HeartIcon } from "../Icons/OtherIcons/heart";
 import { StoreProduct } from "../../../../type.d";
 import SkeletonProduct from "../SkeletonProduct";
 import SkeletonErrorProduct from "../SkeletonError";
+import { useRouter } from "next/router";
 type Product = StoreProduct;
 
 const Products = ({
@@ -32,6 +33,17 @@ const Products = ({
     [key: string]: boolean;
   }>({});
 
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.getElementById(hash.substring(1));
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 5000); // Adicione um pequeno atraso, por exemplo, 100ms
+      }
+    }
+  }, []);
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -58,6 +70,19 @@ const Products = ({
     fetchProducts();
   }, []);
 
+  useEffect(() => {
+    if (process.browser) {
+      import("scrollreveal").then((module) => {
+        const ScrollReveal = module.default || module;
+        const sr = ScrollReveal({ duration: 1000, reset: false });
+        sr.reveal(`.${styles.listaProducts}`, {
+          origin: "bottom",
+          distance: "5px",
+          easing: "ease-in-out",
+        });
+      });
+    }
+  }, [products]);
   useEffect(() => {
     const storedShowMessageMap = JSON.parse(
       localStorage.getItem("showMessageMap") || "{}"
@@ -86,20 +111,6 @@ const Products = ({
     setShowMessageMap((prev) => ({ ...prev, [product._id]: false }));
     dispatch(deleteProduct(product._id));
   };
-
-  useEffect(() => {
-    if (process.browser) {
-      import("scrollreveal").then((module) => {
-        const ScrollReveal = module.default || module;
-        const sr = ScrollReveal({ duration: 1000, reset: false });
-        sr.reveal(`.${styles.listaProducts}`, {
-          origin: "bottom",
-          distance: "5px",
-          easing: "ease-in-out",
-        });
-      });
-    }
-  }, [products]);
 
   return (
     <div className={selectedProduct ? styles.productsNoGrid : styles.products}>
@@ -139,6 +150,7 @@ const Products = ({
           .map((product) => (
             <div
               key={product._id}
+              id={product._id.toString()}
               className={`${styles.listaProducts} ${
                 loading ? styles.loading : ""
               }`}

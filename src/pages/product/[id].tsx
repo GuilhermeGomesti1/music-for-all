@@ -69,11 +69,12 @@ export default function ProductPage() {
                     <FormattedAmount amount={product.price} />
                   </span>
                 </p>
-                <Link href={"/loja"}>
+                <Link href={`/loja#${product._id}`}>
                   <button className={styles.btnVoltar}>
                     <BackLoja /> Voltar para a loja
                   </button>
                 </Link>
+
                 <Link href={"/carrinho"}>
                   <button className={styles.btnVoltar}>
                     <CartIcon /> Ir para o carrinho
