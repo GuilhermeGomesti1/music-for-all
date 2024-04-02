@@ -4,6 +4,9 @@
   justify-content: center;
   text-align: center;
 }
+.skeleton {
+  height: 100vh;
+}
 .main {
   align-items: center;
   justify-content: center;

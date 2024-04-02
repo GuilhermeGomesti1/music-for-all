@@ -33,6 +33,7 @@ const Products = ({
     [key: string]: boolean;
   }>({});
   const [scrollActivated, setScrollActivated] = useState<boolean>(false);
+  const [scrollRevealed, setScrollRevealed] = useState<boolean>(false);
 
   useEffect(() => {
     const handleHashScroll = () => {
@@ -84,18 +85,22 @@ const Products = ({
   }, []);
 
   useEffect(() => {
-    if (process.browser) {
-      import("scrollreveal").then((module) => {
-        const ScrollReveal = module.default || module;
-        const sr = ScrollReveal({ duration: 600, reset: false });
-        sr.reveal(`.${styles.listaProducts}`, {
-          origin: "bottom",
-          distance: "5px",
-          easing: "ease-in-out",
+    if (products.length > 0 && !scrollRevealed) {
+      if (process.browser) {
+        import("scrollreveal").then((module) => {
+          const ScrollReveal = module.default || module;
+          const sr = ScrollReveal({ duration: 600, reset: false });
+          sr.reveal(`.${styles.listaProducts}`, {
+            origin: "bottom",
+            distance: "5px",
+            easing: "ease-in-out",
+          });
+          setScrollRevealed(true);
         });
-      });
+      }
     }
-  }, [products]);
+  }, [products, scrollRevealed]);
+
   useEffect(() => {
     const storedShowMessageMap = JSON.parse(
       localStorage.getItem("showMessageMap") || "{}"
