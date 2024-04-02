@@ -40,7 +40,6 @@ const Products = ({
         const hash = window.location.hash;
 
         if (hash && !scrollActivated) {
-          // Verificar se o scroll já foi ativado
           const element = document.getElementById(hash.substring(1));
 
           if (element) {
@@ -53,7 +52,7 @@ const Products = ({
             setScrollActivated(true); // Ativar o scroll
           }
         }
-      }, 100);
+      }, 200);
     };
     handleHashScroll();
   }, [scrollActivated]);
