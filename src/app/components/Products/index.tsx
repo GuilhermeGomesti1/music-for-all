@@ -32,13 +32,15 @@ const Products = ({
   const [showMessageMap, setShowMessageMap] = useState<{
     [key: string]: boolean;
   }>({});
+  const [scrollActivated, setScrollActivated] = useState<boolean>(false);
 
   useEffect(() => {
     const handleHashScroll = () => {
       setTimeout(() => {
         const hash = window.location.hash;
 
-        if (hash) {
+        if (hash && !scrollActivated) {
+          // Verificar se o scroll já foi ativado
           const element = document.getElementById(hash.substring(1));
 
           if (element) {
@@ -48,12 +50,13 @@ const Products = ({
               top: elementPosition,
               behavior: "smooth",
             });
+            setScrollActivated(true); // Ativar o scroll
           }
         }
       }, 100);
     };
     handleHashScroll();
-  }, []);
+  }, [scrollActivated]);
 
   useEffect(() => {
     const fetchProducts = async () => {
