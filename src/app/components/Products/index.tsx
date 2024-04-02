@@ -85,7 +85,7 @@ const Products = ({
     if (process.browser) {
       import("scrollreveal").then((module) => {
         const ScrollReveal = module.default || module;
-        const sr = ScrollReveal({ duration: 300, reset: false });
+        const sr = ScrollReveal({ duration: 600, reset: false });
         sr.reveal(`.${styles.listaProducts}`, {
           origin: "bottom",
           distance: "5px",
