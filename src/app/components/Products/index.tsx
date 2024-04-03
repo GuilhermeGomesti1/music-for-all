@@ -50,11 +50,13 @@ const Products = ({
               top: elementPosition,
               behavior: "smooth",
             });
-            setScrollActivated(true); // Ativar o scroll
+
+            setScrollActivated(true);
           }
         }
       }, 200);
     };
+
     handleHashScroll();
   }, [scrollActivated]);
 
