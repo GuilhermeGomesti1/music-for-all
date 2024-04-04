@@ -37,7 +37,6 @@ const Products = ({
 
   useEffect(() => {
     const handleHashScroll = () => {
-      setLoading(true);
       setTimeout(() => {
         const hash = window.location.hash;
 
@@ -54,7 +53,6 @@ const Products = ({
             setScrollActivated(true);
           }
         }
-        setLoading(false);
       }, 200);
     };
     handleHashScroll();
