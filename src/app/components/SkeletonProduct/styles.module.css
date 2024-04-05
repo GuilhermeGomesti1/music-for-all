@@ -11,8 +11,8 @@
   overflow: hidden;
 }
 .imggif {
-  display: block; /* Para evitar espaços adicionais */
-  margin: 0 auto; /* Define as margens laterais como automáticas para centralizar horizontalmente */
+  display: block;
+  margin: 0 auto;
   width: 150px;
   height: 150px;
 }
@@ -22,39 +22,39 @@
 
 .imageContainer {
   width: 100%;
-  height: 300px; /* Altura da imagem do produto */
+  height: 280px;
 }
 
 .divSpan {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1rem; /* Espaçamento entre os ícones */
+  margin-top: 1rem;
 }
 
 .spanIcons {
-  width: 30px; /* Largura dos ícones */
-  height: 30px; /* Altura dos ícones */
+  width: 30px;
+  height: 30px;
   background-color: white;
 }
 
 .textpreço {
-  margin-top: 1rem; /* Espaçamento entre o texto de preço e a linha */
+  margin-top: 1rem;
 }
 
 .divtextCategory {
-  margin-top: 1rem; /* Espaçamento entre a linha e o texto da categoria */
+  margin-top: 1rem;
 }
 
 .pcategory,
 .ptitle,
 .pprice,
 .pdescription {
-  height: 16px; /* Altura das linhas de texto */
+  height: 16px;
   background-color: white;
-  margin-bottom: 0.5rem; /* Espaçamento entre as linhas de texto */
+  margin-bottom: 0.5rem;
 }
 
 .hr {
-  margin-top: 1rem; /* Espaçamento entre a linha e o texto da categoria */
+  margin-top: 1rem;
 }
