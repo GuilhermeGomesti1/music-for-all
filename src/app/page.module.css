@@ -355,9 +355,6 @@
     justify-content: center;
   }
 
-  .containerHeader {
-  }
-
   .img {
     display: none;
   }
@@ -454,9 +451,6 @@
 
   .subtitle {
     display: none;
-  }
-
-  .divSubtitle {
   }
 
   .containerThree {
@@ -579,9 +573,6 @@
     margin: 0;
     padding: 0;
     margin-top: -1.5rem;
-  }
-
-  .itemContato {
   }
 
   .paragrafo3 {
