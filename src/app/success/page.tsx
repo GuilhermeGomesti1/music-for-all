@@ -7,11 +7,11 @@ import { useDispatch } from "react-redux";
 import ScrollToTop from "../components/scrooltotop";
 import { BackLoja } from "../components/Icons/OtherIcons/backloja";
 
-localStorage.setItem("showMessageMap", "{}");
 export default function SuccessPage() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(resetCart());
+    localStorage.setItem("showMessageMap", "{}");
   }, [dispatch]);
   return (
     <div className={styles.main}>
