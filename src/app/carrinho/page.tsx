@@ -63,21 +63,18 @@ export default function Carrinho() {
 
   useEffect(() => {
     if (process.browser && isCartEmpty) {
-      // Rolando para o topo quando o carrinho estiver vazio
       window.scrollTo(0, 0);
     }
   }, [isCartEmpty]);
 
   useEffect(() => {
     if (process.browser) {
-      // O código abaixo será executado apenas no navegador
       import("scrollreveal").then((ScrollRevealModule) => {
         const ScrollReveal = ScrollRevealModule.default || ScrollRevealModule;
 
         const sr = ScrollReveal({
           duration: 1000,
           reset: false,
-          // Outras opções de configuração aqui
         });
 
         sr.reveal(".animated-item", {

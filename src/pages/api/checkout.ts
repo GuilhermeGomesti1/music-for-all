@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { StoreProduct } from "../../../type.d";
 import { metadata } from "@/app/layout";
 import stripeLib from "stripe";
+import { resetCart } from "@/store/nextSlice";
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 
 if (!stripeSecretKey) {
