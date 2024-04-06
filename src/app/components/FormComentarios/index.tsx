@@ -332,9 +332,7 @@ function CommentComponent({ videoId }: { videoId?: string }) {
                 placeholder="Faça login para comentar..."
                 disabled
               />
-              <button className={styles.submitButton} disabled>
-                Enviar Comentário
-              </button>{" "}
+              <button className={styles.submitButton}>Enviar Comentário</button>{" "}
             </Link>
           </div>
         )}
