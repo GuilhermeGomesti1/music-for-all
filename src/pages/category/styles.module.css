@@ -32,7 +32,6 @@
   width: 100%;
 }
 .btnVoltar {
-  display: none;
   margin-top: 2rem;
   cursor: pointer;
   color: #56ac30;
