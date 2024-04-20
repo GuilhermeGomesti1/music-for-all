@@ -1,6 +1,10 @@
-https://music-for-all-mu.vercel.app/
+https://escolamusicforall.com.br/
 # Sobre o projeto
-O projeto "Music For All" é uma plataforma online dedicada à música, que oferece uma variedade de recursos e informações para músicos de todos os níveis e interesses. Desenvolvido com tecnologias modernas, o site proporciona uma experiência atraente e interativa aos visitantes, permitindo que eles explorem cursos, agendem aulas e conheçam os benefícios da escola de música "Music For All". Além disso, o site oferece uma experiência mais aprofundada para alunos registrados, que podem fazer login e acessar conteúdos e ferramentas exclusivas, incluindo interação com postagens através de comentários e likes. Os alunos também têm acesso a um metrônomo integrado para aprimorar sua prática musical, além de vídeo aulas exclusivas. Com um design responsivo e imagens de alta qualidade, o site se destaca como uma fonte valiosa de informações musicais e um ponto de contato acessível para futuros músicos e entusiastas da música.
+. Implementação e manutenção de uma plataforma educacional interativa que permite aos visitantes explorar cursos,
+agendar aulas e conhecer virtualmente a escola.
+. Sistema de interação social, metrônomo digital, vídeo aulas e download de materiais para alunos autenticados
+. Loja online, com uma API própria alcançando 100% de eficácia na gestão e vendas.
+. Implementação de testes automatizados garantindo a qualidade do software e redução de erros.
 
 ## Layout mobile
 ![Mobile 1](public/images/layoutmobile.png)  ![Mobile 2](public/images/layoutmobile1.png)  ![Mobile 3](public/images/layoutmobile2.png) ![Mobile 4](public/images/layoutmobile3.png)
@@ -15,6 +19,8 @@ O projeto "Music For All" é uma plataforma online dedicada à música, que ofer
 ### React-Image
 ### React Icons
 ### FireBase 
+### Cypress
+### Node-js
 
 
 # Autor
