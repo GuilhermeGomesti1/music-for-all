@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { StoreProduct } from "../../../type.d";
-import { metadata } from "@/app/layout";
+
 import stripeLib from "stripe";
-import { resetCart } from "@/store/nextSlice";
+
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 
 if (!stripeSecretKey) {
@@ -17,7 +17,7 @@ export default async function handle(
   res: NextApiResponse
 ) {
   if (!process.env.STRIPE_SECRET_KEY) {
-    console.error("Erro: Chave secreta do Stripe não está definida.");
+    console.error("Erro: Chave secreta do Stripe não esta definida.");
     return res.status(500).json({ error: "Erro interno do servidor" });
   }
 
