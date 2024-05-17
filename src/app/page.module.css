@@ -524,7 +524,7 @@
     padding: 15px;
     line-height: 0.5;
     cursor: pointer;
-    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.103);
+    box-shadow: 0px 0px 5px 5.1px rgba(0, 0, 0, 0.103);
     color: white;
     background: #f34e24;
     position: absolute;
